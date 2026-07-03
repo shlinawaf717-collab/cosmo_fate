@@ -1,0 +1,2 @@
+#        weight    minuslogpost           ombh2           omch2              H0          omegam           rdrag       chi2__BAO        chi2__SN   minuslogprior minuslogprior__0            chi2 chi2__bao.desi_dr2.desi_bao_all chi2__pipeline.cmb_distprior.PlanckDistPrior chi2__sn.union3
+              1       23.724343     0.022521372       0.1180292       68.388409      0.30189482        147.4554        12.02793       28.308808       2.0170873        2.0170873        43.41451                        12.02793                                    3.0777723       28.308808

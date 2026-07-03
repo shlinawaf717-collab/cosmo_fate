@@ -5,3 +5,5 @@ runs/**/*.log
 !runs/**/*.minimum.txt
 runs/**/*.progress
 runs/**/*.checkpoint
+__pycache__/
+*.pyc
