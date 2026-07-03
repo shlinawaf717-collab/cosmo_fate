@@ -1,0 +1,81 @@
+theory:
+  camb:
+    extra_args:
+      dark_energy_model: ppf
+      num_massive_neutrinos: 1
+      nnu: 3.044
+likelihood:
+  bao.desi_dr2.desi_bao_all: null
+  sn.pantheonplus: null
+  pipeline.cmb_distprior.PlanckDistPrior:
+    python_path: /Users/nocide/cosmo_fate
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omch2:
+    prior:
+      min: 0.001
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.118
+      scale: 0.002
+    proposal: 0.001
+    latex: \Omega_\mathrm{c} h^2
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 67.5
+      scale: 1.0
+    proposal: 0.3
+    latex: H_0
+  w:
+    prior:
+      min: -3
+      max: 1
+    ref:
+      dist: norm
+      loc: -0.85
+      scale: 0.1
+    proposal: 0.05
+    latex: w_0
+  wa:
+    prior:
+      min: -3
+      max: 2
+    ref:
+      dist: norm
+      loc: -0.5
+      scale: 0.3
+    proposal: 0.15
+    latex: w_a
+  mnu: 0.06
+  omk: 0.0
+  tau: 0.054
+  ns: 0.9649
+  As: 2.1e-09
+  omegam:
+    latex: \Omega_\mathrm{m}
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  mcmc:
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    max_tries: 1000
+    seed: 1002
+    max_samples: 400000
+    learn_proposal: true
+output: w0wa_2
+packages_path: data/cobaya_packages

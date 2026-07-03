@@ -1,0 +1,7 @@
+.venv/
+data/cobaya_packages/
+runs/**/*.txt
+runs/**/*.log
+!runs/**/*.minimum.txt
+runs/**/*.progress
+runs/**/*.checkpoint

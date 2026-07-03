@@ -1,0 +1,185 @@
+theory:
+  camb:
+    version: 1.6.6
+    path: null
+    speed: 0.3
+    stop_at_error: false
+    extra_args:
+      dark_energy_model: ppf
+      num_massive_neutrinos: 1
+      nnu: 3.044
+    ignore_obsolete: false
+    external_primordial_pk: false
+    use_non_linear_ratio: false
+    renames:
+      omegabh2: ombh2
+      omegach2: omch2
+      omegal: omega_de
+      omegak: omk
+      yhe: YHe
+      yheused: YHe
+      YpBBN: Y_p
+    input_params:
+    - ns
+    - As
+    - ombh2
+    - omch2
+    - H0
+    - w
+    - wa
+    - mnu
+    - omk
+    - tau
+    output_params:
+    - omegam
+    - rdrag
+likelihood:
+  bao.desi_dr2.desi_bao_all:
+    path: null
+    measurements_file: bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt
+    cov_file: bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt
+    rs_fid: 1
+    aliases:
+    - BAO
+    speed: 2000
+    type: BAO
+    rs_rescale: null
+    prob_dist: null
+    invcov_file: null
+    redshift: null
+    observable_1: null
+    observable_2: null
+    observable_3: null
+    grid_file: null
+    stop_at_error: false
+    version: null
+    input_params: []
+    output_params: []
+  sn.pantheonplus:
+    path: null
+    dataset_file: PantheonPlus/config.dataset
+    dataset_params: null
+    aliases:
+    - PantheonPlus
+    use_abs_mag: false
+    speed: 100
+    type: SN
+    stop_at_error: false
+    version: null
+    input_params: []
+    output_params: []
+  pipeline.cmb_distprior.PlanckDistPrior:
+    mean:
+    - 1.7502
+    - 301.471
+    - 0.02236
+    sigma:
+    - 0.0046
+    - 0.09
+    - 0.00015
+    corr:
+    - - 1.0
+      - 0.46
+      - -0.66
+    - - 0.46
+      - 1.0
+      - -0.33
+    - - -0.66
+      - -0.33
+      - 1.0
+    type: []
+    speed: -1
+    stop_at_error: false
+    version: null
+    python_path: /Users/nocide/cosmo_fate
+    input_params:
+    - ombh2
+    - H0
+    - w
+    - wa
+    - omk
+    output_params: []
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+    renames:
+    - omegabh2
+  omch2:
+    prior:
+      min: 0.001
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.118
+      scale: 0.002
+    proposal: 0.001
+    latex: \Omega_\mathrm{c} h^2
+    renames:
+    - omegach2
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 67.5
+      scale: 1.0
+    proposal: 0.3
+    latex: H_0
+  w:
+    value: -1.0
+  wa:
+    value: 0.0
+  mnu:
+    value: 0.06
+  omk:
+    value: 0.0
+    renames:
+    - omegak
+  tau:
+    value: 0.054
+  ns:
+    value: 0.9649
+  As:
+    value: 2.1e-09
+  omegam:
+    latex: \Omega_\mathrm{m}
+    derived: true
+  rdrag:
+    latex: r_\mathrm{drag}
+    derived: true
+  chi2__BAO:
+    latex: \chi^2_\mathrm{BAO}
+    derived: true
+  chi2__SN:
+    latex: \chi^2_\mathrm{SN}
+    derived: true
+sampler:
+  minimize:
+    method: bobyqa
+    ignore_prior: false
+    max_evals: 1e6d
+    best_of: 2
+    confidence_for_unbounded: 0.9999995
+    seed: null
+    override_scipy: null
+    override_bobyqa:
+      rhoend: 0.05
+    override_iminuit: null
+    covmat: null
+    covmat_params: null
+    version: null
+    supports_periodic_params: false
+    fallback_covmat_scale: 4
+output: lcdm_d0nsh
+packages_path: data/cobaya_packages
+minimize: true
+version: 3.6.2
