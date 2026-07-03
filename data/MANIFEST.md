@@ -11,6 +11,17 @@ Phase 1 下载数据时逐条登记；写入论文的每个数据文件必须在
 | `cobaya_packages/data/sn_data/PantheonPlus/Pantheon+SH0ES.dat` | CobayaSampler/sn_data（Brout et al. 2022, arXiv:2202.04077） | sn_data（cobaya 3.6.2 安装） | `1cb0fc37…198cf8` | 1701 条光变曲线距离模数；D0 用 SH0ES 变体，D1 用 z>0.01 截断 + M_B 边缘化 |
 | `cobaya_packages/data/sn_data/PantheonPlus/Pantheon+SH0ES_STAT+SYS.cov` | 同上 | 同上 | `abf806d9…5df0fdc` | 完整 stat+sys 协方差 |
 
+## D5 轴 SN 备选样本（2026-07-03 登记）
+
+| 文件 | 来源 | SHA256（前 10 位） | 备注 |
+|---|---|---|---|
+| `sn_data/Union3/lcparam_full.txt` | Rubin et al.（Union3/UNITY，2087 SNe，SALT3） | `a840fe71c6…` | 分 bin 距离模数 |
+| `sn_data/Union3/mag_covmat.txt` | 同上 | `64c79abd24…` | |
+| `sn_data/DES-Dovekie/DES-Dovekie_HD.csv` | DES-Dovekie 重校准（1623 DES + 197 低 z） | `c614821f21…` | |
+| `sn_data/DES-Dovekie/covtot_inv_000.npz` | 同上 | `ffd3124b32…` | 逆协方差 |
+
+均经 cobaya 3.6.2 官方安装器获取（`sn.union3`, `sn.desdovekie`）。
+
 ## CMB 压缩距离先验（数值直接登记）
 
 出处：**Chen, Huang & Wang 2018, arXiv:1808.05724《Distance Priors from Planck Final Release》Table I，ΛCDM 行，Planck 2018 TT,TE,EE+lowE**。
