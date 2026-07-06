@@ -92,12 +92,52 @@ every dataset ablation we tried) from what the grammar says (essentially
 everything about $a>1$).
 
 \section{Preregistered design}\label{sec:prereg}
-\todo{frozen plan, gates, amendment mechanism; A-001/A-002 disclosed in
-App.~\ref{app:amendments}}
+
+The analysis plan---model space, priors, dataset combinations, fate-classification
+criteria, statistical rules, and pass/fail gates---was frozen under a version-control
+tag (\texttt{prereg-v1}) before any real-data fate analysis, and is reproduced
+verbatim in Appendix~\ref{app:plan}. Deviations are permitted only through an
+append-only amendment log (Appendix~\ref{app:amendments}) recording what changed,
+why, and \emph{when} relative to data contact. Three amendments occurred:
+A-001 recalibrated the pipeline-validation benchmark after we established that a
+compressed-CMB likelihood cannot, by construction, reproduce the full-likelihood
+exclusion significance (Sec.~\ref{sec:data}); A-002 replaced a mock-recovery
+criterion that is mathematically unsatisfiable for a truth located on a fate
+boundary (Sec.~\ref{sec:null}); A-003 added an analytic branch to the fate
+criteria after the frozen \textsc{other}-budget audit was triggered by
+parametrizations with bounded future $w(a)$ (Sec.~\ref{sec:fparam}). In each
+case the trigger, the outcome-independence of the argument, and the sign-off
+are logged. We additionally registered falsifiable predictions for the
+null-calibration campaign before it ran (six for six correct;
+Appendix~\ref{app:mocks}). In a field where the headline significance moves by
+$2\sigma$ under defensible analysis variations, we regard this discipline,
+not any individual number, as the paper's primary methodological contribution.
 
 \section{Data, likelihoods, and validation}\label{sec:data}
-\todo{Table T1 datasets; convention-consistency lesson; Gate 1 chain-level
-validation (Fig.~\ref{fig:gate1}); F$_{\rm CMB}$ pricing}
+
+We use three publicly released datasets: DESI DR2 BAO compressed measurements
+(13 points over seven redshift bins, $0.295\le z\le 2.33$)~\cite{DESIDR2};
+the Pantheon+ Type Ia supernova compilation with full stat+sys covariance,
+with and without the SH0ES Cepheid anchor~\cite{Brout2022}; and \textit{Planck}
+2018 information compressed into the distance priors $(R,\ell_A,\Omega_b h^2)$
+of Ref.~\cite{ChenHuangWang2018}, validated there for CPL-type models. Files,
+versions, and checksums are registered in the repository manifest
+(Appendix~\ref{app:repro}).
+
+Two validation results define what the pipeline can claim. First, against the
+official DESI DR2 $w_0w_a$CDM chains, our marginals agree to $\le0.33\sigma$
+in every parameter, with $\Omega_m$ and $H_0$ agreeing to $<0.1\sigma$
+(Fig.~\ref{fig:gate1}). Second, the compressed CMB prior carries a known,
+stable information deficit: our \lcdm{} exclusion is $2.25\sigma$
+($\Delta\chi^2=7.44$) where the full-likelihood value is $2.8\sigma$, and the
+same $\approx0.5\sigma$ discount recurs across all three supernova
+compilations (Sec.~\ref{sec:fdata}), consistent with independent
+compressed-likelihood analyses~\cite{CompressedEvidence2025}. Every
+significance below inherits the compressed-CMB condition; we price it rather
+than hide it. One procedural lesson is worth recording: compressed priors
+must be predicted with the same $z_*$/$r_s$ conventions used at extraction---
+mixing conventions shifted $\ell_A$ by $3\sigma$ of pure artifact in an early
+pipeline version, caught by a known-answer test before any science ran.
 
 \begin{figure}[t]
 \includegraphics[width=0.9\columnwidth]{../runs/gate1/gate1_vs_official_chains.png}
@@ -107,17 +147,110 @@ All marginal shifts $\le 0.33\sigma$.}\label{fig:gate1}
 \end{figure}
 
 \section{Fate taxonomy and classifier}\label{sec:fate}
-\todo{criteria table; thermodynamic mapping; DECAY $\neq$ escape from heat
-death; OTHER audit budget; boundary flags}
+
+Each posterior sample defines a background
+$H^2(a)/H_0^2=\Omega_r a^{-4}+\Omega_m a^{-3}+\Omega_k a^{-2}
++\Omega_{\rm DE}f_{\rm DE}(a)$, integrated from $a=1$ to $a_{\max}=10^4$ and
+classified with frozen criteria, in priority order: \textsc{crunch}
+($H^2\le0$ reached); \textsc{rip} (finite-time singularity: convergent
+$\int\!da/aH$; for parametrizations whose $w(a)$ has a finite limit
+$w_\infty$, amendment A-003 substitutes the analytic condition
+$w_\infty<-1-\epsilon$); \textsc{ds} (de Sitter asymptotics,
+$|w+1|<\epsilon$ with persistent dark energy); \textsc{decay} (dark-energy
+dilution); \textsc{other} (unclassifiable---audited under a frozen 1\% budget
+whose breach triggers the amendment process, as occurred for A-003). Every
+class carries a boundary flag: samples that flip when thresholds are doubled
+or halved are reported as such.
+
+The taxonomy is deliberately mapped to thermodynamics: \textsc{ds} \emph{and}
+\textsc{decay} are both heat-death-compatible (eternal expansion)---a point on
+which parts of the recent fate literature are imprecise. \emph{Decaying dark
+energy does not rescue the Universe from heat death}; in flat CPL cosmologies
+the only non-heat-death outcome is the Big Rip. The classifier passes an
+eight-case unit suite spanning all classes, boundary behavior, and two
+documented numerical edge cases (Appendix~\ref{app:classifier}).
 
 \section{Baseline fate probabilities}\label{sec:baseline}
-\todo{D0+CPL+P1 posterior; fate table with verification labels;
-$\ln B = -1.76 \pm 0.31$ favoring \lcdm{} (Lindley phenomenon)}
+
+Figure~\ref{fig:partition} shows the D0 (DESI DR2 + CMB prior + Pantheon+SH0ES)
+CPL posterior---$\wz=-0.884\pm0.057$, $\wa=-0.62^{+0.25}_{-0.22}$,
+$\Omega_m=0.2997\pm0.0050$, $H_0=69.00\pm0.54$ (four chains, $R-1=0.0033$)---
+drawn over the fate partition of the $(\wz,\wa)$ plane. The posterior presses
+against the zero-width \textsc{rip}/\textsc{decay} boundary at $\wa=0$; the
+consequences of that geometry occupy the next section.
+
+\begin{figure}[t]
+\includegraphics[width=0.85\columnwidth]{../runs/phase2/d0_fate_partition.png}
+\caption{D0+CPL+P1 posterior over the fate partition. The fate boundary
+$\wa=0$ has zero width; \lcdm{} sits exactly on it.}\label{fig:partition}
+\end{figure}
+
+Propagating every sample through the classifier yields Table~\ref{tab:d0fate}:
+$P(\textsc{decay})=99.82\%\pm0.06\%$, $P(\textsc{rip})=0.18\%\pm0.06\%$
+(batch-means errors), zero \textsc{other}, zero boundary flags. Under the
+frozen rule that sub-percent tails must be verified independently, nested
+sampling gives $P(\textsc{rip})=0.165\%\pm0.038\%$, consistent.
+
+\begin{table}[t]
+\caption{Fate probabilities, D0+CPL+P1. \emph{Caution: the direction component
+of this verdict is uninformative under the null (Sec.~\ref{sec:null}).}}
+\label{tab:d0fate}
+\begin{ruledtabular}
+\begin{tabular}{lcc}
+Class & $P$ & thermodynamic class \\
+\hline
+\textsc{decay} & $99.82\%\pm0.06\%$ & heat-death-compatible \\
+\textsc{rip} & $0.18\%\pm0.06\%$ (nested $0.165\%\pm0.038\%$) & non-heat-death \\
+\textsc{ds} & 0 (grammar artifact; Sec.~\ref{sec:fparam}) & heat-death-compatible \\
+\textsc{other}/boundary & 0 / 0 & --- \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+Two seeds of unease belong here. First, the same data give
+$\ln B(\mathrm{CPL}/\lcdm)=-1.76\pm0.31$: Bayesian evidence \emph{favors}
+\lcdm{} while $\Delta\chi^2$ disfavors it at $2.25\sigma$---a live Lindley
+phenomenon, developed as a fragility axis in Sec.~\ref{sec:fstat}. Second,
+$P(\textsc{ds})=0$ exactly: strict de Sitter asymptotics is a measure-zero
+locus of CPL parameter space, so this zero was decided by the parametrization
+before any photon arrived. Before interpreting Table~\ref{tab:d0fate} at all,
+however, one must ask what such a table looks like when the truth is exactly
+\lcdm{}---the subject of the next section.
 
 \section{Null calibration}\label{sec:null}
-\todo{PIT argument $\Rightarrow$ U(0,1) prediction; 100 mocks; zero-noise mock
-52/48; calibrated real-data statement (direction uninformative, depth
-$p<0.030$ vs Wilks $p=0.024$); preregistered predictions 6/6}
+
+No fate verdict in the literature has, to our knowledge, been calibrated
+against a null. We generated one hundred mock datasets whose truth is the
+\lcdm{} best fit to D0, drawing noise from the exact likelihood covariances
+(SN $1657\times1657$; BAO $13\times13$; CMB prior $3\times3$), plus one
+zero-noise realization for which all three $\chi^2$ vanish identically at the
+truth---a closed-loop validation of the mock machinery. Each mock was
+processed by the full CPL+P1 pipeline.
+
+Because the \lcdm{} truth sits on the zero-width fate boundary, the
+probability integral transform predicts the heat-death-compatible posterior
+mass to be distributed as $U(0,1)$ across realizations, hence a direction
+verdict correct in $\sim50\%$ of mocks \emph{regardless of pipeline quality}.
+These predictions were registered before the campaign ran. Results
+(Fig.~\ref{fig:null}): accuracy $50/100$ (68\% CI $[45,55]$); KS uniformity
+$p=0.25$; mean $0.525\pm0.030$; \textsc{other} and boundary budgets at the
+$10^{-3}$ level. The zero-noise mock returns $52/48$: even noiseless \lcdm{}
+data flip a coin, establishing that the verdict's randomness originates in
+boundary geometry, not measurement noise. No calibrated Bayesian procedure
+can do better; a pipeline scoring far above 50\% here would be exhibiting
+prior bias, not skill.
+
+The null distribution also supplies the calibrated reading of the real data.
+Across one hundred \lcdm{} universes the lowest Big Rip probability produced
+by noise is $1.52\%$; the real Universe sits at $0.18\%$---eight times deeper,
+below every realization (calibrated $p<0.030$), converging with the Wilks
+route ($p=0.024$) through an independent argument. The correct summary of
+Table~\ref{tab:d0fate} is therefore two-layered: \emph{the direction of the
+fate verdict carries no information---even perfect \lcdm{} data flip a
+coin---but the depth of the real data's anti-rip preference is genuine,
+doubly verified, and corresponds to the $2$--$3\sigma$ thawing signal.}
+What that signal does and does not imply about the actual fate is the
+subject of the fragility matrix.
 
 \begin{figure}[t]
 \includegraphics[width=0.95\columnwidth]{../runs/gate2/gate2_null_histogram.png}
