@@ -1,0 +1,82 @@
+theory:
+  camb:
+    extra_args:
+      dark_energy_model: ppf
+      num_massive_neutrinos: 1
+      nnu: 3.044
+likelihood:
+  bao.desi_dr2.desi_bao_all: null
+  pipeline.cmb_distprior.PlanckDistPrior:
+    python_path: /Users/nocide/cosmo_fate
+  sn.pantheonplus: null
+prior:
+  matter_dom: 'lambda w, wa: 0 if (w + wa) < 0 else -1e30'
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omegam:
+    prior:
+      min: 0.01
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.311
+      scale: 0.006
+    proposal: 0.003
+    latex: \Omega_\mathrm{m}
+  omch2:
+    value: 'lambda omegam, ombh2, H0: omegam*(H0/100)**2 - ombh2 - 0.06/93.14'
+    latex: \Omega_\mathrm{c} h^2
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 67.6
+      scale: 0.8
+    proposal: 0.3
+    latex: H_0
+  w:
+    prior:
+      min: -3
+      max: 1
+    ref:
+      dist: norm
+      loc: -0.85
+      scale: 0.06
+    proposal: 0.04
+    latex: w_0
+  wa:
+    prior:
+      min: -3
+      max: 2
+    ref:
+      dist: norm
+      loc: -0.55
+      scale: 0.2
+    proposal: 0.1
+    latex: w_a
+  mnu: 0.06
+  omk: 0.0
+  tau: 0.054
+  ns: 0.9649
+  As: 2.1e-09
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  mcmc:
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    max_samples: 500000
+    seed: 5101
+output: d1_1
+packages_path: data/cobaya_packages

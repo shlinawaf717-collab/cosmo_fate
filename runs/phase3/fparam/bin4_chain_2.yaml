@@ -1,0 +1,103 @@
+likelihood:
+  bao.desi_dr2.desi_bao_all: null
+  sn.pantheonplusshoes:
+    use_abs_mag: true
+  pipeline.cmb_distprior.ProviderDistPrior:
+    python_path: /Users/nocide/cosmo_fate
+theory:
+  pipeline.bgtheory.BackgroundW:
+    python_path: /Users/nocide/cosmo_fate
+    model: bin4
+prior:
+  matter_dom: 'lambda w4: 0 if w4 < 0 else -1e30'
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omegam:
+    prior:
+      min: 0.01
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.3
+      scale: 0.006
+    proposal: 0.003
+    latex: \Omega_\mathrm{m}
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 68.5
+      scale: 0.8
+    proposal: 0.3
+    latex: H_0
+  Mb:
+    prior:
+      min: -20
+      max: -18
+    ref:
+      dist: norm
+      loc: -19.39
+      scale: 0.03
+    proposal: 0.02
+    latex: M_B
+  rdrag:
+    latex: r_\mathrm{drag}
+  w1:
+    prior:
+      min: -3
+      max: 1
+    ref:
+      dist: norm
+      loc: -0.9
+      scale: 0.1
+    proposal: 0.05
+    latex: w_1
+  w2:
+    prior:
+      min: -3
+      max: 1
+    ref:
+      dist: norm
+      loc: -0.9
+      scale: 0.1
+    proposal: 0.05
+    latex: w_2
+  w3:
+    prior:
+      min: -3
+      max: 1
+    ref:
+      dist: norm
+      loc: -0.9
+      scale: 0.1
+    proposal: 0.05
+    latex: w_3
+  w4:
+    prior:
+      min: -3
+      max: 1
+    ref:
+      dist: norm
+      loc: -0.9
+      scale: 0.1
+    proposal: 0.05
+    latex: w_4
+sampler:
+  mcmc:
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    max_samples: 500000
+    seed: 6302
+output: runs/phase3/fparam/bin4_2
+packages_path: data/cobaya_packages

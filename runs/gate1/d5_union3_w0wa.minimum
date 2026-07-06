@@ -1,0 +1,22 @@
+ -log(Like) = 19.896009685826844
+  chi-sq    = 39.79201937165369
+
+    1  2.240995508e-02   ombh2                                          \Omega_\mathrm{b} h^2
+    2  1.196117581e-01   omch2                                          \Omega_\mathrm{c} h^2
+    3  6.607561366e+01   H0                                             H_0
+    4  -6.858877980e-01  w                                              w_0
+    5  -9.949976927e-01  wa                                             w_a
+
+    6  0.06              mnu                                            mnu
+    7  0.0               omk                                            omk
+    8  0.054             tau                                            tau
+    9  0.9649            ns                                             ns
+   10  2.1e-09           As                                             As
+
+   11  3.267682402e-01   omegam                                         \Omega_\mathrm{m}
+   12  1.471593508e+02   rdrag                                          r_\mathrm{drag}
+   13  7.885551931e+00   chi2__BAO                                      \chi^2_\mathrm{BAO}
+   14  2.155309022e+01   chi2__SN                                       \chi^2_\mathrm{SN}
+   15  7.885551931e+00   chi2__bao.desi_dr2.desi_bao_all                \chi^2_{\rm bao.desi\ dr2.desi\ bao\ all}
+   16  3.277380720e-01   chi2__pipeline.cmb_distprior.PlanckDistPrior   \chi^2_{\rm pipeline.cmb\ distprior.PlanckDistPrior}
+   17  2.155309022e+01   chi2__sn.union3                                \chi^2_{\rm sn.union3}

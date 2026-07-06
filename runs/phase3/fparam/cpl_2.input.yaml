@@ -1,0 +1,83 @@
+theory:
+  pipeline.bgtheory.BackgroundW:
+    python_path: /Users/nocide/cosmo_fate
+    model: cpl
+likelihood:
+  bao.desi_dr2.desi_bao_all: null
+  sn.pantheonplusshoes:
+    use_abs_mag: true
+  pipeline.cmb_distprior.ProviderDistPrior:
+    python_path: /Users/nocide/cosmo_fate
+prior:
+  matter_dom: 'lambda w, wa: 0 if (w + wa) < 0 else -1e30'
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omegam:
+    prior:
+      min: 0.01
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.3
+      scale: 0.006
+    proposal: 0.003
+    latex: \Omega_\mathrm{m}
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 68.5
+      scale: 0.8
+    proposal: 0.3
+    latex: H_0
+  w:
+    prior:
+      min: -3
+      max: 1
+    ref:
+      dist: norm
+      loc: -0.88
+      scale: 0.06
+    proposal: 0.04
+    latex: w_0
+  wa:
+    prior:
+      min: -3
+      max: 2
+    ref:
+      dist: norm
+      loc: -0.6
+      scale: 0.2
+    proposal: 0.1
+    latex: w_a
+  Mb:
+    prior:
+      min: -20
+      max: -18
+    ref:
+      dist: norm
+      loc: -19.39
+      scale: 0.03
+    proposal: 0.02
+    latex: M_B
+  rdrag:
+    latex: r_\mathrm{drag}
+sampler:
+  mcmc:
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    max_samples: 500000
+    seed: 6002
+output: cpl_2
+packages_path: data/cobaya_packages

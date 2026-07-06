@@ -165,7 +165,7 @@ sampler:
     learn_proposal_Rminus1_max_early: 30.0
     learn_proposal_Rminus1_min: 0.0
     max_samples: 500000
-    Rminus1_stop: 0.01
+    Rminus1_stop: 0.005
     Rminus1_cl_stop: 0.2
     Rminus1_cl_level: 0.95
     Rminus1_single_split: 4
