@@ -31,9 +31,65 @@ every posterior sample to $a=10^4$ through a frozen fate classifier.
 \maketitle
 
 \section{Introduction}\label{sec:intro}
-\todo{DESI significance spectrum 2.25--4.2$\sigma$; fate-paper wave; the
-epistemic question (Krauss \& Turner lineage, quantified); contributions;
-preregistration and AI-use disclosure}
+
+The DESI era has revived the oldest question in cosmology. Baryon acoustic
+oscillation measurements from DESI DR2 \cite{DESIDR2}, combined with cosmic
+microwave background (CMB) data and any of the current Type Ia supernova
+compilations, prefer a dark-energy equation of state that was recently below
+$-1$ and is now rising: the ``thawing'' quadrant $\wz>-1$, $\wa<0$. The
+statistical strength of this preference is famously unstable---between
+$2.25\sigma$ and $4.2\sigma$ depending on which supernova compilation and
+which CMB likelihood one adopts \cite{DESIDR2,Dovekie2025,CompressedEvidence2025}
+---and a growing literature now translates it into statements about the
+ultimate fate of the Universe.
+
+This paper asks a different question. Rather than ``what is the fate?'', we
+ask: \emph{of the fate verdict, how much is forced by the data, and how much
+is donated by the assumptions?} The question has a distinguished qualitative
+pedigree---\citet{KraussTurner1999} argued a quarter-century ago that dark
+energy severs the link between geometry and destiny---but it has not, to our
+knowledge, been given a quantitative, preregistered treatment in which the
+sensitivity of fate probabilities to every analysis choice is itself the
+measured quantity.
+
+Our design principle is simple: every conclusion is accompanied by its
+derivative with respect to the assumptions. We freeze an analysis plan before
+touching real data (Sec.~\ref{sec:prereg}), validate the pipeline against the
+official DESI DR2 chains (Sec.~\ref{sec:data}), propagate every posterior
+sample to $a=10^{4}$ through a frozen fate classifier (Sec.~\ref{sec:fate}),
+calibrate the classifier on one hundred mock universes in which the truth is
+exactly \lcdm{} (Sec.~\ref{sec:null}), and then measure the fate verdict's
+response along eight axes of assumption variation (Sec.~\ref{sec:matrix}):
+the supernova compilation, the SH0ES anchor, the CMB information content,
+the dataset combination, the prior on the dark-energy sector, the inference
+statistic, the $w(a)$ parametrization, and the position of the truth itself.
+
+Three results organize the paper. First, under the null: when the pipeline is
+fed data whose truth is exactly \lcdm{}, the direction of the fate verdict
+(dissipation versus rip) is a coin flip---the heat-death-compatible posterior
+mass is consistent with a uniform distribution, and even a zero-noise
+realization returns $52/48$. This is not a pipeline defect but a theorem-shaped
+consequence of the fact that \lcdm{} sits on a zero-width fate boundary.
+Second, in depth: the real data push the Big Rip probability to $0.18\%$ under
+CPL, eight times below the lowest value reached by any of the hundred null
+mocks (calibrated $p<0.030$), converging with the Wilks route ($p=0.024$)---a
+genuine, doubly-verified thawing signal. Third, in translation: converting
+that signal into a fate statement is dominated by the extrapolation rule.
+Across four parametrizations that are indistinguishable inside the data
+window, the Big Rip probability moves from $0.2\%$ (CPL) to $41\%$ (binned
+$w$), and the heat-death-compatible probability from $99.8\%$ to $58.8\%$;
+under a quintessence prior the rip probability is zero before any data
+arrive. The fate epoch lies entirely beyond $a=1$, where the
+data--posterior information content vanishes identically
+(Sec.~\ref{sec:ah}).
+
+We conclude that the current cosmic-fate literature is reporting, with
+precision, the echo of its own extrapolation conventions. The constructive
+output of this paper is the audit framework itself: a preregistered,
+null-calibrated, assumption-differentiated protocol that separates what the
+data say (a thawing-quadrant signal at the $2$--$3\sigma$ level, robust to
+every dataset ablation we tried) from what the grammar says (essentially
+everything about $a>1$).
 
 \section{Preregistered design}\label{sec:prereg}
 \todo{frozen plan, gates, amendment mechanism; A-001/A-002 disclosed in
