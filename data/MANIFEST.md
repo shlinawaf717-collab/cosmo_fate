@@ -60,7 +60,7 @@ r_s 数值积分（3/(4Ω_γh²)=31500(T/2.7)⁻⁴，T=2.7255 K），
 | camb | 1.6.6 |
 | dynesty | 3.0.0 |
 | getdist | 1.7.7 |
-| numpy / scipy | 2.5.0 / 1.16.2（scipy 钉在 1.16.2：1.18 的插值返回形状变化使 camb 1.6.6 的 BBN YHe setter 报错） |
+| numpy / scipy | 2.5.0 / 1.16.2（scipy 钉在 1.16.2：scipy 1.18 回归缺陷（scipy#25471,BivariateSpline 标量输入返回 (1,) 数组）;camb 已在 master 提交 workaround(137e0f5,见 CAMB#202),下版发布后可解钉） |
 
 SN/BAO 似然使用 cobaya 内置实现（`sn.pantheonplus`, `sn.pantheonplusshoes`, `bao.desi_dr2`）；D5 备选 `sn.union3`, `sn.desy5` 同已随包可用。
 
