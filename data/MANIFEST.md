@@ -63,3 +63,10 @@ r_s 数值积分（3/(4Ω_γh²)=31500(T/2.7)⁻⁴，T=2.7255 K），
 | numpy / scipy | 2.5.0 / 1.16.2（scipy 钉在 1.16.2：1.18 的插值返回形状变化使 camb 1.6.6 的 BBN YHe setter 报错） |
 
 SN/BAO 似然使用 cobaya 内置实现（`sn.pantheonplus`, `sn.pantheonplusshoes`, `bao.desi_dr2`）；D5 备选 `sn.union3`, `sn.desy5` 同已随包可用。
+
+## DESI DR2 官方宇宙学链（2026-07-06 登记）
+
+来源:`https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base_w_wa/desi-bao-all_pantheonplus_planck2018-…-CamSpec-TTTEEE_planck-act-dr6-lensing/`
+（公开,免账号;官方 SHA256 清单同目录 `dr2_vac_dr2_bao-cosmo-params_v1.0.sha256sum`）。
+本地:`runs/gate1/official/chain.{1-4}.txt` + margestats + updated.yaml。
+chain.1.txt sha256 前16位:`db81d299d59051ae`。用途:Gate 1 链级验证。

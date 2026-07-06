@@ -39,3 +39,11 @@
 2. scipy 钉 1.16.2（1.18 与 camb 1.6.6 的 BBN 接口不兼容）。
 3. 距离-only 似然单次求值 ~6 ms；本 Gate 全部计算（2×12 重启最小化 + 4×MCMC 链）
    在笔记本上 <15 分钟——后续脆弱性矩阵（~30 组 MCMC + 100 mock）计算量完全可行。
+
+## 追加（2026-07-06）：链级二次加固 —— ✅
+
+DESI DR2 官方 w0waCDM 链（DESI+full CMB(NPIPE CamSpec+ACT lensing)+PantheonPlus）
+公开于 data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/（免账号），已下载 4 链
+（R−1=0.0077）。逐参数对比：w₀ 0.21σ、wₐ 0.33σ、Ωm 0.07σ、H₀ 0.23σ；
+等高线叠加图 `gate1_vs_official_chains.png`——同心同向,本管线略宽(压缩 CMB 预期)。
+Gate 1 条款 1 由"对文献表格"升级为"对官方链",判定不变:通过。
