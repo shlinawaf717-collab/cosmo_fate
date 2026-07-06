@@ -262,17 +262,144 @@ heat-death-compatible posterior mass is consistent with $U(0,1)$
 
 \section{The fragility matrix}\label{sec:matrix}
 \subsection{Data axis}\label{sec:fdata}
-\todo{D1--D4 leave-one-out; D5 ladder 2.25--3.27$\sigma$; SH0ES leakage}
+
+Table~\ref{tab:loo} shows the leave-one-out response. The thawing direction
+($\wz>-1$, $\wa<0$) survives every ablation---including removal of the CMB
+(D2), which \emph{deepens} rather than erases the preference, a point against
+the hypothesis that the evidence is purely CMB--low-$z$ tension. The
+magnitude, by contrast, is fragile: $\wa$ swings threefold ($-0.55$ to
+$-1.72$), and the full combination is the \emph{most moderate} of all subsets
+---the widely quoted $\wa\approx-0.6$ is a negotiated settlement among
+datasets pulling with different strengths. Swapping the supernova compilation
+(same model, same priors, same BAO and CMB) moves the \lcdm{} exclusion from
+$2.25\sigma$ (Pantheon+) through $2.81\sigma$ (DES-Dovekie) to $3.27\sigma$
+(Union3), reproducing the literature's significance ladder inside a single
+pipeline; the SH0ES anchor alone moves $H_0$ by $+1.35$ and $\wz$ by $-0.034$
+---Hubble-tension leakage into the dark-energy sector. Throughout,
+$P(\textsc{rip})$ stays within $0$--$0.3\%$: \emph{fate probabilities are
+robust to which data one believes} (they are not robust to which grammar one
+believes; Sec.~\ref{sec:fparam}).
+
+\begin{table}[t]
+\caption{Leave-one-out (CPL+P1 fixed).}\label{tab:loo}
+\begin{ruledtabular}
+\begin{tabular}{lcccc}
+Combo & removed & $\wz$ & $\wa$ & $P(\textsc{rip})$ \\
+\hline
+D0 & --- & $-0.884\pm0.057$ & $-0.62$ & $0.18\%$ \\
+D1 & SH0ES & $-0.848\pm0.055$ & $-0.55$ & $0.31\%$ \\
+D2 & CMB & $-0.853\pm0.067$ & $-1.06$ & $0.01\%$ \\
+D3 & BAO & $-0.711\pm0.083$ & $-1.64$ & $0.00\%$ \\
+D4 & SN & $-0.43\pm0.22$ & $-1.72$ & $0.16\%$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
 \subsection{Prior axis}\label{sec:fprior}
-\todo{P(RIP): 0.18\% $\to$ 0 exactly; wall cost $+8.9\chi^2$; P3$\equiv$P2}
-\subsection{Statistic axis}\label{sec:fstat}
-\todo{$\Delta\chi^2$ vs $\ln B$ direction flip; prior-volume dependence}
+
+Under the physical priors the question dissolves before data arrive: P2
+(pointwise $w(a)\ge-1$, quintessence) and P3 (P2 + thawing) force
+$P(\textsc{rip})=0$ \emph{identically}---reported, per the frozen plan, as
+``excluded by prior.'' The posterior is pinned into a sliver against the
+$w=-1$ wall ($\wz=-0.975$, $\wa=-0.015$), and the wall costs the fit
+$\Delta\chi^2=+8.9$ relative to P1: a clean measure of the current tension
+between the data and the quintessence hypothesis. P3 adds nothing to P2 on
+these data---its extra thawing assumptions are redundant once the pointwise
+bound binds. The prior axis reading is therefore maximal:
+$\log_{10}P(\textsc{rip})$ spans from $-2.7$ to $-\infty$.
+
+\subsection{Inference-statistic axis}\label{sec:fstat}
+
+The same data, model, and priors yield $\Delta\chi^2=7.44$ (Wilks
+$p=0.024$, disfavoring \lcdm) and $\ln B=-1.76\pm0.31$ (Jeffreys-scale
+support \emph{for} \lcdm). Nothing is inconsistent: the two statistics ask
+different questions, and the Occam penalty of the $15.5$-unit $(\wz,\wa)$
+prior area dominates the fit improvement. But the practical consequence is
+stark---\emph{whether ``the evidence favors dynamical dark energy'' is
+true depends on which inference statistic one worships}, and the Bayes
+factor's first-order dependence on prior volume makes it a fragility axis of
+its own, rarely reported as such.
+
 \subsection{Parametrization axis}\label{sec:fparam}
-\todo{CPL/BA/JBP/BIN4 fate table; does DS revive under JBP?}
+
+Table~\ref{tab:grammar} is the paper's central result. Four parametrizations,
+statistically indistinguishable inside the data window, are fit to identical
+data under identical priors; their fate tables disagree catastrophically.
+The divergent-future family (CPL, JBP) delivers near-certain \textsc{decay};
+the bounded-future family (BA) revives a small but nonzero \textsc{ds}; the
+frozen-future family (BIN4---the most extrapolation-averse grammar, ``the
+future keeps the equation of state we measure today'') returns a coin flip:
+$41.2\%$ \textsc{rip}, $41.2\%$ \textsc{decay}, $17.6\%$ \textsc{ds}, because
+the fate-controlling bin is measured to be $w_1=-1.000\pm0.044$---the real
+data land the knife edge of Sec.~\ref{sec:null} at the grammar level. (A
+quarter of BIN4 samples carry boundary flags; the three-way split is
+threshold-sensitive, which is itself the point.) Meanwhile the binned
+reconstruction relocates the thawing signal: the low-$z$ bin is
+\lcdm-consistent, and the deviation lives at $z\in[0.7,1.5]$
+($w_3=-1.53\pm0.20$)---CPL's famous $\wz\approx-0.88$ is that mid-$z$ signal
+transported to $z=0$ along a straight line. The axis reading:
+$P(\textsc{rip})$ spans $0.2\%$ to $41\%$ ($2.3$ dex); even the
+heat-death-compatible headline, robust on every other axis, moves from
+$99.8\%$ to $58.8\%$.
+
+\begin{table}[t]
+\caption{Fate probabilities across $w(a)$ grammars (D0+P1 fixed; A-003
+criteria).}\label{tab:grammar}
+\begin{ruledtabular}
+\begin{tabular}{lccccc}
+Grammar & $P(\textsc{rip})$ & $P(\textsc{decay})$ & $P(\textsc{ds})$ &
+$P(\text{heat-death})$ \\
+\hline
+CPL & $0.21\%$ & $99.79\%$ & $0$ & $99.8\%$ \\
+JBP & $0.79\%$ & $99.21\%$ & $0$ & $99.2\%$ \\
+BA & $1.28\%$ & $98.35\%$ & $0.37\%$ & $98.7\%$ \\
+BIN4 & $41.2\%$ & $41.2\%$ & $17.6\%$ & $58.8\%$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
 \subsection{Constraint horizon}\label{sec:ah}
-\todo{BIN4 KL$(a)$; fate-decision epoch vs data horizon}
-\subsection{Summary}\label{sec:summary}
-\todo{eight-axis master table}
+
+Where do the data stop speaking? In the binned grammar the posterior-to-prior
+information $D_{\rm KL}[p(w(a))\|\pi]$ is $3.04$, $2.31$, $1.55$, and $0.24$
+nat in the four bins---the frozen $0.1$-nat horizon is never crossed inside
+the window: thanks to the CMB lever arm, the data constrain $w(a)$ (weakly)
+all the way to recombination. The horizon statement therefore lands at its
+sharpest possible position: \emph{data information terminates at $a=1$}. For
+$a>1$---the entire fate-relevant epoch---the data-sourced KL is identically
+zero; whatever information appears there is transported by the grammar's
+extrapolation rule (BIN4's freezing, CPL's straight line), not measured. The
+fate verdict depends, in every grammar, on a region where the measured
+information content is exactly nil.
+
+\subsection{The fragility matrix}\label{sec:summary}
+
+\begin{table*}[t]
+\caption{The eight-axis fragility matrix. Each row varies one assumption with
+all others fixed and reports the response of the fate verdict.}
+\label{tab:matrix}
+\begin{ruledtabular}
+\begin{tabular}{llll}
+Axis & knob & response & verdict \\
+\hline
+SN compilation & Pantheon+/Dovekie/Union3 & \lcdm{} exclusion $2.25\!-\!3.27\sigma$ & magnitude fragile \\
+SH0ES anchor & in/out & $H_0\,{+}1.35$; $\wz\,{-}0.034$ & leakage, direction robust \\
+CMB information & compressed/full & stable $-0.5\sigma$ discount & priced, stable \\
+Dataset ablation & D1--D4 & $\wa$: $-0.55$ to $-1.72$; $P(\textsc{rip})$ $0\!-\!0.3\%$ & direction robust \\
+Prior & P1/P2/P3 & $P(\textsc{rip})$: $0.18\%\to 0$ (excluded) & prior decides \\
+Statistic & $\Delta\chi^2$ vs $\ln B$ & $2.25\sigma$ against vs.\ evidence for \lcdm & direction flips \\
+Grammar & CPL/JBP/BA/BIN4 & $P(\textsc{rip})$: $0.2\%\to41\%$ ($2.3$ dex) & dominant axis \\
+Truth position & \lcdm{} null & verdict $\sim U(0,1)$; zero-noise 52/48 & uninformative \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Table~\ref{tab:matrix} assembles the audit. The stable content of the data is
+a thawing-quadrant signal of calibrated $p\approx0.02$--$0.03$ whose
+\emph{location} (mid-$z$) and \emph{direction} survive every data-side
+variation. Everything specifically eschatological---which fate, with what
+probability---responds at order unity to theory-side knobs the data cannot
+adjudicate.
 
 \section{Discussion}\label{sec:discussion}
 \todo{three-layer narrative; knife-edge undecidability (fate = discontinuous
