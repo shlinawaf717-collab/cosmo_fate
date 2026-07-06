@@ -7,3 +7,13 @@ runs/**/*.progress
 runs/**/*.checkpoint
 __pycache__/
 *.pyc
+.DS_Store
+runs/gate2/mocks/
+tmp/
+paper/main.aux
+paper/main.bbl
+paper/main.blg
+paper/main.log
+paper/main.out
+paper/main.pdf
+paper/mainNotes.bib
