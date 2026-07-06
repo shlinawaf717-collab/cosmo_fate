@@ -21,11 +21,29 @@ with DESI DR2, Pantheon+, and \textit{Planck}}
 The DESI era has produced a wave of claims about the ultimate fate of the
 Universe. We ask a different question: how much of the fate verdict is forced
 by the data, and how much is donated by the assumptions? Under a preregistered
-analysis plan (frozen before any real-data fate analysis; two logged
-amendments), we combine DESI DR2 BAO, \textit{Planck} 2018 distance priors,
-and Pantheon+/SH0ES supernovae under the CPL parametrization, and propagate
-every posterior sample to $a=10^4$ through a frozen fate classifier.
-\todo{final abstract per OUTLINE}
+plan (frozen before real-data fate analysis; three logged amendments), we
+combine DESI DR2 BAO, \textit{Planck} 2018 distance priors, and
+Pantheon+/SH0ES supernovae, propagate every posterior sample to $a=10^4$
+through a frozen fate classifier, and differentiate the verdict along eight
+assumption axes. Baseline (CPL): $P(\textsc{decay})=99.8\%$,
+$P(\textsc{rip})=0.18\%$ (independently verified by nested sampling). Null
+calibration on one hundred mock universes with exact-\lcdm{} truth shows the
+\emph{direction} of such verdicts is a coin flip---heat-death-compatible mass
+distributed as $U(0,1)$, $52/48$ even at zero noise---while the \emph{depth}
+of the real data's anti-rip preference is genuine (calibrated $p<0.030$,
+converging with Wilks $p=0.024$). The translation into fate is
+assumption-dominated: swapping supernova compilations moves the \lcdm{}
+exclusion from $2.25\sigma$ to $3.27\sigma$; a quintessence prior sets
+$P(\textsc{rip})\equiv0$ at a fit cost of $\Delta\chi^2=8.9$; Bayesian
+evidence \emph{favors} \lcdm{} ($\ln B=-1.76$) while $\Delta\chi^2$ disfavors
+it; and across four $w(a)$ grammars indistinguishable inside the data window,
+$P(\textsc{rip})$ spans $0.2\%$--$41\%$ and heat-death compatibility falls
+from $99.8\%$ to $58.8\%$, with the binned grammar returning a measured
+$w(z{<}0.3)=-1.000\pm0.044$---the knife edge itself. Data information
+terminates at $a=1$; every eschatological bit beyond it is
+grammar-transported. We conclude that current fate claims report the echo of
+their extrapolation conventions, and we release the audit framework and
+pipeline for reuse.
 \end{abstract}
 
 \maketitle
@@ -402,18 +420,91 @@ probability---responds at order unity to theory-side knobs the data cannot
 adjudicate.
 
 \section{Discussion}\label{sec:discussion}
-\todo{three-layer narrative; knife-edge undecidability (fate = discontinuous
-functional of continuously measured parameters); agent-relevant fate
-(Dyson vs Krauss--Starkman: DECAY reopens unbounded computation);
-relation to 2025--26 fate papers ($P$ vs $\partial P/\partial$assumption);
-limitations}
+
+\emph{Three layers.} The audit resolves the fate question into three layers
+with different epistemic status. (i) \emph{Direction}: whether dark energy
+will decay or rip is, under the null, a coin flip---and under the least
+extrapolative grammar, the real data return precisely that coin flip.
+(ii) \emph{Depth}: the data contain a genuine signal---a thawing-quadrant
+preference of calibrated $p\approx0.02$--$0.03$, doubly verified, located at
+intermediate redshift, robust to every dataset ablation. (iii)
+\emph{Translation}: converting that signal into eschatology multiplies it by
+an extrapolation rule that the data cannot select. The fate literature's
+headline numbers live in layer (iii).
+
+\emph{Why the fragility is structural, not accidental.} The fate map is a
+\emph{discontinuous} functional of parameters that observation constrains
+only \emph{continuously}: \textsc{rip} and \textsc{decay} are separated by a
+zero-width boundary, and \lcdm{} sits on it. Finite-precision data can never
+settle which side of a measure-zero boundary the truth occupies; if the
+cosmological constant is exact, the direction verdict remains a coin flip at
+\emph{any} future precision. Improved data can decide the question only if
+the truth lies off the boundary---and whether it does is precisely what
+cannot be decided from on it. In this specific sense, cosmic fate is either
+eventually decidable or permanently undecidable, and we cannot currently
+determine which.
+
+\emph{What would change the situation.} Not more distance data alone: the
+constraint horizon terminates at $a=1$ regardless of precision. Extrapolation
+is licensed by trusted theory, not by curve fitting; CPL and its cousins are
+conveniences, not theories. A physically derived dark-energy model
+(a specific potential, a symmetry argument) would convert fate back into a
+derivation---then data would test the theory inside the window and the
+theory would carry the license beyond it. Until then, fate probabilities
+are measurements of our notation.
+
+\emph{An agent-relevant footnote.} Our taxonomy classes \textsc{ds} and
+\textsc{decay} as thermodynamically equivalent (both heat death), but they
+differ for the long-term prospects of computation: a de Sitter horizon
+imposes a temperature floor that renders total future computation finite
+\cite{KraussStarkman2000}, while decaying dark energy reopens the
+Dyson regime in which unbounded subjective experience is compatible with
+finite free energy \cite{Dyson1979}. On current data the decay direction is
+(weakly) preferred---for whatever comfort a $2\sigma$, grammar-conditioned
+preference is worth.
+
+\emph{Relation to the recent fate literature.} Papers reporting
+$P(\text{fate})$ under a single parametrization are reporting real
+calculations whose leading uncertainty---the choice of grammar---is absent
+from their error budgets. Our Table~\ref{tab:matrix} is the missing error
+budget. The framework (preregistration, null calibration,
+assumption-differentiation) transfers unchanged to any inference whose
+conclusion lives beyond its data window.
+
+\emph{Limitations.} All significances inherit the compressed-CMB condition
+(priced at $\approx0.5\sigma$; A-001). The analysis is geometry-only; growth
+data could shift the window-interior signal. The grammar family, while
+spanning divergent, bounded, and frozen futures, is not exhaustive---a
+Gaussian-process reconstruction is a planned cross-check, and our grammar-span
+readings are lower bounds. The work was performed by a single author with
+AI assistance under the verification protocol described; residual
+unknown-unknowns are bounded only by the audit trail, which is public.
 
 \section{Conclusions}\label{sec:conclusions}
-\todo{four sentences}
+
+The data contain a real signal: a thawing-quadrant preference at calibrated
+$p\approx0.02$--$0.03$, located at intermediate redshift, that survives every
+dataset ablation we tried. The fate verdict built on it does not: under the
+null it is a coin flip, under a quintessence prior it is decided before data
+arrive, under a change of inference statistic it reverses, and under a change
+of $w(a)$ grammar the Big Rip probability moves by two orders of magnitude
+while heat-death compatibility falls from $99.8\%$ to $58.8\%$. The heat
+death of the Universe is neither confirmed nor threatened by current data:
+every eschatological bit lives beyond $a=1$, where the measured information
+content is identically zero. What cosmology can honestly export today is not
+a fate but a fate-conditional: the audit framework presented here keeps the
+two from being confused.
 
 \begin{acknowledgments}
-\todo{software citations (CAMB, cobaya, getdist, dynesty); AI-assistance
-disclosure per journal policy; friendly reviewers}
+This work used \texttt{CAMB}~\cite{CAMB}, \texttt{cobaya}~\cite{cobaya},
+\texttt{GetDist}~\cite{getdist}, and \texttt{dynesty}~\cite{dynesty}; we thank
+their authors, and the DESI collaboration for the public release of the DR2
+cosmology chains used in validation. Substantial portions of the pipeline
+implementation, literature triage, and manuscript drafting were performed
+with an AI assistant (Claude, Anthropic) under the preregistered verification
+protocol described in Sec.~\ref{sec:prereg}; all analysis choices, amendment
+sign-offs, and final claims are the author's responsibility. \todo{friendly
+reviewers}
 \end{acknowledgments}
 
 \appendix
