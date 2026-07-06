@@ -1,0 +1,26 @@
+{
+ "root": "runs/phase3/fdata/d2",
+ "n_samples": 14112,
+ "CRUNCH": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "RIP": {
+  "P": 9.566402793389616e-05,
+  "mc_err": 9.659969088098917e-05
+ },
+ "DS": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "DECAY": {
+  "P": 0.9999043359720661,
+  "mc_err": 9.659969088099059e-05
+ },
+ "OTHER": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "boundary_fraction": 0.0,
+ "P_heat_death_compatible": 0.9999043359720661
+}
