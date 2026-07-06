@@ -18,7 +18,7 @@ OMEGA_GAMMA_H2 = 2.4729e-5 * (TCMB / 2.7255) ** 4
 OMEGA_R_H2 = OMEGA_GAMMA_H2 * (1.0 + 0.2271 * NEFF)
 
 A_MAX = 1.0e4
-THRESH = dict(rip_rel=1e-3, ds_w=0.01, decay_ratio=0.01, decay_vs_m=1.0)
+THRESH = dict(rip_rel=1e-3, ds_w=0.01, decay_ratio=0.01, decay_vs_m=1.0, asym_eps=0.01)
 _EXP_CAP = 700.0
 
 
@@ -33,7 +33,7 @@ def w_cpl(a, w0, wa):
 
 class Background:
     def __init__(self, omegam, H0, omk=0.0, w0=-1.0, wa=0.0,
-                 ln_fde=None, w_of_a=None):
+                 ln_fde=None, w_of_a=None, w_inf=None):
         h2 = (H0 / 100.0) ** 2
         self.om = omegam
         self.omr = OMEGA_R_H2 / h2
@@ -42,6 +42,7 @@ class Background:
         self.w0, self.wa = w0, wa
         self.ln_fde = ln_fde or (lambda a: ln_fde_cpl(a, w0, wa))
         self.w_of_a = w_of_a or (lambda a: w_cpl(a, w0, wa))
+        self.w_inf = w_inf  # finite limit of w(a) as a->inf, if it exists (A-003)
 
     def E2(self, a):
         lf = self.ln_fde(a)
@@ -98,6 +99,15 @@ def _classify_once(bg, th):
     finite = e2[np.isfinite(e2)]
     if finite.size and (finite <= 0).any():
         return "CRUNCH"
+
+    # A-003 asymptotic branch: analytic criteria when w(a) has a finite limit
+    if getattr(bg, 'w_inf', None) is not None:
+        eps = th["asym_eps"]
+        if bg.w_inf < -1.0 - eps:
+            return "RIP"          # constant-w<-1 finite-time singularity (analytic)
+        if abs(bg.w_inf + 1.0) <= eps and bg.ode > 0:
+            return "DS"
+        return "DECAY"
 
     # 2. RIP: t(A_MAX) converged w.r.t. t(2*A_MAX)
     try:

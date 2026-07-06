@@ -38,10 +38,10 @@ def w_bin4(a, p):
 
 
 MODELS = {
-    'cpl':  {'params': ['w', 'wa'],           'w_of_a': w_cpl},
-    'ba':   {'params': ['w', 'wa'],           'w_of_a': w_ba},
-    'jbp':  {'params': ['w', 'wa'],           'w_of_a': w_jbp},
-    'bin4': {'params': ['w1', 'w2', 'w3', 'w4'], 'w_of_a': w_bin4},
+    'cpl':  {'params': ['w', 'wa'],           'w_of_a': w_cpl,  'w_inf': None},
+    'ba':   {'params': ['w', 'wa'],           'w_of_a': w_ba,   'w_inf': lambda p: p['w'] - 0.5 * p['wa']},
+    'jbp':  {'params': ['w', 'wa'],           'w_of_a': w_jbp,  'w_inf': None},
+    'bin4': {'params': ['w1', 'w2', 'w3', 'w4'], 'w_of_a': w_bin4, 'w_inf': lambda p: p['w1']},
 }
 
 

@@ -17,7 +17,9 @@ def _worker(args):
     om, H0, mpars = args
     lf = make_ln_fde(_model, mpars)
     wf = make_w_of_a(_model, mpars)
-    bg = Background(omegam=om, H0=H0, ln_fde=lf, w_of_a=wf)
+    wi = MODELS[_model]['w_inf']
+    bg = Background(omegam=om, H0=H0, ln_fde=lf, w_of_a=wf,
+                    w_inf=(wi(mpars) if wi else None))
     lab, b = classify(bg)
     return lab, b
 
