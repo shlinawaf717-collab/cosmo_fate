@@ -1,0 +1,111 @@
+\documentclass[aps,prd,preprint,superscriptaddress,nofootinbib]{revtex4-2}
+\usepackage{graphicx,amsmath,amssymb,booktabs,hyperref,xcolor}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\lcdm}{\ensuremath{\Lambda\mathrm{CDM}}}
+\newcommand{\wz}{\ensuremath{w_0}}
+\newcommand{\wa}{\ensuremath{w_a}}
+
+\begin{document}
+
+\title{Is cosmic fate an inference or an assumption?\\
+A preregistered fragility audit of the heat-death conclusion\\
+with DESI DR2, Pantheon+, and \textit{Planck}}
+
+\author{\todo{author}}
+\affiliation{Independent researcher}
+
+\date{\today}
+
+\begin{abstract}
+% v1 numbers locked except F_param sentence — see OUTLINE.md
+The DESI era has produced a wave of claims about the ultimate fate of the
+Universe. We ask a different question: how much of the fate verdict is forced
+by the data, and how much is donated by the assumptions? Under a preregistered
+analysis plan (frozen before any real-data fate analysis; two logged
+amendments), we combine DESI DR2 BAO, \textit{Planck} 2018 distance priors,
+and Pantheon+/SH0ES supernovae under the CPL parametrization, and propagate
+every posterior sample to $a=10^4$ through a frozen fate classifier.
+\todo{final abstract per OUTLINE}
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+\todo{DESI significance spectrum 2.25--4.2$\sigma$; fate-paper wave; the
+epistemic question (Krauss \& Turner lineage, quantified); contributions;
+preregistration and AI-use disclosure}
+
+\section{Preregistered design}\label{sec:prereg}
+\todo{frozen plan, gates, amendment mechanism; A-001/A-002 disclosed in
+App.~\ref{app:amendments}}
+
+\section{Data, likelihoods, and validation}\label{sec:data}
+\todo{Table T1 datasets; convention-consistency lesson; Gate 1 chain-level
+validation (Fig.~\ref{fig:gate1}); F$_{\rm CMB}$ pricing}
+
+\begin{figure}[t]
+\includegraphics[width=0.9\columnwidth]{../runs/gate1/gate1_vs_official_chains.png}
+\caption{Gate-1 chain-level validation: this pipeline (compressed CMB, open
+contours) versus the official DESI DR2 chains (full CMB + lensing, filled).
+All marginal shifts $\le 0.33\sigma$.}\label{fig:gate1}
+\end{figure}
+
+\section{Fate taxonomy and classifier}\label{sec:fate}
+\todo{criteria table; thermodynamic mapping; DECAY $\neq$ escape from heat
+death; OTHER audit budget; boundary flags}
+
+\section{Baseline fate probabilities}\label{sec:baseline}
+\todo{D0+CPL+P1 posterior; fate table with verification labels;
+$\ln B = -1.76 \pm 0.31$ favoring \lcdm{} (Lindley phenomenon)}
+
+\section{Null calibration}\label{sec:null}
+\todo{PIT argument $\Rightarrow$ U(0,1) prediction; 100 mocks; zero-noise mock
+52/48; calibrated real-data statement (direction uninformative, depth
+$p<0.030$ vs Wilks $p=0.024$); preregistered predictions 6/6}
+
+\begin{figure}[t]
+\includegraphics[width=0.95\columnwidth]{../runs/gate2/gate2_null_histogram.png}
+\caption{Null calibration of the fate verdict. Under \lcdm{} truth the
+heat-death-compatible posterior mass is consistent with $U(0,1)$
+(KS $p=0.25$); even the zero-noise mock returns 52/48. The real-data value
+(red) lies beyond every mock realization.}\label{fig:null}
+\end{figure}
+
+\section{The fragility matrix}\label{sec:matrix}
+\subsection{Data axis}\label{sec:fdata}
+\todo{D1--D4 leave-one-out; D5 ladder 2.25--3.27$\sigma$; SH0ES leakage}
+\subsection{Prior axis}\label{sec:fprior}
+\todo{P(RIP): 0.18\% $\to$ 0 exactly; wall cost $+8.9\chi^2$; P3$\equiv$P2}
+\subsection{Statistic axis}\label{sec:fstat}
+\todo{$\Delta\chi^2$ vs $\ln B$ direction flip; prior-volume dependence}
+\subsection{Parametrization axis}\label{sec:fparam}
+\todo{CPL/BA/JBP/BIN4 fate table; does DS revive under JBP?}
+\subsection{Constraint horizon}\label{sec:ah}
+\todo{BIN4 KL$(a)$; fate-decision epoch vs data horizon}
+\subsection{Summary}\label{sec:summary}
+\todo{eight-axis master table}
+
+\section{Discussion}\label{sec:discussion}
+\todo{three-layer narrative; knife-edge undecidability (fate = discontinuous
+functional of continuously measured parameters); agent-relevant fate
+(Dyson vs Krauss--Starkman: DECAY reopens unbounded computation);
+relation to 2025--26 fate papers ($P$ vs $\partial P/\partial$assumption);
+limitations}
+
+\section{Conclusions}\label{sec:conclusions}
+\todo{four sentences}
+
+\begin{acknowledgments}
+\todo{software citations (CAMB, cobaya, getdist, dynesty); AI-assistance
+disclosure per journal policy; friendly reviewers}
+\end{acknowledgments}
+
+\appendix
+\section{Frozen analysis plan}\label{app:plan}
+\section{Amendment log}\label{app:amendments}
+\section{Classifier numerics and known edges}\label{app:classifier}
+\section{Mock machinery and zero-noise validation}\label{app:mocks}
+\section{Reproducibility}\label{app:repro}
+
+\bibliography{refs}
+\end{document}
