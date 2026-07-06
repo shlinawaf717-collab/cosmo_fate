@@ -1,0 +1,86 @@
+{
+  "model": {
+    "coordinates": "u=w0+1, v=wa",
+    "truth": "Lambda-CDM: u=0, v=0",
+    "estimator": "xhat ~ Normal(theta0, Sigma_data)",
+    "posterior": "theta | xhat ~ Normal(xhat, Sigma_post)",
+    "fate_score": "s = 1.2 * u + v",
+    "class_RIP_like": "s > 0",
+    "class_DECAY_like": "s < 0",
+    "note": "This is a boundary analogue, not a physical fate classifier."
+  },
+  "settings": {
+    "n_experiments": 50000,
+    "seed": 20260707,
+    "alpha": 1.2,
+    "cov_data": [
+      [
+        0.004900000000000001,
+        -0.013104000000000001
+      ],
+      [
+        -0.013104000000000001,
+        0.06760000000000001
+      ]
+    ],
+    "cov_post": [
+      [
+        0.004900000000000001,
+        -0.013104000000000001
+      ],
+      [
+        -0.013104000000000001,
+        0.06760000000000001
+      ]
+    ],
+    "score_sigma": 0.20786149234526344
+  },
+  "baseline": {
+    "n": 50000,
+    "mean": 0.501282851041423,
+    "variance": 0.08325961421041182,
+    "uniform_variance": 0.08333333333333333,
+    "direction_rate_P_gt_0p5": 0.50516,
+    "ks_D_vs_uniform": 0.005944072209833506,
+    "ks_p_vs_uniform": 0.05818942310662767,
+    "quantiles_0p01_0p05_0p25_0p5_0p75_0p95_0p99": [
+      0.010234795834425804,
+      0.04939062109456413,
+      0.24983079223797744,
+      0.5052670185002006,
+      0.7492548648727418,
+      0.9506512874229598,
+      0.9902626388958722
+    ]
+  },
+  "examples": [
+    {
+      "label": "low RIP-like probability",
+      "target": 0.08,
+      "index": 29716,
+      "u_hat": 0.13741109690723416,
+      "w0_hat": -0.8625889030927658,
+      "wa_hat": -0.4569454005336018,
+      "P_RIP_like": 0.08000585574472041
+    },
+    {
+      "label": "near boundary",
+      "target": 0.5,
+      "index": 11440,
+      "u_hat": -0.0569131406965975,
+      "w0_hat": -1.0569131406965975,
+      "wa_hat": 0.06829581017241716,
+      "P_RIP_like": 0.5000000793358955
+    },
+    {
+      "label": "high RIP-like probability",
+      "target": 0.92,
+      "index": 27962,
+      "u_hat": -0.08011117073669743,
+      "w0_hat": -1.0801111707366975,
+      "wa_hat": 0.3882045458760653,
+      "P_RIP_like": 0.9200077738552628
+    }
+  ],
+  "analytic_result": "For any linear boundary score s=b^T theta, if b^T theta0=0 and the posterior score variance matches the repeated-experiment score-estimator variance, then P(s>0|data)=Phi(Z), Z~N(0,1), hence Uniform(0,1)."
+}

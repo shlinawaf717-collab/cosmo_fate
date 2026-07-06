@@ -1,0 +1,28 @@
+{
+  "archive": "/Users/nocide/cosmo_fate/paper/method/freeze/critical_boundary_calibration_aux_method_v0.1.zip",
+  "archive_exists": true,
+  "final_pdf": "/Users/nocide/cosmo_fate/paper/method/submission_final/critical_boundary_calibration_final.pdf",
+  "final_pdf_pages": 17,
+  "latex_engine_available": false,
+  "latex_info": {
+    "pandoc_available": true,
+    "returncode": 0,
+    "stderr": ""
+  },
+  "output_pdf": "/Users/nocide/cosmo_fate/output/pdf/critical_boundary_calibration_final_phase16.pdf",
+  "overclaim_hits": 0,
+  "overclaim_patterns": [],
+  "pass": true,
+  "pdf_citation_tokens_remaining": 0,
+  "phase": 16,
+  "rendered_pages": [
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase16_render/phase16-p1-01.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase16_render/phase16-p5-05.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase16_render/phase16-p9-09.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase16_render/phase16-p10-10.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase16_render/phase16-p14-14.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase16_render/phase16-p17-17.png"
+  ],
+  "sha_manifest_entries": 15,
+  "visible_phase_terms": 0
+}

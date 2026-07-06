@@ -1,0 +1,63 @@
+{
+  "purpose": "Standard reporting checklist for posterior fate probabilities near critical boundaries.",
+  "layers": [
+    {
+      "layer": "Direction",
+      "question": "Which label has more posterior mass?",
+      "required": [
+        "raw P(label | data)",
+        "direction threshold, usually 0.5",
+        "same quantity under null mocks"
+      ],
+      "failure_mode": "Treating P > 0.5 as a discovery near a boundary."
+    },
+    {
+      "layer": "Depth",
+      "question": "How unusual is the raw probability under the null?",
+      "required": [
+        "predeclared null model",
+        "mock count and finite-mock floor",
+        "lower-tail, upper-tail, and two-sided calibrated p-values"
+      ],
+      "failure_mode": "Reporting a raw tail probability without null calibration."
+    },
+    {
+      "layer": "Evidence",
+      "question": "Does the enlarged model deserve preference?",
+      "required": [
+        "likelihood-ratio or delta chi2 where appropriate",
+        "AIC/BIC or Bayes factor where available",
+        "clear separation from fate-class probability"
+      ],
+      "failure_mode": "Confusing a class probability with evidence for the model."
+    },
+    {
+      "layer": "Boundary",
+      "question": "Is the label sensitive to thresholds or classifier defects?",
+      "required": [
+        "boundary-flip fraction or threshold sensitivity",
+        "OTHER fraction and audit rule",
+        "known classifier limitations"
+      ],
+      "failure_mode": "Hiding that posterior mass lies near a label boundary."
+    },
+    {
+      "layer": "Horizon",
+      "question": "Is the fate decision inside the data-constrained region?",
+      "required": [
+        "future scale used by the classifier",
+        "constraint horizon or equivalent diagnostic",
+        "statement when the horizon diagnostic is unavailable"
+      ],
+      "failure_mode": "Interpreting unconstrained far-future extrapolation as data."
+    }
+  ],
+  "phase5_case_study_fill": {
+    "Direction": "Observed P_heat=0.99821; LCDM null has P_heat>0.5 in 50/100 mocks.",
+    "Depth": "Observed P_RIP=0.00179; 0/100 null mocks are lower; plus-one p=0.00990, 95% CP upper=0.02951.",
+    "Evidence": "Not evaluated by the Phase 5 case-study figure; a science paper must add likelihood-ratio, AIC/BIC, or Bayes-factor evidence separately.",
+    "Boundary": "max OTHER=0.00142; max boundary fraction=0.00087; mock000 P_heat=0.52275.",
+    "Horizon": "Not evaluated by the Phase 5 case-study figure; a science paper must report constraint horizon or explicitly mark it unavailable."
+  },
+  "minimum_required_statement": "Report raw class mass, null-calibrated tail depth, model evidence, boundary sensitivity, and horizon status as separate claims."
+}

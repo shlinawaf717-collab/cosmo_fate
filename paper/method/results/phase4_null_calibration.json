@@ -1,0 +1,57 @@
+{
+  "protocol": [
+    "Define a predeclared classifier C(theta).",
+    "Compute raw P(label | observed data).",
+    "Generate null mocks under the boundary or near-boundary null.",
+    "Run the identical posterior and classifier pipeline on every mock.",
+    "Compare the observed raw probability to the mock distribution.",
+    "Report lower-tail, upper-tail, and two-sided calibrated p-values with finite-mock resolution."
+  ],
+  "null_model": {
+    "source": "Phase 2 w0-wa boundary analogue",
+    "n_finite_mocks": 100,
+    "seed": 20260709,
+    "null_mean": 0.5111848823921697,
+    "null_variance": 0.07986226459800923,
+    "minimum_reportable_tail_p": 0.009900990099009901,
+    "ks_p_vs_uniform": 0.5881907144078354
+  },
+  "synthetic_observed_cases": {
+    "central_boundary_like": {
+      "observed_raw_probability": 0.5,
+      "n_mocks": 100,
+      "n_lower_or_equal": 44,
+      "n_upper_or_equal": 56,
+      "lower_tail_p": 0.44554455445544555,
+      "upper_tail_p": 0.5643564356435643,
+      "two_sided_p": 0.8910891089108911,
+      "minimum_reportable_tail_p": 0.009900990099009901
+    },
+    "low_tail_example": {
+      "observed_raw_probability": 0.018,
+      "n_mocks": 100,
+      "n_lower_or_equal": 3,
+      "n_upper_or_equal": 97,
+      "lower_tail_p": 0.039603960396039604,
+      "upper_tail_p": 0.9702970297029703,
+      "two_sided_p": 0.07920792079207921,
+      "minimum_reportable_tail_p": 0.009900990099009901
+    },
+    "high_tail_example": {
+      "observed_raw_probability": 0.982,
+      "n_mocks": 100,
+      "n_lower_or_equal": 98,
+      "n_upper_or_equal": 2,
+      "lower_tail_p": 0.9801980198019802,
+      "upper_tail_p": 0.0297029702970297,
+      "two_sided_p": 0.0594059405940594,
+      "minimum_reportable_tail_p": 0.009900990099009901
+    }
+  },
+  "interpretation_rules": {
+    "direction_layer": "Report whether raw P(label | data) is above or below 0.5, but do not treat this alone as discovery near a boundary.",
+    "depth_layer": "Use the relevant null tail probability to describe how extreme the raw class probability is under the boundary null.",
+    "finite_mock_rule": "Never report p=0; use plus-one smoothing and state the mock-count floor.",
+    "not_a_cosmic_claim": "Synthetic observed values illustrate the calibration protocol only."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "abstract_classifier": {
+    "labels": [
+      "CRUNCH",
+      "RIP",
+      "DS",
+      "DECAY",
+      "OTHER"
+    ],
+    "priority": "CRUNCH > RIP > DS > DECAY > OTHER",
+    "rule": [
+      "if crunch_margin > 0: CRUNCH",
+      "elif rip_margin > 0: RIP",
+      "elif ds_margin > 0: DS",
+      "elif decay_margin > 0: DECAY",
+      "else: OTHER"
+    ],
+    "interpretation": "Margins are continuous diagnostics. Labels are discontinuous threshold outputs. Posterior fate probabilities are integrals of label indicators over the posterior."
+  },
+  "posterior_example_fractions": {
+    "CRUNCH": 0.0,
+    "RIP": 0.36857142857142855,
+    "DS": 0.032857142857142856,
+    "DECAY": 0.5072857142857143,
+    "OTHER": 0.09128571428571429
+  },
+  "path_transition": {
+    "rip_turns_on_at_margin": 0.0,
+    "point_before_zero": "DECAY",
+    "point_after_zero": "RIP"
+  }
+}

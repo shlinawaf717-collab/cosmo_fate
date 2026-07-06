@@ -1,0 +1,80 @@
+{
+  "source_files": {
+    "noisy_mocks_and_mock000": "runs/gate2/results.jsonl",
+    "gate2_summary": "runs/gate2/gate2_final_stats.json",
+    "observed_fate": "runs/phase2/fate/d0_cpl_p1.json"
+  },
+  "case_study_scope": "Existing cosmology-pipeline outputs are used to demonstrate the null-calibration protocol. This synthesis does not rerun inference and does not claim a real cosmic fate by itself.",
+  "null": {
+    "n_noisy_mocks": 100,
+    "P_heat_mean": 0.5251530243426319,
+    "P_heat_se": 0.030264968568976924,
+    "P_heat_KS_D_vs_uniform": 0.10000344857315291,
+    "P_heat_KS_p_vs_uniform": 0.2526574475531126,
+    "direction_accuracy_P_heat_gt_0p5": 0.5,
+    "P_RIP_min": 0.015182685977616853,
+    "P_RIP_median": 0.4924442190279404,
+    "OTHER_max": 0.0014162077104642014,
+    "boundary_max": 0.000870807063986903,
+    "mock000": {
+      "P_heat": 0.5227530129228982,
+      "P_RIP": 0.47576593582111226,
+      "boundary_fraction": 8.712066211703209e-05
+    }
+  },
+  "observed": {
+    "P_heat": 0.9982080427258833,
+    "P_RIP": 0.0017919572741167582,
+    "P_RIP_lower_tail": {
+      "side": "lower",
+      "count": 0,
+      "n": 100,
+      "p_plus_one": 0.009900990099009901,
+      "p_floor": 0.009900990099009901
+    },
+    "P_RIP_lower_tail_upper95": 0.029513049607039932,
+    "P_heat_upper_tail": {
+      "side": "upper",
+      "count": 0,
+      "n": 100,
+      "p_plus_one": 0.009900990099009901,
+      "p_floor": 0.009900990099009901
+    },
+    "n_null_P_RIP_below_or_equal_observed": 0,
+    "n_null_P_heat_above_or_equal_observed": 0
+  },
+  "cross_check_gate2_report": {
+    "n_mocks": 100,
+    "accuracy": 0.5,
+    "accuracy_CI68": [
+      45.0,
+      55.0
+    ],
+    "ph_mean": 0.5251530243426319,
+    "ph_mean_se": 0.030113263510558756,
+    "ph_quantiles": {
+      "0.05": 0.056987013146749324,
+      "0.25": 0.27975940922935677,
+      "0.5": 0.5071455859274935,
+      "0.75": 0.8198271017032867,
+      "0.95": 0.9477859784660788
+    },
+    "KS_D": 0.10000344857315291,
+    "KS_p": 0.2526574475531126,
+    "P_RIP_null_min": 0.015182685977616853,
+    "P_RIP_null_median": 0.4924442190279404,
+    "n_below_real": 0,
+    "calibrated_p_upper95": 0.029513049607039925,
+    "OTHER_max": 0.0014162077104642014,
+    "boundary_max": 0.000870807063986903,
+    "mock000": {
+      "P_heat": 0.5227530129228982,
+      "P_RIP": 0.47576593582111226
+    }
+  },
+  "method_interpretation": {
+    "direction": "Under LCDM noisy mocks, P_heat > 0.5 occurs in 50/100 cases.",
+    "depth": "Observed P_RIP is below all 100 noisy null mocks; finite-mock plus-one lower-tail p is 1/101, with a 95% zero-count Clopper-Pearson upper bound matching the Gate 2 report.",
+    "guardrail": "This supports the calibration framework; it is not a standalone claim that the universe has a determined fate."
+  }
+}

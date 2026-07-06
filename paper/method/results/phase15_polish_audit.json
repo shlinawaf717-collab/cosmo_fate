@@ -1,0 +1,15 @@
+{
+  "added_keys": [
+    "Rosenblatt1952",
+    "Dawid1984",
+    "Rubin1984",
+    "GelmanMengStern1996",
+    "PhipsonSmyth2010"
+  ],
+  "added_stat_citation_keys": 5,
+  "forbidden_overclaim_hits": 0,
+  "forbidden_patterns_hit": [],
+  "pass": true,
+  "visible_phase_terms": 0,
+  "word_count": 3917
+}

@@ -1,0 +1,346 @@
+{
+  "claim_ledger": [
+    {
+      "claim": "Near a calibrated critical boundary, posterior class probabilities can be broad and approximately uniform under repeated experiments.",
+      "status": "supported",
+      "support": "Phase 1 mean=0.50096, variance=0.08356, KS p=0.16459; Phase 2 KS p=0.05819."
+    },
+    {
+      "claim": "A 50 percent direction rate is not automatically a failed classifier near the boundary.",
+      "status": "supported",
+      "support": "Phase 5 LCDM mocks have P_heat>0.5 in 0.50 of mocks while the P_heat null shape passes KS p=0.25266."
+    },
+    {
+      "claim": "Tail depth can still carry information when direction is unstable.",
+      "status": "supported",
+      "support": "Observed P_RIP=0.00179 is below 0/100 noisy LCDM mocks; plus-one p=0.00990."
+    },
+    {
+      "claim": "The reporting unit must separate Direction, Depth, Evidence, Boundary, and Horizon.",
+      "status": "supported",
+      "support": "Phase 6 defines all five layers and marks Evidence and Horizon as unfilled in the case study."
+    },
+    {
+      "claim": "The method establishes the real universe's final fate.",
+      "status": "not claimed",
+      "support": "Excluded by Phase 0 non-goals and by the Phase 5 case-study scope."
+    },
+    {
+      "claim": "The case study proves dynamical dark energy or model preference.",
+      "status": "not claimed",
+      "support": "Evidence layer is explicitly unavailable in Phase 6 and must be supplied by a separate science analysis."
+    },
+    {
+      "claim": "Curved or miscalibrated boundaries always preserve uniformity.",
+      "status": "not claimed",
+      "support": "Phase 7 shows off-boundary truth and posterior-width mismatch fail; beta=1.5 curvature is labeled a diagnostic."
+    }
+  ],
+  "classifier_example_fractions": {
+    "CRUNCH": 0.0,
+    "DECAY": 0.5072857142857143,
+    "DS": 0.032857142857142856,
+    "OTHER": 0.09128571428571429,
+    "RIP": 0.36857142857142855
+  },
+  "figure_plan": [
+    [
+      "Figure 1",
+      "Boundary-null toy result",
+      "phase1_toy_boundary_uniformity.png",
+      "Main text"
+    ],
+    [
+      "Figure 2",
+      "w0-wa analogue",
+      "phase2_w0wa_boundary.png",
+      "Main text"
+    ],
+    [
+      "Figure 3",
+      "Fate-classifier framework",
+      "phase3_classifier_framework.png",
+      "Main text or methods"
+    ],
+    [
+      "Figure 4",
+      "Finite-mock calibration protocol",
+      "phase4_null_calibration.png",
+      "Main text"
+    ],
+    [
+      "Figure 5",
+      "Real-pipeline LCDM mock case",
+      "phase5_cosmology_mock_case.png",
+      "Main text"
+    ],
+    [
+      "Figure 6",
+      "Five-layer reporting standard",
+      "phase6_reporting_standard.png",
+      "Main text"
+    ],
+    [
+      "Appendix Figure A1",
+      "Robustness checks",
+      "phase7_robustness.png",
+      "Appendix"
+    ]
+  ],
+  "inventory": [
+    {
+      "artifact": "PHASE0_BOUNDARY_PROBLEM.md",
+      "artifact_ok": true,
+      "figure": null,
+      "figure_applicable": false,
+      "figure_ok": true,
+      "phase": "0",
+      "result": null,
+      "result_applicable": false,
+      "result_ok": true,
+      "role": "Defines the independent method-paper object and non-goals."
+    },
+    {
+      "artifact": "PHASE1_TOY_BOUNDARY.md",
+      "artifact_ok": true,
+      "figure": "phase1_toy_boundary_uniformity.png",
+      "figure_applicable": true,
+      "figure_ok": true,
+      "phase": "1",
+      "result": "phase1_toy_boundary_stats.json",
+      "result_applicable": true,
+      "result_ok": true,
+      "role": "One-dimensional boundary-null demonstration."
+    },
+    {
+      "artifact": "PHASE2_W0WA_BOUNDARY.md",
+      "artifact_ok": true,
+      "figure": "phase2_w0wa_boundary.png",
+      "figure_applicable": true,
+      "figure_ok": true,
+      "phase": "2",
+      "result": "phase2_w0wa_boundary_stats.json",
+      "result_applicable": true,
+      "result_ok": true,
+      "role": "Cosmology-shaped two-dimensional boundary analogue."
+    },
+    {
+      "artifact": "PHASE3_CLASSIFIER_FRAMEWORK.md",
+      "artifact_ok": true,
+      "figure": "phase3_classifier_framework.png",
+      "figure_applicable": true,
+      "figure_ok": true,
+      "phase": "3",
+      "result": "phase3_classifier_framework.json",
+      "result_applicable": true,
+      "result_ok": true,
+      "role": "Abstract fate classifier with continuous diagnostics."
+    },
+    {
+      "artifact": "PHASE4_NULL_CALIBRATION.md",
+      "artifact_ok": true,
+      "figure": "phase4_null_calibration.png",
+      "figure_applicable": true,
+      "figure_ok": true,
+      "phase": "4",
+      "result": "phase4_null_calibration.json",
+      "result_applicable": true,
+      "result_ok": true,
+      "role": "Finite-mock calibration protocol and p-value rule."
+    },
+    {
+      "artifact": "PHASE5_COSMOLOGY_MOCK_CASE.md",
+      "artifact_ok": true,
+      "figure": "phase5_cosmology_mock_case.png",
+      "figure_applicable": true,
+      "figure_ok": true,
+      "phase": "5",
+      "result": "phase5_cosmology_mock_case.json",
+      "result_applicable": true,
+      "result_ok": true,
+      "role": "Read-only real-pipeline LCDM mock case study."
+    },
+    {
+      "artifact": "PHASE6_REPORTING_STANDARD.md",
+      "artifact_ok": true,
+      "figure": "phase6_reporting_standard.png",
+      "figure_applicable": true,
+      "figure_ok": true,
+      "phase": "6",
+      "result": "phase6_reporting_standard.json",
+      "result_applicable": true,
+      "result_ok": true,
+      "role": "Five-layer reporting standard."
+    },
+    {
+      "artifact": "PHASE7_ROBUSTNESS.md",
+      "artifact_ok": true,
+      "figure": "phase7_robustness.png",
+      "figure_applicable": true,
+      "figure_ok": true,
+      "phase": "7",
+      "result": "phase7_robustness.json",
+      "result_applicable": true,
+      "result_ok": true,
+      "role": "Robustness and diagnostic-failure appendix."
+    }
+  ],
+  "key_numbers": {
+    "phase1_boundary_null": {
+      "direction_rate": 0.502015,
+      "ks_p": 0.16459278898001906,
+      "mean": 0.500960229715168,
+      "n": 200000,
+      "variance": 0.08355885349467483
+    },
+    "phase2_w0wa_boundary": {
+      "direction_rate": 0.50516,
+      "ks_p": 0.05818942310662767,
+      "mean": 0.501282851041423,
+      "n": 50000,
+      "variance": 0.08325961421041182
+    },
+    "phase5_case_study": {
+      "P_RIP_lower_tail_count": 0,
+      "P_RIP_lower_tail_n": 100,
+      "P_RIP_plus_one_p": 0.009900990099009901,
+      "P_RIP_upper95_zero_count": 0.029513049607039932,
+      "P_heat_ks_p": 0.2526574475531126,
+      "P_heat_mean": 0.5251530243426319,
+      "direction_accuracy": 0.5,
+      "n_noisy_mocks": 100,
+      "observed_P_RIP": 0.0017919572741167582
+    },
+    "phase7_robustness": {
+      "calibrated_pass": true,
+      "curved_ks_p": 2.509477032061005e-06,
+      "off_boundary_pass": false,
+      "shifted_pass": true,
+      "too_tight_pass": false,
+      "too_wide_pass": false
+    }
+  },
+  "next_phase": "Phase 9 should write the full manuscript draft from this blueprint without expanding the claim boundary.",
+  "pass_criteria": {
+    "all_declared_figures_present": true,
+    "all_declared_results_present": true,
+    "all_phase_artifacts_present": true,
+    "manuscript_skeleton_written": true,
+    "supported_claims_have_phase_evidence": true,
+    "unsupported_science_claims_excluded": true
+  },
+  "phase4_examples": {
+    "central_boundary_like": {
+      "lower_tail_p": 0.44554455445544555,
+      "minimum_reportable_tail_p": 0.009900990099009901,
+      "n_lower_or_equal": 44,
+      "n_mocks": 100,
+      "n_upper_or_equal": 56,
+      "observed_raw_probability": 0.5,
+      "two_sided_p": 0.8910891089108911,
+      "upper_tail_p": 0.5643564356435643
+    },
+    "high_tail_example": {
+      "lower_tail_p": 0.9801980198019802,
+      "minimum_reportable_tail_p": 0.009900990099009901,
+      "n_lower_or_equal": 98,
+      "n_mocks": 100,
+      "n_upper_or_equal": 2,
+      "observed_raw_probability": 0.982,
+      "two_sided_p": 0.0594059405940594,
+      "upper_tail_p": 0.0297029702970297
+    },
+    "low_tail_example": {
+      "lower_tail_p": 0.039603960396039604,
+      "minimum_reportable_tail_p": 0.009900990099009901,
+      "n_lower_or_equal": 3,
+      "n_mocks": 100,
+      "n_upper_or_equal": 97,
+      "observed_raw_probability": 0.018,
+      "two_sided_p": 0.07920792079207921,
+      "upper_tail_p": 0.9702970297029703
+    }
+  },
+  "purpose": "Assemble phases 0-7 into a controlled manuscript blueprint for the independent auxiliary method paper.",
+  "section_plan": [
+    {
+      "evidence": "Phase 0",
+      "job": "State why posterior cosmic-fate class masses are unsafe as direct forecasts near Lambda-CDM.",
+      "main_output": "Problem framing and non-goals.",
+      "section": "1. Introduction"
+    },
+    {
+      "evidence": "Phase 0, Phase 3",
+      "job": "Define deterministic fate labels, posterior class mass, and the critical-boundary problem.",
+      "main_output": "Mathematical setup and classifier notation.",
+      "section": "2. Boundary-statistic formulation"
+    },
+    {
+      "evidence": "Phase 1",
+      "job": "Show that calibrated boundary probabilities can be broadly uniform under repeated experiments.",
+      "main_output": "Toy theorem or simulation with uniform diagnostics.",
+      "section": "3. One-dimensional boundary null"
+    },
+    {
+      "evidence": "Phase 2, Phase 3",
+      "job": "Translate the boundary result into a local w0-wa-like geometry without claiming a cosmic-fate result.",
+      "main_output": "Two-dimensional boundary figure and classifier framework.",
+      "section": "4. Cosmology-shaped analogue"
+    },
+    {
+      "evidence": "Phase 4",
+      "job": "Define lower, upper, and two-sided plus-one calibrated p-values.",
+      "main_output": "Protocol and finite-mock floor.",
+      "section": "5. Finite-mock null calibration"
+    },
+    {
+      "evidence": "Phase 5",
+      "job": "Demonstrate direction-depth separation using the existing 100 noisy LCDM mocks.",
+      "main_output": "Observed D0 tail-depth result as a method case study.",
+      "section": "6. Real-pipeline LCDM mock case study"
+    },
+    {
+      "evidence": "Phase 6",
+      "job": "Provide the reusable Direction, Depth, Evidence, Boundary, Horizon checklist.",
+      "main_output": "Citable reporting protocol.",
+      "section": "7. Reporting standard"
+    },
+    {
+      "evidence": "Phase 7",
+      "job": "Show which perturbations preserve uniformity and which correctly fail diagnostics.",
+      "main_output": "Robustness appendix and diagnostic-failure rules.",
+      "section": "8. Robustness and diagnostics"
+    },
+    {
+      "evidence": "Phase 0, Phase 6, Phase 7",
+      "job": "Keep unsupported evidence, horizon, and real-universe fate claims outside the method paper.",
+      "main_output": "Explicit proof boundary.",
+      "section": "9. Limitations"
+    }
+  ],
+  "short_title": "Cosmic-Fate Probabilities as Boundary Statistics",
+  "source_layer_count": 5,
+  "table_plan": [
+    [
+      "Table 1",
+      "Claim ledger and evidence boundary",
+      "Phase 8"
+    ],
+    [
+      "Table 2",
+      "Five-layer reporting checklist",
+      "Phase 6"
+    ],
+    [
+      "Table 3",
+      "LCDM mock case-study numbers",
+      "Phase 5"
+    ],
+    [
+      "Appendix Table A1",
+      "Robustness diagnostics",
+      "Phase 7"
+    ]
+  ],
+  "working_title": "Critical-Boundary Calibration of Cosmic-Fate Probabilities"
+}

@@ -188,7 +188,7 @@ def main() -> None:
     FIG_DIR.mkdir(parents=True, exist_ok=True)
     RESULT_DIR.mkdir(parents=True, exist_ok=True)
 
-    n = 120_000
+    n = 50_000
     seed = 20260707
     alpha = 1.2
     theta0 = np.array([0.0, 0.0])

@@ -1,0 +1,16 @@
+{
+  "figure_reference_count": 7,
+  "forbidden_overclaim_hits": 0,
+  "forbidden_patterns_hit": [],
+  "not_claimed_count": 3,
+  "outputs": [
+    "MANUSCRIPT_DRAFT.md",
+    "PHASE9_MANUSCRIPT_DRAFT.md",
+    "results/phase9_manuscript_audit.json",
+    "scripts/phase9_write_manuscript.py"
+  ],
+  "pass": true,
+  "section_count": 17,
+  "supported_claim_count": 4,
+  "word_count": 3900
+}

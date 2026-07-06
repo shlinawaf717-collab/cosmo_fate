@@ -1,0 +1,33 @@
+{
+  "files": {
+    "figures": true,
+    "output_pdf": true,
+    "readme": true,
+    "refs": true,
+    "submission_pdf": true,
+    "tex": true
+  },
+  "latex_engine_available": false,
+  "latex_info": {
+    "pandoc_available": true,
+    "pandoc_returncode": 0,
+    "pandoc_stderr": "",
+    "tex_path": "/Users/nocide/cosmo_fate/paper/method/submission/critical_boundary_calibration.tex"
+  },
+  "output_pdf_path": "/Users/nocide/cosmo_fate/output/pdf/critical_boundary_calibration_phase10.pdf",
+  "pass": true,
+  "pdf_citation_tokens_remaining": 0,
+  "pdf_pages": 17,
+  "pdf_path": "/Users/nocide/cosmo_fate/paper/method/submission/critical_boundary_calibration.pdf",
+  "phase": 10,
+  "phase9_audit_pass": true,
+  "rendered_pages": [
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase10_render/phase10-p1-01.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase10_render/phase10-p5-05.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase10_render/phase10-p9-09.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase10_render/phase10-p10-10.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase10_render/phase10-p14-14.png",
+    "/Users/nocide/cosmo_fate/tmp/pdfs/phase10_render/phase10-p17-17.png"
+  ],
+  "title_found_in_pdf_text": true
+}

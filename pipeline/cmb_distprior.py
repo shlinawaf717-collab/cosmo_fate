@@ -60,6 +60,39 @@ def predict_R_lA(ombh2, om, H0, w0, wa, omk=0.0):
     return R, lA
 
 
+def predict_R_lA_generic(ombh2, om, H0, ln_fde):
+    """Chen+2018 conventions exactly, with arbitrary ln_fde(a) (ln f_DE, f(1)=1)."""
+    h2 = (H0 / 100.0) ** 2
+    omh2 = om * h2
+    tfac = (TCMB / 2.7) ** -4
+    g1 = 0.0738 * ombh2 ** -0.238 / (1 + 39.5 * ombh2 ** 0.763)
+    g2 = 0.560 / (1 + 21.1 * ombh2 ** 1.81)
+    zstar = 1048 * (1 + 0.00124 * ombh2 ** -0.738) * (1 + g1 * omh2 ** g2)
+    zeq = 2.5e4 * omh2 * tfac
+    omr = om / (1 + zeq)
+    ode = 1.0 - om - omr
+
+    def E_of_a(a):
+        fde = np.exp(np.clip(ln_fde(a), -700, 700))
+        return np.sqrt(omr * a ** -4 + om * a ** -3 + ode * fde)
+
+    astar = 1.0 / (1 + zstar)
+    # chi(z*) = c/H0 * int dln a / (a E)  from astar to 1
+    ag = np.geomspace(astar, 1.0, 1500)
+    Eg = E_of_a(ag)
+    dh = C_KMS / H0
+    DM = dh * np.trapezoid(1.0 / (ag * Eg), np.log(ag))
+    # rs(z*) with baryon-loaded sound speed
+    rb = 31500.0 * ombh2 * tfac
+    ag2 = np.geomspace(1e-9, astar, 1500)
+    Eg2 = E_of_a(ag2)
+    integ = 1.0 / (ag2 * Eg2 * np.sqrt(3.0 * (1.0 + rb * ag2)))
+    rs = dh * np.trapezoid(integ, np.log(ag2))
+    lA = np.pi * DM / rs
+    R = np.sqrt(om) * H0 * DM / C_KMS
+    return R, lA
+
+
 class PlanckDistPrior(Likelihood):
     # yaml-overridable (mock runs replace `mean` with per-mock draws)
     mean = [1.7502, 301.471, 0.02236]  # R, l_A, Omega_b h^2
@@ -84,4 +117,17 @@ class PlanckDistPrior(Likelihood):
         R, lA = predict_R_lA(p("ombh2"), p("omegam"), p("H0"),
                              p("w"), p("wa"), p("omk"))
         d = np.array([R, lA, p("ombh2")]) - self.mean
+        return -0.5 * d @ self.icov @ d
+
+
+class ProviderDistPrior(PlanckDistPrior):
+    """Planck-2018 distance prior for arbitrary w(a): the (R, l_A) prediction is
+    computed inside BackgroundW with Chen conventions (product 'chen_RlA')."""
+
+    def get_requirements(self):
+        return {"chen_RlA": None, "ombh2": None}
+
+    def logp(self, **params_values):
+        R, lA = self.provider.get_chen_RlA()
+        d = np.array([R, lA, self.provider.get_param("ombh2")]) - self.mean
         return -0.5 * d @ self.icov @ d
