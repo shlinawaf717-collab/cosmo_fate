@@ -27,3 +27,8 @@ python3 -m venv .venv && .venv/bin/pip install numpy 'scipy==1.16.2' camb cobaya
 
 MCMC/nested 运行配置均以 `*.input.yaml` 存于 `runs/` 各目录（cobaya 直接可跑）；
 论文正文 `paper/main.tex` 用 `tectonic main.tex` 编译。
+
+链文件策略：入库的 `runs/**/*_N.1.txt` 为存档用薄链（论文数字的直接依据，
+`pipeline/example_read_chain.py` 演示读取并复现表 I）；未入库的合并链/mock 数据
+均可由入库配置与 seed 确定性再生。代码与文档以 MIT 许可发布（见 LICENSE）；
+精确环境见 `requirements.lock`。
