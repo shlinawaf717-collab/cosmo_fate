@@ -1,0 +1,15 @@
+{
+ "yaml": "runs/phase3/fparam/jbp_1.input.yaml",
+ "kind": "jbp",
+ "nlive": 500,
+ "ncall": 309622,
+ "n_samples": 11112,
+ "P_fate_nested": {
+  "CRUNCH": 0.0,
+  "RIP": 0.009089272858171347,
+  "DS": 0.0,
+  "DECAY": 0.9909107271418287,
+  "OTHER": 0.0
+ },
+ "P_RIP_se_binom": 0.0009002968261563962
+}

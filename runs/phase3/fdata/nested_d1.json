@@ -1,0 +1,15 @@
+{
+ "yaml": "runs/phase3/fdata/d1_1.input.yaml",
+ "kind": "cpl",
+ "nlive": 500,
+ "ncall": 187471,
+ "n_samples": 10069,
+ "P_fate_nested": {
+  "CRUNCH": 0.0,
+  "RIP": 0.0032773860363491908,
+  "DS": 0.0,
+  "DECAY": 0.9967226139636508,
+  "OTHER": 0.0
+ },
+ "P_RIP_se_binom": 0.0005695840049848005
+}
