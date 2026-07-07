@@ -59,7 +59,12 @@ def _classify_one(om, H0, w0, wa):
     return lab
 
 
-def main(yaml_path, kind, out_path, nlive=500, nproc=3):
+def _ptform(u, bounds):
+    # module-level (picklable for the spawn pool; a main()-local closure is not)
+    return np.array([lo + (hi - lo) * ui for ui, (lo, hi) in zip(u, bounds)])
+
+
+def main(yaml_path, kind, out_path, nlive=500, nproc=3, maxiter=None):
     import dynesty
     from functools import partial
     from multiprocessing import get_context
@@ -67,16 +72,13 @@ def main(yaml_path, kind, out_path, nlive=500, nproc=3):
     _init(yaml_path, kind)
     bounds = _model.prior.bounds(confidence_for_unbounded=0.9999)
     ndim = len(_names)
-
-    def ptform(u):
-        return np.array([lo + (hi - lo) * ui
-                         for ui, (lo, hi) in zip(u, bounds)])
+    ptform = partial(_ptform, bounds=bounds)
 
     ctx = get_context('spawn')
     with ctx.Pool(nproc, initializer=_init, initargs=(yaml_path, kind)) as pool:
         s = dynesty.NestedSampler(_logpost, ptform, ndim, nlive=nlive,
                                   pool=pool, queue_size=nproc * 2)
-        s.run_nested(dlogz=0.01, print_progress=False)
+        s.run_nested(dlogz=0.01, print_progress=False, maxiter=maxiter)
     r = s.results
     w = np.exp(r.logwt - r.logz[-1]); w /= w.sum()
     idx = np.random.default_rng(1).choice(len(w), size=min(20000, int((w > 0).sum())),
