@@ -1,0 +1,26 @@
+{
+ "model": "gp",
+ "method": "analytic (A-003 asymptotic branch: mean function fixes w_inf = -1 for every sample; verdict is sample-independent, zero MC error)",
+ "CRUNCH": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "RIP": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "DS": {
+  "P": 1.0,
+  "mc_err": 0.0
+ },
+ "DECAY": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "OTHER": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "boundary_fraction": 0.0,
+ "P_heat": 1.0
+}

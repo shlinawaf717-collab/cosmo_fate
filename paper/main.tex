@@ -36,10 +36,12 @@ assumption-dominated: swapping supernova compilations moves the \lcdm{}
 exclusion from $2.25\sigma$ to $3.27\sigma$; a quintessence prior sets
 $P(\textsc{rip})\equiv0$ at a fit cost of $\Delta\chi^2=8.9$; Bayesian
 evidence \emph{favors} \lcdm{} ($\ln B=-1.76$) while $\Delta\chi^2$ disfavors
-it; and across four $w(a)$ grammars indistinguishable inside the data window,
-$P(\textsc{rip})$ spans $0.2\%$--$41\%$ and heat-death compatibility falls
-from $99.8\%$ to $58.8\%$, with the binned grammar returning a measured
-$w(z{<}0.3)=-1.000\pm0.044$---the knife edge itself. Data information
+it; and across five $w(a)$ grammars indistinguishable inside the data window,
+the verdict runs from $P(\textsc{ds})=100\%$ (donated exactly by a
+Gaussian-process mean function) through near-certain \textsc{decay} (CPL) to
+a three-way coin flip (binned $w$): $P(\textsc{rip})$ spans $0$--$41\%$,
+heat-death compatibility $58.8$--$100\%$, and the binned grammar returns a
+measured $w(z{<}0.3)=-1.000\pm0.044$---the knife edge itself. Data information
 terminates at $a=1$; every eschatological bit beyond it is
 grammar-transported. We conclude that current fate claims report the echo of
 their extrapolation conventions, and we release the audit framework and
@@ -95,9 +97,11 @@ CPL, eight times below the lowest value reached by any of the hundred null
 mocks (calibrated $p<0.030$), converging with the Wilks route ($p=0.024$)---a
 genuine, doubly-verified thawing signal. Third, in translation: converting
 that signal into a fate statement is dominated by the extrapolation rule.
-Across four parametrizations that are indistinguishable inside the data
-window~\cite{Wolf2025}, the Big Rip probability moves from $0.2\%$ (CPL) to $41\%$ (binned
-$w$), and the heat-death-compatible probability from $99.8\%$ to $58.8\%$;
+Across five parametrizations that are indistinguishable inside the data
+window~\cite{Wolf2025}, the Big Rip probability moves from zero (a
+Gaussian-process grammar whose mean function forbids it) through $0.2\%$
+(CPL) to $41\%$ (binned $w$), and the heat-death-compatible probability
+from $58.8\%$ to $100\%$;
 under a quintessence prior the rip probability is zero before any data
 arrive. The fate epoch lies entirely beyond $a=1$, where the
 data--posterior information content vanishes identically
@@ -392,23 +396,41 @@ threshold-sensitive, which is itself the point.) Meanwhile the binned
 reconstruction relocates the thawing signal: the low-$z$ bin is
 \lcdm-consistent, and the deviation lives at $z\in[0.7,1.5]$
 ($w_3=-1.53\pm0.20$)---CPL's famous $\wz\approx-0.88$ is that mid-$z$ signal
-transported to $z=0$ along a straight line. The axis reading:
-$P(\textsc{rip})$ spans $0.2\%$ to $41\%$ ($2.3$ dex); even the
-heat-death-compatible headline, robust on every other axis, moves from
-$99.8\%$ to $58.8\%$.
+transported to $z=0$ along a straight line.
+
+The fifth registered grammar closes the family from the opposite side. We
+realize the plan's Gaussian-process reconstruction as six nodes over
+$z\in[0,3]$, interpolated by the conditional mean of a squared-exponential
+GP with hierarchically sampled $(\sigma_f,\ell)$ and mean function $w=-1$;
+outside the data window---in \emph{both} directions---the reconstruction
+reverts to its mean by construction. The consequence is exact:
+$w(a\to\infty)=-1$ for every posterior sample, so the A-003 asymptotic
+criteria return $P(\textsc{ds})=100\%$ with zero Monte Carlo error,
+independently of what the data say about the nodes. This is the mirror
+image of the quintessence prior (Sec.~\ref{sec:fprior}): there the prior
+forbids the rip before any data arrive; here the grammar's mean function
+simply \emph{is} the fate. (Assigning each sample its conditional-mean
+future is itself a convention; propagating the kernel's future fluctuations
+instead would make the verdict a property of the noise ensemble---an
+arbitrariness of yet another kind.) The axis reading:
+$P(\textsc{rip})$ spans $0$ (grammar-excluded) through $0.2\%$ to $41\%$
+($2.3$ dex over the measured range); the heat-death-compatible headline,
+robust on every other axis, ranges over $58.8$--$100\%$.
 
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{../runs/phase3/fparam/f5_grammar_fates.pdf}
 \caption{Fate composition across $w(a)$ grammars (D0+P1 fixed; A-003
 criteria). The same data and priors deliver near-certain \textsc{decay}
-under the divergent-future family and a three-way split under the
-frozen-future grammar; heat-death compatibility falls from $99.8\%$ to
-$58.8\%$.}\label{fig:grammar}
+under the divergent-future family, a three-way split under the
+frozen-future grammar, and pure \textsc{ds} under the mean-reverting GP;
+heat-death compatibility ranges over $58.8$--$100\%$.}\label{fig:grammar}
 \end{figure}
 
 \begin{table}[t]
 \caption{Fate probabilities across $w(a)$ grammars (D0+P1 fixed; A-003
-criteria).}\label{tab:grammar}
+criteria). The GP row is exact: the mean function fixes
+$w(a\to\infty)=-1$, so the asymptotic branch classifies every sample
+\textsc{ds} independently of its node values.}\label{tab:grammar}
 \begin{ruledtabular}
 \begin{tabular}{lccccc}
 Grammar & $P(\textsc{rip})$ & $P(\textsc{decay})$ & $P(\textsc{ds})$ &
@@ -418,6 +440,7 @@ CPL & $0.21\%$ & $99.79\%$ & $0$ & $99.8\%$ \\
 JBP & $0.79\%$ & $99.21\%$ & $0$ & $99.2\%$ \\
 BA & $1.28\%$ & $98.35\%$ & $0.37\%$ & $98.7\%$ \\
 BIN4 & $41.2\%$ & $41.2\%$ & $17.6\%$ & $58.8\%$ \\
+GP & $0$ & $0$ & $100\%$ & $100\%$ \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -462,7 +485,7 @@ CMB information & compressed/full & stable $-0.5\sigma$ discount & priced, stabl
 Dataset ablation & D1--D4 & $\wa\in[-1.72,-0.55]$; $P(\textsc{rip})\,0\!-\!0.3\%$ & direction robust \\
 Prior & P1/P2/P3 & $P(\textsc{rip})$: $0.18\%\to 0$ (excluded) & prior decides \\
 Statistic & $\Delta\chi^2$ vs $\ln B$ & $2.25\sigma$ against vs.\ $\ln B$ for \lcdm & direction flips \\
-Grammar & CPL/JBP/BA/BIN4 & $P(\textsc{rip})$: $0.2\%\to41\%$ ($2.3$ dex) & dominant axis \\
+Grammar & CPL/JBP/BA/BIN4/GP & $P(\textsc{rip})$ $0\to41\%$; $P(\text{heat})$ $58.8\to100\%$ & dominant axis \\
 Truth position & \lcdm{} null & verdict $\sim U(0,1)$; zero-noise 52/48 & uninformative \\
 \end{tabular}
 \end{ruledtabular}
@@ -533,8 +556,9 @@ conclusion lives beyond its data window.
 \emph{Limitations.} All significances inherit the compressed-CMB condition
 (priced at $\approx0.5\sigma$; A-001). The analysis is geometry-only; growth
 data could shift the window-interior signal. The grammar family, while
-spanning divergent, bounded, and frozen futures, is not exhaustive---a
-Gaussian-process reconstruction is a planned cross-check, and our grammar-span
+spanning divergent, bounded, frozen, and mean-reverting futures, is not
+exhaustive---still further parametrizations and reconstructions are in
+active use~\cite{Wolf2025}---and our grammar-span
 readings are lower bounds. The work was performed by a single author with
 AI assistance under the verification protocol described; residual
 unknown-unknowns are bounded only by the audit trail, which is public.
@@ -594,8 +618,8 @@ parametrization axis: BA, $w(z)=\wz+\wa\,z/(1+z^2)$; JBP,
 $w(z)=\wz+\wa\,z/(1+z)^2$; BIN4, constant $w$ in four redshift bins
 $z\in[0,0.3)$, $[0.3,0.7)$, $[0.7,1.5)$, $[1.5,z_{\rm CMB}]$, with the
 future ($a>1$) inheriting the first bin; and a Gaussian-process
-reconstruction, registered as a secondary cross-check (not run in this
-release; Sec.~\ref{sec:discussion}).
+reconstruction, registered as a secondary cross-check (realization and
+verdict in Sec.~\ref{sec:fparam}).
 
 \emph{Priors.} P1 (baseline, flat): $\Omega_m\in[0.01,0.99]$;
 $H_0\in[20,100]$~km\,s$^{-1}$\,Mpc$^{-1}$; $\Omega_bh^2\in[0.005,0.1]$ when

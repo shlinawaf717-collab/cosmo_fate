@@ -212,6 +212,7 @@ def fig5():
         ("JBP",  "fate_jbp.json"),
         ("BA",   "fate_ba_a003.json"),
         ("BIN4", "fate_bin4_a003.json"),
+        ("GP",   "fate_gp.json"),
     ]
     classes = [("RIP", "#c1443c"), ("DS", "#4878a8"), ("DECAY", "#6aa66a")]
 
