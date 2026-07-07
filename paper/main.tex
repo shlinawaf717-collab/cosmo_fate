@@ -1,5 +1,6 @@
 \documentclass[aps,prd,preprint,superscriptaddress,nofootinbib]{revtex4-2}
 \usepackage{graphicx,amsmath,amssymb,booktabs,hyperref,xcolor}
+\hypersetup{colorlinks=true, linkcolor=blue!55!black, citecolor=blue!55!black, urlcolor=blue!55!black}
 \newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 \newcommand{\lcdm}{\ensuremath{\Lambda\mathrm{CDM}}}
 \newcommand{\wz}{\ensuremath{w_0}}
@@ -160,7 +161,7 @@ mixing conventions shifted $\ell_A$ by $3\sigma$ of pure artifact in an early
 pipeline version, caught by a known-answer test before any science ran.
 
 \begin{figure}[t]
-\includegraphics[width=0.9\columnwidth]{../runs/gate1/gate1_vs_official_chains.png}
+\includegraphics[width=0.9\columnwidth]{../runs/gate1/f1_gate1_vs_official.pdf}
 \caption{Gate-1 chain-level validation: this pipeline (compressed CMB, open
 contours) versus the official DESI DR2 chains (full CMB + lensing, filled).
 All marginal shifts $\le 0.33\sigma$.}\label{fig:gate1}
@@ -194,13 +195,13 @@ documented numerical edge cases (Appendix~\ref{app:classifier}).
 
 Figure~\ref{fig:partition} shows the D0 (DESI DR2 + CMB prior + Pantheon+SH0ES)
 CPL~\cite{ChevallierPolarski2001,Linder2003} posterior---$\wz=-0.884\pm0.057$, $\wa=-0.62^{+0.25}_{-0.22}$,
-$\Omega_m=0.2997\pm0.0050$, $H_0=69.00\pm0.54$ (four chains, $R-1=0.0033$)---
+$\Omega_m=0.2997\pm0.0050$, $H_0=69.00\pm0.54$~km\,s$^{-1}$\,Mpc$^{-1}$ (four chains, $R-1=0.0033$)---
 drawn over the fate partition of the $(\wz,\wa)$ plane. The posterior presses
 against the zero-width \textsc{rip}/\textsc{decay} boundary at $\wa=0$; the
 consequences of that geometry occupy the next section.
 
 \begin{figure}[t]
-\includegraphics[width=0.85\columnwidth]{../runs/phase2/d0_fate_partition.png}
+\includegraphics[width=0.85\columnwidth]{../runs/phase2/f2_d0_fate_partition.pdf}
 \caption{D0+CPL+P1 posterior over the fate partition. The fate boundary
 $\wa=0$ has zero width; \lcdm{} sits exactly on it.}\label{fig:partition}
 \end{figure}
@@ -273,7 +274,7 @@ What that signal does and does not imply about the actual fate is the
 subject of the fragility matrix.
 
 \begin{figure}[t]
-\includegraphics[width=0.95\columnwidth]{../runs/gate2/gate2_null_histogram.png}
+\includegraphics[width=0.95\columnwidth]{../runs/gate2/f3_null_histogram.pdf}
 \caption{Null calibration of the fate verdict. Under \lcdm{} truth the
 heat-death-compatible posterior mass is consistent with $U(0,1)$
 (KS $p=0.25$); even the zero-noise mock returns 52/48. The real-data value
@@ -296,14 +297,14 @@ datasets pulling with different strengths. Swapping the supernova compilation
 $2.25\sigma$ (Pantheon+) through $2.81\sigma$ (DES-Dovekie) to $3.27\sigma$
 (Union3), reproducing the literature's significance
 ladder~\cite{Efstathiou2024,HuangCaiWang2025} inside a single
-pipeline; the SH0ES anchor alone moves $H_0$ by $+1.35$ and $\wz$ by $-0.034$
+pipeline; the SH0ES anchor alone moves $H_0$ by $+1.35$~km\,s$^{-1}$\,Mpc$^{-1}$ and $\wz$ by $-0.034$
 ---Hubble-tension leakage into the dark-energy sector. Throughout,
 $P(\textsc{rip})$ stays within $0$--$0.3\%$: \emph{fate probabilities are
 robust to which data one believes} (they are not robust to which grammar one
 believes; Sec.~\ref{sec:fparam}).
 
 \begin{figure}[t]
-\includegraphics[width=\columnwidth]{../runs/phase3/fdata/f4_loo_forest.png}
+\includegraphics[width=\columnwidth]{../runs/phase3/fdata/f4_loo_forest.pdf}
 \caption{Leave-one-out forest (CPL+P1 fixed). Left: the $\wa$ magnitude
 swings threefold across dataset ablations, and the full combination (dotted
 line) is the most moderate of all subsets. Right: $P(\textsc{rip})$ stays
@@ -375,7 +376,7 @@ heat-death-compatible headline, robust on every other axis, moves from
 $99.8\%$ to $58.8\%$.
 
 \begin{figure}[t]
-\includegraphics[width=\columnwidth]{../runs/phase3/fparam/f5_grammar_fates.png}
+\includegraphics[width=\columnwidth]{../runs/phase3/fparam/f5_grammar_fates.pdf}
 \caption{Fate composition across $w(a)$ grammars (D0+P1 fixed; A-003
 criteria). The same data and priors deliver near-certain \textsc{decay}
 under the divergent-future family and a three-way split under the
@@ -414,7 +415,7 @@ fate verdict depends, in every grammar, on a region where the measured
 information content is exactly nil.
 
 \begin{figure}[t]
-\includegraphics[width=\columnwidth]{../runs/phase3/fparam/f6_constraint_horizon.png}
+\includegraphics[width=\columnwidth]{../runs/phase3/fparam/f6_constraint_horizon.pdf}
 \caption{Constraint horizon (BIN4): posterior-to-prior information in
 $w(a)$ per bin. The frozen $0.1$-nat threshold is never crossed inside the
 data window, so the horizon lands at its sharpest possible position,
@@ -422,7 +423,7 @@ $a_h=1$: over the entire fate-relevant epoch $a>1$ the data-sourced
 information is identically zero.}\label{fig:horizon}
 \end{figure}
 
-\subsection{The fragility matrix}\label{sec:summary}
+\subsection{Synthesis}\label{sec:summary}
 
 \begin{table*}[t]
 \caption{The eight-axis fragility matrix. Each row varies one assumption with
@@ -434,7 +435,7 @@ all others fixed and reports the response of the fate verdict.}
 Axis & knob & response & verdict \\
 \hline
 SN compilation & Pantheon+/Dovekie/Union3 & \lcdm{} exclusion $2.25\!-\!3.27\sigma$ & magnitude fragile \\
-SH0ES anchor & in/out & $H_0\,{+}1.35$; $\wz\,{-}0.034$ & leakage, direction robust \\
+SH0ES anchor & in/out & $H_0$ ${+}1.35$~km\,s$^{-1}$\,Mpc$^{-1}$; $\wz\,{-}0.034$ & leakage, direction robust \\
 CMB information & compressed/full & stable $-0.5\sigma$ discount & priced, stable \\
 Dataset ablation & D1--D4 & $\wa\in[-1.72,-0.55]$; $P(\textsc{rip})\,0\!-\!0.3\%$ & direction robust \\
 Prior & P1/P2/P3 & $P(\textsc{rip})$: $0.18\%\to 0$ (excluded) & prior decides \\
