@@ -287,6 +287,39 @@ def fig6():
     print("wrote", out)
 
 
+def figA():
+    """Appendix boundary-calibration toy: reproduces phase-1 sampling exactly
+    (default_rng(20260706), n=2e5) so the annotated stats match the JSON."""
+    from scipy.stats import norm, kstest
+    n, seed = 200_000, 20260706
+    cases = [
+        ("calibrated, truth on boundary",
+         norm.cdf(np.random.default_rng(seed).normal(0.0, 1.0, n)), "#4878a8"),
+        (r"truth off boundary by $0.5\sigma$",
+         norm.cdf(np.random.default_rng(seed + 1).normal(0.5, 1.0, n)), "#c1443c"),
+        (r"posterior too tight ($0.7\sigma$)",
+         norm.cdf(np.random.default_rng(seed + 4).normal(0.0, 1.0, n) / 0.7), "#6aa66a"),
+    ]
+    fig, axes = plt.subplots(1, 3, figsize=(9, 2.7), sharey=True)
+    for ax, (label, p, color) in zip(axes, cases):
+        ax.hist(p, bins=40, density=True, color=color, alpha=0.75)
+        ax.axhline(1.0, color="0.25", ls="--", lw=1)
+        ks = kstest(p, "uniform").pvalue
+        ax.set_title(label, fontsize=9)
+        ax.text(0.5, 0.06, f"mean {p.mean():.3f}\nvar {p.var():.4f}\nKS $p$ "
+                + (f"= {ks:.2f}" if ks > 5e-3 else r"$< 10^{-3}$"),
+                transform=ax.transAxes, ha="center", fontsize=8, color="0.25")
+        ax.set_xlabel(r"$P(\mathrm{class}\,A\mid\hat{x})$")
+        ax.set_xlim(0, 1)
+    axes[0].set_ylabel("density")
+    fig.tight_layout()
+    figdir = os.path.join(ROOT, "paper", "figures")
+    os.makedirs(figdir, exist_ok=True)
+    out = os.path.join(figdir, "figA_boundary_toy.pdf")
+    fig.savefig(out)
+    print("wrote", out)
+
+
 if __name__ == "__main__":
     fig1()
     fig2()
@@ -294,3 +327,4 @@ if __name__ == "__main__":
     fig4()
     fig5()
     fig6()
+    figA()

@@ -252,6 +252,9 @@ Because the \lcdm{} truth sits on the zero-width fate boundary, the
 probability integral transform predicts the heat-death-compatible posterior
 mass to be distributed as $U(0,1)$ across realizations, hence a direction
 verdict correct in $\sim50\%$ of mocks \emph{regardless of pipeline quality}.
+(The general statement, its closed-form verification, the diagnostics that
+detect a miscalibrated pipeline, and the finite-mock reporting rules are
+collected in Appendix~\ref{app:boundarystats}.)
 These predictions were registered before the campaign ran. Results
 (Fig.~\ref{fig:null}): accuracy $50/100$ (68\% CI $[45,55]$); KS uniformity
 $p=0.25$; mean $0.525\pm0.030$; \textsc{other} and boundary budgets at the
@@ -743,6 +746,88 @@ direction accuracy $50\pm10\%$; $P_{\rm heat}$ consistent with $U(0,1)$;
 \texttt{mock000} near 0.5; and the resulting A-002 trigger. All six were
 correct. Per-mock records (101 rows), summary statistics, and the batch
 logs are in the repository.
+
+\section{Boundary calibration statistics}\label{app:boundarystats}
+
+This appendix collects, in model-independent form, the statistical facts
+behind the null calibration of Sec.~\ref{sec:null}: the exact uniformity
+result, its closed-form verification, the diagnostics that detect a
+\emph{mis}calibrated pipeline, the finite-mock reporting rules, and the
+relation to the calibration literature.
+
+\emph{One dimension.} Let $\hat{x}\sim\mathcal{N}(\theta_0,\sigma^2)$ with
+posterior $\theta\,|\,\hat{x}\sim\mathcal{N}(\hat{x},\sigma^2)$ (the
+calibrated case), and let class $A$ be $\theta>0$ with the truth on the
+boundary, $\theta_0=0$. Then $P(A\,|\,\hat{x})=\Phi(\hat{x}/\sigma)=\Phi(Z)$
+with $Z\sim\mathcal{N}(0,1)$: by the probability integral
+transform~\cite{Rosenblatt1952}, the class probability is \emph{exactly}
+$U(0,1)$ across realizations. Numerically ($2\times10^5$ replications):
+mean $0.5010$, variance $0.08356$ against the uniform value $1/12\approx
+0.08333$, direction rate $0.502$, KS $p=0.16$. Because the class
+probability is a continuous functional of the data, its null distribution
+has no atom at $1/2$: individual realizations can look arbitrarily
+confident while the ensemble verdict remains a fair coin.
+
+\emph{Two dimensions, correlated errors.} In a $(u,v)$ analogue of
+$(\wz{+}1,\wa)$ with a D0-like degenerate covariance and a linear fate
+score $s=\alpha u+v$ ($\alpha=1.2$, class $s>0$), the same argument applies
+to any linear boundary through the truth: $5\times10^4$ replications give
+mean $0.5013$, variance $0.08326$, direction rate $0.505$, KS $p=0.058$.
+The CPL fate boundary $\wa=0$ is exactly linear, so the result covers the
+geometry of Sec.~\ref{sec:null} up to the non-Gaussianity of the real
+posterior---which the full-pipeline campaign tests directly.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{figures/figA_boundary_toy.pdf}
+\caption{The boundary-calibration toy (Appendix~\ref{app:boundarystats}).
+Left: calibrated posterior with the truth on the boundary---class
+probabilities exactly uniform. Center: truth off the boundary by
+$0.5\sigma$---direction information appears, as it should. Right:
+over-confident posterior---mean preserved but variance above $1/12$; the
+uniformity diagnostics fail precisely when the pipeline is defective.}
+\label{fig:boundarytoy}
+\end{figure}
+
+\emph{Diagnostics: when uniformity must fail.} The value of the null test
+lies in what breaks it (Fig.~\ref{fig:boundarytoy}). Truth off the
+boundary by $0.5\sigma$: mean $0.639$, direction rate $0.692$, KS
+$p\approx0$---direction information appears exactly when it exists.
+Decision threshold shifted while the truth sits on it: still uniform (KS
+$p=0.25$)---only the truth--boundary distance matters. Posterior too wide
+(under-confident, $1.5\sigma$): mean stays at $0.500$ but the variance
+collapses to $0.0496<1/12$. Posterior too tight (over-confident,
+$0.7\sigma$): variance inflates to $0.1175>1/12$. Strongly curved
+boundary: KS $p=2.5\times10^{-6}$---uniformity is a locally-linear
+statement (the CPL boundary is exactly linear). The triple observed in
+Sec.~\ref{sec:null}---accuracy $\approx50\%$, uniform shape, variance
+consistent with $1/12$---is therefore not merely ``consistent with''
+calibration: each defect direction is separately detectable, and none
+occurred.
+
+\emph{Finite-mock reporting rules (frozen before the campaign).} With $k$
+of $n$ mocks at or below the real-data statistic, we report the plus-one
+estimate $\hat{p}=(k+1)/(n+1)$~\cite{PhipsonSmyth2010} and, for $k=0$, the
+$95\%$ upper bound $1-0.05^{1/n}$; a Monte Carlo $p$-value is never
+reported as zero. For $k=0$, $n=100$: $\hat{p}=0.0099$, upper bound
+$0.0295$---quoted throughout as $p<0.030$.
+
+\emph{Relation to the calibration literature.} The lineage runs from the
+probability integral transform~\cite{Rosenblatt1952} through prequential
+calibration~\cite{Dawid1984} and posterior predictive
+checking~\cite{Rubin1984,GelmanMengStern1996}. The closest modern relative
+is simulation-based calibration~\cite{Talts2018}, which validates posterior
+computation via rank uniformity under prior-drawn truths. The present test
+differs in both conditioning and target: the truth is \emph{fixed at the
+boundary point}, and the calibrated object is a \emph{decision functional
+discontinuous there}---the campaign is a null test of the verdict, not of
+the posterior machinery (which Gate 1 validates separately). The practical
+residue is a reporting discipline matching the three layers of
+Sec.~\ref{sec:discussion}: a fate-style claim should state (i) its
+direction-layer verdict together with the null distribution of that
+verdict, (ii) its depth-layer tail probability under the finite-simulation
+rules above, and (iii) the translation-layer conditions---parametrization,
+prior, statistic---under which the verdict holds; Table~\ref{tab:matrix}
+is the translation layer's error budget.
 
 \section{Reproducibility}\label{app:repro}
 
