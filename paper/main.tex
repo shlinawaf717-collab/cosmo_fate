@@ -344,8 +344,9 @@ upper limit for zero \textsc{rip} samples.}\label{fig:loo}
 \caption{Leave-one-out (CPL+P1 fixed). Per the frozen sub-percent rule,
 every sub-percent tail probability in this table and in
 Table~\ref{tab:grammar} has been independently re-verified by nested
-sampling; the largest shift is $1.3\sigma$ of the binomial Monte Carlo
-error, and the exact zero of D3 is reproduced (per-combination records in
+sampling; all six agree within sampling uncertainty (largest shift
+$1.3\sigma$ under a binomial error model, which if anything overstates
+shifts), and the exact zero of D3 is reproduced (per-combination records in
 the repository).}\label{tab:loo}
 \begin{ruledtabular}
 \begin{tabular}{lcccc}
@@ -814,7 +815,15 @@ conditional mean, in which the amplitude $\sigma_f$ cancels analytically
 each node uniform on $[-3,1]$ (mirroring P1), multiplied by the hierarchical
 GP density $\mathcal{N}(-1,\sigma_f^2 K_\ell)$ with $\sigma_f$ uniform on
 $[0.01,2]$ and $\ell$ uniform on $[0.2,3]$ e-folds; the fixed-$\ell$
-sensitivity runs pin $\ell$ and retain the rest.
+sensitivity runs pin $\ell$ and retain the rest. Two consistency notes.
+First, the box truncation leaves the hierarchical density unnormalized as a
+function of $(\sigma_f,\ell)$; this tilts only the weakly identified
+hyperparameter marginals, which we do not interpret quantitatively---nodes
+and fate verdict are unaffected. Second, the cross-grammar machinery takes
+$r_{\rm drag}$ from a \lcdm{} computation (drag-epoch physics treated as
+dark-energy independent); this is self-consistent a posteriori even for the
+binned grammar, whose free high-$z$ bin sits at $w_4=-1.71\pm0.62$, leaving
+zero posterior mass with $\rho_{\rm DE}/\rho_m(z_{\rm drag})>0.01$.
 
 \section{Mock machinery and zero-noise validation}\label{app:mocks}
 
