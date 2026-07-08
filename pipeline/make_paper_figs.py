@@ -194,8 +194,8 @@ def fig4():
                          color="crimson", ms=6, xuplims=[True])
     ax2.set_xscale("log")
     ax2.set_xlim(6e-6, 3e-2)
-    ax2.axvspan(6e-6, 3e-3, color="0.92", zorder=0)
-    ax2.text(0.15, 0.06, "swings within 0–0.3%", fontsize=8, color="0.35",
+    ax2.axvspan(6e-6, 3.2e-3, color="0.92", zorder=0)
+    ax2.text(0.15, 0.06, "swings within 0–0.31%", fontsize=8, color="0.35",
              transform=ax2.transAxes, ha="left", va="bottom")
     ax2.set_xlabel(r"$P(\mathrm{RIP})$")
     ax2.set_title("fate direction: robust", fontsize=9)

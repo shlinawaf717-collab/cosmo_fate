@@ -279,7 +279,10 @@ collected in Appendix~\ref{app:boundarystats}.)
 These predictions were registered before the campaign ran. Results
 (Fig.~\ref{fig:null}): accuracy $50/100$ (68\% CI $[45,55]$); KS uniformity
 $p=0.25$; mean $0.525\pm0.030$; \textsc{other} and boundary budgets at the
-$10^{-3}$ level. The zero-noise mock returns $52/48$: even noiseless \lcdm{}
+$10^{-3}$ level. (A hundred-realization KS test has limited power against
+mild distortions, which is why the registered predictions also pinned the
+mean, the accuracy count, and the budgets---all independently satisfied.)
+The zero-noise mock returns $52/48$: even noiseless \lcdm{}
 data flip a coin, establishing that the verdict's randomness originates in
 boundary geometry, not measurement noise. No calibrated Bayesian procedure
 can do better; a pipeline scoring far above 50\% here would be exhibiting
@@ -324,7 +327,7 @@ $2.25\sigma$ (Pantheon+) through $2.81\sigma$ (DES-Dovekie) to $3.27\sigma$
 ladder~\cite{Efstathiou2024,HuangCaiWang2025} inside a single
 pipeline; the SH0ES anchor alone moves $H_0$ by $+1.35$~km\,s$^{-1}$\,Mpc$^{-1}$ and $\wz$ by $-0.034$
 ---Hubble-tension leakage into the dark-energy sector. Throughout,
-$P(\textsc{rip})$ stays within $0$--$0.3\%$: \emph{fate probabilities are
+$P(\textsc{rip})$ stays within $0$--$0.31\%$: \emph{fate probabilities are
 robust to which data one believes} (they are not robust to which grammar one
 believes; Sec.~\ref{sec:fparam}).
 
@@ -333,7 +336,7 @@ believes; Sec.~\ref{sec:fparam}).
 \caption{Leave-one-out forest (CPL+P1 fixed). Left: the $\wa$ magnitude
 swings threefold across dataset ablations, and the full combination (dotted
 line) is the most moderate of all subsets. Right: $P(\textsc{rip})$ stays
-within $0$--$0.3\%$ throughout (shaded); the D3 entry is the Monte Carlo
+within $0$--$0.31\%$ throughout (shaded); the D3 entry is the Monte Carlo
 upper limit for zero \textsc{rip} samples.}\label{fig:loo}
 \end{figure}
 
@@ -509,7 +512,7 @@ Axis & knob & response & verdict \\
 SN compilation & Pantheon+/Dovekie/Union3 & \lcdm{} exclusion $2.25\!-\!3.27\sigma$ & magnitude fragile \\
 SH0ES anchor & in/out & $H_0$ ${+}1.35$~km\,s$^{-1}$\,Mpc$^{-1}$; $\wz\,{-}0.034$ & leakage, direction robust \\
 CMB information & compressed/full & stable $-0.5\sigma$ discount & priced, stable \\
-Dataset ablation & D1--D4 & $\wa\in[-1.72,-0.55]$; $P(\textsc{rip})\,0\!-\!0.3\%$ & direction robust \\
+Dataset ablation & D1--D4 & $\wa\in[-1.72,-0.55]$; $P(\textsc{rip})\,0\!-\!0.31\%$ & direction robust \\
 Prior & P1/P2/P3 & $P(\textsc{rip})$: $0.18\%\to 0$ (excluded) & prior decides \\
 Statistic & $\Delta\chi^2$ vs $\ln B$ & $2.25\sigma$ against vs.\ $\ln B$ for \lcdm & direction flips \\
 Grammar & CPL/JBP/BA/BIN4/GP & $P(\textsc{rip})$ $0\to41\%$; $P(\text{heat})$ $58.8\to100\%$ & dominant axis \\
@@ -807,7 +810,11 @@ the asymptotic branch applies to every sample. The frozen realization: six
 nodes at uniform $\ln a$ spacing over $z\in[0,3]$, squared-exponential
 correlation on $\ln a$, jitter $10^{-10}$, and interpolation by the GP
 conditional mean, in which the amplitude $\sigma_f$ cancels analytically
-($\sigma_f$ acts only through the hierarchical prior on the nodes).
+($\sigma_f$ acts only through the hierarchical prior on the nodes). Priors:
+each node uniform on $[-3,1]$ (mirroring P1), multiplied by the hierarchical
+GP density $\mathcal{N}(-1,\sigma_f^2 K_\ell)$ with $\sigma_f$ uniform on
+$[0.01,2]$ and $\ell$ uniform on $[0.2,3]$ e-folds; the fixed-$\ell$
+sensitivity runs pin $\ell$ and retain the rest.
 
 \section{Mock machinery and zero-noise validation}\label{app:mocks}
 
