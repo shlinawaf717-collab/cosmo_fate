@@ -273,7 +273,8 @@ def fig6():
             "all information grammar-transported",
             ha="center", fontsize=8.5, color="#c1443c")
     ax.axhline(0.1, color="0.4", ls="--", lw=1)
-    ax.text(1.3e-3, 0.16, "0.1 nat horizon threshold", fontsize=8, color="0.4")
+    ax.text(1.3e-3, 0.08, "0.1 nat horizon threshold", fontsize=8, color="0.4",
+            va="top")
     ax.axvline(1.0, color="0.6", lw=0.8)
     ax.text(0.93, 2.6, "today", rotation=90, fontsize=8, color="0.5", ha="right")
 
