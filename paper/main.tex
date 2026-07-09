@@ -5,6 +5,7 @@
 \newcommand{\lcdm}{\ensuremath{\Lambda\mathrm{CDM}}}
 \newcommand{\wz}{\ensuremath{w_0}}
 \newcommand{\wa}{\ensuremath{w_a}}
+\input{numbers} % GENERATED from runs/ JSON by pipeline/gen_paper_numbers.py
 
 \begin{document}
 
@@ -26,8 +27,8 @@ plan (frozen before real-data fate analysis; three logged amendments), we
 combine DESI DR2 BAO, \textit{Planck} 2018 distance priors, and
 Pantheon+/SH0ES supernovae, propagate every posterior sample to $a=10^4$
 through a frozen fate classifier, and differentiate the verdict along eight
-assumption axes. Baseline (CPL): $P(\textsc{decay})=99.8\%$,
-$P(\textsc{rip})=0.18\%$ (independently verified by nested sampling). Null
+assumption axes. Baseline (CPL): $P(\textsc{decay})=\DzeroDecayPct\%$,
+$P(\textsc{rip})=\DzeroRipPct\%$ (independently verified by nested sampling). Null
 calibration on one hundred mock universes with exact-\lcdm{} truth shows the
 \emph{direction} of such verdicts is a coin flip---heat-death-compatible mass
 distributed as $U(0,1)$, $52/48$ even at zero noise---while the \emph{depth}
@@ -79,8 +80,9 @@ Our design principle is simple: every conclusion is accompanied by its
 derivative with respect to the assumptions. We freeze an analysis plan before
 any real-data fate computation (Sec.~\ref{sec:prereg}), validate the pipeline against the
 official DESI DR2 chains (Sec.~\ref{sec:data}), propagate every posterior
-sample to $a=10^{4}$ through a frozen fate classifier (Sec.~\ref{sec:fate}),
-calibrate the classifier on one hundred mock universes in which the truth is
+sample to $a=10^{4}$ through a frozen fate classifier and report the
+baseline verdict (Secs.~\ref{sec:fate}--\ref{sec:baseline}), calibrate the
+classifier on one hundred mock universes in which the truth is
 exactly \lcdm{} (Sec.~\ref{sec:null}), and then measure the fate verdict's
 response along eight axes of assumption variation (Sec.~\ref{sec:matrix}):
 the supernova compilation, the SH0ES anchor, the CMB information content,
@@ -89,7 +91,7 @@ statistic, the $w(a)$ parametrization, and the position of the truth itself.
 
 Three results organize the paper. First, under the null: when the pipeline is
 fed data whose truth is exactly \lcdm{}, the direction of the fate verdict
-(dissipation versus rip) is a coin flip---the heat-death-compatible posterior
+(decay versus rip) is a coin flip---the heat-death-compatible posterior
 mass is consistent with a uniform distribution, and even a zero-noise
 realization returns $52/48$. This is not a pipeline defect but a theorem-shaped
 consequence of the fact that \lcdm{} sits on a zero-width fate boundary.
@@ -112,7 +114,7 @@ We conclude that the current cosmic-fate literature is reporting, with
 precision, the echo of its own extrapolation conventions. The constructive
 output of this paper is the audit framework itself: a preregistered,
 null-calibrated, assumption-differentiated protocol that separates what the
-data say (a thawing-quadrant signal at the $2$--$3\sigma$ level, robust to
+data say (a thawing-quadrant signal at the $2$--$3.3\sigma$ level, robust to
 every dataset ablation we tried) from what the grammar says (essentially
 everything about $a>1$).
 
@@ -143,10 +145,12 @@ advance---not the novelty of a prediction. The published $\wz$--$\wa$
 constraint enters only as the Gate-1 validation target, never as a claim of
 this paper; the quantities this paper actually reports (null-calibration
 outcomes, cross-grammar fate tables, constraint-horizon values) did not
-exist in the literature at freeze time. We additionally registered
-falsifiable predictions for the null-calibration campaign before it ran
-(six for six correct; Appendix~\ref{app:mocks})---the one component of this
-work that was blind in the strict sense. The discipline as a whole is the
+exist in the literature at freeze time. We additionally logged
+falsifiable predictions for the null-calibration campaign---six in all,
+derived from the probability-integral-transform argument, recorded
+mid-campaign (after ${\sim}17$ of 100 mocks) and before its completion;
+the zero-noise prediction alone preceded its run (six for six correct;
+Appendix~\ref{app:mocks}). The discipline as a whole is the
 single-author analogue of the blinding now institutional in survey
 cosmology~\cite{Muir2020,Andrade2025}: where a collaboration shields itself
 from confirmation bias by blinding catalogs or data vectors, a single
@@ -160,8 +164,8 @@ not any individual number, as the paper's primary methodological contribution.
 We use three publicly released datasets: DESI DR2 BAO compressed measurements
 (13 points over seven redshift bins, $0.295\le z\le 2.33$)~\cite{DESIDR2};
 the Pantheon+ Type Ia supernova compilation with full stat+sys covariance,
-with and without the SH0ES Cepheid anchor~\cite{Scolnic2022,Brout2022}; and \textit{Planck}
-2018 information compressed into the distance priors $(R,\ell_A,\Omega_b h^2)$
+with and without the SH0ES Cepheid anchor~\cite{Scolnic2022,Brout2022,Riess2022}; and \textit{Planck}
+2018 information~\cite{Planck2018} compressed into the distance priors $(R,\ell_A,\Omega_b h^2)$
 of Ref.~\cite{ChenHuangWang2018}, validated there for CPL-type models. Files,
 versions, and checksums are registered in the repository manifest
 (Appendix~\ref{app:repro}).
@@ -185,7 +189,8 @@ pipeline version, caught by a known-answer test before any science ran.
 \includegraphics[width=0.9\columnwidth]{../runs/gate1/f1_gate1_vs_official.pdf}
 \caption{Gate-1 chain-level validation: this pipeline (compressed CMB, open
 contours) versus the official DESI DR2 chains (full CMB + lensing, filled).
-All marginal shifts $\le 0.33\sigma$.}\label{fig:gate1}
+All marginal shifts $\le 0.33\sigma$. Here and throughout, contour pairs
+show the 68\% and 95\% credible regions.}\label{fig:gate1}
 \end{figure}
 
 \section{Fate taxonomy and classifier}\label{sec:fate}
@@ -276,9 +281,10 @@ verdict correct in $\sim50\%$ of mocks \emph{regardless of pipeline quality}.
 (The general statement, its closed-form verification, the diagnostics that
 detect a miscalibrated pipeline, and the finite-mock reporting rules are
 collected in Appendix~\ref{app:boundarystats}.)
-These predictions were registered before the campaign ran. Results
-(Fig.~\ref{fig:null}): accuracy $50/100$ (68\% CI $[45,55]$); KS uniformity
-$p=0.25$; mean $0.525\pm0.030$; \textsc{other} and boundary budgets at the
+These predictions were logged mid-campaign (at ${\sim}17$ of 100 mocks),
+before the campaign's completion and before the zero-noise run. Results
+(Fig.~\ref{fig:null}): accuracy $\NullAcc/100$ (68\% CI $[45,55]$); KS uniformity
+$p=\NullKSp$; mean $\NullMean\pm\NullMeanSE$; \textsc{other} and boundary budgets at the
 $10^{-3}$ level. (A hundred-realization KS test has limited power against
 mild distortions, which is why the registered predictions also pinned the
 mean, the accuracy count, and the budgets---all independently satisfied.)
@@ -290,14 +296,14 @@ prior bias, not skill.
 
 The null distribution also supplies the calibrated reading of the real data.
 Across one hundred \lcdm{} universes the lowest Big Rip probability produced
-by noise is $1.52\%$; the real Universe sits at $0.18\%$---eight times deeper,
+by noise is $\RipNullMin\%$; the real Universe sits at $\DzeroRipPct\%$---eight times deeper,
 below every realization (calibrated $p<0.030$), in agreement with the
 asymptotic Wilks~\cite{Wilks1938} route ($p=0.024$)---two independent
 arguments, one mock-calibrated and one analytic, against the same null. The correct summary of
 Table~\ref{tab:d0fate} is therefore two-layered: \emph{the direction of the
 fate verdict carries no information---even perfect \lcdm{} data flip a
 coin---but the depth of the real data's anti-rip preference is genuine,
-doubly verified, and corresponds to the $2$--$3\sigma$ thawing signal.}
+doubly verified, and corresponds to the $2$--$3.3\sigma$ thawing signal.}
 What that signal does and does not imply about the actual fate is the
 subject of the fragility matrix.
 
@@ -318,12 +324,12 @@ Table~\ref{tab:loo} and Fig.~\ref{fig:loo} show the leave-one-out response. The 
 prior~\cite{Schoeneberg2024}), which \emph{deepens} rather than erases the preference, a point against
 the hypothesis that the evidence is purely CMB--low-$z$ tension. The
 magnitude, by contrast, is fragile: $\wa$ swings threefold ($-0.55$ to
-$-1.72$), and the full combination is the \emph{most moderate} of all subsets
----the widely quoted $\wa\approx-0.6$ is a negotiated settlement among
+$-1.72$), and the full combination is more moderate than any
+probe-removal subset (D2--D4)---the widely quoted $\wa\approx-0.6$ is a negotiated settlement among
 datasets pulling with different strengths. Swapping the supernova compilation
 (same model, same priors, same BAO and CMB) moves the \lcdm{} exclusion from
 $2.25\sigma$ (Pantheon+) through $2.81\sigma$ (DES-Dovekie) to $3.27\sigma$
-(Union3), reproducing the literature's significance
+(Union3~\cite{Union3}), reproducing the literature's significance
 ladder~\cite{Efstathiou2024,HuangCaiWang2025} inside a single
 pipeline; the SH0ES anchor alone moves $H_0$ by $+1.35$~km\,s$^{-1}$\,Mpc$^{-1}$ and $\wz$ by $-0.034$
 ---Hubble-tension leakage into the dark-energy sector. Throughout,
@@ -335,7 +341,7 @@ believes; Sec.~\ref{sec:fparam}).
 \includegraphics[width=\columnwidth]{../runs/phase3/fdata/f4_loo_forest.pdf}
 \caption{Leave-one-out forest (CPL+P1 fixed). Left: the $\wa$ magnitude
 swings threefold across dataset ablations, and the full combination (dotted
-line) is the most moderate of all subsets. Right: $P(\textsc{rip})$ stays
+line) is more moderate than any probe-removal subset (D2--D4). Right: $P(\textsc{rip})$ stays
 within $0$--$0.31\%$ throughout (shaded); the D3 entry is the Monte Carlo
 upper limit for zero \textsc{rip} samples.}\label{fig:loo}
 \end{figure}
@@ -384,7 +390,13 @@ prior area dominates the fit improvement. But the practical consequence is
 stark---\emph{whether ``the evidence favors dynamical dark energy'' is
 true depends on which inference statistic one grants authority}, and the Bayes
 factor's first-order dependence on prior volume makes it a fragility axis of
-its own, rarely reported as such.
+its own, rarely reported as such. The registered information criteria split
+along the same fault line: $\Delta\mathrm{AIC}=\Delta\chi^2+2\Delta k=-3.4$
+sides with the fit, while
+$\Delta\mathrm{BIC}=\Delta\chi^2+\Delta k\ln N=+7.4$ sides with the
+evidence ($\Delta k=2$, $N=1673$ data points; negative values favor
+CPL)---the direction flip is reproduced within the information-criterion
+family itself.
 
 \subsection{Parametrization axis}\label{sec:fparam}
 
@@ -479,7 +491,7 @@ GP & $0$ & $0$ & $100\%$ & $100\%$ \\
 \subsection{Constraint horizon}\label{sec:ah}
 
 Where do the data stop speaking? In the binned grammar the posterior-to-prior
-information $D_{\rm KL}[p(w(a))\|\pi]$ is $3.04$, $2.31$, $1.55$, and $0.24$
+information $D_{\rm KL}[p(w(a))\|\pi]$ is $\KLbinA$, $\KLbinB$, $\KLbinC$, and $\KLbinD$
 nat in the four bins (Fig.~\ref{fig:horizon})---the frozen $0.1$-nat horizon
 is never crossed inside the window: thanks to the CMB lever arm, the data constrain $w(a)$ (weakly)
 all the way to recombination. The horizon statement therefore lands at its
@@ -632,7 +644,8 @@ reviewers}
 \section{Frozen analysis plan}\label{app:plan}
 
 The plan below is an English rendering of the document frozen under tag
-\texttt{prereg-v1} (2026-07-02, before any real-data fate analysis); the
+\texttt{prereg-v1} (drafted 2026-07-02, tagged 2026-07-03, before any
+real-data fate analysis); the
 frozen original is archived in the repository and takes precedence in any
 discrepancy. Amendments are in Appendix~\ref{app:amendments}.
 
@@ -848,7 +861,10 @@ test: at the truth point all three likelihood $\chi^2$ vanish identically,
 verifying the mock--likelihood round trip; its fate verdict (52/48) is the
 noise-free boundary diagnostic of Sec.~\ref{sec:null}.
 
-Six falsifiable predictions were registered before the campaign ran:
+Six falsifiable predictions were logged mid-campaign (after ${\sim}17$
+of 100 mocks had been inspected), derived from the
+probability-integral-transform argument, before the campaign's completion
+and before the zero-noise realization ran:
 direction accuracy $50\pm10\%$; $P_{\rm heat}$ consistent with $U(0,1)$;
 0--3 of 100 mocks below the real data's $P(\textsc{rip})$;
 \textsc{other} and boundary budgets at the $10^{-3}$ level;
@@ -915,11 +931,13 @@ consistent with $1/12$---is therefore not merely ``consistent with''
 calibration: each defect direction is separately detectable, and none
 occurred.
 
-\emph{Finite-mock reporting rules (frozen before the campaign).} With $k$
+\emph{Finite-mock reporting rules.} With $k$
 of $n$ mocks at or below the real-data statistic, we report the plus-one
 estimate $\hat{p}=(k+1)/(n+1)$~\cite{PhipsonSmyth2010} and, for $k=0$, the
 $95\%$ upper bound $1-0.05^{1/n}$; a Monte Carlo $p$-value is never
-reported as zero. For $k=0$, $n=100$: $\hat{p}=0.0099$, upper bound
+reported as zero. These standard rules were adopted during the campaign
+and applied uniformly; they weaken, not strengthen, the headline bound.
+For $k=0$, $n=100$: $\hat{p}=0.0099$, upper bound
 $0.0295$---quoted throughout as $p<0.030$.
 
 \emph{Relation to the calibration literature.} The lineage runs from the
