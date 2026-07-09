@@ -101,7 +101,7 @@ selection could only understate it."
       逻辑陈述,不涉历史时序,豁免。
 - [x] ~~参考文献核对~~（2026-07-08 完成）：[11] = Wolf+2025（跨参数化稳健性,2502.04929）、
       [25] = Wolf & Ferreira 2023（underdetermination,2310.07482）——两篇 Wolf 均在承重
-      位置,与 endorsement 策略自洽；[7,8] = Andrei-Ijjas-Steinhardt PNAS 2022 + Gialamas
+      位置,与预审人选一致；[7,8] = Andrei-Ijjas-Steinhardt PNAS 2022 + Gialamas
       2025 PRD ✓；[12,13] = Muir 2020 + Andrade 2025 ✓；[17] Caldwell、[32] Rosenblatt、
       [33] Phipson-Smyth 等 32 个可核条目 arXiv 号全部无误。
       **补丁 #12（扩展为文献完备性批次）**：

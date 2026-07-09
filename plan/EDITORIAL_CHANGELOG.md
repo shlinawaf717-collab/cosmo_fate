@@ -61,6 +61,10 @@
 
 ### 结构性配套
 
+- **E-17**（2026-07-09，文献补全）Discussion 的 "eventually decidable or
+  permanently undecidable" 句补引 Wolf & Read 2026（arXiv:2501.13521,
+  "permanent underdetermination"）——本文的永久不可判定分支是该概念在
+  零宽度边界上的定量实例,智力谱系应显式归属。refs.bib 新增一条。
 - **E-16**（2026-07-09，图形排版）图 6 的 "0.1 nat horizon threshold" 标签
   原位于虚线与 w4 KL 条之间（被两者遮压，可读性差），移至虚线下方空白区
   （make_paper_figs.py: y=0.16 → y=0.08, va="top"）。纯排版，数据与标注值无涉。
