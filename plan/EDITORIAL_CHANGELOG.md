@@ -61,6 +61,9 @@
 
 ### 结构性配套
 
+- **E-15**（2026-07-09，预审稿准备）删除 Acknowledgments 末尾的
+  `\todo{friendly reviewers}` 占位。预审人致谢按惯例在对方给出意见并同意
+  被致谢之后添加；预审稿以定稿形态发出。`\todo` 宏定义保留（无引用即无渲染）。
 - **E-14** 新增 pipeline/gen_paper_numbers.py → paper/numbers.tex 宏机制：
   正文引用的 12 个高频数字（KL 四值、null 五统计量、D0 三概率）改由脚本从
   runs/ JSON 生成，消灭"一个数字两个舍入者"缺陷类（E-04 的病根）。
