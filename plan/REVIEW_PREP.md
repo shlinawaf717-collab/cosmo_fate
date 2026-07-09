@@ -70,6 +70,9 @@ selection could only understate it."
 - [ ] **Acknowledgments 的 `[TODO: friendly reviewers]` 必须在 arXiv 前解决**（等 Wolf
       预审信轮完成后填名或删句——TODO 字样进 arXiv v1 是事故）
 - [ ] Zenodo 快照 + DOI（投 arXiv 同时打；GitHub tag 可验但可删，DOI 不可撤销）
+- [x] 六预测会话片段入库（2026-07-08 完成：plan/predictions_session_excerpt.jsonl
+      连续 48 行无删节，SHA-256 记录于 PREDICTIONS_SESSION_EXCERPT.md，
+      含"证明什么/不证明什么"的如实声明；GATE2_REPORT.md 时点更正同步）
 - [x] ~~App. A 译文条款~~ 已存在（"takes precedence in any discrepancy"，2026-07-08 验收）
 - [x] ~~App. A P2 定义域~~ 已写明（a ∈ [a_CMB, a_max]，2026-07-08 验收）
 - [x] ~~App. B/C other 触发比例~~ 已留档（App. B：BA 10.5%、BIN4 82.4%；ε=0.01 复用冻结 ds 阈值；"consequence zero" 论证完整。2026-07-08 验收）
@@ -85,7 +88,7 @@ selection could only understate it."
       preceded its run"）；"blind in the strict sense" 限缩至 mock000 或删除。
       **三处**：main.tex:147（Sec. II）、:279（Sec. VI）、:851（App. D）。
       科学结果零变动；此为措辞诚实性修复,优先级最高。
-- [ ] **补丁 #11**（App. E, main.tex:918）："Finite-mock reporting rules **(frozen before
+- [x] **补丁 #11（已执行，批次 E-2026-07-08）**（App. E, main.tex:918）："Finite-mock reporting rules **(frozen before
       the campaign)**" 不成立——"k+1" 首次入库 07-03 18:28（73/100 战役中），"0.0295"
       07-06 战役后。改为如实措辞："standard finite-simulation rules [33], applied
       uniformly"，可加注其保守性（plus-one/上界使头条 p 从 0.0099 弱化为 0.030——
