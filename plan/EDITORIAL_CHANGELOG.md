@@ -61,6 +61,14 @@
 
 ### 结构性配套
 
+- **E-18**（2026-07-13，文献补全+论证补强）Discussion 的 "conveniences, not
+  theories" 二分句改为三分：承认 CPL 是对 quintessence 类动力学的**校准压缩**
+  （补引 Caldwell & Linder 2005 PRL 95, 141301；Linder 2006 PRD 73, 063010；
+  de Putter & Linder 2008 JCAP 0810:042，三条均对 arXiv 核实），随即划界——
+  校准认证的是窗口内对模型类的忠实，把忠实延伸到 a>1 恰是采纳该类为先验，
+  即 Sec. fprior 已定价的 P2 轴。动机：原二分句未接校准文献，是"作者不了解
+  CPL 校准论证"型审稿攻击的敞口；新句承认对方最强论据后核心主张原样成立。
+  零分析变动。refs.bib 新增三条（JCAP 条目按 E-13 的 ADS 卷式）。
 - **E-17**（2026-07-09，文献补全）Discussion 的 "eventually decidable or
   permanently undecidable" 句补引 Wolf & Read 2026（arXiv:2501.13521,
   "permanent underdetermination"）——本文的永久不可判定分支是该概念在
