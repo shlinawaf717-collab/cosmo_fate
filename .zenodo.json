@@ -1,0 +1,29 @@
+{
+  "title": "cosmo_fate: A preregistered fragility audit of DESI-era cosmic-fate claims",
+  "description": "Pipeline, frozen preregistration plan, null-calibration mocks, and full posterior chains for \"Is cosmic fate an inference or an assumption? A preregistered fragility audit of the heat-death conclusion with DESI DR2, Pantheon+, and Planck.\" Differentiates the fate verdict (Big Rip vs. heat death) along eight assumption axes -- dataset, prior, inference statistic, and w(a) parametrization -- and calibrates the verdict's direction against one hundred exact-LCDM null mocks.",
+  "creators": [
+    {
+      "name": "Zhang, Jiacheng",
+      "orcid": "0009-0007-7438-320X"
+    }
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "dark energy",
+    "cosmology",
+    "DESI",
+    "preregistration",
+    "Bayesian inference",
+    "fragility analysis",
+    "cosmic fate"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/shlinawaf717-collab/cosmo_fate",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-preprint"
+    }
+  ]
+}
