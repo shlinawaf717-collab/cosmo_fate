@@ -61,6 +61,11 @@
 
 ### 结构性配套
 
+- **E-19**（2026-07-13，可复现性）App F 的 "(an archival snapshot with a DOI
+  will accompany submission)" 替换为实际 DOI：`10.5281/zenodo.21332434`
+  （GitHub release `v1.0-submission` 通过 Zenodo-GitHub 集成自动归档，
+  50.1MB 快照，MIT 许可证，Software 类型；`.zenodo.json` 元数据于本次提交前
+  已配置）。兑现 App F 的书面承诺。零分析变动。
 - **E-18**（2026-07-13，文献补全+论证补强）Discussion 的 "conveniences, not
   theories" 二分句改为三分：承认 CPL 是对 quintessence 类动力学的**校准压缩**
   （补引 Caldwell & Linder 2005 PRL 95, 141301；Linder 2006 PRD 73, 063010；
