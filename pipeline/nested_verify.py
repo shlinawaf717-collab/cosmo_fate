@@ -95,7 +95,11 @@ def main(yaml_path, kind, out_path, nlive=500, nproc=3, maxiter=None):
     out = {'yaml': os.path.relpath(yaml_path, ROOT), 'kind': kind,
            'nlive': nlive, 'ncall': int(r.ncall.sum()), 'n_samples': n,
            'P_fate_nested': P,
-           'P_RIP_se_binom': float(np.sqrt(P['RIP'] * (1 - P['RIP']) / n))}
+           'P_RIP_se_binom': float(np.sqrt(P['RIP'] * (1 - P['RIP']) / n)),
+           'uncertainty_note': (
+               'P_RIP_se_binom describes the fixed-seed equal-weight resample '
+               'only; it is not repeated-run nested-sampling uncertainty'
+           )}
     json.dump(out, open(out_path, 'w'), indent=1)
     print(os.path.basename(out_path), 'P(RIP) =', P['RIP'],
           '+-', out['P_RIP_se_binom'], flush=True)

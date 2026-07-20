@@ -1,0 +1,58 @@
+{
+  "status": "exploratory post-hoc audit",
+  "quantity": "lowest likelihood chi-square in archived post-burn-in chains",
+  "caution": "not a dedicated optimizer or a model-evidence calculation",
+  "burn_fraction": 0.3,
+  "models": {
+    "CPL": {
+      "approx_chain_min_chi2": 1489.5341,
+      "k_dark": 2,
+      "Rminus1_last": 0.007705552606554138,
+      "converged_registered_threshold": true,
+      "chains": [
+        "runs/phase3/fparam/cpl_1.1.txt",
+        "runs/phase3/fparam/cpl_2.1.txt"
+      ],
+      "delta_chi2_vs_CPL": 0.0,
+      "delta_AIC_vs_CPL": 0.0
+    },
+    "JBP": {
+      "approx_chain_min_chi2": 1492.0753,
+      "k_dark": 2,
+      "Rminus1_last": 0.007154537418236734,
+      "converged_registered_threshold": true,
+      "chains": [
+        "runs/phase3/fparam/jbp_1.1.txt",
+        "runs/phase3/fparam/jbp_2.1.txt"
+      ],
+      "delta_chi2_vs_CPL": 2.5411999999998898,
+      "delta_AIC_vs_CPL": 2.5411999999998898
+    },
+    "BA": {
+      "approx_chain_min_chi2": 1491.523,
+      "k_dark": 2,
+      "Rminus1_last": 0.004935561552938879,
+      "converged_registered_threshold": true,
+      "chains": [
+        "runs/phase3/fparam/ba_1.1.txt",
+        "runs/phase3/fparam/ba_2.1.txt",
+        "runs/phase3/fparam/ba_3.1.txt",
+        "runs/phase3/fparam/ba_4.1.txt"
+      ],
+      "delta_chi2_vs_CPL": 1.9888999999998305,
+      "delta_AIC_vs_CPL": 1.9888999999998305
+    },
+    "BIN4": {
+      "approx_chain_min_chi2": 1485.3855,
+      "k_dark": 4,
+      "Rminus1_last": 0.009782334489332016,
+      "converged_registered_threshold": true,
+      "chains": [
+        "runs/phase3/fparam/bin4_1.1.txt",
+        "runs/phase3/fparam/bin4_2.1.txt"
+      ],
+      "delta_chi2_vs_CPL": -4.148599999999988,
+      "delta_AIC_vs_CPL": -0.14859999999998763
+    }
+  }
+}

@@ -5,7 +5,7 @@ F1  runs/gate1/f1_gate1_vs_official.pdf       pipeline vs official DR2 contours
 F2  runs/phase2/f2_d0_fate_partition.pdf      D0 posterior over fate partition
 F3  runs/gate2/f3_null_histogram.pdf          null-calibration histogram
 F4  runs/phase3/fdata/f4_loo_forest.pdf       leave-one-out forest (wa + P(RIP))
-F5  runs/phase3/fparam/f5_grammar_fates.pdf   fate composition across w(a) grammars
+F5  runs/phase3/fparam/f5_grammar_fates.pdf   prior/posterior fate composition
 F6  runs/phase3/fparam/f6_constraint_horizon.pdf  BIN4 KL(a) profile
 
 Inputs: MCMC chains (weighted means/stds recomputed, 30% burn-in dropped) and
@@ -106,7 +106,7 @@ def fig3():
     ax.axvline(real, color="#c1443c", lw=2.5,
                label=f"real data (D0): {real:.3f}")
     ax.axvline(m000, color="0.15", ls=":", lw=2,
-               label=f"zero-noise mock: {m000:.2f}")
+               label=f"zero-residual mock: {m000:.2f}")
     ax.set_xlabel(r"$P$(heat-death compatible) $= P(\mathrm{DS}) + P(\mathrm{DECAY})$")
     ax.set_ylabel("mocks per bin")
     ax.set_xlim(-0.02, 1.04)
@@ -208,43 +208,56 @@ def fig4():
 
 def fig5():
     grammars = [
-        ("CPL",  "fate_cpl.json"),
-        ("JBP",  "fate_jbp.json"),
-        ("BA",   "fate_ba_a003.json"),
-        ("BIN4", "fate_bin4_a003.json"),
-        ("GP",   "fate_gp.json"),
+        ("CPL",  "CPL",             "fate_cpl.json"),
+        ("JBP",  "JBP",             "fate_jbp.json"),
+        ("BA",   "BA",              "fate_ba_a003.json"),
+        ("BIN4", "BIN4",            "fate_bin4_a003.json"),
+        ("GP*",  "GP_CONSTRUCTION", "fate_gp.json"),
     ]
     classes = [("RIP", "#c1443c"), ("DS", "#4878a8"), ("DECAY", "#6aa66a")]
+    with open(os.path.join(RUNS, "phase3", "fparam", "prior_fate_audit.json")) as fh:
+        prior = json.load(fh)["models"]
 
-    fig, ax = plt.subplots(figsize=(8, 3.4))
-    ylabels = []
-    for i, (name, fname) in enumerate(grammars[::-1]):
-        with open(os.path.join(RUNS, "phase3", "fparam", fname)) as fh:
-            d = json.load(fh)
-        left = 0.0
-        for cls, color in classes:
-            p = d[cls]["P"]
-            ax.barh(i, p, left=left, color=color, edgecolor="white", height=0.62)
-            if p > 0.03:
-                ax.text(left + p / 2, i, f"{100*p:.1f}%", ha="center",
-                        va="center", fontsize=8,
-                        color="white" if p > 0.08 else "0.2")
-            left += p
-        heat = d["P_heat"]
-        ax.text(1.012, i, f"heat-death\ncompatible {100*heat:.1f}%",
-                va="center", fontsize=7.5, color="0.25")
-        ylabels.append(name)
-        print(f"{name:5s} RIP={d['RIP']['P']:.4f} DS={d['DS']['P']:.4f} "
-              f"DECAY={d['DECAY']['P']:.4f} heat={heat:.4f}")
-
-    ax.set_yticks(range(len(ylabels)))
-    ax.set_yticklabels(ylabels)
-    ax.set_xlim(0, 1)
-    ax.set_xlabel("posterior fate probability (D0 + P1 fixed; A-003 criteria)")
+    fig, axes = plt.subplots(1, 2, figsize=(9, 3.8), sharey=True)
+    ylabels = [row[0] for row in grammars[::-1]]
+    for ax, source, title in [
+        (axes[0], "prior", "induced P1 fate measure"),
+        (axes[1], "posterior", "posterior fate probability"),
+    ]:
+        for i, (label, prior_name, fate_name) in enumerate(grammars[::-1]):
+            if source == "prior":
+                d = prior[prior_name]
+            else:
+                with open(os.path.join(RUNS, "phase3", "fparam", fate_name)) as fh:
+                    d = json.load(fh)
+            left = 0.0
+            for cls, color in classes:
+                p = d[cls]["P"]
+                ax.barh(i, p, left=left, color=color, edgecolor="white", height=0.62)
+                if p > 0.055:
+                    ax.text(left + p / 2, i, f"{100*p:.1f}%", ha="center",
+                            va="center", fontsize=7.5, color="white")
+                left += p
+            if source == "posterior":
+                heat = d["P_heat"]
+                print(
+                    f"{label:5s} RIP={d['RIP']['P']:.4f} DS={d['DS']['P']:.4f} "
+                    f"DECAY={d['DECAY']['P']:.4f} heat={heat:.4f}"
+                )
+        ax.set_xlim(0, 1)
+        ax.set_xlabel(title)
+        ax.grid(axis="x", color="0.9", lw=0.6)
+    axes[0].set_yticks(range(len(ylabels)))
+    axes[0].set_yticklabels(ylabels)
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for _, c in classes]
-    ax.legend(handles, [n for n, _ in classes], loc="lower right",
-              bbox_to_anchor=(1.0, 1.005), ncol=3, frameon=False, fontsize=8)
-    fig.tight_layout(rect=(0, 0, 0.9, 1))
+    axes[1].legend(handles, [n for n, _ in classes], loc="lower right",
+                   bbox_to_anchor=(1.0, 1.01), ncol=3, frameon=False, fontsize=8)
+    fig.text(
+        0.5, 0.01,
+        "* GP is a deterministic mean-reverting construction, not a converged fitted grammar.",
+        ha="center", fontsize=7.5, color="0.35",
+    )
+    fig.tight_layout(rect=(0, 0.04, 1, 1))
     out = os.path.join(RUNS, "phase3", "fparam", "f5_grammar_fates.pdf")
     fig.savefig(out)
     print("wrote", out)
@@ -252,7 +265,8 @@ def fig5():
 
 def fig6():
     with open(os.path.join(RUNS, "phase3", "fparam", "ah.json")) as fh:
-        kl = json.load(fh)["KL_per_bin"]
+        audit = json.load(fh)
+    kl = audit["KL_per_bin"]
     # frozen BIN4 edges (plan §1): z in [0,0.3), [0.3,0.7), [0.7,1.5), [1.5,z_CMB]
     z_cmb = 1090.0
     z_edges = [0.0, 0.3, 0.7, 1.5, z_cmb]
@@ -264,25 +278,31 @@ def fig6():
         ax.hlines(v, a_lo, a_hi, color="steelblue", lw=3.5)
         ax.text(np.sqrt(a_lo * a_hi), v + 0.09, f"{v:.2f}",
                 ha="center", fontsize=8, color="steelblue")
-    # fate epoch: data-sourced KL identically zero
+    # The registered BIN4 metric carries w1 into the future.  The future KL is
+    # therefore grammar-transported, not zero and not directly observed.
     a_max = 1.0e4
-    ax.hlines(0.0, 1.0, a_max, color="#c1443c", lw=3.5)
+    ax.hlines(audit["KL_future_transport"], 1.0, a_max,
+              color="#c1443c", lw=3.5, ls="--")
     ax.axvspan(1.0, a_max, color="#c1443c", alpha=0.06, zorder=0)
-    ax.text(np.sqrt(1.0 * a_max), 0.32,
-            "fate epoch ($a>1$): data KL $\\equiv$ 0\n"
-            "all information grammar-transported",
+    ax.text(np.sqrt(1.0 * a_max), audit["KL_future_transport"] - 0.42,
+            "future ($a>1$): KL inherited from $w_1$\n"
+            "no direct observational support",
             ha="center", fontsize=8.5, color="#c1443c")
     ax.axhline(0.1, color="0.4", ls="--", lw=1)
     ax.text(1.3e-3, 0.08, "0.1 nat horizon threshold", fontsize=8, color="0.4",
             va="top")
     ax.axvline(1.0, color="0.6", lw=0.8)
-    ax.text(0.93, 2.6, "today", rotation=90, fontsize=8, color="0.5", ha="right")
+    ax.text(1.15, 2.05, "direct-support boundary", rotation=90,
+            fontsize=8, color="0.5", ha="left")
 
     ax.set_xscale("log")
     ax.set_xlim(a_edges[-1] * 0.8, a_max)
     ax.set_ylim(-0.15, 3.45)
     ax.set_xlabel("scale factor $a$")
     ax.set_ylabel(r"$D_{\rm KL}\,[\,p(w(a))\,\|\,\pi\,]$  [nat]")
+    ax.text(0.02, 0.96, r"registered $a_h$: not reached",
+            transform=ax.transAxes, ha="left", va="top", fontsize=9,
+            color="0.25")
     fig.tight_layout()
     out = os.path.join(RUNS, "phase3", "fparam", "f6_constraint_horizon.pdf")
     fig.savefig(out)

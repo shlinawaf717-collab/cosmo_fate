@@ -1,9 +1,18 @@
 {
- "KL_per_bin": {
-  "w1": 3.0346816699389976,
-  "w2": 2.3114871193979534,
-  "w3": 1.5505746881006761,
-  "w4": 0.23693232145080842
- },
- "a_h": null
+  "metric": "marginal posterior-to-prior KL of w(a)",
+  "estimator": "weighted histogram, 80 equal cells per normalized prior support",
+  "burn_fraction": 0.3,
+  "KL_per_bin": {
+    "w1": 3.034681669938569,
+    "w2": 2.311487119397887,
+    "w3": 1.550574688100695,
+    "w4": 0.23693232145080076
+  },
+  "future_rule": "BIN4 freezes w(a>1)=w1",
+  "KL_future_transport": 3.034681669938569,
+  "threshold_nat": 0.1,
+  "a_h": null,
+  "a_h_status": "not reached under the registered metric",
+  "direct_observational_support_boundary": 1.0,
+  "interpretation": "a=1 is the boundary of direct observational support, not the KL horizon; the nonzero future KL is inherited from w1 by the BIN4 grammar"
 }

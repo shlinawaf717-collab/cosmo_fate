@@ -102,6 +102,10 @@ def main():
     n = len(labs)
     out['P_fate_nested'] = P
     out['P_RIP_se_binom'] = float(np.sqrt(P['RIP'] * (1 - P['RIP']) / n))
+    out['uncertainty_note'] = (
+        'P_RIP_se_binom describes the fixed-seed equal-weight resample only; '
+        'it is not repeated-run nested-sampling uncertainty'
+    )
     print("nested fate P:", P, flush=True)
 
     lnz_l, err_l, _ = run('lcdm')

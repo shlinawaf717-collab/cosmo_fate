@@ -1,5 +1,5 @@
 \documentclass[aps,prd,preprint,superscriptaddress,nofootinbib]{revtex4-2}
-\usepackage{graphicx,amsmath,amssymb,booktabs,hyperref,xcolor,orcidlink}
+\usepackage{graphicx,amsmath,amssymb,booktabs,hyperref,xcolor,orcidlink,placeins}
 \hypersetup{colorlinks=true, linkcolor=blue!55!black, citecolor=blue!55!black, urlcolor=blue!55!black}
 \newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 \newcommand{\lcdm}{\ensuremath{\Lambda\mathrm{CDM}}}
@@ -21,33 +21,31 @@ with DESI DR2, Pantheon+, and \textit{Planck}}
 
 \begin{abstract}
 The DESI era has produced a wave of claims about the ultimate fate of the
-Universe. We ask a different question: how much of the fate verdict is forced
-by the data, and how much is donated by the assumptions? Under a preregistered
-plan (frozen before real-data fate analysis; three logged amendments), we
-combine DESI DR2 BAO, \textit{Planck} 2018 distance priors, and
-Pantheon+/SH0ES supernovae, propagate every posterior sample to $a=10^4$
-through a frozen fate classifier, and differentiate the verdict along eight
-assumption axes. Baseline (CPL): $P(\textsc{decay})=\DzeroDecayPct\%$,
-$P(\textsc{rip})=\DzeroRipPct\%$ (independently verified by nested sampling). Null
-calibration on one hundred mock universes with exact-\lcdm{} truth shows the
-\emph{direction} of such verdicts is a coin flip---heat-death-compatible mass
-distributed as $U(0,1)$, $52/48$ even at zero noise---while the \emph{depth}
-of the real data's anti-rip preference is genuine (calibrated $p<0.030$,
-in agreement with Wilks $p=0.024$). The translation into fate is
-assumption-dominated: swapping supernova compilations moves the \lcdm{}
-exclusion from $2.25\sigma$ to $3.27\sigma$; a quintessence prior sets
-$P(\textsc{rip})\equiv0$ at a fit cost of $\Delta\chi^2=8.9$; Bayesian
-evidence \emph{favors} \lcdm{} ($\ln B=-1.76$) while $\Delta\chi^2$ disfavors
-it; and across five $w(a)$ grammars indistinguishable inside the data window,
-the verdict runs from $P(\textsc{ds})=100\%$ (donated exactly by a
-Gaussian-process mean function) through near-certain \textsc{decay} (CPL) to
-a three-way coin flip (binned $w$): $P(\textsc{rip})$ spans $0$--$41\%$,
-heat-death compatibility $58.8$--$100\%$, and the binned grammar returns a
-measured $w(z{<}0.3)=-1.000\pm0.044$---the knife edge itself. Data information
-terminates at $a=1$; every eschatological bit beyond it is
-grammar-transported. We conclude that current fate claims report the echo of
-their extrapolation conventions, and we release the audit framework and
-pipeline for reuse.
+Universe. We ask how much of a fate verdict is forced by data and how much is
+induced by assumptions. Under a preregistered plan, we combine DESI DR2 BAO,
+\textit{Planck} 2018 distance priors, and Pantheon+/SH0ES supernovae, propagate
+posterior samples through a frozen fate classifier, and differentiate the
+verdict along eight assumption axes. Baseline CPL gives
+$P(\textsc{decay})=\DzeroDecayPct\%$ and
+$P(\textsc{rip})=\DzeroRipPct\%$, with a nested-sampling point estimate of
+$0.165\%$. Within continuous CPL with no point mass at \lcdm{}, one hundred
+\lcdm{} mocks yield heat-death-compatible posterior mass consistent with
+$U(0,1)$; a zero-residual realization gives $52/48$. The real-data posterior
+tail lies below all 100 mocks ($\hat p=0.0099$, 95\% Monte Carlo upper bound
+$0.0295$). A two-parameter Wilks test gives $p=0.024$, but tests a different
+statistic and is not an independent calibration of that tail. Translation
+into fate is assumption-dominated: a quintessence prior sets
+$P(\textsc{rip})\equiv0$ at a fit cost of $\Delta\chi^2=8.9$, while Bayesian
+evidence favors \lcdm{} ($\ln B=-1.76$). Four converged $w(a)$ fits have
+approximate chain-minimum $\Delta\mathrm{AIC}\in[-0.15,2.54]$, yet
+$P(\textsc{rip})$ spans $0.21$--$41.2\%$; their coordinate priors induce
+prior rip mass from $25.8$--$58.1\%$. A mean-reverting Gaussian process is
+retained only as a constructive counterexample because its hierarchical chain
+failed the registered convergence gate. Finally, the registered constraint
+horizon is \emph{not reached}: BIN4 transports $3.03$ nat from its first bin
+into $a>1$, while direct observational support ends at $a=1$. Current fate
+probabilities therefore combine a measured finite-redshift signal with an
+unmeasured extrapolation rule; we release the audit framework and pipeline.
 \end{abstract}
 
 \maketitle
@@ -89,34 +87,31 @@ the supernova compilation, the SH0ES anchor, the CMB information content,
 the dataset combination, the prior on the dark-energy sector, the inference
 statistic, the $w(a)$ parametrization, and the position of the truth itself.
 
-Three results organize the paper. First, under the null: when the pipeline is
-fed data whose truth is exactly \lcdm{}, the direction of the fate verdict
-(decay versus rip) is a coin flip---the heat-death-compatible posterior
-mass is consistent with a uniform distribution, and even a zero-noise
-realization returns $52/48$. This is not a pipeline defect but a theorem-shaped
-consequence of the fact that \lcdm{} sits on a zero-width fate boundary.
-Second, in depth: the real data push the Big Rip probability to $0.18\%$ under
-CPL, eight times below the lowest value reached by any of the hundred null
-mocks (calibrated $p<0.030$), in agreement with the Wilks route ($p=0.024$)---a
-genuine, doubly-verified thawing signal. Third, in translation: converting
-that signal into a fate statement is dominated by the extrapolation rule.
-Across five parametrizations that are indistinguishable inside the data
-window~\cite{Wolf2025}, the Big Rip probability moves from zero (a
-Gaussian-process grammar whose mean function forbids it) through $0.2\%$
-(CPL) to $41\%$ (binned $w$), and the heat-death-compatible probability
-from $58.8\%$ to $100\%$;
-under a quintessence prior the rip probability is zero before any data
-arrive. The fate epoch lies entirely beyond $a=1$, where the
-data--posterior information content vanishes identically
-(Sec.~\ref{sec:ah}).
+Three results organize the paper. First, under a regular continuous CPL
+model and prior, when the truth is exactly \lcdm{} the direction-class
+posterior mass is consistent with $U(0,1)$ across repeated datasets. This is
+a conditional boundary-calibration result, not a theorem about model
+averaging or priors that put discrete mass on \lcdm{}. Second, in depth: the
+real data push the Big Rip probability to $0.18\%$ under CPL, below all one
+hundred null mocks ($\hat p=0.0099$, 95\% upper bound $0.0295$). The Wilks
+likelihood-ratio value $p=0.024$ points in the same qualitative direction but
+concerns a different null statistic. Third, in translation: four converged
+parametrizations fit the observed window comparably under an exploratory AIC
+audit, yet the Big Rip probability moves from $0.2\%$ (CPL) to $41\%$
+(binned $w$); under a quintessence prior it is zero before data arrive. A
+registered mean-reverting GP illustrates how a future mean function fixes a
+fate, but its nonconverged hierarchical fit is excluded from quantitative
+comparisons. The registered KL horizon is not reached; $a=1$ is instead the
+boundary between direct observational support and grammar-transported future
+information (Sec.~\ref{sec:ah}).
 
 We conclude that the current cosmic-fate literature is reporting, with
 precision, the echo of its own extrapolation conventions. The constructive
 output of this paper is the audit framework itself: a preregistered,
 null-calibrated, assumption-differentiated protocol that separates what the
 data say (a thawing-quadrant signal at the $2$--$3.3\sigma$ level, robust to
-every dataset ablation we tried) from what the grammar says (essentially
-everything about $a>1$).
+every dataset ablation we tried) from what the chosen grammar and its induced
+prior measure say about $a>1$.
 
 \section{Preregistered design}\label{sec:prereg}
 
@@ -149,7 +144,7 @@ exist in the literature at freeze time. We additionally logged
 falsifiable predictions for the null-calibration campaign---six in all,
 derived from the probability-integral-transform argument, recorded
 mid-campaign (after ${\sim}17$ of 100 mocks) and before its completion;
-the zero-noise prediction alone preceded its run (six for six correct;
+the zero-residual prediction alone preceded its run (six for six correct;
 Appendix~\ref{app:mocks}). The discipline as a whole is the
 single-author analogue of the blinding now institutional in survey
 cosmology~\cite{Muir2020,Andrade2025}: where a collaboration shields itself
@@ -235,8 +230,12 @@ $\wa=0$ has zero width; \lcdm{} sits exactly on it.}\label{fig:partition}
 Propagating every sample through the classifier yields Table~\ref{tab:d0fate}:
 $P(\textsc{decay})=99.82\%\pm0.06\%$, $P(\textsc{rip})=0.18\%\pm0.06\%$
 (batch-means errors), zero \textsc{other}, zero boundary flags. Under the
-frozen rule that sub-percent tails must be verified independently, nested
-sampling gives $P(\textsc{rip})=0.165\%\pm0.038\%$, consistent.
+frozen rule that sub-percent tails require a second sampling calculation,
+nested sampling gives a consistent weighted point estimate,
+$P(\textsc{rip})=0.165\%$. The previously quoted $0.038\%$ binomial standard
+error describes only a fixed-seed equal-weight resample; it is not
+run-to-run nested-sampling uncertainty and is therefore not used as an error
+bar.
 
 \begin{table}[t]
 \caption{Fate probabilities, D0+CPL+P1. \emph{Caution: the direction component
@@ -247,7 +246,7 @@ of this verdict is uninformative under the null (Sec.~\ref{sec:null}).}}
 Class & $P$ & thermodynamic class \\
 \hline
 \textsc{decay} & $99.82\%\pm0.06\%$ & heat-death-compatible \\
-\textsc{rip} & $0.18\%\pm0.06\%$ (nested $0.165\%\pm0.038\%$) & non-heat-death \\
+\textsc{rip} & $0.18\%\pm0.06\%$ (nested point estimate $0.165\%$) & non-heat-death \\
 \textsc{ds} & 0 (grammar artifact; Sec.~\ref{sec:fparam}) & heat-death-compatible \\
 \textsc{other}/boundary & 0 / 0 & --- \\
 \end{tabular}
@@ -270,40 +269,47 @@ No fate verdict in the literature has, to our knowledge, been calibrated
 against a null. We generated one hundred mock datasets whose truth is the
 \lcdm{} best fit to D0, drawing noise from the exact likelihood covariances
 (SN $1657\times1657$; BAO $13\times13$; CMB prior $3\times3$), plus one
-zero-noise realization for which all three $\chi^2$ vanish identically at the
+zero-residual realization for which all three $\chi^2$ vanish at the
 truth---a closed-loop validation of the mock machinery. Each mock was
 processed by the full CPL+P1 pipeline.
 
-Because the \lcdm{} truth sits on the zero-width fate boundary, the
+Because the \lcdm{} truth sits on the zero-width CPL fate boundary, the
 probability integral transform predicts the heat-death-compatible posterior
-mass to be distributed as $U(0,1)$ across realizations, hence a direction
-verdict correct in $\sim50\%$ of mocks \emph{regardless of pipeline quality}.
-(The general statement, its closed-form verification, the diagnostics that
-detect a miscalibrated pipeline, and the finite-mock reporting rules are
-collected in Appendix~\ref{app:boundarystats}.)
+mass to be distributed as $U(0,1)$ across realizations under the regular
+continuous model used here: the local likelihood must be calibrated, the
+boundary locally linear, and the prior absolutely continuous with no point
+mass on \lcdm{}. Under those conditions a direction verdict is correct in
+$\sim50\%$ of mocks. This is a property of the specified decision problem,
+not a statement that pipeline quality is irrelevant and not a universal
+limit on Bayesian procedures. Spike-and-slab priors, explicit \lcdm{} model
+probability, curved boundaries, or misspecified posterior widths change the
+result (Appendix~\ref{app:boundarystats}).
 These predictions were logged mid-campaign (at ${\sim}17$ of 100 mocks),
-before the campaign's completion and before the zero-noise run. Results
+before the campaign's completion and before the zero-residual run. Results
 (Fig.~\ref{fig:null}): accuracy $\NullAcc/100$ (68\% CI $[45,55]$); KS uniformity
 $p=\NullKSp$; mean $\NullMean\pm\NullMeanSE$; \textsc{other} and boundary budgets at the
 $10^{-3}$ level. (A hundred-realization KS test has limited power against
 mild distortions, which is why the registered predictions also pinned the
 mean, the accuracy count, and the budgets---all independently satisfied.)
-The zero-noise mock returns $52/48$: even noiseless \lcdm{}
-data flip a coin, establishing that the verdict's randomness originates in
-boundary geometry, not measurement noise. No calibrated Bayesian procedure
-can do better; a pipeline scoring far above 50\% here would be exhibiting
-prior bias, not skill.
+The zero-residual mock returns $52/48$. Its data vector equals the truth, but
+its likelihood covariance remains finite; it is a closed-loop diagnostic,
+not a zero-uncertainty experiment. The result isolates the role of boundary
+geometry within this continuous CPL analysis.
 
 The null distribution also supplies the calibrated reading of the real data.
 Across one hundred \lcdm{} universes the lowest Big Rip probability produced
 by noise is $\RipNullMin\%$; the real Universe sits at $\DzeroRipPct\%$---eight times deeper,
-below every realization (calibrated $p<0.030$), in agreement with the
-asymptotic Wilks~\cite{Wilks1938} route ($p=0.024$)---two independent
-arguments, one mock-calibrated and one analytic, against the same null. The correct summary of
-Table~\ref{tab:d0fate} is therefore two-layered: \emph{the direction of the
-fate verdict carries no information---even perfect \lcdm{} data flip a
-coin---but the depth of the real data's anti-rip preference is genuine,
-doubly verified, and corresponds to the $2$--$3.3\sigma$ thawing signal.}
+below every realization. The finite-simulation result is
+$\hat p=(0+1)/(100+1)=0.0099$, with a 95\% upper bound of $0.0295$.
+The asymptotic Wilks route gives $p=0.024$, but the statistics are not
+equivalent: the mock campaign ranks the one-sided posterior mass
+$P(\wa>0\mid D)$ within a CPL pipeline, whereas Wilks tests the point
+$(-1,0)$ against a two-parameter CPL alternative. Their numerical agreement
+is a useful qualitative cross-check, not two independent measurements of the
+same tail. The correct summary of Table~\ref{tab:d0fate} is therefore
+two-layered: \emph{the CPL direction probability has the registered uniform
+null distribution, while the real data lie unusually deep in its anti-rip
+tail and also disfavor point-\lcdm{} by a distinct likelihood-ratio test.}
 What that signal does and does not imply about the actual fate is the
 subject of the fragility matrix.
 
@@ -311,7 +317,8 @@ subject of the fragility matrix.
 \includegraphics[width=0.95\columnwidth]{../runs/gate2/f3_null_histogram.pdf}
 \caption{Null calibration of the fate verdict. Under \lcdm{} truth the
 heat-death-compatible posterior mass is consistent with $U(0,1)$
-(KS $p=0.25$); even the zero-noise mock returns 52/48. The real-data value
+(KS $p=0.25$) for continuous CPL+P1; the zero-residual mock returns 52/48.
+The real-data value
 (red) lies beyond every mock realization.}\label{fig:null}
 \end{figure}
 
@@ -348,12 +355,11 @@ upper limit for zero \textsc{rip} samples.}\label{fig:loo}
 
 \begin{table}[t]
 \caption{Leave-one-out (CPL+P1 fixed). Per the frozen sub-percent rule,
-every sub-percent tail probability in this table and in
-Table~\ref{tab:grammar} has been independently re-verified by nested
-sampling; all six agree within sampling uncertainty (largest shift
-$1.3\sigma$ under a binomial error model, which if anything overstates
-shifts), and the exact zero of D3 is reproduced (per-combination records in
-the repository).}\label{tab:loo}
+the sub-percent entries were recomputed with nested sampling. The weighted
+point estimates are consistent with the MCMC values and reproduce the zero
+tail for D3. Binomial errors stored with the equal-weight resamples are
+numerical resampling diagnostics, not repeated nested-run uncertainties
+(per-combination records in the repository).}\label{tab:loo}
 \begin{ruledtabular}
 \begin{tabular}{lcccc}
 Combo & removed & $\wz$ & $\wa$ & $P(\textsc{rip})$ \\
@@ -398,118 +404,137 @@ evidence ($\Delta k=2$, $N=1673$ data points; negative values favor
 CPL)---the direction flip is reproduced within the information-criterion
 family itself.
 
+An explicitly model-averaged reading makes the conditioning visible. As an
+\emph{exploratory, post-hoc} diagnostic, assign equal prior odds to the
+two-model set $\{\lcdm{},\mathrm{CPL}\}$. The measured Bayes factor then gives
+$P(\lcdm{}\mid D)=85.3\%$ and $P(\mathrm{CPL}\mid D)=14.7\%$; because exact
+\lcdm{} is heat-death-compatible, the corresponding model-averaged
+compatibility is $99.97\%$. These values are not privileged---they change
+with the model set and model prior odds---but they demonstrate why the
+continuous-CPL 50/50 boundary result cannot be promoted to a universal
+Bayesian claim.
+
 \subsection{Parametrization axis}\label{sec:fparam}
 
 Table~\ref{tab:grammar} and Fig.~\ref{fig:grammar} are the paper's central
-result. Four parametrizations, statistically indistinguishable inside the
-data window, are fit to identical data under identical priors; their fate
-tables disagree catastrophically. That in-window equivalence is not
-peculiar to our pipeline---it has been established independently across a
-similar grammar family~\cite{Wolf2025}; this axis measures what the
-equivalence conceals beyond the window, where the fate lives.
-The divergent-future family (CPL, JBP~\cite{JBP2005}) delivers near-certain \textsc{decay};
-the bounded-future family (BA~\cite{BarbozaAlcaniz2008}) revives a small but nonzero \textsc{ds}; the
-frozen-future family (BIN4---the most extrapolation-averse grammar, ``the
-future keeps the equation of state we measure today'') returns a coin flip:
-$41.2\%$ \textsc{rip}, $41.2\%$ \textsc{decay}, $17.6\%$ \textsc{ds}, because
-the fate-controlling bin is measured to be $w_1=-1.000\pm0.044$---the real
-data land the knife edge of Sec.~\ref{sec:null} at the grammar level. (A
-quarter of BIN4 samples carry boundary flags, and the split is
-correspondingly threshold-sensitive: halving/doubling the \textsc{ds}
-tolerance moves \textsc{rip}/\textsc{ds}/\textsc{decay} from
-$45.6/8.7/45.7$ to $32.7/34.6/32.7$ per cent---which is itself the
-point.) Meanwhile the binned
-reconstruction relocates the thawing signal: the low-$z$ bin is
-\lcdm-consistent, and the deviation lives at $z\in[0.7,1.5]$
-($w_3=-1.53\pm0.20$)---CPL's famous $\wz\approx-0.88$ is that mid-$z$ signal
-transported to $z=0$ along a straight line.
-
-The fifth registered grammar closes the family from the opposite side. We
-realize the plan's Gaussian-process reconstruction as six nodes over
-$z\in[0,3]$, interpolated by the conditional mean of a squared-exponential
-GP with hierarchically sampled $(\sigma_f,\ell)$ and mean function $w=-1$;
-outside the data window---in \emph{both} directions---the reconstruction
-reverts to its mean by construction. The consequence is exact:
-$w(a\to\infty)=-1$ for every posterior sample, so the A-003 asymptotic
-criteria return $P(\textsc{ds})=100\%$ with zero Monte Carlo error,
-independently of what the data say about the nodes (realization details in
-Appendix~\ref{app:classifier}). This is the mirror
-image of the quintessence prior (Sec.~\ref{sec:fprior}): there the prior
-forbids the rip before any data arrive; here the grammar's mean function
-simply \emph{is} the fate. (Assigning each sample its conditional-mean
-future is itself a convention; propagating the kernel's future fluctuations
-instead would make the verdict a property of the noise ensemble---an
-arbitrariness of yet another kind.) Kernel sensitivity, registered as a
-separate deliverable, is benign where it can act and null where it cannot:
-fixing the correlation length at $\ell=0.5$ and $2.0$ e-folds---a factor of
-four---moves no node posterior by more than $0.4\sigma$, both runs
-independently reproduce the binned grammar's localization (the $z\lesssim0.3$
-node on $\Lambda$, the deviation at mid-$z$: $w(z{\simeq}0.7)=-1.12\pm0.07$
-and $-1.11\pm0.06$), and the amplitude stays weakly identified
-($\sigma_f=0.4\pm0.4$ and $0.8\pm0.5$; the hierarchical $(\sigma_f,\ell)$
-run mixes slowly for precisely this reason---the data cannot pin the
-smoothness scale). The fate verdict is exactly invariant under any kernel
-choice, since the asymptotic classification depends only on the mean
-function. The axis reading:
-$P(\textsc{rip})$ spans $0$ (grammar-excluded) through $0.2\%$ to $41\%$
-($2.3$ dex over the measured range); the heat-death-compatible headline,
-robust on every other axis, ranges over $58.8$--$100\%$.
-
-\begin{figure}[t]
-\includegraphics[width=\columnwidth]{../runs/phase3/fparam/f5_grammar_fates.pdf}
-\caption{Fate composition across $w(a)$ grammars (D0+P1 fixed; A-003
-criteria). The same data and priors deliver near-certain \textsc{decay}
-under the divergent-future family, a three-way split under the
-frozen-future grammar, and pure \textsc{ds} under the mean-reverting GP;
-heat-death compatibility ranges over $58.8$--$100\%$.}\label{fig:grammar}
-\end{figure}
+result, but two comparisons must be separated. First, do the grammars fit the
+observed window comparably? An exploratory post-hoc audit of the archived
+chains (Table~\ref{tab:fitgrammar}) finds approximate minimum likelihood
+$\Delta\mathrm{AIC}$ between $-0.15$ and $+2.54$ relative to CPL. These are
+chain minima, not dedicated optimizations or evidences, so we claim
+comparability rather than exact statistical indistinguishability. The
+literature establishes related in-window degeneracies for overlapping
+two-parameter families~\cite{Wolf2025}, not for this entire set and not for
+our BIN4 implementation.
 
 \begin{table}[t]
-\caption{Fate probabilities across $w(a)$ grammars (D0+P1 fixed; A-003
-criteria). The CPL row is recomputed through the generic background
-machinery used for all grammars (a machinery-swap validation); it agrees
-with the \texttt{camb}-based baseline of Table~\ref{tab:d0fate} within
-Monte Carlo error ($0.21\pm0.08\%$ vs $0.18\pm0.06\%$). The GP row is
-exact: the mean function fixes $w(a\to\infty)=-1$, so the asymptotic
-branch classifies every sample \textsc{ds} independently of its node
-values. Verification status of sub-percent entries as in
-Table~\ref{tab:loo}.}\label{tab:grammar}
+\caption{Exploratory in-window fit audit. Minima are the lowest likelihood
+$\chi^2$ values in the archived post-burn-in chains; common parameters cancel
+in $\Delta$AIC. This is not a model-evidence calculation.}\label{tab:fitgrammar}
 \begin{ruledtabular}
-\begin{tabular}{lccccc}
-Grammar & $P(\textsc{rip})$ & $P(\textsc{decay})$ & $P(\textsc{ds})$ &
-$P(\text{heat-death})$ \\
+\begin{tabular}{lrrrr}
+Grammar & $\chi^2_{\rm chain,min}$ & $\Delta\chi^2$ & $\Delta$AIC & $R-1$ \\
 \hline
-CPL & $0.21\%$ & $99.79\%$ & $0$ & $99.8\%$ \\
-JBP & $0.79\%$ & $99.21\%$ & $0$ & $99.2\%$ \\
-BA & $1.28\%$ & $98.35\%$ & $0.37\%$ & $98.7\%$ \\
-BIN4 & $41.2\%$ & $41.2\%$ & $17.6\%$ & $58.8\%$ \\
-GP & $0$ & $0$ & $100\%$ & $100\%$ \\
+CPL  & 1489.534 & 0.000 & 0.000 & 0.0077 \\
+JBP  & 1492.075 & 2.541 & 2.541 & 0.0072 \\
+BA   & 1491.523 & 1.989 & 1.989 & 0.0049 \\
+BIN4 & 1485.386 & $-4.149$ & $-0.149$ & 0.0098 \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
+
+Second, the four fits do \emph{not} have identical priors. Their coordinate
+dimensions, early-matter-domination constraints, and induced measures on
+functions and fates differ. A deterministic P1 prior audit makes the baseline
+explicit: prior $P(\textsc{rip})$ is $25.8\%$ (CPL), $40.0\%$ (JBP),
+$58.1\%$ (BA), and $49.7\%$ (BIN4). The likelihood strongly suppresses the
+rip within every fitted grammar, but the residual posterior remains
+grammar-dependent. The divergent-future CPL and JBP families deliver
+near-certain \textsc{decay}; bounded-future BA revives a small
+\textsc{ds} component; and frozen-future BIN4 returns
+$41.2\%$ \textsc{rip}, $41.2\%$ \textsc{decay}, and $17.6\%$ \textsc{ds}.
+Its fate-controlling bin is measured as $w_1=-1.000\pm0.044$. A quarter of
+BIN4 samples carry boundary flags: halving/doubling the \textsc{ds} tolerance
+moves \textsc{rip}/\textsc{ds}/\textsc{decay} from $45.6/8.7/45.7$ to
+$32.7/34.6/32.7$ per cent. The binned reconstruction also relocates the
+finite-redshift signal: the low-$z$ bin is \lcdm-consistent and the deviation
+lies at $z\in[0.7,1.5]$ ($w_3=-1.53\pm0.20$). Thus CPL's
+$\wz\approx-0.88$ is partly the transport of a mid-$z$ signal to $z=0$ by a
+linear grammar.
+
+The registered Gaussian-process branch is reported differently. Its
+hierarchical chain stopped with $R-1=0.232$, failing Gate~3; moreover the
+box-truncated hierarchical density was not normalized as a function of its
+hyperparameters. We therefore remove all GP node, kernel-sensitivity, and
+fit-comparison claims. One exact construction remains valid without those
+claims: assigning the conditional-mean future of a stationary GP with mean
+$w=-1$ makes $w(a\to\infty)=-1$ for every draw, so the asymptotic classifier
+returns \textsc{ds} by construction. This is a transparent counterexample
+showing that a future mean function can fix the fate before the likelihood is
+evaluated; it is not a fifth converged fit. Among the four fitted grammars,
+$P(\textsc{rip})$ spans $0.21$--$41.2\%$ and heat-death compatibility
+$58.8$--$99.8\%$. Adding the construction extends the latter endpoint to
+$100\%$.
+
+\begin{figure}[t]
+\includegraphics[width=\columnwidth]{../runs/phase3/fparam/f5_grammar_fates.pdf}
+\caption{Prior and posterior fate composition under the grammar-specific P1
+measures (A-003 criteria). Flat coordinate priors do not induce a common fate
+measure. GP* is the deterministic mean-reverting construction, not a
+converged fitted grammar.}\label{fig:grammar}
+\end{figure}
+
+\begin{table*}[t]
+\caption{Grammar-specific induced prior fate mass and posterior fate
+probabilities (D0 fixed; A-003 criteria). The CPL posterior row uses the
+generic cross-grammar background machinery and agrees with the baseline
+within Monte Carlo error. GP* is a construction only.}\label{tab:grammar}
+\scriptsize
+\begin{ruledtabular}
+\begin{tabular}{lccccc}
+Grammar & prior $P(\textsc{rip})$ & posterior $P(\textsc{rip})$ &
+posterior $P(\textsc{decay})$ & posterior $P(\textsc{ds})$ &
+posterior $P(\text{heat-death})$ \\
+\hline
+CPL & $25.8\%$ & $0.21\%$ & $99.79\%$ & $0$ & $99.8\%$ \\
+JBP & $40.0\%$ & $0.79\%$ & $99.21\%$ & $0$ & $99.2\%$ \\
+BA & $58.1\%$ & $1.28\%$ & $98.35\%$ & $0.37\%$ & $98.7\%$ \\
+BIN4 & $49.7\%$ & $41.2\%$ & $41.2\%$ & $17.6\%$ & $58.8\%$ \\
+GP* & construction: $0$ & $0$ & $0$ & $100\%$ & $100\%$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
 
 \subsection{Constraint horizon}\label{sec:ah}
 
 Where do the data stop speaking? In the binned grammar the posterior-to-prior
 information $D_{\rm KL}[p(w(a))\|\pi]$ is $\KLbinA$, $\KLbinB$, $\KLbinC$, and $\KLbinD$
 nat in the four bins (Fig.~\ref{fig:horizon})---the frozen $0.1$-nat horizon
-is never crossed inside the window: thanks to the CMB lever arm, the data constrain $w(a)$ (weakly)
-all the way to recombination. The horizon statement therefore lands at its
-sharpest possible position: \emph{data information terminates at $a=1$}. For
-$a>1$---the entire fate-relevant epoch---the data-sourced KL is identically
-zero; whatever information appears there is transported by the grammar's
-extrapolation rule (BIN4's freezing, CPL's straight line), not measured. The
-fate verdict depends, in every grammar, on a region where the measured
-information content is exactly nil.
+is never crossed inside the observed window: the compressed CMB lever arm
+constrains the highest-redshift bin weakly but above threshold. The registered
+metric must then be applied to the registered future rule. BIN4 freezes
+$w(a>1)=w_1$, so both its posterior and prior are inherited from $w_1$ and
+the future KL remains $\KLbinA$ nat. Thus $a_h$ is \emph{not reached};
+reporting $a_h=1$ would be inconsistent with the registered metric.
 
-\begin{figure}[t]
+A separate and scientifically important statement does hold: $a=1$ is the
+boundary of \emph{direct observational support}. The nonzero KL plotted for
+$a>1$ was learned about $w_1$ at $a\le1$ and transported into the future by
+the BIN4 freezing rule. CPL transports information differently. Thus future
+fate is not supported by direct likelihood evaluations at $a>1$, even though
+the posterior-to-prior KL of the extrapolated function need not vanish.
+
+\FloatBarrier
+\begin{figure}[!h]
 \includegraphics[width=\columnwidth]{../runs/phase3/fparam/f6_constraint_horizon.pdf}
 \caption{Constraint horizon (BIN4): posterior-to-prior information in
-$w(a)$ per bin. The frozen $0.1$-nat threshold is never crossed inside the
-data window, so the horizon lands at its sharpest possible position,
-$a_h=1$: over the entire fate-relevant epoch $a>1$ the data-sourced
-information is identically zero.}\label{fig:horizon}
+$w(a)$ per bin. The dashed future segment is the $w_1$ KL inherited by the
+BIN4 freezing rule, not direct future information. The frozen $0.1$-nat
+threshold is never crossed, so the registered result is $a_h$: not reached.
+The vertical line at $a=1$ marks the distinct boundary of direct
+observational support.}\label{fig:horizon}
 \end{figure}
+\FloatBarrier
 
 \subsection{Synthesis}\label{sec:summary}
 
@@ -527,52 +552,54 @@ SH0ES anchor & in/out & $H_0$ ${+}1.35$~km\,s$^{-1}$\,Mpc$^{-1}$; $\wz\,{-}0.034
 CMB information & compressed/full & stable $-0.5\sigma$ discount & priced, stable \\
 Dataset ablation & D1--D4 & $\wa\in[-1.72,-0.55]$; $P(\textsc{rip})\,0\!-\!0.31\%$ & direction robust \\
 Prior & P1/P2/P3 & $P(\textsc{rip})$: $0.18\%\to 0$ (excluded) & prior decides \\
-Statistic & $\Delta\chi^2$ vs $\ln B$ & $2.25\sigma$ against vs.\ $\ln B$ for \lcdm & direction flips \\
-Grammar & CPL/JBP/BA/BIN4/GP & $P(\textsc{rip})$ $0\to41\%$; $P(\text{heat})$ $58.8\to100\%$ & dominant axis \\
-Truth position & \lcdm{} null & verdict $\sim U(0,1)$; zero-noise 52/48 & uninformative \\
+Statistic & $\Delta\chi^2$ vs $\ln B$ & $2.25\sigma$ against vs.\ $\ln B$ for \lcdm & conditioning flips \\
+Grammar & four fits + GP construction & $P(\textsc{rip})$ $0.21\to41\%$ in fits & dominant axis \\
+Truth position & \lcdm{} in continuous CPL & verdict $\sim U(0,1)$; zero-residual 52/48 & conditional null law \\
 \end{tabular}
 \end{ruledtabular}
 \end{table*}
 
-Table~\ref{tab:matrix} assembles the audit. The stable content of the data is
-a thawing-quadrant signal of calibrated $p\approx0.02$--$0.03$ whose
-\emph{location} (mid-$z$) and \emph{direction} survive every data-side
-variation. Everything specifically eschatological---which fate, with what
-probability---responds at order unity to theory-side knobs the data cannot
-adjudicate.
+Table~\ref{tab:matrix} assembles the audit. The stable content is a
+finite-redshift thawing-quadrant preference: the posterior-tail mock rank and
+the non-equivalent Wilks statistic both put it near the few-percent level,
+and its direction survives every data-side variation. Everything specifically
+eschatological---which fate, with what probability---responds at order unity
+to theory-side knobs that the current likelihood cannot adjudicate.
 
 \section{Discussion}\label{sec:discussion}
 
 \emph{Three layers.} The audit resolves the fate question into three layers
 with different epistemic status. (i) \emph{Direction}: whether dark energy
-will decay or rip is, under the null, a coin flip---and under the least
-extrapolative grammar, the real data return precisely that coin flip.
+will decay or rip has a uniform posterior-mass null distribution within the
+continuous CPL decision problem; BIN4 places the real posterior near its
+fate boundary.
 (ii) \emph{Depth}: the data contain a genuine signal---a thawing-quadrant
-preference of calibrated $p\approx0.02$--$0.03$, doubly verified, located at
-intermediate redshift, robust to every dataset ablation. (iii)
+preference with a posterior-tail mock upper bound of $0.0295$ and a distinct
+Wilks value of $0.024$, located at intermediate redshift and robust to every
+dataset ablation. (iii)
 \emph{Translation}: converting that signal into eschatology multiplies it by
-an extrapolation rule that the data cannot select. The fate literature's
-headline numbers live in layer (iii).
+an extrapolation rule and induced prior measure that the data cannot select.
+The fate literature's headline numbers live in layer (iii).
 
 \emph{Why the fragility is structural, not accidental.} The fate map is a
 \emph{discontinuous} functional of parameters that observation constrains
 only \emph{continuously}: \textsc{rip} and \textsc{decay} are separated by a
-zero-width boundary, and \lcdm{} sits on it. Finite-precision data can never
-settle which side of a measure-zero boundary the truth occupies; if the
-cosmological constant is exact, the direction verdict remains a coin flip at
-\emph{any} future precision. Improved data can decide the question only if
-the truth lies off the boundary---and whether it does is precisely what
-cannot be decided from on it. In this specific sense, cosmic fate is either
-eventually decidable or permanently undecidable, and we cannot currently
-determine which---a sharpened, quantitative instance of the
+zero-width boundary, and \lcdm{} sits on it. Under regular continuous-model
+asymptotics, repeated-data class probabilities remain uniform when the truth
+is exactly on a locally linear boundary, even as the likelihood narrows. This
+statement is conditional: a discrete \lcdm{} component, model averaging,
+nonregular priors, or a physically derived theory changes the inferential
+object. In that qualified sense the result is a quantitative instance of the
 underdetermination of dark energy articulated in
-Ref.~\cite{WolfFerreira2023}; the permanently-undecidable branch realizes,
-on a zero-width boundary, the \emph{permanent} underdetermination recently
-characterized in Ref.~\cite{WolfRead2026}.
+Refs.~\cite{WolfFerreira2023,WolfRead2026}, not a no-go theorem for every
+future Bayesian procedure.
 
-\emph{What would change the situation.} Not more distance data alone: the
-constraint horizon terminates at $a=1$ regardless of precision. Extrapolation
-is licensed by trusted theory, not by fit quality. CPL and its cousins are
+\emph{What would change the situation.} More precise distance data can narrow
+the finite-redshift function and may reveal that the truth is off the
+boundary, but observations made today cannot directly sample $a>1$. The
+registered KL horizon is not reached; the relevant limitation is instead the
+direct-support boundary at $a=1$. Extrapolation is licensed by trusted theory,
+not by fit quality alone. CPL and its cousins are
 more than raw curve fitting---they are compressions calibrated against
 quintessence-class dynamics inside the
 window~\cite{CaldwellLinder2005,Linder2006,dePutterLinder2008}---but a
@@ -583,7 +610,7 @@ audit prices (Sec.~\ref{sec:fprior}). A physically derived dark-energy model
 (a specific potential, a symmetry argument) would convert fate back into a
 derivation---then data would test the theory inside the window and the
 theory would carry the license beyond it. Until then, fate probabilities
-are measurements of our notation.
+remain conditional predictions of the adopted model class.
 
 \emph{An agent-relevant footnote.} Our taxonomy classes \textsc{ds} and
 \textsc{decay} as thermodynamically equivalent (both heat death), but they
@@ -611,29 +638,31 @@ validated~\cite{ChenHuangWang2018}; for the binned grammar, whose
 high-$z$ bin can depart further from $\Lambda$, extraction-side validity
 is an additional inherited assumption (the $w_4<0$ constraint keeps early
 dark energy subdominant). The analysis is geometry-only; growth
-data could shift the window-interior signal. The grammar family, while
-spanning divergent, bounded, frozen, and mean-reverting futures, is not
-exhaustive---still further parametrizations and reconstructions are in
-active use~\cite{Wolf2025}---and our grammar-span
-readings are lower bounds. The work was performed by a single author with
+data could shift the window-interior signal. The four fitted grammars are not
+a model average and their induced priors differ; the prior audit exposes but
+does not remove that dependence. The GP is a construction rather than a fit,
+because the hierarchical chain failed the convergence gate and its truncated
+hyperprior requires proper normalization before quantitative reuse. The
+grammar family is not exhaustive---further parametrizations and
+reconstructions are in active use~\cite{Wolf2025}---so the measured span is
+not a universal bound. The work was performed by a single author with
 AI assistance under the verification protocol described; residual
 unknown-unknowns are bounded only by the audit trail, which is public.
 
 \section{Conclusions}\label{sec:conclusions}
 
-The data contain a real signal: a thawing-quadrant preference at calibrated
-$p\approx0.02$--$0.03$, located at intermediate redshift, that survives every
-dataset ablation we tried. The fate verdict built on it does not: under the
-null it is a coin flip, under a quintessence prior it is decided before data
-arrive, under a change of inference statistic it reverses, and under a change
-of $w(a)$ grammar it runs the gamut---from a mean function that donates
-$P(\textsc{ds})=100\%$, through near-certain \textsc{decay}, to a three-way
-coin flip, with heat-death compatibility ranging over $58.8$--$100\%$. The heat
-death of the Universe is neither confirmed nor threatened by current data:
-every eschatological bit lives beyond $a=1$, where the measured information
-content is identically zero. What cosmology can honestly export today is not
-a fate but a fate-conditional: the audit framework presented here keeps the
-two from being confused.
+The data contain a finite-redshift thawing-quadrant preference: the real CPL
+tail lies below all one hundred \lcdm{} mocks, and a distinct Wilks test gives
+a similar few-percent scale. Translating that preference into fate remains
+conditional. A quintessence prior excludes the rip before data; four
+comparably fitting, converged grammars move posterior $P(\textsc{rip})$ from
+$0.21\%$ to $41.2\%$ against induced prior values of $25.8$--$58.1\%$; and a
+mean-reverting GP construction fixes \textsc{ds} without qualifying as a
+converged fit. The registered $a_h$ is not reached, while $a=1$ marks the
+boundary of direct observational support. Current data therefore support a
+finite-redshift dynamical-dark-energy conditional, not a model-independent
+cosmic fate. The audit framework makes the conditioning and its error budget
+explicit.
 
 \begin{acknowledgments}
 This work used \texttt{CAMB}~\cite{CAMB}, \texttt{cobaya}~\cite{cobaya},
@@ -765,10 +794,14 @@ factual presupposition. The \lcdm{} truth sits on the zero-width
 mass is distributed approximately as $U(0,1)$ under the null and \emph{no}
 calibrated Bayesian procedure can exceed $\sim$50\% direction accuracy
 (Sec.~\ref{sec:null}). Measured: 50.0\% accuracy, KS $p=0.25$ against
-uniformity, zero-noise mock at 52/48, all budgets met, six pre-registered
+uniformity, zero-residual mock at 52/48, all budgets met, six pre-registered
 predictions correct---the failure mode matched the mathematical prediction,
 excluding a pipeline-defect explanation. \textbf{Consequence:} Gate 2's
 output became a core result of the paper rather than a pass/fail check.
+The amendment's ``no calibrated procedure'' wording is scoped in the revised
+analysis to the regular continuous CPL decision problem; it does not include
+priors with a discrete \lcdm{} component or model averaging
+(Sec.~\ref{sec:null}).
 
 \emph{A-003 (2026-07-06; triggered automatically by the frozen 1\%
 \textsc{other} audit during the first parametrization-axis pass).}
@@ -825,27 +858,25 @@ documented before the real-data runs and did not require an amendment; the
 distinct gap later exposed by bounded-future grammars did (A-003,
 Appendix~\ref{app:amendments}).
 
-For the GP grammar the classifier receives $w_\infty=-1$ exactly---the
-conditional mean of a stationary kernel reverts to its mean function---so
-the asymptotic branch applies to every sample. The frozen realization: six
-nodes at uniform $\ln a$ spacing over $z\in[0,3]$, squared-exponential
-correlation on $\ln a$, jitter $10^{-10}$, and interpolation by the GP
-conditional mean, in which the amplitude $\sigma_f$ cancels analytically
-($\sigma_f$ acts only through the hierarchical prior on the nodes). Priors:
-each node uniform on $[-3,1]$ (mirroring P1), multiplied by the hierarchical
-GP density $\mathcal{N}(-1,\sigma_f^2 K_\ell)$ with $\sigma_f$ uniform on
-$[0.01,2]$ and $\ell$ uniform on $[0.2,3]$ e-folds; the fixed-$\ell$
-sensitivity runs pin $\ell$ and retain the rest. Two consistency notes.
-First, the box truncation leaves the hierarchical density unnormalized as a
-function of $(\sigma_f,\ell)$; this tilts only the weakly identified
-hyperparameter marginals, which we do not interpret quantitatively---nodes
-and fate verdict are unaffected. Second, the cross-grammar machinery takes
+For the GP construction the classifier receives $w_\infty=-1$ exactly: the
+conditional mean of a stationary kernel reverts to its mean function, so the
+asymptotic branch returns \textsc{ds} for every draw. The registered
+realization used six nodes at uniform $\ln a$ spacing over $z\in[0,3]$, a
+squared-exponential correlation, and mean $w=-1$. Its attempted hierarchical
+fit multiplied uniform node boxes by
+$\mathcal{N}(-1,\sigma_f^2 K_\ell)$, with $\sigma_f\in[0.01,2]$ and
+$\ell\in[0.2,3]$. That density was left unnormalized after box truncation,
+which can change both hyperparameter and node marginals, and the hierarchical
+chain stopped at $R-1=0.232$. It therefore failed Gate~3 and no quantitative
+GP posterior is used. The sample-independent asymptotic construction remains
+valid because it follows from the assigned future mean, not from the
+nonconverged posterior. Separately, the cross-grammar machinery takes
 $r_{\rm drag}$ from a \lcdm{} computation (drag-epoch physics treated as
 dark-energy independent); this is self-consistent a posteriori even for the
 binned grammar, whose free high-$z$ bin sits at $w_4=-1.71\pm0.62$, leaving
 zero posterior mass with $\rho_{\rm DE}/\rho_m(z_{\rm drag})>0.01$.
 
-\section{Mock machinery and zero-noise validation}\label{app:mocks}
+\section{Mock machinery and zero-residual validation}\label{app:mocks}
 
 The null-calibration truth is the \lcdm{} best fit to D0
 ($\Omega_m=0.2968$, $H_0=68.81$, $M_B=-19.397$), located by repeated
@@ -863,15 +894,15 @@ on it; the depth-layer floor inherits the usual parametric-bootstrap
 caveat of being conditioned on the fitted truth.
 Mocks are generated deterministically from a single seed,
 so the entire campaign regenerates bit-identically from the repository. A
-101st, zero-noise realization (\texttt{mock000}) provides a closed-loop
+101st, zero-residual realization (\texttt{mock000}) provides a closed-loop
 test: at the truth point all three likelihood $\chi^2$ vanish identically,
 verifying the mock--likelihood round trip; its fate verdict (52/48) is the
-noise-free boundary diagnostic of Sec.~\ref{sec:null}.
+finite-covariance boundary diagnostic of Sec.~\ref{sec:null}.
 
 Six falsifiable predictions were logged mid-campaign (after ${\sim}17$
 of 100 mocks had been inspected), derived from the
 probability-integral-transform argument, before the campaign's completion
-and before the zero-noise realization ran:
+and before the zero-residual realization ran:
 direction accuracy $50\pm10\%$; $P_{\rm heat}$ consistent with $U(0,1)$;
 0--3 of 100 mocks below the real data's $P(\textsc{rip})$;
 \textsc{other} and boundary budgets at the $10^{-3}$ level;
@@ -881,7 +912,7 @@ logs are in the repository.
 
 \section{Boundary calibration statistics}\label{app:boundarystats}
 
-This appendix collects, in model-independent form, the statistical facts
+This appendix collects, in an idealized regular-model form, the statistical facts
 behind the null calibration of Sec.~\ref{sec:null}: the exact uniformity
 result, its closed-form verification, the diagnostics that detect a
 \emph{mis}calibrated pipeline, the finite-mock reporting rules, and the
@@ -910,8 +941,12 @@ distortions; this is comfortable agreement).
 The CPL fate boundary $\wa=0$ is exactly linear, so the result covers the
 geometry of Sec.~\ref{sec:null} up to the non-Gaussianity of the real
 posterior---which the full-pipeline campaign tests directly.
+The derivation assumes a continuous posterior with no atom on the boundary.
+It does not apply unchanged to spike-and-slab priors or Bayesian model
+averaging that assigns positive probability to exact \lcdm{}.
 
-\begin{figure}[t]
+\FloatBarrier
+\begin{figure}[!h]
 \includegraphics[width=\columnwidth]{figures/figA_boundary_toy.pdf}
 \caption{The boundary-calibration toy (Appendix~\ref{app:boundarystats}).
 Left: calibrated posterior with the truth on the boundary---class
@@ -921,6 +956,7 @@ over-confident posterior---mean preserved but variance above $1/12$; the
 uniformity diagnostics fail precisely when the pipeline is defective.}
 \label{fig:boundarytoy}
 \end{figure}
+\FloatBarrier
 
 \emph{Diagnostics: when uniformity must fail.} The value of the null test
 lies in what breaks it (Fig.~\ref{fig:boundarytoy}). Truth off the
@@ -971,7 +1007,9 @@ The repository, \url{https://github.com/shlinawaf717-collab/cosmo_fate}
 (archived at Zenodo, \url{https://doi.org/10.5281/zenodo.21332434}),
 contains the frozen plan and amendment log, the full pipeline (likelihood configurations,
 fate classifier and its unit suite, mock generator, batch drivers, nested
-verification), all chains and per-mock records, and the figure scripts. All
+verification), all chains and per-mock records, the figure scripts, and
+deterministic audits for induced prior fate mass, in-window chain minima,
+model averaging, and the registered constraint-horizon metric. All
 input data are public: DESI DR2 BAO compressed measurements and covariance;
 Pantheon+ (with SH0ES), Union3, and DES-Dovekie supernova files obtained via
 the \texttt{cobaya} installer; the CMB distance prior of
@@ -986,7 +1024,8 @@ Software: Python 3.13, \texttt{cobaya} 3.6.2, \texttt{camb} 1.6.6,
 \texttt{scipy} pinned to 1.16.2 (a scipy 1.18 regression in spline
 evaluation breaks \texttt{camb} 1.6.6's BBN interface; the pin and the
 upstream fix are documented in the manifest). The classifier unit suite, the
-zero-noise closed-loop test, and the deterministic mock regeneration
+zero-residual closed-loop test, deterministic mock regeneration, and CI audit
+invariants
 together allow every number in this paper to be reproduced from the
 repository; the environment setup, data installation, and per-result
 commands are documented in the repository README.
