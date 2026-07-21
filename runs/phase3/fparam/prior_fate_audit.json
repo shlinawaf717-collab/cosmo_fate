@@ -1,0 +1,90 @@
+{
+  "status": "exploratory post-hoc audit",
+  "seed": 20260720,
+  "n_proposals": 2000000,
+  "epsilon_A003": 0.01,
+  "warning": "coordinate-wise flat priors, dimensions, constraints, and induced function-space measures differ across grammars",
+  "models": {
+    "CPL": {
+      "support": "w0 in [-3,1], wa in [-3,2], conditioned on w0+wa<0",
+      "RIP": {
+        "P": 0.2579411592050745,
+        "mc_se": 0.0003513888773322112
+      },
+      "DS": {
+        "P": 0.0,
+        "mc_se": 0.0
+      },
+      "DECAY": {
+        "P": 0.7420588407949255,
+        "mc_se": 0.0003513888773322113
+      },
+      "n_accepted": 1550183
+    },
+    "JBP": {
+      "support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
+      "RIP": {
+        "P": 0.39977271894131017,
+        "mc_se": 0.0003999160872725393
+      },
+      "DS": {
+        "P": 0.0,
+        "mc_se": 0.0
+      },
+      "DECAY": {
+        "P": 0.6002272810586898,
+        "mc_se": 0.0003999160872725393
+      },
+      "n_accepted": 1500345
+    },
+    "BA": {
+      "support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
+      "RIP": {
+        "P": 0.5806137921611363,
+        "mc_se": 0.00040286095538937997
+      },
+      "DS": {
+        "P": 0.006646471311598332,
+        "mc_se": 6.63364030371736e-05
+      },
+      "DECAY": {
+        "P": 0.4127397365272654,
+        "mc_se": 0.0004019369026263077
+      },
+      "n_accepted": 1500345
+    },
+    "BIN4": {
+      "support": "w1 in [-3,1]; independent early-time condition w4<0",
+      "RIP": {
+        "P": 0.497235,
+        "mc_se": 0.0003535479845615019
+      },
+      "DS": {
+        "P": 0.0049335,
+        "mc_se": 4.9543720983339555e-05
+      },
+      "DECAY": {
+        "P": 0.4978315,
+        "mc_se": 0.00035355006548418996
+      },
+      "n_accepted": 2000000
+    },
+    "GP_CONSTRUCTION": {
+      "support": "assigned conditional-mean future w_inf=-1",
+      "RIP": {
+        "P": 0.0,
+        "mc_se": 0.0
+      },
+      "DS": {
+        "P": 1.0,
+        "mc_se": 0.0
+      },
+      "DECAY": {
+        "P": 0.0,
+        "mc_se": 0.0
+      },
+      "n_accepted": null,
+      "note": "deterministic construction; not a normalized fitted-prior estimate"
+    }
+  }
+}

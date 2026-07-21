@@ -1,0 +1,127 @@
+{
+  "common_object": {
+    "a_grid": [
+      0.5,
+      0.67,
+      0.8,
+      1.0,
+      1.5,
+      2.0,
+      4.0
+    ],
+    "admissible_importance_transport_measure": null,
+    "ambient_dimension": 7,
+    "candidate_summary_space": "w(a) evaluated on fixed grid",
+    "common_support_intersection_dimension": 1,
+    "intersection_description": "constant histories w(a)=c on the declared grid"
+  },
+  "gate_order": [
+    "structural support and absolute-continuity check",
+    "only if structural gate passes: overlap, importance weights, truncation, and ESS"
+  ],
+  "grammars": {
+    "BA": {
+      "diagnostics": {
+        "ambient_summary_dimension": 7,
+        "codimension": 5,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 2,
+        "n_accepted": 15011,
+        "support_overlap_fraction": null
+      },
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.415362067817,
+        "DS": 0.007794284192,
+        "RIP": 0.576843647991
+      },
+      "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
+    },
+    "BIN4": {
+      "diagnostics": {
+        "ambient_summary_dimension": 7,
+        "codimension": 3,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 4,
+        "n_accepted": 15047,
+        "support_overlap_fraction": null
+      },
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.497441350435,
+        "DS": 0.005516049711,
+        "RIP": 0.497042599854
+      },
+      "native_support": "w1..w4 in [-3,1], conditioned on w4<0; w(a>1)=w1",
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
+    },
+    "CPL": {
+      "diagnostics": {
+        "ambient_summary_dimension": 7,
+        "codimension": 5,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 2,
+        "n_accepted": 15443,
+        "support_overlap_fraction": null
+      },
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.740659198342,
+        "DS": 0.0,
+        "RIP": 0.259340801658
+      },
+      "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0+wa<0",
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
+    },
+    "JBP": {
+      "diagnostics": {
+        "ambient_summary_dimension": 7,
+        "codimension": 5,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 2,
+        "n_accepted": 15096,
+        "support_overlap_fraction": null
+      },
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.605325914149,
+        "DS": 0.0,
+        "RIP": 0.394674085851
+      },
+      "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
+    }
+  },
+  "input_sources": [
+    "registered P1 coordinate supports encoded in pipeline/prior_fate_audit.py",
+    "fixed-seed synthetic prior samples used only for native-fate context; no data likelihood, MCMC, or nested run"
+  ],
+  "method_version": "matched-prior-audit-v2-support-rank-no-go",
+  "n_proposals_per_grammar": 20000,
+  "seed": 20260720,
+  "status": "DRAFT post-hoc structural audit; GLOBAL NO-GO; not preregistered and not signed",
+  "verdict": {
+    "decision": "NO-GO",
+    "exact_matched_prior_identifiable_by_importance_reweighting": false,
+    "reason": "The native priors push forward to different lower-dimensional supports in the 7D summary. No grammar has a 7D density, and their 1D common intersection has probability zero under every continuous native prior.",
+    "reason_code": "INCOMPATIBLE_SINGULAR_SUPPORTS"
+  },
+  "warnings": [
+    "The v1 pooled-Gaussian calculation is rejected: covariance regularization manufactured full-dimensional densities on singular supports.",
+    "ESS and overlap numbers are intentionally withheld because the required density ratio does not exist.",
+    "A future Go requires an explicit common generative prior plus grammar-specific pullback/conditioning, or a declared lower-dimensional estimand; it cannot be recovered by post-hoc reweighting of these native draws."
+  ]
+}

@@ -27,12 +27,29 @@ CASES = [
     ("wCDM -1.2  (audit)", dict(omegam=0.31, H0=67.7, w0=-1.2, wa=0.0),  "OTHER", None),
 ]
 
-fails = 0
-for name, kw, want, want_b in CASES:
-    lab, b = classify(Background(**kw))
-    ok = lab == want and (want_b is None or b == want_b)
-    fails += (not ok)
-    print(f"{'PASS' if ok else 'FAIL'}  {name:22s} -> {lab}{' [boundary]' if b else ''}"
-          f"  (want {want}{'' if want_b is None else ', boundary=' + str(want_b)})")
-print("ALL PASS" if fails == 0 else f"{fails} FAILURES")
-sys.exit(1 if fails else 0)
+def evaluate_cases():
+    results = []
+    for name, kw, want, want_b in CASES:
+        lab, boundary = classify(Background(**kw))
+        ok = lab == want and (want_b is None or boundary == want_b)
+        results.append((name, lab, boundary, want, want_b, ok))
+    return results
+
+
+def test_frozen_classifier_cases():
+    failures = [row for row in evaluate_cases() if not row[-1]]
+    assert not failures, failures
+
+
+def main():
+    results = evaluate_cases()
+    for name, lab, boundary, want, want_b, ok in results:
+        print(f"{'PASS' if ok else 'FAIL'}  {name:22s} -> {lab}{' [boundary]' if boundary else ''}"
+              f"  (want {want}{'' if want_b is None else ', boundary=' + str(want_b)})")
+    failures = sum(not row[-1] for row in results)
+    print("ALL PASS" if failures == 0 else f"{failures} FAILURES")
+    return 1 if failures else 0
+
+
+if __name__ == '__main__':
+    raise SystemExit(main())

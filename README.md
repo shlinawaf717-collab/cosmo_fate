@@ -14,15 +14,21 @@
 
 ```bash
 # 环境（scipy 必须钉 1.16.2，原因见 data/MANIFEST.md）
-python3 -m venv .venv && .venv/bin/pip install numpy 'scipy==1.16.2' camb cobaya dynesty getdist Py-BOBYQA
+python3 -m venv .venv && .venv/bin/pip install -r requirements.lock
 .venv/bin/cobaya-install sn.pantheonplus sn.pantheonplusshoes sn.union3 sn.desdovekie \
     bao.desi_dr2 --packages-path data/cobaya_packages
 # 数据校验：对照 data/MANIFEST.md 的 SHA256 逐条 shasum -a 256
 
 .venv/bin/python pipeline/test_fate.py            # 分类器单元测试 8/8
-.venv/bin/python pipeline/make_mocks.py 100 42    # mock 逐位再生（seed 42）
+.venv/bin/python pipeline/constraint_horizon_audit.py  # 重算注册 KL；a_h 未达到
+.venv/bin/python pipeline/prior_fate_audit.py     # 各语法诱导的先验终局构成
+.venv/bin/python pipeline/inwindow_fit_audit.py   # 四个已收敛语法的窗口内拟合审计
+.venv/bin/python pipeline/model_average_audit.py  # 探索性 LCDM/CPL 模型平均
+.venv/bin/python pipeline/matched_prior_audit.py  # A-004 结构审计；全局 No-Go，不生成 matched 概率
+.venv/bin/python pipeline/make_mocks.py 100 42    # 仅初始化空 mock 目录；非空即拒绝，绝不覆盖链结果
+.venv/bin/python pipeline/append_mocks.py --append 10 --dry-run  # 先校验清单、m000 和输入指纹；去掉 --dry-run 才追加
 .venv/bin/python pipeline/run_gate2.py 1 100 --jobs=4   # 空校准 100 组（断点续跑 runs/gate2/results.jsonl）
-.venv/bin/python pipeline/make_paper_figs.py      # 论文图 F4–F6
+.venv/bin/python pipeline/make_paper_figs.py      # 论文图 F1–F6
 ```
 
 MCMC/nested 运行配置均以 `*.input.yaml` 存于 `runs/` 各目录（cobaya 直接可跑）；
@@ -32,3 +38,14 @@ MCMC/nested 运行配置均以 `*.input.yaml` 存于 `runs/` 各目录（cobaya 
 `pipeline/example_read_chain.py` 演示读取并复现表 I）；未入库的合并链/mock 数据
 均可由入库配置与 seed 确定性再生。代码与文档以 MIT 许可发布（见 LICENSE）；
 精确环境见 `requirements.lock`。
+
+## 解释边界（大修版）
+
+- 注册的约束视界 `a_h` 是后验到先验 KL 首次低于 0.1 nat 的位置；它在
+  BIN4 审计中**未达到**。`a=1` 只是直接观测支持的边界，不能替代 `a_h`。
+- CPL/JBP/BA/BIN4 的坐标先验、维数和早期物质主导约束不同；论文同时报告
+  各语法诱导的先验终局构成，不再称为“相同先验”。
+- GP 层级链没有达到冻结的 `R-1<0.01` 门槛，因此仅保留为均值回归未来如何
+  预先固定终局的构造性反例，不进入四个拟合语法的定量比较。
+- nested 文件中的二项标准误只描述固定随机重采样的数值诊断，不是
+  nested-sampling 运行间不确定度。

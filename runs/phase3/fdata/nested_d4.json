@@ -11,5 +11,6 @@
   "DECAY": 0.9987297554779295,
   "OTHER": 0.0
  },
- "P_RIP_se_binom": 0.0003664550426556838
+ "P_RIP_se_binom": 0.0003664550426556838,
+ "uncertainty_note": "P_RIP_se_binom describes the fixed-seed equal-weight resample only; it is not repeated-run nested-sampling uncertainty"
 }

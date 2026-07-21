@@ -5,11 +5,11 @@ likelihood:
   sn.pantheonplusshoes:
     use_abs_mag: true
   pipeline.cmb_distprior.ProviderDistPrior:
-    python_path: /Users/nocide/cosmo_fate
+    python_path: .
 
 theory:
   pipeline.bgtheory.BackgroundW:
-    python_path: /Users/nocide/cosmo_fate
+    python_path: .
     model: cpl
 
 prior:

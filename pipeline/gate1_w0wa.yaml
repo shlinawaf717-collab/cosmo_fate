@@ -4,7 +4,7 @@ likelihood:
   bao.desi_dr2.desi_bao_all: null
   sn.pantheonplus: null
   pipeline.cmb_distprior.PlanckDistPrior:
-    python_path: /Users/nocide/cosmo_fate
+    python_path: .
 
 theory:
   camb:
