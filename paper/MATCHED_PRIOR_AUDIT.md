@@ -1,40 +1,70 @@
 # Matched-prior audit (DRAFT post-hoc method note)
 
-This note describes the reproducible pilot implemented in `pipeline/matched_prior_audit.py`. It is a post-hoc sensitivity audit, not a preregistered result and not a change to the paper's frozen conclusions.
+This note records the structural audit implemented in
+`pipeline/matched_prior_audit.py`. It is post-hoc, not preregistered, and does
+not change the paper's frozen conclusions.
 
-## Method
+## Verdict
 
-The audit samples each registered P1 native prior with a fixed random seed, applies the grammar's early-time support condition, and maps accepted draws into a common function-summary vector:
+**GLOBAL NO-GO:** the requested exact cross-grammar matched prior is not
+identified by importance reweighting of the registered native-prior draws.
+Matched fate probabilities are therefore withheld for every grammar.
+
+## Structural check
+
+Each grammar maps its native parameters to
 
 ```text
 S(theta) = [w(0.5), w(0.67), w(0.8), w(1.0), w(1.5), w(2.0), w(4.0)].
 ```
 
-The public object being matched is therefore the distribution of `S(theta)`, with Lebesgue measure approximated by deterministic Monte Carlo draws from each grammar's native coordinate support. The pilot constructs a pooled Gaussian reference in this summary space and importance-reweights each grammar toward that reference. This is a transport diagnostic, not proof that the full function-space priors are identical.
+This is a seven-dimensional ambient vector, but the pushforward supports have
+lower intrinsic dimensions:
 
-## Diagnostics and No-Go conditions
+| Grammar | Native parameters controlling `S` | Intrinsic dimension in 7D |
+|---|---:|---:|
+| CPL | 2 | 2 |
+| JBP | 2 | 2 |
+| BA | 2 | 2 |
+| BIN4 | 4 | 4 |
 
-For every grammar the JSON output reports:
+The supports are different linear subspaces. Their common intersection is the
+one-dimensional set of constant histories, `w(a)=c`, which has probability
+zero under each continuous native prior. Consequently, none of the four
+pushforward priors has a density with respect to seven-dimensional Lebesgue
+measure, and no non-degenerate common target density is dominated by all four
+native pushforwards.
 
-- native fate probabilities;
-- matched fate probabilities when diagnostics pass;
-- accepted sample count;
-- raw and truncated effective sample size (ESS);
-- ESS fraction;
-- maximum raw and truncated normalized weight;
-- support-overlap fraction;
-- truncation quantile and cap;
-- warnings.
+## Why the v1 pilot is rejected
 
-A matched row is **No-Go** when either `ESS / n_accepted < 0.05` or support overlap is below `0.20`. In that case the matched fate vector is left `null`; the audit refuses to manufacture a comparable number from inadequate support.
+The first draft added a small diagonal term to singular native covariance
+matrices and evaluated Gaussian density ratios. That operation manufactures a
+full-dimensional density around each lower-dimensional support. The resulting
+weights are not Radon--Nikodym derivatives of the declared native pushforward
+measures. Reported overlap and ESS values therefore diagnose the artificial
+regularized Gaussians, not the registered priors.
 
-## Assumptions
+Weight truncation cannot repair this problem. ESS is meaningful only after a
+valid importance ratio exists, so the corrected audit reports both ESS and
+support overlap as `null`.
 
-1. The chosen grid is a sufficient low-dimensional summary for a reviewer-checkable pilot.
-2. The pooled Gaussian reference is a transparent common target, not a unique or physically privileged prior.
-3. Synthetic fixed-seed prior samples are acceptable because this audit tests prior geometry only and does not touch new data.
-4. Truncation regularizes extreme weights and is reported as part of the result.
+## What remains reported
 
-## Interpretation
+The JSON artifact records the support dimensions, codimensions, intersection
+dimension, global reason code, and fixed-seed native-prior fate frequencies for
+context. Those native frequencies are not described as matched results. Every
+`matched_fate` field is `null`.
 
-Passing rows may be read as: "under this explicitly declared summary-space transport, native prior fate probabilities change to the reported matched values." Failing rows mean the common target is not supported well enough by that grammar's native prior sample, so the cross-grammar comparison is not identifiable under this pilot. Either outcome is compatible with the manuscript's existing claim that native flat coordinate priors are not directly comparable across grammars.
+## Restart conditions
+
+A later matched-prior study needs a new estimand and construction specified
+before looking at its fate outputs. Examples include:
+
+1. an explicit common generative prior on functions together with a valid
+   grammar-specific pullback or conditioning rule; or
+2. a deliberately lower-dimensional common estimand, with the information
+   discarded by that projection stated in advance.
+
+Either construction needs its own support proof and sensitivity plan. It
+cannot be recovered post hoc by covariance regularization of the current
+native-prior samples.

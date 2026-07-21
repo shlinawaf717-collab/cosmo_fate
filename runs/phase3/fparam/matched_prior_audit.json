@@ -9,122 +9,119 @@
       2.0,
       4.0
     ],
-    "measure": "importance transport to pooled Gaussian reference in summary space",
-    "summary_space": "w(a) evaluated on fixed grid"
+    "admissible_importance_transport_measure": null,
+    "ambient_dimension": 7,
+    "candidate_summary_space": "w(a) evaluated on fixed grid",
+    "common_support_intersection_dimension": 1,
+    "intersection_description": "constant histories w(a)=c on the declared grid"
   },
+  "gate_order": [
+    "structural support and absolute-continuity check",
+    "only if structural gate passes: overlap, importance weights, truncation, and ESS"
+  ],
   "grammars": {
     "BA": {
       "diagnostics": {
-        "ess_fraction": 0.6050515848429204,
-        "ess_raw": 9082.335554933217,
-        "ess_truncated": 9082.429340077078,
-        "max_weight_raw": 0.00016730843138825394,
-        "max_weight_truncated": 0.00016649411938332446,
+        "ambient_summary_dimension": 7,
+        "codimension": 5,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 2,
         "n_accepted": 15011,
-        "support_overlap_fraction": 1.0,
-        "truncation_cap": 0.00016649244814679405,
-        "truncation_quantile": 0.995
+        "support_overlap_fraction": null
       },
-      "matched_fate": {
-        "DECAY": 0.3624166703992364,
-        "DS": 0.00940090635189153,
-        "RIP": 0.6281824232488721
-      },
-      "native_fate": {
-        "DECAY": 0.4153620678169343,
-        "DS": 0.007794284191592832,
-        "RIP": 0.5768436479914729
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.415362067817,
+        "DS": 0.007794284192,
+        "RIP": 0.576843647991
       },
       "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
-      "no_go": false
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
     },
     "BIN4": {
       "diagnostics": {
-        "ess_fraction": 0.053131865483746966,
-        "ess_raw": 799.4751799339406,
-        "ess_truncated": 799.4751799339406,
-        "max_weight_raw": 0.016351468472559312,
-        "max_weight_truncated": 0.016351468472559312,
+        "ambient_summary_dimension": 7,
+        "codimension": 3,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 4,
         "n_accepted": 15047,
-        "support_overlap_fraction": 0.7989632484880708,
-        "truncation_cap": 0.016351468472559312,
-        "truncation_quantile": 0.995
+        "support_overlap_fraction": null
       },
-      "matched_fate": {
-        "DECAY": 0.2984090172923718,
-        "DS": 0.005087704944155383,
-        "RIP": 0.6965032777634729
-      },
-      "native_fate": {
-        "DECAY": 0.4974413504353028,
-        "DS": 0.005516049710905829,
-        "RIP": 0.4970425998537914
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.497441350435,
+        "DS": 0.005516049711,
+        "RIP": 0.497042599854
       },
       "native_support": "w1..w4 in [-3,1], conditioned on w4<0; w(a>1)=w1",
-      "no_go": false
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
     },
     "CPL": {
       "diagnostics": {
-        "ess_fraction": 0.5696369920211348,
-        "ess_raw": 8796.847729949335,
-        "ess_truncated": 8796.904067782385,
-        "max_weight_raw": 0.00018163601586059335,
-        "max_weight_truncated": 0.00018119776492353808,
+        "ambient_summary_dimension": 7,
+        "codimension": 5,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 2,
         "n_accepted": 15443,
-        "support_overlap_fraction": 0.9996762287120378,
-        "truncation_cap": 0.0001811967901281009,
-        "truncation_quantile": 0.995
+        "support_overlap_fraction": null
       },
-      "matched_fate": {
-        "DECAY": 0.5660728983389511,
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.740659198342,
         "DS": 0.0,
-        "RIP": 0.43392710166104886
-      },
-      "native_fate": {
-        "DECAY": 0.740659198342291,
-        "DS": 0.0,
-        "RIP": 0.25934080165770906
+        "RIP": 0.259340801658
       },
       "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0+wa<0",
-      "no_go": false
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
     },
     "JBP": {
       "diagnostics": {
-        "ess_fraction": 0.6036817734873539,
-        "ess_raw": 9113.00388076191,
-        "ess_truncated": 9113.180052565094,
-        "max_weight_raw": 0.0001691578869056148,
-        "max_weight_truncated": 0.00016794372310060393,
+        "ambient_summary_dimension": 7,
+        "codimension": 5,
+        "common_intersection_has_native_probability_zero": true,
+        "ess": null,
+        "has_full_dimensional_density": false,
+        "intrinsic_support_dimension": 2,
         "n_accepted": 15096,
-        "support_overlap_fraction": 1.0,
-        "truncation_cap": 0.00016794068260610594,
-        "truncation_quantile": 0.995
+        "support_overlap_fraction": null
       },
-      "matched_fate": {
-        "DECAY": 0.5131382519921123,
+      "matched_fate": null,
+      "native_fate_context_only": {
+        "DECAY": 0.605325914149,
         "DS": 0.0,
-        "RIP": 0.48686174800788773
-      },
-      "native_fate": {
-        "DECAY": 0.6053259141494434,
-        "DS": 0.0,
-        "RIP": 0.39467408585055663
+        "RIP": 0.394674085851
       },
       "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
-      "no_go": false
+      "no_go": true,
+      "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
     }
   },
   "input_sources": [
     "registered P1 coordinate supports encoded in pipeline/prior_fate_audit.py",
-    "fixed-seed synthetic prior samples only; no new data and no MCMC/nested run"
+    "fixed-seed synthetic prior samples used only for native-fate context; no data likelihood, MCMC, or nested run"
   ],
-  "method_version": "matched-prior-pilot-v1",
+  "method_version": "matched-prior-audit-v2-support-rank-no-go",
   "n_proposals_per_grammar": 20000,
   "seed": 20260720,
-  "status": "DRAFT post-hoc matched-prior audit; not preregistered and not signed",
-  "thresholds": {
-    "min_ess_fraction": 0.05,
-    "min_support_overlap_fraction": 0.2
+  "status": "DRAFT post-hoc structural audit; GLOBAL NO-GO; not preregistered and not signed",
+  "verdict": {
+    "decision": "NO-GO",
+    "exact_matched_prior_identifiable_by_importance_reweighting": false,
+    "reason": "The native priors push forward to different lower-dimensional supports in the 7D summary. No grammar has a 7D density, and their 1D common intersection has probability zero under every continuous native prior.",
+    "reason_code": "INCOMPATIBLE_SINGULAR_SUPPORTS"
   },
-  "warnings": []
+  "warnings": [
+    "The v1 pooled-Gaussian calculation is rejected: covariance regularization manufactured full-dimensional densities on singular supports.",
+    "ESS and overlap numbers are intentionally withheld because the required density ratio does not exist.",
+    "A future Go requires an explicit common generative prior plus grammar-specific pullback/conditioning, or a declared lower-dimensional estimand; it cannot be recovered by post-hoc reweighting of these native draws."
+  ]
 }

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Post-hoc matched-prior sensitivity audit for fate grammars.
+"""Structural identifiability audit for a cross-grammar matched prior.
 
-This pilot does not run MCMC/nested sampling and does not claim preregistered
-status.  It draws fixed-seed synthetic samples from the registered P1 native
-coordinate supports, maps each draw into a common function-summary space, and
-uses importance reweighting toward a common Gaussian summary target.  If support
-or effective sample size diagnostics fail, the matched row is marked No-Go.
+This post-hoc audit deliberately stops before importance weighting.  The four
+registered grammar priors push forward onto lower-dimensional, different
+linear supports in the seven-dimensional w(a) summary.  A full-dimensional
+Gaussian density ratio is therefore not a Radon--Nikodym derivative of those
+pushforward measures.  ESS and weight truncation cannot repair that failure.
 """
 
 from __future__ import annotations
@@ -20,13 +20,11 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "runs/phase3/fparam/matched_prior_audit.json"
-METHOD_VERSION = "matched-prior-pilot-v1"
+METHOD_VERSION = "matched-prior-audit-v2-support-rank-no-go"
 CLASSES = ("RIP", "DS", "DECAY")
 EPSILON_A003 = 0.01
 SUMMARY_A = np.array([0.5, 0.67, 0.8, 1.0, 1.5, 2.0, 4.0], dtype=float)
-DEFAULT_MIN_ESS_FRACTION = 0.05
-DEFAULT_MIN_OVERLAP = 0.20
-DEFAULT_TRUNCATION_QUANTILE = 0.995
+GRAMMARS = ("CPL", "JBP", "BA", "BIN4")
 
 
 @dataclass(frozen=True)
@@ -37,32 +35,14 @@ class GrammarSamples:
     native_support: str
 
 
-def normalize_weights(raw: np.ndarray) -> np.ndarray:
-    raw = np.asarray(raw, dtype=float)
-    if raw.ndim != 1 or raw.size == 0:
-        raise ValueError("weights must be a non-empty one-dimensional array")
-    if np.any(raw < 0) or not np.all(np.isfinite(raw)):
-        raise ValueError("weights must be finite and non-negative")
-    total = float(raw.sum())
-    if total <= 0.0:
-        raise ValueError("at least one weight must be positive")
-    return raw / total
-
-
-def ess(weights: np.ndarray) -> float:
-    w = normalize_weights(weights)
-    return float(1.0 / np.sum(w * w))
-
-
-def fate_summary(labels: np.ndarray, weights: np.ndarray | None = None) -> dict[str, float]:
-    if weights is None:
-        weights = np.full(len(labels), 1.0 / len(labels))
-    else:
-        weights = normalize_weights(weights)
-    out = {klass: float(weights[labels == klass].sum()) for klass in CLASSES}
-    # absorb roundoff so machine checks see an exact simplex to typical tolerances
-    out[CLASSES[-1]] = float(1.0 - sum(out[k] for k in CLASSES[:-1]))
-    return out
+def fate_summary(labels: np.ndarray) -> dict[str, float]:
+    """Return a stable, rounded simplex for contextual native-prior counts."""
+    if len(labels) == 0:
+        raise ValueError("labels must be non-empty")
+    first = round(float(np.count_nonzero(labels == CLASSES[0]) / len(labels)), 12)
+    second = round(float(np.count_nonzero(labels == CLASSES[1]) / len(labels)), 12)
+    third = round(1.0 - first - second, 12)
+    return {CLASSES[0]: first, CLASSES[1]: second, CLASSES[2]: third}
 
 
 def finite_limit_labels(w_inf: np.ndarray) -> np.ndarray:
@@ -72,7 +52,51 @@ def finite_limit_labels(w_inf: np.ndarray) -> np.ndarray:
     return labels
 
 
+def support_basis(name: str) -> np.ndarray:
+    """Return columns spanning a grammar's linear support in summary space."""
+    a = SUMMARY_A
+    ones = np.ones_like(a)
+    lname = name.lower()
+    if lname == "cpl":
+        return np.column_stack([ones, 1.0 - a])
+    if lname == "jbp":
+        return np.column_stack([ones, a * (1.0 - a)])
+    if lname == "ba":
+        return np.column_stack([ones, (1.0 - a) / (2.0 * a**2 - 2.0 * a + 1.0)])
+    if lname == "bin4":
+        return np.array(
+            [
+                [0.0, 0.0, 0.0, 1.0],
+                [0.0, 0.0, 1.0, 0.0],
+                [0.0, 1.0, 0.0, 0.0],
+                [1.0, 0.0, 0.0, 0.0],
+                [1.0, 0.0, 0.0, 0.0],
+                [1.0, 0.0, 0.0, 0.0],
+                [1.0, 0.0, 0.0, 0.0],
+            ]
+        )
+    raise ValueError(f"unknown grammar {name!r}")
+
+
+def intrinsic_dimension(name: str) -> int:
+    return int(np.linalg.matrix_rank(support_basis(name)))
+
+
+def common_support_dimension(names: Iterable[str] = GRAMMARS) -> int:
+    """Dimension of the intersection of the supplied column spaces."""
+    complements = []
+    ambient = len(SUMMARY_A)
+    for name in names:
+        basis = support_basis(name)
+        u, _, _ = np.linalg.svd(basis, full_matrices=True)
+        rank = np.linalg.matrix_rank(basis)
+        complements.append(u[:, rank:].T)
+    constraints = np.vstack(complements)
+    return ambient - int(np.linalg.matrix_rank(constraints))
+
+
 def draw_grammar(name: str, n: int, rng: np.random.Generator) -> GrammarSamples:
+    """Draw native-prior samples only to report contextual native fate rates."""
     w = rng.uniform(-3.0, 1.0, n)
     wa = rng.uniform(-3.0, 2.0, n)
     lname = name.lower()
@@ -91,7 +115,9 @@ def draw_grammar(name: str, n: int, rng: np.random.Generator) -> GrammarSamples:
     elif lname == "ba":
         keep = w < 0.0
         w, wa = w[keep], wa[keep]
-        summaries = w[:, None] + wa[:, None] * (1.0 - SUMMARY_A[None, :]) / (2.0 * SUMMARY_A[None, :] ** 2 - 2.0 * SUMMARY_A[None, :] + 1.0)
+        summaries = w[:, None] + wa[:, None] * (1.0 - SUMMARY_A[None, :]) / (
+            2.0 * SUMMARY_A[None, :] ** 2 - 2.0 * SUMMARY_A[None, :] + 1.0
+        )
         labels = finite_limit_labels(w - 0.5 * wa)
         support = "w0 in [-3,1], wa in [-3,2], conditioned on w0<0"
     elif lname == "bin4":
@@ -100,8 +126,7 @@ def draw_grammar(name: str, n: int, rng: np.random.Generator) -> GrammarSamples:
         w3 = rng.uniform(-3.0, 1.0, n)
         w4 = rng.uniform(-3.0, 1.0, n)
         keep = w4 < 0.0
-        vals = np.vstack([w4, w3, w2, w1, w1, w1, w1]).T
-        summaries = vals[keep]
+        summaries = np.vstack([w4, w3, w2, w1, w1, w1, w1]).T[keep]
         labels = finite_limit_labels(w1[keep])
         support = "w1..w4 in [-3,1], conditioned on w4<0; w(a>1)=w1"
     else:
@@ -109,77 +134,91 @@ def draw_grammar(name: str, n: int, rng: np.random.Generator) -> GrammarSamples:
     return GrammarSamples(name.upper(), summaries, labels.astype("<U5"), support)
 
 
-def _regularized_cov(samples: np.ndarray) -> np.ndarray:
-    cov = np.cov(samples, rowvar=False)
-    scale = float(np.trace(cov) / cov.shape[0]) if cov.ndim == 2 else 1.0
-    return cov + np.eye(cov.shape[0]) * max(scale * 1e-6, 1e-8)
-
-
-def gaussian_logpdf(x: np.ndarray, mean: np.ndarray, cov: np.ndarray) -> np.ndarray:
-    inv = np.linalg.pinv(cov)
-    diff = x - mean
-    return -0.5 * np.einsum("ij,jk,ik->i", diff, inv, diff)
-
-
-def weighted_quantile(values: np.ndarray, weights: np.ndarray, q: float) -> float:
-    order = np.argsort(values)
-    v = values[order]
-    w = normalize_weights(weights[order])
-    return float(v[np.searchsorted(np.cumsum(w), q, side="left")])
-
-
-def matched_weights(samples: GrammarSamples, target_mean: np.ndarray, target_cov: np.ndarray, truncation_quantile: float) -> tuple[np.ndarray, dict]:
-    native_cov = _regularized_cov(samples.summaries)
-    logw = gaussian_logpdf(samples.summaries, target_mean, target_cov) - gaussian_logpdf(samples.summaries, samples.summaries.mean(axis=0), native_cov)
-    logw -= float(np.max(logw))
-    raw = np.exp(logw)
-    untruncated = normalize_weights(raw)
-    cap = weighted_quantile(untruncated, untruncated, truncation_quantile)
-    truncated = normalize_weights(np.minimum(untruncated, cap))
-    diagnostics = {
-        "ess_raw": ess(untruncated),
-        "ess_truncated": ess(truncated),
-        "max_weight_raw": float(np.max(untruncated)),
-        "max_weight_truncated": float(np.max(truncated)),
-        "truncation_quantile": truncation_quantile,
-        "truncation_cap": float(cap),
-    }
-    return truncated, diagnostics
-
-
-def compute(n: int = 20000, seed: int = 20260720, min_ess_fraction: float = DEFAULT_MIN_ESS_FRACTION, min_overlap: float = DEFAULT_MIN_OVERLAP, truncation_quantile: float = DEFAULT_TRUNCATION_QUANTILE) -> dict:
+def compute(n: int = 20000, seed: int = 20260720) -> dict:
+    if n <= 0:
+        raise ValueError("n must be positive")
     rng = np.random.default_rng(seed)
-    grammars = [draw_grammar(g, n, rng) for g in ("CPL", "JBP", "BA", "BIN4")]
-    pooled = np.vstack([g.summaries for g in grammars])
-    target_mean = pooled.mean(axis=0)
-    target_cov = _regularized_cov(pooled)
+    grammars = [draw_grammar(name, n, rng) for name in GRAMMARS]
+    ambient = len(SUMMARY_A)
+    intersection_dim = common_support_dimension()
     rows = {}
-    warnings = []
-    for g in grammars:
-        w, diag = matched_weights(g, target_mean, target_cov, truncation_quantile)
-        overlap = float(np.mean(gaussian_logpdf(g.summaries, target_mean, target_cov) >= np.quantile(gaussian_logpdf(pooled, target_mean, target_cov), 0.05)))
-        diag.update({"support_overlap_fraction": overlap, "n_accepted": int(len(g.labels)), "ess_fraction": float(diag["ess_truncated"] / len(g.labels))})
-        no_go = diag["ess_fraction"] < min_ess_fraction or overlap < min_overlap
-        if no_go:
-            warnings.append(f"{g.name}: No-Go matched prior; insufficient ESS or support overlap")
-        rows[g.name] = {"native_support": g.native_support, "native_fate": fate_summary(g.labels), "matched_fate": None if no_go else fate_summary(g.labels, w), "diagnostics": diag, "no_go": no_go}
-    return {"status": "DRAFT post-hoc matched-prior audit; not preregistered and not signed", "method_version": METHOD_VERSION, "seed": seed, "n_proposals_per_grammar": n, "input_sources": ["registered P1 coordinate supports encoded in pipeline/prior_fate_audit.py", "fixed-seed synthetic prior samples only; no new data and no MCMC/nested run"], "common_object": {"summary_space": "w(a) evaluated on fixed grid", "a_grid": SUMMARY_A.tolist(), "measure": "importance transport to pooled Gaussian reference in summary space"}, "thresholds": {"min_ess_fraction": min_ess_fraction, "min_support_overlap_fraction": min_overlap}, "warnings": warnings, "grammars": rows}
+    for grammar in grammars:
+        dim = intrinsic_dimension(grammar.name)
+        rows[grammar.name] = {
+            "native_support": grammar.native_support,
+            "native_fate_context_only": fate_summary(grammar.labels),
+            "matched_fate": None,
+            "no_go": True,
+            "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT",
+            "diagnostics": {
+                "n_accepted": int(len(grammar.labels)),
+                "ambient_summary_dimension": ambient,
+                "intrinsic_support_dimension": dim,
+                "codimension": ambient - dim,
+                "has_full_dimensional_density": False,
+                "common_intersection_has_native_probability_zero": True,
+                "ess": None,
+                "support_overlap_fraction": None,
+            },
+        }
+
+    return {
+        "status": "DRAFT post-hoc structural audit; GLOBAL NO-GO; not preregistered and not signed",
+        "method_version": METHOD_VERSION,
+        "seed": seed,
+        "n_proposals_per_grammar": n,
+        "verdict": {
+            "decision": "NO-GO",
+            "exact_matched_prior_identifiable_by_importance_reweighting": False,
+            "reason_code": "INCOMPATIBLE_SINGULAR_SUPPORTS",
+            "reason": (
+                "The native priors push forward to different lower-dimensional supports in the "
+                "7D summary. No grammar has a 7D density, and their 1D common intersection has "
+                "probability zero under every continuous native prior."
+            ),
+        },
+        "input_sources": [
+            "registered P1 coordinate supports encoded in pipeline/prior_fate_audit.py",
+            "fixed-seed synthetic prior samples used only for native-fate context; no data likelihood, MCMC, or nested run",
+        ],
+        "common_object": {
+            "candidate_summary_space": "w(a) evaluated on fixed grid",
+            "a_grid": SUMMARY_A.tolist(),
+            "ambient_dimension": ambient,
+            "common_support_intersection_dimension": intersection_dim,
+            "intersection_description": "constant histories w(a)=c on the declared grid",
+            "admissible_importance_transport_measure": None,
+        },
+        "gate_order": [
+            "structural support and absolute-continuity check",
+            "only if structural gate passes: overlap, importance weights, truncation, and ESS",
+        ],
+        "warnings": [
+            "The v1 pooled-Gaussian calculation is rejected: covariance regularization manufactured full-dimensional densities on singular supports.",
+            "ESS and overlap numbers are intentionally withheld because the required density ratio does not exist.",
+            "A future Go requires an explicit common generative prior plus grammar-specific pullback/conditioning, or a declared lower-dimensional estimand; it cannot be recovered by post-hoc reweighting of these native draws.",
+        ],
+        "grammars": rows,
+    }
 
 
 def main(argv: Iterable[str] | None = None) -> None:
-    p = argparse.ArgumentParser()
-    p.add_argument("--n", type=int, default=20000)
-    p.add_argument("--seed", type=int, default=20260720)
-    p.add_argument("--output", type=Path, default=DEFAULT_OUT)
-    p.add_argument("--min-ess-fraction", type=float, default=DEFAULT_MIN_ESS_FRACTION)
-    p.add_argument("--min-overlap", type=float, default=DEFAULT_MIN_OVERLAP)
-    args = p.parse_args(list(argv) if argv is not None else None)
-    result = compute(args.n, args.seed, args.min_ess_fraction, args.min_overlap)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--n", type=int, default=20000)
+    parser.add_argument("--seed", type=int, default=20260720)
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUT)
+    args = parser.parse_args(list(argv) if argv is not None else None)
+    result = compute(args.n, args.seed)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"wrote {args.output}")
+    print(f"GLOBAL {result['verdict']['decision']}: {result['verdict']['reason_code']}")
     for name, row in result["grammars"].items():
-        print(f"{name:5s} native={row['native_fate']} matched={row['matched_fate']} no_go={row['no_go']} ESS={row['diagnostics']['ess_truncated']:.1f}")
+        diag = row["diagnostics"]
+        print(
+            f"{name:5s} native={row['native_fate_context_only']} matched=None "
+            f"support_dim={diag['intrinsic_support_dimension']}/{diag['ambient_summary_dimension']}"
+        )
 
 
 if __name__ == "__main__":

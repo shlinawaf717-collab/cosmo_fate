@@ -1,41 +1,57 @@
-# A-004 — DRAFT post-hoc matched-prior sensitivity audit
+# A-004 — DRAFT post-hoc matched-prior structural audit
 
-**Status:** DRAFT ONLY. Post-hoc. Not signed. Not part of the frozen preregistration and not an A-001--A-003 historical rewrite.
+**Status:** DRAFT ONLY. Post-hoc. Not signed. Not part of the frozen
+preregistration and not an A-001--A-003 historical rewrite.
 
 ## Trigger
 
-The major-revision audit made explicit that the fitted grammars do **not** share a prior merely because their native coordinates use flat P1 boxes. Different dimensions, early-matter constraints, future extrapolation rules, and fate maps induce different function-space measures. Reviewers therefore need a reproducible check that separates native-coordinate prior effects from any claim about cross-grammar posterior fate sensitivity.
+The major-revision audit made explicit that flat P1 boxes in native coordinates
+do not define a shared prior across fitted grammars. Dimensions, early-matter
+conditions, future extrapolations, and fate maps differ. A proposed
+summary-space importance transport was examined as a possible sensitivity
+check.
 
 ## Proposed change
 
-Add a matched-prior sensitivity audit that is clearly labeled exploratory and post-hoc. The audit defines a common object before computing any matched fate summaries:
+Record the structural support audit and its **GLOBAL NO-GO** result. Do not add
+matched fate probabilities to the manuscript.
 
-- **Common object:** the dark-energy function evaluated on a fixed scale-factor grid, `w(a_grid)`.
-- **Measure:** a pilot importance-reweighting / transport measure toward a pooled Gaussian reference in that common function-summary space.
-- **Inputs:** existing registered grammar definitions and fixed-seed synthetic prior samples only; no new data, no full MCMC, and no nested-sampling run.
+The candidate common object was the seven-vector `w(a_grid)` on
+`a_grid = [0.5, 0.67, 0.8, 1.0, 1.5, 2.0, 4.0]`. CPL, JBP, and BA occupy
+different two-dimensional supports in this ambient space; BIN4 occupies a
+four-dimensional support. Their common intersection consists of constant
+histories and has native-prior probability zero.
 
-If exact cross-grammar prior equality is not identifiable in the original native coordinates, the audit reports the limitation rather than asserting equality.
+Therefore a full-dimensional pooled Gaussian cannot be reached by valid
+importance reweighting of any registered native pushforward. Adding diagonal
+covariance regularization changes the measures and creates artificial overlap;
+it is not an exact or approximate matched-prior proof for the registered
+priors.
 
 ## Timing and contact with real results
 
-- A-004 is drafted after A-001--A-003 and after the phase-3 fitted-grammar results existed.
-- The draft therefore had contact with real-result context.
-- It must be described as a sensitivity audit and not as a preregistered decision rule.
+- A-004 was drafted after A-001--A-003 and after the phase-3 fitted-grammar
+  results existed.
+- It had contact with real-result context.
+- It remains a method-limit audit, not a preregistered decision rule.
 
-## Decision thresholds
+## Gate order and decision
 
-A matched-prior row is admissible only if both diagnostics pass:
+1. Check support geometry and absolute continuity.
+2. Only if that gate passes, compute overlap, weights, truncation, and ESS.
 
-1. truncated effective sample size fraction `ESS / n_accepted >= 0.05`;
-2. support-overlap fraction with the common reference `>= 0.20`.
+Gate 1 fails. ESS and overlap thresholds are therefore inapplicable and are
+withheld rather than used to rescue the construction. All grammar rows are
+marked `no_go=true` and `matched_fate=null`.
 
-Weights are normalized, reported before and after truncation, and capped by a declared quantile. Any row failing either threshold is marked **No-Go** and the matched fate probabilities are withheld (`null`) rather than forced.
+## Consequence for the paper
 
-## Possible consequences
-
-- If all grammars pass, compare native and matched fate probabilities as a sensitivity pilot, not as a replacement for the main result.
-- If one or more grammars fail, state that the requested cross-grammar matched prior is unsupported by the chosen summary transport and cannot adjudicate the main grammar sensitivity.
-- Do not edit the existing main-text conclusions until and unless this draft is signed and a later amendment specifies exactly how it should be used.
+- Preserve the existing statement that native flat coordinate priors are not
+  directly comparable across grammars.
+- Do not claim that matched-prior sensitivity has been quantified.
+- If the study is restarted, preregister an explicit common generative
+  function prior and valid grammar-specific pullbacks, or declare a narrower
+  lower-dimensional estimand and its information loss.
 
 ## Sign-off placeholders
 

@@ -1,3 +1,4 @@
+import json
 import sys
 from pathlib import Path
 
@@ -8,36 +9,50 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from pipeline import matched_prior_audit as m
 
 
-def test_normalize_weights_simplex():
-    w = m.normalize_weights(np.array([1.0, 2.0, 3.0]))
-    assert np.isclose(w.sum(), 1.0)
-    assert np.all(w >= 0)
+def test_declared_support_dimensions_and_common_intersection():
+    assert {name: m.intrinsic_dimension(name) for name in m.GRAMMARS} == {
+        "CPL": 2,
+        "JBP": 2,
+        "BA": 2,
+        "BIN4": 4,
+    }
+    assert m.common_support_dimension() == 1
+    constant = np.ones(len(m.SUMMARY_A))
+    for name in m.GRAMMARS:
+        coeff, *_ = np.linalg.lstsq(m.support_basis(name), constant, rcond=None)
+        assert np.allclose(m.support_basis(name) @ coeff, constant)
 
 
-def test_compute_deterministic():
+def test_compute_is_global_no_go_and_withholds_matched_values():
+    result = m.compute(n=1000, seed=8)
+    assert result["verdict"]["decision"] == "NO-GO"
+    assert not result["verdict"]["exact_matched_prior_identifiable_by_importance_reweighting"]
+    assert all(row["no_go"] for row in result["grammars"].values())
+    assert all(row["matched_fate"] is None for row in result["grammars"].values())
+    assert all(row["diagnostics"]["ess"] is None for row in result["grammars"].values())
+    assert all(row["diagnostics"]["support_overlap_fraction"] is None for row in result["grammars"].values())
+
+
+def test_compute_deterministic_and_json_stable():
     a = m.compute(n=1000, seed=7)
     b = m.compute(n=1000, seed=7)
     assert a == b
+    assert json.dumps(a, sort_keys=True) == json.dumps(b, sort_keys=True)
 
 
-def test_low_ess_no_go_rejects():
-    result = m.compute(n=1000, seed=8, min_ess_fraction=1.01, min_overlap=0.0)
-    assert all(row["no_go"] for row in result["grammars"].values())
-    assert all(row["matched_fate"] is None for row in result["grammars"].values())
-
-
-def test_extreme_weight_truncation_improves_ess():
-    rng = np.random.default_rng(1)
-    samples = m.GrammarSamples("TOY", rng.normal(size=(500, len(m.SUMMARY_A))), np.array(["RIP"] * 500), "toy")
-    target_mean = np.full(len(m.SUMMARY_A), 7.0)
-    target_cov = np.eye(len(m.SUMMARY_A)) * 0.2
-    _, diag = m.matched_weights(samples, target_mean, target_cov, 0.95)
-    assert diag["ess_truncated"] >= diag["ess_raw"]
-    assert diag["max_weight_truncated"] <= diag["max_weight_raw"]
-
-
-def test_fate_probabilities_sum_to_one_when_go():
-    result = m.compute(n=1200, seed=9, min_ess_fraction=0.0, min_overlap=0.0)
+def test_native_context_probabilities_are_simplexes():
+    result = m.compute(n=1200, seed=9)
     for row in result["grammars"].values():
-        assert np.isclose(sum(row["native_fate"].values()), 1.0)
-        assert np.isclose(sum(row["matched_fate"].values()), 1.0)
+        probs = row["native_fate_context_only"]
+        assert np.isclose(sum(probs.values()), 1.0)
+        assert all(0.0 <= p <= 1.0 for p in probs.values())
+
+
+def test_invalid_sample_count_rejected():
+    for n in (0, -1):
+        try:
+            m.compute(n=n)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("non-positive n must be rejected")
