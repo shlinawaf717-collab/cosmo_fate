@@ -86,3 +86,40 @@ def test_prior_transform_and_bad_inputs_fail():
 def test_verify_cli_signature_kept():
     import pipeline.nested_verify as nv
     assert nv.main.__defaults__[:3] == (500, 3, None)
+
+
+def test_run_dynesty_receives_recorded_seed(monkeypatch):
+    calls = {}
+
+    class FakePool:
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+    class FakeContext:
+        def Pool(self, nproc, initializer=None, initargs=()):
+            calls['pool'] = (nproc, initializer, initargs)
+            return FakePool()
+
+    class FakeSampler:
+        def __init__(self, loglike, ptform, ndim, **kwargs):
+            calls['ndim'] = ndim
+            calls['kwargs'] = kwargs
+            self.results = SimpleNamespace(ok=True)
+        def run_nested(self, **kwargs):
+            calls['run_nested'] = kwargs
+
+    monkeypatch.setitem(sys.modules, 'dynesty', SimpleNamespace(NestedSampler=FakeSampler))
+    import multiprocessing
+    monkeypatch.setattr(multiprocessing, 'get_context', lambda method: FakeContext())
+    cfg = nc.NestedRunConfig(kind='cpl', names=['w'], bounds=[(-3.0, 1.0)],
+                             nlive=10, nproc=2, seed=123, dlogz=0.2, maxiter=7)
+    result = nc.run_dynesty(cfg, lambda x: -float(x[0] ** 2))
+    assert result.ok
+    assert calls['ndim'] == 1
+    assert calls['kwargs']['nlive'] == 10
+    seeded_draw = calls['kwargs']['rstate'].integers(0, 2**31)
+    expected_draw = np.random.default_rng(123).integers(0, 2**31)
+    assert seeded_draw == expected_draw
+    assert calls['run_nested'] == {'dlogz': 0.2, 'print_progress': False, 'maxiter': 7}

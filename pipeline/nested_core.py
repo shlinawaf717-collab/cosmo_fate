@@ -106,7 +106,8 @@ def run_dynesty(config: NestedRunConfig, loglike: Callable[[np.ndarray], float],
     ctx = get_context("spawn")
     with ctx.Pool(config.nproc, initializer=pool_initializer, initargs=pool_initargs) as pool:
         sampler = dynesty.NestedSampler(loglike, ptform, len(config.bounds), nlive=config.nlive,
-                                        pool=pool, queue_size=config.nproc * 2)
+                                        pool=pool, queue_size=config.nproc * 2,
+                                        rstate=np.random.default_rng(config.seed))
         sampler.run_nested(dlogz=config.dlogz, print_progress=False, maxiter=config.maxiter)
     return sampler.results
 
@@ -118,6 +119,7 @@ def summarize_results(results, config: NestedRunConfig) -> dict:
         "kind": config.kind,
         "nlive": int(config.nlive),
         "seed": int(config.seed),
+        "seed_scope": "dynesty sampler and fixed-seed equal-weight resampling",
         "resampling_method": RESAMPLING_METHOD,
         "logZ_raw": logz_raw,
         "logZ_correction": float(config.evidence_correction),
