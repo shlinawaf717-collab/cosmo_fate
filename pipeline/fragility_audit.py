@@ -14,6 +14,11 @@ DEFAULT_JSON = ROOT / "runs/phase3/fragility_metrics.json"
 DEFAULT_MD = ROOT / "paper/FRAGILITY_METRICS.md"
 
 
+def portable_float(value):
+    """Round platform-level arithmetic noise while retaining 15 significant digits."""
+    return float(f"{float(value):.15g}")
+
+
 def load(rel: str) -> dict:
     return json.loads((ROOT / rel).read_text(encoding="utf-8"))
 
@@ -49,11 +54,13 @@ def log_span(entries: list[dict], quantity: str) -> dict:
         if kinds <= {"structural_prior", "exact_construction"}:
             return {**base, "log10_span_dex": None, "display": "infinite",
                     "status": "structurally_unbounded_by_exact_zero"}
-        lower = None if len(positive) < 2 else float(np.log10(positive.max()) - np.log10(positive.min()))
+        lower = None if len(positive) < 2 else portable_float(
+            np.log10(positive.max()) - np.log10(positive.min())
+        )
         return {**base, "log10_span_dex": None, "positive_only_lower_bound_dex": lower,
                 "display": "not point-identifiable",
                 "status": "finite_nested_sampling_zero_requires_limit_or_more_runs"}
-    span = float(np.log10(values.max()) - np.log10(values.min()))
+    span = portable_float(np.log10(values.max()) - np.log10(values.min()))
     return {**base, "log10_span_dex": span, "display": f"{span:.3f} dex", "status": "finite"}
 
 

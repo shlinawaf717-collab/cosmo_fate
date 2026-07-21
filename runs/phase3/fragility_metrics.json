@@ -45,7 +45,7 @@
       "min": 0.9933293029070304,
       "max": 0.9982080427258833,
       "zero_members": [],
-      "log10_span_dex": 0.002127817512537235,
+      "log10_span_dex": 0.00212781751253724,
       "display": "0.002 dex",
       "status": "finite"
     }
@@ -109,7 +109,7 @@
       "min": 0.500412881915772,
       "max": 1.0,
       "zero_members": [],
-      "log10_span_dex": 0.3006715189767661,
+      "log10_span_dex": 0.300671518976766,
       "display": "0.301 dex",
       "status": "finite"
     }
@@ -154,7 +154,7 @@
       "min": 0.0020812782517262685,
       "max": 0.4995871180842279,
       "zero_members": [],
-      "log10_span_dex": 2.3802810854107106,
+      "log10_span_dex": 2.38028108541071,
       "display": "2.380 dex",
       "status": "finite"
     },
@@ -163,7 +163,7 @@
       "min": 0.500412881915772,
       "max": 0.9979187217482738,
       "zero_members": [],
-      "log10_span_dex": 0.29976668938870193,
+      "log10_span_dex": 0.299766689388702,
       "display": "0.300 dex",
       "status": "finite"
     }
@@ -216,7 +216,7 @@
       "min": 8.131696049816989e-06,
       "max": 0.0037610240306249973,
       "zero_members": [],
-      "log10_span_dex": 2.6651249712898726,
+      "log10_span_dex": 2.66512497128987,
       "display": "2.665 dex",
       "status": "finite"
     },
@@ -225,7 +225,7 @@
       "min": 0.9961592241199242,
       "max": 0.9999918683039504,
       "zero_members": [],
-      "log10_span_dex": 0.001667707691980235,
+      "log10_span_dex": 0.00166770769198024,
       "display": "0.002 dex",
       "status": "finite"
     }

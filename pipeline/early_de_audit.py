@@ -19,6 +19,11 @@ except ModuleNotFoundError:  # pragma: no cover
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def portable_float(value):
+    """Round platform-level arithmetic noise while retaining 15 significant digits."""
+    return float(f"{float(value):.15g}")
+
+
 def weighted_quantile(values, weights, quantiles):
     order = np.argsort(values)
     values = np.asarray(values)[order]
@@ -54,9 +59,9 @@ def compute(root: str, z_check=Z_EARLY_DE_GATE, max_ratio=EARLY_DE_MAX_RATIO) ->
         "weighted_failure_fraction": float(weights[fail].sum()),
         "n_failing_rows": int(np.count_nonzero(fail)),
         "weighted_quantiles": dict(zip(
-            ("q50", "q95", "q99", "q999"), map(float, quantiles)
+            ("q50", "q95", "q99", "q999"), map(portable_float, quantiles)
         )),
-        "maximum_row_ratio": float(np.max(ratio)),
+        "maximum_row_ratio": portable_float(np.max(ratio)),
         "decision": "PASS" if not np.any(fail) else "REFIT_REQUIRED",
         "scope": "post-hoc validity audit of archived compressed-CMB-conditioned BIN4 chains",
     }
