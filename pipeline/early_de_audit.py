@@ -20,8 +20,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def portable_float(value):
-    """Round platform-level arithmetic noise while retaining 15 significant digits."""
-    return float(f"{float(value):.15g}")
+    """Round platform interpolation noise while retaining 12 significant digits."""
+    return float(f"{float(value):.12g}")
 
 
 def weighted_quantile(values, weights, quantiles):

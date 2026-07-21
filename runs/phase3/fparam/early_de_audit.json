@@ -8,12 +8,12 @@
   "weighted_failure_fraction": 0.0,
   "n_failing_rows": 0,
   "weighted_quantiles": {
-    "q50": 8.21113003803305e-15,
-    "q95": 5.19563664800961e-08,
-    "q99": 2.40131876684409e-06,
-    "q999": 2.77778062904635e-05
+    "q50": 8.21113003803e-15,
+    "q95": 5.19563664801e-08,
+    "q99": 2.40131876684e-06,
+    "q999": 2.77778062905e-05
   },
-  "maximum_row_ratio": 8.61781493416224e-05,
+  "maximum_row_ratio": 8.61781493416e-05,
   "decision": "PASS",
   "scope": "post-hoc validity audit of archived compressed-CMB-conditioned BIN4 chains"
 }
