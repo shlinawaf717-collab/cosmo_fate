@@ -1,5 +1,5 @@
 """Model-aware fate classification for the F_param axis."""
-import sys, os, json
+import sys, os, json, glob
 import numpy as np
 from multiprocessing import Pool
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -23,14 +23,29 @@ def _worker(args):
     lab, b = classify(bg)
     return lab, b
 
+
+def load_release_columns(root, required, burn=0.3):
+    """Load only archived text chains, independent of ignored sidecar files."""
+    files = sorted(glob.glob(f"{root}_*.1.txt"))
+    if not files:
+        raise FileNotFoundError(f"no release chains found for {root}")
+    values = {name: [] for name in required}
+    weights = []
+    for filename in files:
+        with open(filename, encoding="utf-8") as handle:
+            columns = handle.readline().lstrip("#").split()
+        data = np.loadtxt(filename)
+        data = data[int(burn * len(data)) :]
+        for name in required:
+            values[name].append(data[:, columns.index(name)])
+        weights.append(data[:, columns.index("weight")])
+    return {name: np.concatenate(parts) for name, parts in values.items()}, np.concatenate(weights)
+
 def main(model, root, out_path):
-    from getdist import loadMCSamples
-    s = loadMCSamples(root, settings={'ignore_rows': 0.3})
-    names = [p.name for p in s.paramNames.names]
-    col = lambda p: s.samples[:, names.index(p)]
-    om, H0, wts = col('omegam'), col('H0'), s.weights
     mp = MODELS[model]['params']
-    mcols = {p: col(p) for p in mp}
+    columns, wts = load_release_columns(root, ["omegam", "H0", *mp])
+    om, H0 = columns["omegam"], columns["H0"]
+    mcols = {p: columns[p] for p in mp}
     args = [(om[i], H0[i], {p: mcols[p][i] for p in mp}) for i in range(len(om))]
     with Pool(initializer=_init, initargs=(model,)) as pool:
         res = pool.map(_worker, args, chunksize=100)
