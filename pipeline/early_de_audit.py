@@ -8,11 +8,12 @@ import json
 from pathlib import Path
 
 import numpy as np
-from getdist import loadMCSamples
 
 try:
+    from pipeline.classify_fparam import load_release_columns
     from pipeline.wparams import EARLY_DE_MAX_RATIO, Z_EARLY_DE_GATE, bin4_early_de_ratio
 except ModuleNotFoundError:  # pragma: no cover
+    from classify_fparam import load_release_columns
     from wparams import EARLY_DE_MAX_RATIO, Z_EARLY_DE_GATE, bin4_early_de_ratio
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,14 +28,14 @@ def weighted_quantile(values, weights, quantiles):
 
 
 def compute(root: str, z_check=Z_EARLY_DE_GATE, max_ratio=EARLY_DE_MAX_RATIO) -> dict:
-    samples = loadMCSamples(root, settings={"ignore_rows": 0.3})
-    names = [p.name for p in samples.paramNames.names]
-    column = lambda name: samples.samples[:, names.index(name)]
-    ratio = bin4_early_de_ratio(
-        column("omegam"), column("H0"), column("w1"), column("w2"),
-        column("w3"), column("w4"), z=z_check,
+    columns, weights = load_release_columns(
+        root, ["omegam", "H0", "w1", "w2", "w3", "w4"]
     )
-    weights = np.asarray(samples.weights, dtype=float)
+    ratio = bin4_early_de_ratio(
+        columns["omegam"], columns["H0"], columns["w1"], columns["w2"],
+        columns["w3"], columns["w4"], z=z_check,
+    )
+    weights = np.asarray(weights, dtype=float)
     weights /= weights.sum()
     fail = ratio >= max_ratio
     quantiles = weighted_quantile(ratio, weights, [0.5, 0.95, 0.99, 0.999])
