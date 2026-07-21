@@ -71,7 +71,10 @@ def gelman_rubin(root: str, burn: float, sampled_names: list[str]) -> float:
     value = float(samples.getGelmanRubin())
     if not np.isfinite(value):
         raise ValueError(f"non-finite Gelman-Rubin diagnostic for {root}")
-    return value
+    # Eigen-solvers differ at ~1e-12 across BLAS implementations.  Ten decimal
+    # places are far finer than both the registered 0.01 gate and paper output,
+    # while keeping generated JSON bit-for-bit portable across CI platforms.
+    return round(value, 10)
 
 
 def compute(burn: float = 0.3) -> dict:
