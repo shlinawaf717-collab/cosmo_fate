@@ -61,6 +61,10 @@
 
 ### 结构性配套
 
+- **E-20**（2026-07-21，归档 DOI 热修）GitHub--Zenodo 同步产生 v1.1 后，发现
+  正文仍引用仅指向 v1.0 的版本 DOI `10.5281/zenodo.21332434`。现改为概念 DOI
+  `10.5281/zenodo.21332433`，由 Zenodo 稳定解析到该归档序列的最新版本。
+  同步将发布元数据版本改为 v1.1.1；不改分析、代码、数字或科学结论。
 - **E-19**（2026-07-13，可复现性）App F 的 "(an archival snapshot with a DOI
   will accompany submission)" 替换为实际 DOI：`10.5281/zenodo.21332434`
   （GitHub release `v1.0-submission` 通过 Zenodo-GitHub 集成自动归档，

@@ -58,9 +58,10 @@ python3 -m venv .venv
 `pipeline/make_paper_figs.py` 生成。PDF 输出放在
 `output/pdf/Zhang_cosmic_fate_audit_major_revision.pdf`。
 
-v1.0 是 2026-07-13 的原始 submission archive。v1.1 目标是纳入大修解释、
-A-004 No-Go、mock 安全工具、nested 接口与扩展 CI。发布时必须确认 GitHub release、
-Zenodo 新版本、PDF 和源码来自同一提交。
+v1.0 是 2026-07-13 的原始 submission archive。v1.1 纳入大修解释、A-004 No-Go、
+mock 安全工具、nested 接口与扩展 CI；v1.1.1 仅把正文中的 v1.0 版本 DOI 改为稳定的
+Zenodo 概念 DOI `10.5281/zenodo.21332433`，无科学内容变更。发布时必须确认 GitHub
+release、Zenodo 新版本、PDF 和源码来自同一提交。
 
 ## 五、后续加强（不计入 v1.1 已完成工作）
 
