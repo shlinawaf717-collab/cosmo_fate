@@ -1,16 +1,50 @@
 {
  "yaml": "runs/phase3/fdata/d4_1.input.yaml",
  "kind": "cpl",
+ "schema_version": "nested-interface-v2-original-weights",
  "nlive": 500,
- "ncall": 270074,
- "n_samples": 9447,
- "P_fate_nested": {
+ "seed": 1,
+ "seed_scope": "dynesty sampler and fixed-seed equal-weight resampling",
+ "resampling_method": "fixed-seed-multinomial-logwt",
+ "logZ_raw": -30.234185634919342,
+ "logZ_correction": 0.0,
+ "logZ": -30.234185634919342,
+ "logZerr": 0.20146051625975664,
+ "ncall": 269454,
+ "n_samples": 9567,
+ "n_equal_weight_samples": 9567,
+ "n_weighted_samples": 13615,
+ "ess": 2865.1393799688108,
+ "weight_sum": 0.9999999999999998,
+ "fate_estimator": "normalized original nested weights",
+ "P_fate_weighted": {
   "CRUNCH": 0.0,
-  "RIP": 0.0012702445220704986,
+  "RIP": 0.001894578009731514,
   "DS": 0.0,
-  "DECAY": 0.9987297554779295,
+  "DECAY": 0.9981054219902685,
   "OTHER": 0.0
  },
- "P_RIP_se_binom": 0.0003664550426556838,
- "uncertainty_note": "P_RIP_se_binom describes the fixed-seed equal-weight resample only; it is not repeated-run nested-sampling uncertainty"
+ "P_fate_nested": {
+  "CRUNCH": 0.0,
+  "RIP": 0.001894578009731514,
+  "DS": 0.0,
+  "DECAY": 0.9981054219902685,
+  "OTHER": 0.0
+ },
+ "raw_label_counts": {
+  "CRUNCH": 0,
+  "RIP": 2357,
+  "DS": 0,
+  "DECAY": 11258,
+  "OTHER": 0
+ },
+ "P_fate_equal_weight_diagnostic": {
+  "CRUNCH": 0.0,
+  "RIP": 0.001672415595275426,
+  "DS": 0.0,
+  "DECAY": 0.9983275844047246,
+  "OTHER": 0.0
+ },
+ "P_RIP_se_binom": 0.00041775413077786537,
+ "uncertainty_note": "P_fate_nested is the exact normalized-original-logwt estimate. P_RIP_se_binom describes only the fixed-seed equal-weight diagnostic; between-seed variation is reported separately where repeated runs exist."
 }

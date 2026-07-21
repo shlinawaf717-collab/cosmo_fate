@@ -1,7 +1,7 @@
 {
   "title": "cosmo_fate: A preregistered fragility audit of DESI-era cosmic-fate claims",
-  "description": "Major-revision pipeline and audit archive for \"Is cosmic fate an inference or an assumption?\" Includes the frozen preregistration, one hundred exact-LCDM null mocks, archived thin chains sufficient for reported summaries, induced-prior and in-window-fit audits, the registered constraint-horizon audit, and the post-hoc A-004 structural No-Go for matched-prior importance reweighting. Differentiates the fate verdict along dataset, prior, inference-statistic, and w(a)-grammar axes while preserving the compressed-CMB and finite-mock evidence boundaries.",
-  "version": "1.1.1",
+  "description": "v1.2 scientific-correction archive for \"Is cosmic fate an inference or an assumption?\" Corrects finite-limit fate semantics (A-005), the A-004 BIN4 summary-grid rank, and nested-sampling weight handling; adds independent-seed evidence checks, explicit registered fragility metrics, and the A-006 early-dark-energy gate/full-Planck scope audit. Includes the frozen preregistration, one hundred fitted-truth LCDM null mocks, archived chains and weighted nested samples sufficient for reported summaries, deterministic audits, and the rebuilt manuscript while preserving the compressed-CMB and finite-mock evidence boundaries.",
+  "version": "1.2",
   "creators": [
     {
       "name": "Zhang, Jiacheng",

@@ -29,7 +29,22 @@ append-only amendments.
    invariants.
 8. A-004 is recorded as an author-confirmed post-hoc structural audit, not a
    preregistered amendment. The declared seven-dimensional summary has
-   grammar-specific supports of dimensions 2, 2, 2, and 4 whose common
+   grammar-specific supports of dimensions 2, 2, 2, and 3 whose common
    one-dimensional intersection has zero native-prior mass. The earlier
    covariance-regularized weighting pilot is rejected; no matched fate
    probabilities are reported.
+9. A-005 corrects the finite-limit fate boundary: `w_inf=-1` is the exact
+   de Sitter locus and the former epsilon band is boundary-adjacent only.
+   BA and BIN4 posterior fate tables and the induced-prior audit are rebuilt.
+10. Nested fate probabilities now sum original normalized weights. Equal-weight
+    resampling is diagnostic only; D0 is repeated across independent seeds and
+    run-to-run scatter is kept separate from internal evidence errors.
+11. The registered fragility metrics are reported as a formal fulfilment table.
+    Structural zeros and finite-sampling zeros are treated differently.
+12. A-006 adds an explicit BIN4 early-dark-energy gate. The archived posterior
+    passes, while a full-Planck run is a documented No-Go until a perturbation
+    implementation and official likelihood package are available.
+13. Figure 4 now reads the original-weight nested outputs it claims to show,
+    rather than the MCMC fate files. D3 retains a weighted positive tail even
+    though its equal-weight diagnostic contains zero RIP draws; the data-axis
+    tail span is therefore finite (2.665 dex), not unidentified.

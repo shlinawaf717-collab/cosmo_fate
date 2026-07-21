@@ -2,7 +2,8 @@
   "status": "exploratory post-hoc audit",
   "seed": 20260720,
   "n_proposals": 2000000,
-  "epsilon_A003": 0.01,
+  "method": "A-005 exact finite-limit fate boundary plus A-006 BIN4 early-DE gate",
+  "boundary_adjacent_epsilon": 0.01,
   "warning": "coordinate-wise flat priors, dimensions, constraints, and induced function-space measures differ across grammars",
   "models": {
     "CPL": {
@@ -40,34 +41,34 @@
     "BA": {
       "support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
       "RIP": {
-        "P": 0.5806137921611363,
-        "mc_se": 0.00040286095538937997
+        "P": 0.5838477150255441,
+        "mc_se": 0.00040242075040614875
       },
       "DS": {
-        "P": 0.006646471311598332,
-        "mc_se": 6.63364030371736e-05
+        "P": 0.0,
+        "mc_se": 0.0
       },
       "DECAY": {
-        "P": 0.4127397365272654,
-        "mc_se": 0.0004019369026263077
+        "P": 0.4161522849744559,
+        "mc_se": 0.00040242075040614875
       },
       "n_accepted": 1500345
     },
     "BIN4": {
-      "support": "w1 in [-3,1]; independent early-time condition w4<0",
+      "support": "w1..w4 in [-3,1], omegam in [0.01,0.99], H0 in [20,100]; conditioned on w4<0 and rho_DE/rho_m(z=1059)<0.01",
       "RIP": {
-        "P": 0.497235,
-        "mc_se": 0.0003535479845615019
+        "P": 0.5058070782711888,
+        "mc_se": 0.00041674305218747674
       },
       "DS": {
-        "P": 0.0049335,
-        "mc_se": 4.9543720983339555e-05
+        "P": 0.0,
+        "mc_se": 0.0
       },
       "DECAY": {
-        "P": 0.4978315,
-        "mc_se": 0.00035355006548418996
+        "P": 0.49419292172881124,
+        "mc_se": 0.00041674305218747674
       },
-      "n_accepted": 2000000
+      "n_accepted": 1439278
     },
     "GP_CONSTRUCTION": {
       "support": "assigned conditional-mean future w_inf=-1",

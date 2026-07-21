@@ -1,0 +1,91 @@
+{
+ "schema_version": "nested-interface-v2-original-weights",
+ "seed": 1,
+ "resampling_method": "fixed-seed-multinomial-logwt",
+ "headline_fate_estimator": "normalized original nested weights",
+ "lnZ_CPL": -773.496561555009,
+ "lnZ_CPL_err": 0.23330869532847667,
+ "CPL_audit": {
+  "schema_version": "nested-interface-v2-original-weights",
+  "kind": "cpl",
+  "nlive": 500,
+  "seed": 1,
+  "seed_scope": "dynesty sampler and fixed-seed equal-weight resampling",
+  "resampling_method": "fixed-seed-multinomial-logwt",
+  "logZ_raw": -773.7514538046378,
+  "logZ_correction": 0.25489224962879004,
+  "logZ": -773.496561555009,
+  "logZerr": 0.23330869532847667,
+  "ncall": 422186,
+  "n_samples": 11543,
+  "n_equal_weight_samples": 11543,
+  "n_weighted_samples": 17305,
+  "ess": 3217.4451444394563,
+  "weight_sum": 1.0
+ },
+ "fate_estimator": "normalized original nested weights",
+ "P_fate_weighted": {
+  "CRUNCH": 0.0,
+  "RIP": 0.0019174095413606281,
+  "DS": 0.0,
+  "DECAY": 0.9980825904586393,
+  "OTHER": 1.226481134414123e-16
+ },
+ "P_fate_nested": {
+  "CRUNCH": 0.0,
+  "RIP": 0.0019174095413606281,
+  "DS": 0.0,
+  "DECAY": 0.9980825904586393,
+  "OTHER": 1.226481134414123e-16
+ },
+ "raw_label_counts": {
+  "CRUNCH": 0,
+  "RIP": 2801,
+  "DS": 0,
+  "DECAY": 14502,
+  "OTHER": 2
+ },
+ "P_fate_equal_weight_diagnostic": {
+  "CRUNCH": 0.0,
+  "RIP": 0.0009529585029888245,
+  "DS": 0.0,
+  "DECAY": 0.9990470414970112,
+  "OTHER": 0.0
+ },
+ "P_RIP_se_binom": 0.0002871908611961826,
+ "uncertainty_note": "P_fate_nested is the exact normalized-original-logwt estimate. P_RIP_se_binom describes only the fixed-seed equal-weight diagnostic; between-seed variation is reported separately where repeated runs exist.",
+ "lnZ_LCDM": -771.9408582289046,
+ "lnZ_LCDM_err": 0.20928875512932435,
+ "LCDM_audit": {
+  "schema_version": "nested-interface-v2-original-weights",
+  "kind": "lcdm",
+  "nlive": 500,
+  "seed": 1,
+  "seed_scope": "dynesty sampler and fixed-seed equal-weight resampling",
+  "resampling_method": "fixed-seed-multinomial-logwt",
+  "logZ_raw": -771.9408582289046,
+  "logZ_correction": 0.0,
+  "logZ": -771.9408582289046,
+  "logZerr": 0.20928875512932435,
+  "ncall": 52944,
+  "n_samples": 9207,
+  "n_equal_weight_samples": 9207,
+  "n_weighted_samples": 14180,
+  "ess": 2689.515510395163,
+  "weight_sum": 1.0
+ },
+ "ncall": {
+  "cpl": 422186,
+  "lcdm": 52944
+ },
+ "ess": {
+  "cpl": 3217.4451444394563,
+  "lcdm": 2689.515510395163
+ },
+ "n_samples": {
+  "cpl": 11543,
+  "lcdm": 9207
+ },
+ "lnB_CPL_over_LCDM": -1.5557033261043216,
+ "lnB_err": 0.3134242019044768
+}

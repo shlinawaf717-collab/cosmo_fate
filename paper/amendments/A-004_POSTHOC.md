@@ -17,7 +17,9 @@ check.
 The proposed object was the seven-vector `w(a_grid)` on
 `a_grid = [0.5, 0.67, 0.8, 1.0, 1.5, 2.0, 4.0]`. CPL, JBP, and BA occupy
 different two-dimensional supports in this ambient space; BIN4 occupies a
-four-dimensional support. Their common intersection consists of constant
+three-dimensional support because the grid reaches only `z=1` and therefore
+maps BIN4 to `[w3,w2,w1,w1,w1,w1,w1]`; `w4` is outside the candidate
+summary. Their common intersection consists of constant
 histories and has native-prior probability zero.
 
 ## Decision

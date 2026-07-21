@@ -1,0 +1,36 @@
+# A-006 replication config. The archived v1.1 BIN4 chains predate this hard
+# gate; runs/phase3/fparam/early_de_audit.json verifies their posterior mass.
+likelihood:
+  bao.desi_dr2.desi_bao_all: null
+  sn.pantheonplusshoes:
+    use_abs_mag: true
+  pipeline.cmb_distprior.ProviderDistPrior:
+    python_path: .
+  pipeline.early_de_gate.Bin4EarlyDEGate:
+    python_path: .
+    z_check: 1059.0
+    max_ratio: 0.01
+
+theory:
+  pipeline.bgtheory.BackgroundW:
+    python_path: .
+    model: bin4
+
+params:
+  ombh2: {prior: {min: 0.005, max: 0.1}, ref: 0.02236, proposal: 0.0001}
+  omegam: {prior: {min: 0.01, max: 0.99}, ref: 0.30, proposal: 0.003}
+  H0: {prior: {min: 20, max: 100}, ref: 68.5, proposal: 0.3}
+  Mb: {prior: {min: -20, max: -18}, ref: -19.39, proposal: 0.02}
+  w1: {prior: {min: -3, max: 1}, ref: -0.9, proposal: 0.05}
+  w2: {prior: {min: -3, max: 1}, ref: -0.9, proposal: 0.05}
+  w3: {prior: {min: -3, max: 1}, ref: -0.9, proposal: 0.05}
+  w4: {prior: {min: -3, max: 1}, ref: -1.7, proposal: 0.05}
+  rdrag: null
+
+sampler:
+  mcmc:
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    max_samples: 500000
+
+output: runs/phase3/fparam/bin4_a006

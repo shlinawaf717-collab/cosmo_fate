@@ -5,9 +5,9 @@
     "CPL"
   ],
   "prior_odds_CPL_over_LCDM": 1.0,
-  "lnB_CPL_over_LCDM": -1.7598228670906337,
-  "posterior_P_LCDM": 0.8531874741649842,
-  "posterior_P_CPL": 0.14681252583501583,
-  "model_averaged_P_heat_death_compatible": 0.9997369182263985,
+  "lnB_CPL_over_LCDM": -1.617354249735475,
+  "posterior_P_LCDM": 0.8344299252346015,
+  "posterior_P_CPL": 0.16557007476539856,
+  "model_averaged_P_heat_death_compatible": 0.9997033055001481,
   "caution": "depends on the chosen model set and model prior odds; it is not a preregistered headline result"
 }

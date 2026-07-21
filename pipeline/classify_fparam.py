@@ -36,7 +36,12 @@ def main(model, root, out_path):
         res = pool.map(_worker, args, chunksize=100)
     labs = np.array([r[0] for r in res]); bnds = np.array([r[1] for r in res])
     wtot = wts.sum()
-    out = {'model': model, 'n': len(labs)}
+    out = {
+        'model': model,
+        'n': len(labs),
+        'method': 'A-005 exact finite-limit fate semantics',
+        'boundary_definition': '|w_inf + 1| <= 0.01 for finite-limit models; threshold variation otherwise',
+    }
     B = 32; edges = np.linspace(0, len(labs), B+1, dtype=int)
     for L in LABELS:
         sel = labs == L

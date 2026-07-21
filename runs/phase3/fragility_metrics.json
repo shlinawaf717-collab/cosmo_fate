@@ -1,0 +1,238 @@
+{
+  "schema_version": "fragility-metrics-v1-a005",
+  "definition": "max(log10 P) - min(log10 P) across the registered axis",
+  "F_prior": {
+    "members": [
+      {
+        "name": "P1",
+        "source": "runs/phase2/fate/d0_cpl_p1.json",
+        "P_RIP": 0.0017919572741167582,
+        "P_heat": 0.9982080427258833,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "P2",
+        "source": "runs/phase3/fprior/fate_p2.json",
+        "P_RIP": 0.0,
+        "P_heat": 0.9933293029070304,
+        "P_RIP_zero_kind": "structural_prior",
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "P3",
+        "source": "runs/phase3/fprior/fate_p3.json",
+        "P_RIP": 0.0,
+        "P_heat": 0.9949665794827085,
+        "P_RIP_zero_kind": "structural_prior",
+        "P_heat_zero_kind": null
+      }
+    ],
+    "P_RIP": {
+      "quantity": "P_RIP",
+      "min": 0.0,
+      "max": 0.0017919572741167582,
+      "zero_members": [
+        "P2",
+        "P3"
+      ],
+      "log10_span_dex": null,
+      "display": "infinite",
+      "status": "structurally_unbounded_by_exact_zero"
+    },
+    "P_heat": {
+      "quantity": "P_heat",
+      "min": 0.9933293029070304,
+      "max": 0.9982080427258833,
+      "zero_members": [],
+      "log10_span_dex": 0.002127817512537235,
+      "display": "0.002 dex",
+      "status": "finite"
+    }
+  },
+  "F_param": {
+    "members": [
+      {
+        "name": "CPL",
+        "source": "runs/phase3/fparam/fate_cpl.json",
+        "P_RIP": 0.0020812782517262685,
+        "P_heat": 0.9979187217482738,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "BA",
+        "source": "runs/phase3/fparam/fate_ba_a005.json",
+        "P_RIP": 0.013398019610268767,
+        "P_heat": 0.9866019803897312,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "JBP",
+        "source": "runs/phase3/fparam/fate_jbp.json",
+        "P_RIP": 0.007903406701247721,
+        "P_heat": 0.9920965932987523,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "BIN4",
+        "source": "runs/phase3/fparam/fate_bin4_a005.json",
+        "P_RIP": 0.4995871180842279,
+        "P_heat": 0.500412881915772,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "GP construction",
+        "source": "runs/phase3/fparam/fate_gp.json",
+        "P_RIP": 0.0,
+        "P_heat": 1.0,
+        "P_RIP_zero_kind": "exact_construction",
+        "P_heat_zero_kind": null
+      }
+    ],
+    "P_RIP": {
+      "quantity": "P_RIP",
+      "min": 0.0,
+      "max": 0.4995871180842279,
+      "zero_members": [
+        "GP construction"
+      ],
+      "log10_span_dex": null,
+      "display": "infinite",
+      "status": "structurally_unbounded_by_exact_zero"
+    },
+    "P_heat": {
+      "quantity": "P_heat",
+      "min": 0.500412881915772,
+      "max": 1.0,
+      "zero_members": [],
+      "log10_span_dex": 0.3006715189767661,
+      "display": "0.301 dex",
+      "status": "finite"
+    }
+  },
+  "F_param_fitted_four_diagnostic": {
+    "members": [
+      {
+        "name": "CPL",
+        "source": "runs/phase3/fparam/fate_cpl.json",
+        "P_RIP": 0.0020812782517262685,
+        "P_heat": 0.9979187217482738,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "BA",
+        "source": "runs/phase3/fparam/fate_ba_a005.json",
+        "P_RIP": 0.013398019610268767,
+        "P_heat": 0.9866019803897312,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "JBP",
+        "source": "runs/phase3/fparam/fate_jbp.json",
+        "P_RIP": 0.007903406701247721,
+        "P_heat": 0.9920965932987523,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "BIN4",
+        "source": "runs/phase3/fparam/fate_bin4_a005.json",
+        "P_RIP": 0.4995871180842279,
+        "P_heat": 0.500412881915772,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      }
+    ],
+    "P_RIP": {
+      "quantity": "P_RIP",
+      "min": 0.0020812782517262685,
+      "max": 0.4995871180842279,
+      "zero_members": [],
+      "log10_span_dex": 2.3802810854107106,
+      "display": "2.380 dex",
+      "status": "finite"
+    },
+    "P_heat": {
+      "quantity": "P_heat",
+      "min": 0.500412881915772,
+      "max": 0.9979187217482738,
+      "zero_members": [],
+      "log10_span_dex": 0.29976668938870193,
+      "display": "0.300 dex",
+      "status": "finite"
+    }
+  },
+  "F_data": {
+    "members": [
+      {
+        "name": "D0",
+        "source": "runs/phase2/nested_d0.json",
+        "P_RIP": 0.0017865085814127808,
+        "P_heat": 0.9981208114201506,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "D1",
+        "source": "runs/phase3/fdata/nested_d1.json",
+        "P_RIP": 0.0037610240306249973,
+        "P_heat": 0.9961592241199242,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "D2",
+        "source": "runs/phase3/fdata/nested_d2.json",
+        "P_RIP": 0.0006677537916042893,
+        "P_heat": 0.9993322462080944,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "D3",
+        "source": "runs/phase3/fdata/nested_d3.json",
+        "P_RIP": 8.131696049816989e-06,
+        "P_heat": 0.9999918683039504,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      },
+      {
+        "name": "D4",
+        "source": "runs/phase3/fdata/nested_d4.json",
+        "P_RIP": 0.001894578009731514,
+        "P_heat": 0.9981054219902685,
+        "P_RIP_zero_kind": null,
+        "P_heat_zero_kind": null
+      }
+    ],
+    "P_RIP": {
+      "quantity": "P_RIP",
+      "min": 8.131696049816989e-06,
+      "max": 0.0037610240306249973,
+      "zero_members": [],
+      "log10_span_dex": 2.6651249712898726,
+      "display": "2.665 dex",
+      "status": "finite"
+    },
+    "P_heat": {
+      "quantity": "P_heat",
+      "min": 0.9961592241199242,
+      "max": 0.9999918683039504,
+      "zero_members": [],
+      "log10_span_dex": 0.001667707691980235,
+      "display": "0.002 dex",
+      "status": "finite"
+    }
+  },
+  "interpretation_rules": [
+    "An exact zero imposed by a prior or deterministic construction makes the registered log span infinite.",
+    "A zero observed in a finite nested run is not treated as a mathematical zero; the point span is withheld pending an upper limit or additional resolution.",
+    "F_param changes grammar, native dimension, future rule, and registered coordinate prior as one coupled audit package."
+  ]
+}

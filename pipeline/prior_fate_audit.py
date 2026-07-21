@@ -3,7 +3,8 @@
 
 Flat coordinate priors are not identical function-space priors.  This audit
 samples the actual P1 supports and model-specific early-matter-domination
-conditions, then applies the same A-003 asymptotic epsilon used in the paper.
+conditions, then applies the exact A-005 finite-limit fate boundary.  The
+A-003 epsilon is retained only as a boundary-adjacent diagnostic.
 The GP entry is a construction, not a Monte Carlo prior estimate: its assigned
 conditional-mean future has w_inf=-1 for every sample.
 """
@@ -15,6 +16,11 @@ import json
 from pathlib import Path
 
 import numpy as np
+
+try:
+    from pipeline.wparams import EARLY_DE_MAX_RATIO, bin4_early_de_ratio
+except ModuleNotFoundError:  # pragma: no cover
+    from wparams import EARLY_DE_MAX_RATIO, bin4_early_de_ratio
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,9 +43,9 @@ def summarize(labels: np.ndarray) -> dict:
 
 
 def finite_limit_labels(w_inf: np.ndarray) -> np.ndarray:
-    labels = np.full(len(w_inf), "DS", dtype="<U5")
-    labels[w_inf < -1.0 - EPSILON] = "RIP"
-    labels[w_inf > -1.0 + EPSILON] = "DECAY"
+    labels = np.full(len(w_inf), "DECAY", dtype="<U5")
+    labels[w_inf < -1.0] = "RIP"
+    labels[w_inf == -1.0] = "DS"
     return labels
 
 
@@ -56,13 +62,21 @@ def compute(n_proposals: int = 2_000_000, seed: int = 20260720) -> dict:
     ba_labels = finite_limit_labels(w[allowed_bounded] - 0.5 * wa[allowed_bounded])
 
     w1 = rng.uniform(-3.0, 1.0, n_proposals)
-    bin4_labels = finite_limit_labels(w1)
+    w2 = rng.uniform(-3.0, 1.0, n_proposals)
+    w3 = rng.uniform(-3.0, 1.0, n_proposals)
+    w4 = rng.uniform(-3.0, 1.0, n_proposals)
+    omegam = rng.uniform(0.01, 0.99, n_proposals)
+    H0 = rng.uniform(20.0, 100.0, n_proposals)
+    early_ratio = bin4_early_de_ratio(omegam, H0, w1, w2, w3, w4)
+    allowed_bin4 = (w4 < 0.0) & (early_ratio < EARLY_DE_MAX_RATIO)
+    bin4_labels = finite_limit_labels(w1[allowed_bin4])
 
     return {
         "status": "exploratory post-hoc audit",
         "seed": seed,
         "n_proposals": n_proposals,
-        "epsilon_A003": EPSILON,
+        "method": "A-005 exact finite-limit fate boundary plus A-006 BIN4 early-DE gate",
+        "boundary_adjacent_epsilon": EPSILON,
         "warning": (
             "coordinate-wise flat priors, dimensions, constraints, and induced "
             "function-space measures differ across grammars"
@@ -81,7 +95,10 @@ def compute(n_proposals: int = 2_000_000, seed: int = 20260720) -> dict:
                 **summarize(ba_labels),
             },
             "BIN4": {
-                "support": "w1 in [-3,1]; independent early-time condition w4<0",
+                "support": (
+                    "w1..w4 in [-3,1], omegam in [0.01,0.99], H0 in [20,100]; "
+                    "conditioned on w4<0 and rho_DE/rho_m(z=1059)<0.01"
+                ),
                 **summarize(bin4_labels),
             },
             "GP_CONSTRUCTION": {

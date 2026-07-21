@@ -15,12 +15,13 @@ from typing import Callable, Mapping, Sequence
 
 import numpy as np
 
-SCHEMA_VERSION = "nested-interface-v1"
+SCHEMA_VERSION = "nested-interface-v2-original-weights"
 FATE_LABELS = ("CRUNCH", "RIP", "DS", "DECAY", "OTHER")
 RESAMPLING_METHOD = "fixed-seed-multinomial-logwt"
 UNCERTAINTY_NOTE = (
-    "P_RIP_se_binom describes the fixed-seed equal-weight resample only; "
-    "it is not repeated-run nested-sampling uncertainty"
+    "P_fate_nested is the exact normalized-original-logwt estimate. "
+    "P_RIP_se_binom describes only the fixed-seed equal-weight diagnostic; "
+    "between-seed variation is reported separately where repeated runs exist."
 )
 
 
@@ -143,6 +144,71 @@ def classify_samples(samples: np.ndarray, names: Sequence[str], classifier: Call
     return {label: float((arr == label).mean()) for label in FATE_LABELS}, n
 
 
+def weighted_class_probabilities(
+    samples: np.ndarray,
+    weights: Sequence[float],
+    names: Sequence[str],
+    classifier: Callable[[Mapping[str, float]], str],
+) -> tuple[dict[str, float], np.ndarray, dict[str, int]]:
+    """Classify every original nested sample and sum its normalized weight."""
+    samples = np.asarray(samples, dtype=float)
+    weights = np.asarray(weights, dtype=float)
+    if samples.ndim != 2 or len(samples) == 0:
+        raise ValueError("samples must be a non-empty 2D array")
+    if len(samples) != len(weights):
+        raise ValueError("weights and samples have different lengths")
+    if np.any(~np.isfinite(weights)) or np.any(weights < 0.0):
+        raise ValueError("weights must be finite and non-negative")
+    total = float(weights.sum())
+    if not np.isfinite(total) or total <= 0.0:
+        raise ValueError("weights must have positive finite sum")
+    weights = weights / total
+
+    labels = []
+    for row in samples:
+        label = classifier(dict(zip(names, map(float, row))))
+        if label not in FATE_LABELS:
+            raise ValueError(f"unknown fate label from classifier: {label!r}")
+        labels.append(label)
+    labels_array = np.asarray(labels, dtype="<U6")
+    probabilities = probabilities_from_labels(labels_array, weights)
+    counts = {label: int(np.count_nonzero(labels_array == label)) for label in FATE_LABELS}
+    return probabilities, labels_array, counts
+
+
+def probabilities_from_labels(labels: Sequence[str], weights: Sequence[float] | None = None) -> dict[str, float]:
+    labels = np.asarray(labels)
+    if labels.ndim != 1 or len(labels) == 0:
+        raise ValueError("labels must be a non-empty 1D array")
+    if weights is None:
+        weights_array = np.full(len(labels), 1.0 / len(labels))
+    else:
+        weights_array = np.asarray(weights, dtype=float)
+        if len(weights_array) != len(labels):
+            raise ValueError("weights and labels have different lengths")
+        if np.any(~np.isfinite(weights_array)) or np.any(weights_array < 0.0):
+            raise ValueError("weights must be finite and non-negative")
+        total = float(weights_array.sum())
+        if total <= 0.0:
+            raise ValueError("weights must have positive sum")
+        weights_array = weights_array / total
+    # Compute the residual class as the exact complement.  Summing every class
+    # and then adding a floating-point residual can produce a tiny negative
+    # OTHER probability (for example -2e-16) when OTHER has zero mass.
+    probabilities = {
+        label: float(weights_array[labels == label].sum()) for label in FATE_LABELS[:-1]
+    }
+    remainder = 1.0 - sum(probabilities.values())
+    if remainder < -1e-12:
+        raise ValueError("classified probabilities exceed one")
+    if remainder < 0.0:
+        largest = max(probabilities, key=probabilities.get)
+        probabilities[largest] += remainder
+        remainder = 0.0
+    probabilities[FATE_LABELS[-1]] = float(max(0.0, remainder))
+    return probabilities
+
+
 def add_resampling_audit(out: dict, *, weights: np.ndarray, ess: float, n_equal_weight: int) -> None:
     out.update({
         "n_samples": int(n_equal_weight),
@@ -153,11 +219,65 @@ def add_resampling_audit(out: dict, *, weights: np.ndarray, ess: float, n_equal_
     })
 
 
-def add_fate_summary(out: dict, probabilities: Mapping[str, float], n: int) -> None:
-    p_rip = float(probabilities.get("RIP", 0.0))
+def add_fate_summary(
+    out: dict,
+    probabilities: Mapping[str, float],
+    n: int,
+    *,
+    equal_weight_probabilities: Mapping[str, float] | None = None,
+    raw_label_counts: Mapping[str, int] | None = None,
+) -> None:
+    out["fate_estimator"] = "normalized original nested weights"
+    out["P_fate_weighted"] = dict(probabilities)
+    # Backward-compatible key; now explicitly identical to the weighted result.
     out["P_fate_nested"] = dict(probabilities)
-    out["P_RIP_se_binom"] = float(np.sqrt(p_rip * (1.0 - p_rip) / n))
+    if raw_label_counts is not None:
+        out["raw_label_counts"] = {label: int(raw_label_counts.get(label, 0)) for label in FATE_LABELS}
+    if equal_weight_probabilities is not None:
+        out["P_fate_equal_weight_diagnostic"] = dict(equal_weight_probabilities)
+        p_equal = float(equal_weight_probabilities.get("RIP", 0.0))
+        out["P_RIP_se_binom"] = float(np.sqrt(p_equal * (1.0 - p_equal) / n))
+    else:
+        out["P_RIP_se_binom"] = None
     out["uncertainty_note"] = UNCERTAINTY_NOTE
+
+
+def atomic_savez(path: str, **arrays) -> None:
+    """Atomically write a compressed NumPy archive."""
+    parent = os.path.dirname(os.path.abspath(path)) or "."
+    os.makedirs(parent, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(prefix=f".{os.path.basename(path)}.", suffix=".npz", dir=parent)
+    os.close(fd)
+    try:
+        np.savez_compressed(tmp, **arrays)
+        os.replace(tmp, path)
+    except Exception:
+        try:
+            os.unlink(tmp)
+        finally:
+            raise
+
+
+def save_nested_archive(path: str, results, config: NestedRunConfig, weights: np.ndarray,
+                        equal_weight_indices: np.ndarray, summary: Mapping,
+                        labels: Sequence[str] | None = None) -> None:
+    arrays = dict(
+        samples=np.asarray(results.samples, dtype=float),
+        logwt=np.asarray(results.logwt, dtype=float),
+        weights=np.asarray(weights, dtype=float),
+        equal_weight_indices=np.asarray(equal_weight_indices, dtype=np.int64),
+        names=np.asarray(config.names, dtype="<U32"),
+        bounds=np.asarray(config.bounds, dtype=float),
+        logz=np.asarray(results.logz, dtype=float),
+        logzerr=np.asarray(results.logzerr, dtype=float),
+        ncall=np.asarray(results.ncall, dtype=np.int64),
+        schema_version=np.asarray(SCHEMA_VERSION),
+        seed=np.asarray(config.seed, dtype=np.int64),
+        ess=np.asarray(summary["ess"], dtype=float),
+    )
+    if labels is not None:
+        arrays["fate_labels"] = np.asarray(labels, dtype="<U6")
+    atomic_savez(path, **arrays)
 
 
 def atomic_write_json(path: str, payload: Mapping, *, indent: int = 1) -> None:

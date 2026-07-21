@@ -1,4 +1,6 @@
-"""Unit tests for the §5 fate classifier. Run: .venv/bin/python pipeline/test_fate.py
+"""Unit tests for the §5/A-005 fate classifier.
+
+Run: .venv/bin/python pipeline/test_fate.py
 
 Known, documented limitations of the FROZEN §5 criteria (not bugs, no amendment):
 constant-w curves (wa == 0 exactly) are measure-zero in the CPL posterior and
@@ -21,7 +23,13 @@ CASES = [
     ("DR2 best fit",     dict(omegam=0.311, H0=67.6, w0=-0.854, wa=-0.520), "DECAY", None),
     ("mild thaw",        dict(omegam=0.31, H0=67.7, w0=-1.0, wa=-0.1),  "DECAY", None),
     ("closed + decay",   dict(omegam=0.31, H0=67.7, omk=-0.2, w0=-0.8, wa=-0.5), "CRUNCH", None),
-    ("near-DS boundary", dict(omegam=0.31, H0=67.7, w0=-1.007, wa=0.0), "DS", True),
+    # A-005: finite-limit epsilon is a flag only, never a fate label.
+    ("finite phantom near boundary",
+     dict(omegam=0.31, H0=67.7, w0=-1.007, wa=0.0, w_inf=-1.007), "RIP", True),
+    ("finite quintessence near boundary",
+     dict(omegam=0.31, H0=67.7, w0=-0.993, wa=0.0, w_inf=-0.993), "DECAY", True),
+    ("finite exact Lambda",
+     dict(omegam=0.31, H0=67.7, w0=-1.0, wa=0.0, w_inf=-1.0), "DS", True),
     # frozen-criterion limitation cases (documented above):
     ("wCDM -0.98 (audit)", dict(omegam=0.31, H0=67.7, w0=-0.98, wa=0.0), "OTHER", None),
     ("wCDM -1.2  (audit)", dict(omegam=0.31, H0=67.7, w0=-1.2, wa=0.0),  "OTHER", None),

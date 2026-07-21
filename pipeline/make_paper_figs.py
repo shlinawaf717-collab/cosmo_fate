@@ -138,34 +138,44 @@ def chain_stats(pattern, param="wa", burn=0.3):
 def fig4():
     combos = [
         ("D0 (all)",     os.path.join(RUNS, "phase2", "mc", "d0*.txt"),
-         os.path.join(RUNS, "phase2", "fate", "d0_cpl_p1.json")),
+         os.path.join(RUNS, "phase2", "nested_d0.json")),
         ("D1 ($-$SH0ES)", os.path.join(RUNS, "phase3", "fdata", "d1*.txt"),
-         os.path.join(RUNS, "phase3", "fdata", "fate_d1.json")),
+         os.path.join(RUNS, "phase3", "fdata", "nested_d1.json")),
         ("D2 ($-$CMB)",  os.path.join(RUNS, "phase3", "fdata", "d2*.txt"),
-         os.path.join(RUNS, "phase3", "fdata", "fate_d2.json")),
+         os.path.join(RUNS, "phase3", "fdata", "nested_d2.json")),
         ("D3 ($-$BAO)",  os.path.join(RUNS, "phase3", "fdata", "d3*.txt"),
-         os.path.join(RUNS, "phase3", "fdata", "fate_d3.json")),
+         os.path.join(RUNS, "phase3", "fdata", "nested_d3.json")),
         ("D4 ($-$SN)",   os.path.join(RUNS, "phase3", "fdata", "d4*.txt"),
-         os.path.join(RUNS, "phase3", "fdata", "fate_d4.json")),
+         os.path.join(RUNS, "phase3", "fdata", "nested_d4.json")),
     ]
     # chain patterns must not swallow yaml/log files
     txt_only = lambda pat: [f for f in glob.glob(pat) if re.search(r"\.\d\.txt$", f)]
 
-    labels, wa_m, wa_s, prip, prip_err, n_samp = [], [], [], [], [], []
-    for label, pat, fate_file in combos:
+    labels, wa_m, wa_s, prip, prip_err, resolution = [], [], [], [], [], []
+    for label, pat, nested_file in combos:
         files = txt_only(pat)
         assert files, f"no chains for {label}: {pat}"
         m, s = chain_stats(os.path.join(os.path.dirname(pat),
                                         os.path.basename(pat)))
-        with open(fate_file) as fh:
-            fate = json.load(fh)
+        with open(nested_file) as fh:
+            nested = json.load(fh)
+        fate = nested.get("P_fate_weighted", nested["P_fate_nested"])
         labels.append(label)
         wa_m.append(m)
         wa_s.append(s)
-        prip.append(fate["RIP"]["P"])
-        prip_err.append(fate["RIP"]["mc_err"])
-        n_samp.append(fate["n_samples"])
-        print(f"{label:14s} wa = {m:+.3f} +- {s:.3f}   P(RIP) = {fate['RIP']['P']:.5f}")
+        prip.append(fate["RIP"])
+        if "P_fate_between_seed_sd" in nested:
+            prip_err.append(nested["P_fate_between_seed_sd"]["RIP"])
+        else:
+            prip_err.append(None)
+        if "ess" in nested:
+            effective_n = nested["ess"]
+        elif "runs" in nested:
+            effective_n = min(row["CPL_ess"] for row in nested["runs"])
+        else:
+            effective_n = nested.get("n_weighted_samples", 1)
+        resolution.append(1.0 / effective_n)
+        print(f"{label:14s} wa = {m:+.3f} +- {s:.3f}   weighted P(RIP) = {fate['RIP']:.7f}")
 
     y = np.arange(len(labels))[::-1]
     fig, (ax1, ax2) = plt.subplots(
@@ -183,19 +193,23 @@ def fig4():
     ax1.set_xlabel(r"$w_a$ (posterior mean $\pm 1\sigma$)")
     ax1.set_title("magnitude: fragile", fontsize=9)
 
-    floor = [1.0 / n for n in n_samp]
-    for yi, p, e, fl in zip(y, prip, prip_err, floor):
+    for yi, p, e, fl in zip(y, prip, prip_err, resolution):
         if p > 0:
-            lo = max(p - e, fl / 10)
-            ax2.errorbar([p], [yi], xerr=[[p - lo], [e]], fmt="o",
-                         color="crimson", ecolor="crimson", capsize=3, ms=5)
-        else:  # zero samples: show MC floor as upper limit
+            if e is None:
+                ax2.plot([p], [yi], "o", color="crimson", ms=5)
+            else:
+                lo = max(p - e, fl / 10)
+                ax2.errorbar([p], [yi], xerr=[[p - lo], [e]], fmt="o",
+                             color="crimson", ecolor="crimson", capsize=3, ms=5)
+        else:  # no classified RIP weight: show one-ESS numerical resolution
             ax2.errorbar([fl], [yi], xerr=[[fl * 0.6], [0]], fmt="<",
                          color="crimson", ms=6, xuplims=[True])
     ax2.set_xscale("log")
     ax2.set_xlim(6e-6, 3e-2)
-    ax2.axvspan(6e-6, 3.2e-3, color="0.92", zorder=0)
-    ax2.text(0.15, 0.06, "swings within 0–0.31%", fontsize=8, color="0.35",
+    positive = [p for p in prip if p > 0]
+    ax2.axvspan(6e-6, 1.1 * max(positive), color="0.92", zorder=0)
+    span_text = f"weighted span {100 * min(positive):.4f}–{100 * max(positive):.3f}%"
+    ax2.text(0.15, 0.06, span_text, fontsize=8, color="0.35",
              transform=ax2.transAxes, ha="left", va="bottom")
     ax2.set_xlabel(r"$P(\mathrm{RIP})$")
     ax2.set_title("fate direction: robust", fontsize=9)
@@ -210,8 +224,8 @@ def fig5():
     grammars = [
         ("CPL",  "CPL",             "fate_cpl.json"),
         ("JBP",  "JBP",             "fate_jbp.json"),
-        ("BA",   "BA",              "fate_ba_a003.json"),
-        ("BIN4", "BIN4",            "fate_bin4_a003.json"),
+        ("BA",   "BA",              "fate_ba_a005.json"),
+        ("BIN4", "BIN4",            "fate_bin4_a005.json"),
         ("GP*",  "GP_CONSTRUCTION", "fate_gp.json"),
     ]
     classes = [("RIP", "#c1443c"), ("DS", "#4878a8"), ("DECAY", "#6aa66a")]

@@ -8,6 +8,9 @@ Future branch (a>1) follows the same w(a) except BIN4, which freezes w = w1 (fir
 import numpy as np
 
 Z_EDGES_BIN4 = (0.0, 0.3, 0.7, 1.5, 1100.0)  # frozen §1
+Z_EARLY_DE_GATE = 1059.0
+EARLY_DE_MAX_RATIO = 0.01
+_OMEGA_R_H2 = 2.4729e-5 * (1.0 + 0.2271 * 3.044)
 _AGRID = np.geomspace(1e-9, 1e5, 4000)
 _LNA = np.log(_AGRID)
 
@@ -35,6 +38,27 @@ def w_bin4(a, p):
     w = np.where(z >= Z_EDGES_BIN4[-1], p['w4'], w)
     w = np.where(z < 0.0, p['w1'], w)   # future: freeze first-bin value (frozen §1)
     return w if w.shape else float(w)
+
+
+def bin4_early_de_ratio(omegam, H0, w1, w2, w3, w4, z=Z_EARLY_DE_GATE):
+    """Exact piecewise-constant ``rho_DE/rho_m`` for BIN4 at redshift ``z``."""
+    z = float(z)
+    if z < 0.0:
+        raise ValueError("early-dark-energy gate requires z >= 0")
+    omegam = np.asarray(omegam, dtype=float)
+    H0 = np.asarray(H0, dtype=float)
+    ws = [np.asarray(w, dtype=float) for w in (w1, w2, w3, w4)]
+    edges = (0.0, 0.3, 0.7, 1.5, z)
+    ln_fde = np.zeros(np.broadcast_shapes(omegam.shape, H0.shape, *(w.shape for w in ws)))
+    for w, zlo, zhi in zip(ws, edges[:-1], edges[1:]):
+        upper = min(z, zhi)
+        if upper > zlo:
+            ln_fde = ln_fde + 3.0 * (1.0 + w) * np.log((1.0 + upper) / (1.0 + zlo))
+    h2 = (H0 / 100.0) ** 2
+    omr = _OMEGA_R_H2 / h2
+    ode = 1.0 - omegam - omr
+    ratio = ode * np.exp(np.clip(ln_fde, -700.0, 700.0)) / (omegam * (1.0 + z) ** 3)
+    return float(ratio) if np.ndim(ratio) == 0 else ratio
 
 
 # --- GP reconstruction (frozen plan §1: SE kernel, hyperparams (sigma_f, ell)

@@ -1,4 +1,4 @@
-# 论文结构与交付状态（v1.1 大修候选，2026-07-21）
+# 论文结构与交付状态（v1.2 科学纠错版，2026-07-21）
 
 目标稿件：方法论型宇宙学论文。正文对所有概率保留数据、语法、先验和统计量条件，
 不把有限红移信号直接写成模型无关的宇宙终局。
@@ -6,9 +6,9 @@
 ## 正文章节
 
 1. **Introduction**：提出“终局是推断还是假设”的可审计问题。
-2. **Preregistered design**：冻结计划、A-001--A-003 与事后 A-004 的身份边界。
+2. **Preregistered design**：冻结计划、A-001--A-003 与事后 A-004--A-006 的身份边界。
 3. **Data and validation**：DESI DR2、Pantheon+/SH0ES、Planck 距离先验及 Gate 1。
-4. **Fate taxonomy**：冻结分类器、A-003 渐近分支与已知边缘案例。
+4. **Fate taxonomy**：冻结分类器、A-003 渐近分支、A-005 严格物理边界与已知边缘案例。
 5. **Baseline**：D0+CPL+P1 后验、nested 尾部复核及证据。
 6. **Null calibration**：100 个 LCDM mocks、`U(0,1)` 方向层和真实数据深度层。
 7. **Fragility matrix**：数据、先验、统计量、参数化与约束视界。
@@ -33,9 +33,12 @@
 - `inwindow_fit_audit.json`：四个收敛语法的窗口内链最小值/AIC 审计。
 - `model_average_audit.json`：LCDM/CPL 探索性模型平均。
 - `matched_prior_audit.json`：A-004 支持维数审计；全局 No-Go，matched 值为空。
+- `fragility_metrics.json`：注册 F_prior/F_param/F_data 的正式履行结果。
+- `early_de_audit.json`：A-006 硬门；归档 BIN4 后验零违规质量。
+- `full_planck_feasibility.json`：当前背景接口的 full-Planck No-Go 与重启条件。
 - `ah.json`：注册约束视界未达到；未来 KL 是语法运输而非直接观测。
 
-## 明确排除于 v1.1 定量结论之外
+## 明确排除于 v1.2 定量结论之外
 
 - 非收敛、超先验未正规化的层级 GP 后验；仅保留均值回归构造。
 - 500-mock 扩展、off-boundary 功效曲线、完整 CMB 谱似然、ACT/增长数据。

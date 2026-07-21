@@ -20,10 +20,10 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "runs/phase3/fparam/inwindow_fit_audit.json"
 MODELS = {
-    "CPL": {"root": "cpl", "k_dark": 2, "Rminus1": 0.007705552606554138},
-    "JBP": {"root": "jbp", "k_dark": 2, "Rminus1": 0.007154537418236734},
-    "BA": {"root": "ba", "k_dark": 2, "Rminus1": 0.004935561552938879},
-    "BIN4": {"root": "bin4", "k_dark": 4, "Rminus1": 0.009782334489332016},
+    "CPL": {"root": "cpl", "k_dark": 2},
+    "JBP": {"root": "jbp", "k_dark": 2},
+    "BA": {"root": "ba", "k_dark": 2},
+    "BIN4": {"root": "bin4", "k_dark": 4},
 }
 
 
@@ -41,15 +41,29 @@ def chain_minimum(root: str, burn: float) -> tuple[float, list[str]]:
     return min(minima), [str(Path(name).relative_to(ROOT)) for name in files]
 
 
+def gelman_rubin(root: str, burn: float) -> float:
+    """Compute the multivariate GetDist R-1 diagnostic from archived chains."""
+    from getdist import loadMCSamples
+    samples = loadMCSamples(
+        str(ROOT / f"runs/phase3/fparam/{root}"),
+        settings={"ignore_rows": burn},
+    )
+    value = float(samples.getGelmanRubin())
+    if not np.isfinite(value):
+        raise ValueError(f"non-finite Gelman-Rubin diagnostic for {root}")
+    return value
+
+
 def compute(burn: float = 0.3) -> dict:
     rows = {}
     for name, spec in MODELS.items():
         chi2, files = chain_minimum(spec["root"], burn)
+        rminus1 = gelman_rubin(spec["root"], burn)
         rows[name] = {
             "approx_chain_min_chi2": chi2,
             "k_dark": spec["k_dark"],
-            "Rminus1_last": spec["Rminus1"],
-            "converged_registered_threshold": spec["Rminus1"] < 0.01,
+            "Rminus1_multivariate_recomputed": rminus1,
+            "converged_registered_threshold": rminus1 < 0.01,
             "chains": files,
         }
     baseline = rows["CPL"]

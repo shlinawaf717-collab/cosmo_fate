@@ -14,13 +14,23 @@ def test_declared_support_dimensions_and_common_intersection():
         "CPL": 2,
         "JBP": 2,
         "BA": 2,
-        "BIN4": 4,
+        "BIN4": 3,
     }
     assert m.common_support_dimension() == 1
     constant = np.ones(len(m.SUMMARY_A))
     for name in m.GRAMMARS:
         coeff, *_ = np.linalg.lstsq(m.support_basis(name), constant, rcond=None)
         assert np.allclose(m.support_basis(name) @ coeff, constant)
+
+
+def test_bin4_summary_uses_production_grid_mapping():
+    basis = m.support_basis("BIN4")
+    coefficients = np.array([-0.9, -1.1, -1.3, -1.7])
+    assert np.allclose(
+        basis @ coefficients,
+        [-1.3, -1.1, -0.9, -0.9, -0.9, -0.9, -0.9],
+    )
+    assert np.allclose(basis[:, 3], 0.0)
 
 
 def test_compute_is_global_no_go_and_withholds_matched_values():
