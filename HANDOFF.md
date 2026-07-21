@@ -34,6 +34,7 @@ python3 -m venv .venv
 
 .venv/bin/python -m pytest -q pipeline/test_fate.py pipeline/test_append_mocks.py \
   pipeline/test_nested_interface.py pipeline/test_aggregate_nested_d0.py \
+  pipeline/test_inwindow_fit_audit.py \
   pipeline/test_matched_prior_audit.py pipeline/test_fragility_audit.py \
   pipeline/test_early_de_gate.py
 .venv/bin/python pipeline/constraint_horizon_audit.py
