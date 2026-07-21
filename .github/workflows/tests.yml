@@ -12,12 +12,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-      - run: python -m pip install numpy==2.5.0 scipy==1.16.2 PyYAML==6.0.3
-      - run: python pipeline/test_fate.py
+      - run: python -m pip install numpy==2.5.0 scipy==1.16.2 PyYAML==6.0.3 pytest==9.1.1
+      - name: Unit tests
+        run: >-
+          python -m pytest -q
+          pipeline/test_fate.py
+          pipeline/test_append_mocks.py
+          pipeline/test_nested_interface.py
+          pipeline/test_matched_prior_audit.py
       - run: python pipeline/constraint_horizon_audit.py
       - run: python pipeline/prior_fate_audit.py --n 200000
       - run: python pipeline/inwindow_fit_audit.py
       - run: python pipeline/model_average_audit.py
+      - run: python pipeline/matched_prior_audit.py --n 20000
       - name: Validate audit invariants
         run: |
           python - <<'PY'
@@ -36,4 +43,9 @@ jobs:
 
           fit = json.loads((root / "runs/phase3/fparam/inwindow_fit_audit.json").read_text())
           assert all(row["converged_registered_threshold"] for row in fit["models"].values())
+
+          matched = json.loads((root / "runs/phase3/fparam/matched_prior_audit.json").read_text())
+          assert matched["verdict"]["decision"] == "NO-GO"
+          assert all(row["no_go"] for row in matched["grammars"].values())
+          assert all(row["matched_fate"] is None for row in matched["grammars"].values())
           PY

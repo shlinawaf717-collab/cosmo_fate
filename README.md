@@ -24,6 +24,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.lock
 .venv/bin/python pipeline/prior_fate_audit.py     # 各语法诱导的先验终局构成
 .venv/bin/python pipeline/inwindow_fit_audit.py   # 四个已收敛语法的窗口内拟合审计
 .venv/bin/python pipeline/model_average_audit.py  # 探索性 LCDM/CPL 模型平均
+.venv/bin/python pipeline/matched_prior_audit.py  # A-004 结构审计；全局 No-Go，不生成 matched 概率
 .venv/bin/python pipeline/make_mocks.py 100 42    # 仅初始化空 mock 目录；非空即拒绝，绝不覆盖链结果
 .venv/bin/python pipeline/append_mocks.py --append 10 --dry-run  # 先校验清单、m000 和输入指纹；去掉 --dry-run 才追加
 .venv/bin/python pipeline/run_gate2.py 1 100 --jobs=4   # 空校准 100 组（断点续跑 runs/gate2/results.jsonl）

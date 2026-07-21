@@ -27,3 +27,9 @@ append-only amendments.
 7. Canonical YAMLs now use portable project-relative Python paths; the data
    manifest contains full SHA256 hashes; CI exercises the classifier and audit
    invariants.
+8. A-004 is recorded as an author-confirmed post-hoc structural audit, not a
+   preregistered amendment. The declared seven-dimensional summary has
+   grammar-specific supports of dimensions 2, 2, 2, and 4 whose common
+   one-dimensional intersection has zero native-prior mass. The earlier
+   covariance-regularized weighting pilot is rejected; no matched fate
+   probabilities are reported.
