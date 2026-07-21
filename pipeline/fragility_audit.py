@@ -15,8 +15,8 @@ DEFAULT_MD = ROOT / "paper/FRAGILITY_METRICS.md"
 
 
 def portable_float(value):
-    """Round platform-level arithmetic noise while retaining 15 significant digits."""
-    return float(f"{float(value):.15g}")
+    """Round platform-level arithmetic noise while retaining 12 significant digits."""
+    return float(f"{float(value):.12g}")
 
 
 def load(rel: str) -> dict:
