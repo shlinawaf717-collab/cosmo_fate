@@ -1,0 +1,130 @@
+{
+  "common_object": {
+    "a_grid": [
+      0.5,
+      0.67,
+      0.8,
+      1.0,
+      1.5,
+      2.0,
+      4.0
+    ],
+    "measure": "importance transport to pooled Gaussian reference in summary space",
+    "summary_space": "w(a) evaluated on fixed grid"
+  },
+  "grammars": {
+    "BA": {
+      "diagnostics": {
+        "ess_fraction": 0.6050515848429204,
+        "ess_raw": 9082.335554933217,
+        "ess_truncated": 9082.429340077078,
+        "max_weight_raw": 0.00016730843138825394,
+        "max_weight_truncated": 0.00016649411938332446,
+        "n_accepted": 15011,
+        "support_overlap_fraction": 1.0,
+        "truncation_cap": 0.00016649244814679405,
+        "truncation_quantile": 0.995
+      },
+      "matched_fate": {
+        "DECAY": 0.3624166703992364,
+        "DS": 0.00940090635189153,
+        "RIP": 0.6281824232488721
+      },
+      "native_fate": {
+        "DECAY": 0.4153620678169343,
+        "DS": 0.007794284191592832,
+        "RIP": 0.5768436479914729
+      },
+      "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
+      "no_go": false
+    },
+    "BIN4": {
+      "diagnostics": {
+        "ess_fraction": 0.053131865483746966,
+        "ess_raw": 799.4751799339406,
+        "ess_truncated": 799.4751799339406,
+        "max_weight_raw": 0.016351468472559312,
+        "max_weight_truncated": 0.016351468472559312,
+        "n_accepted": 15047,
+        "support_overlap_fraction": 0.7989632484880708,
+        "truncation_cap": 0.016351468472559312,
+        "truncation_quantile": 0.995
+      },
+      "matched_fate": {
+        "DECAY": 0.2984090172923718,
+        "DS": 0.005087704944155383,
+        "RIP": 0.6965032777634729
+      },
+      "native_fate": {
+        "DECAY": 0.4974413504353028,
+        "DS": 0.005516049710905829,
+        "RIP": 0.4970425998537914
+      },
+      "native_support": "w1..w4 in [-3,1], conditioned on w4<0; w(a>1)=w1",
+      "no_go": false
+    },
+    "CPL": {
+      "diagnostics": {
+        "ess_fraction": 0.5696369920211348,
+        "ess_raw": 8796.847729949335,
+        "ess_truncated": 8796.904067782385,
+        "max_weight_raw": 0.00018163601586059335,
+        "max_weight_truncated": 0.00018119776492353808,
+        "n_accepted": 15443,
+        "support_overlap_fraction": 0.9996762287120378,
+        "truncation_cap": 0.0001811967901281009,
+        "truncation_quantile": 0.995
+      },
+      "matched_fate": {
+        "DECAY": 0.5660728983389511,
+        "DS": 0.0,
+        "RIP": 0.43392710166104886
+      },
+      "native_fate": {
+        "DECAY": 0.740659198342291,
+        "DS": 0.0,
+        "RIP": 0.25934080165770906
+      },
+      "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0+wa<0",
+      "no_go": false
+    },
+    "JBP": {
+      "diagnostics": {
+        "ess_fraction": 0.6036817734873539,
+        "ess_raw": 9113.00388076191,
+        "ess_truncated": 9113.180052565094,
+        "max_weight_raw": 0.0001691578869056148,
+        "max_weight_truncated": 0.00016794372310060393,
+        "n_accepted": 15096,
+        "support_overlap_fraction": 1.0,
+        "truncation_cap": 0.00016794068260610594,
+        "truncation_quantile": 0.995
+      },
+      "matched_fate": {
+        "DECAY": 0.5131382519921123,
+        "DS": 0.0,
+        "RIP": 0.48686174800788773
+      },
+      "native_fate": {
+        "DECAY": 0.6053259141494434,
+        "DS": 0.0,
+        "RIP": 0.39467408585055663
+      },
+      "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
+      "no_go": false
+    }
+  },
+  "input_sources": [
+    "registered P1 coordinate supports encoded in pipeline/prior_fate_audit.py",
+    "fixed-seed synthetic prior samples only; no new data and no MCMC/nested run"
+  ],
+  "method_version": "matched-prior-pilot-v1",
+  "n_proposals_per_grammar": 20000,
+  "seed": 20260720,
+  "status": "DRAFT post-hoc matched-prior audit; not preregistered and not signed",
+  "thresholds": {
+    "min_ess_fraction": 0.05,
+    "min_support_overlap_fraction": 0.2
+  },
+  "warnings": []
+}
