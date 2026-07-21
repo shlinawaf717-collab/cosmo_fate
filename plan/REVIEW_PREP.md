@@ -67,9 +67,9 @@ selection could only understate it."
 
 ## 三、投稿前硬性检查项
 
-- [ ] **Acknowledgments 的 `[TODO: friendly reviewers]` 必须在 arXiv 前解决**（等 Wolf
-      预审信轮完成后填名或删句——TODO 字样进 arXiv v1 是事故）
-- [ ] Zenodo 快照 + DOI（投 arXiv 同时打；GitHub tag 可验但可删，DOI 不可撤销）
+- [x] **Acknowledgments 的 `[TODO: friendly reviewers]` 已删除**；当前致谢仅列软件、
+      DESI 与 AI 使用披露，不虚构或暗示未发生的友好预审。
+- [x] Zenodo v1.0 快照 + DOI 已完成；v1.1 大修版在最终 PDF 质检后发布为新版本。
 - [x] 六预测会话片段入库（2026-07-08 完成：plan/predictions_session_excerpt.jsonl
       连续 48 行无删节，SHA-256 记录于 PREDICTIONS_SESSION_EXCERPT.md，
       含"证明什么/不证明什么"的如实声明；GATE2_REPORT.md 时点更正同步）
@@ -113,4 +113,16 @@ selection could only understate it."
       (d) 渲染修复：JCAP 条目年份被吞（编译版 [10][11][13][22][29] 无年份）;[16] 缺
           卷页年（应为 JCAP 02 (2019) 028）;[12] Muir 缺卷页（MNRAS 494, 4454）。
           修 refs.bib 字段,重编译核对。
-- [ ] 编译产物逐页校对上标（10⁴、Δχ² 等）
+- [x] v1.1 编译产物逐页校对完成（2026-07-21）：30 页，检查上标（10⁴、Δχ²）、
+      F1--F6、T1--T5、Appendix A--F 连续性、A-004 分页及参考文献；无裁切、重叠、
+      缺字或未解析引用。
+
+## 四、A-004 matched-prior 问题预案
+
+**问题：既然原生坐标先验不同，为什么不把四个语法重加权到共同函数先验？**
+
+答案：已做事后结构审计，并在计算权重之前停止。七点 `w(a)` 摘要的环境维数为 7，
+CPL/JBP/BA 的推前支持维数为 2，BIN4 为 4；共同交集只有零原生先验质量的一维常数
+历史。所需 Radon--Nikodym 比不存在。对奇异协方差加对角正则只会创造人工重叠，
+因此 A-004 是全局 No-Go，所有 matched 概率、ESS 和 overlap 均不报告。未来研究必须
+预先指定共同生成式函数先验及合法拉回，或预注册更低维估计量。

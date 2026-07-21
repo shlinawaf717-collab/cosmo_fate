@@ -1,7 +1,6 @@
 \documentclass[aps,prd,preprint,superscriptaddress,nofootinbib]{revtex4-2}
 \usepackage{graphicx,amsmath,amssymb,booktabs,hyperref,xcolor,orcidlink,placeins}
 \hypersetup{colorlinks=true, linkcolor=blue!55!black, citecolor=blue!55!black, urlcolor=blue!55!black}
-\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
 \newcommand{\lcdm}{\ensuremath{\Lambda\mathrm{CDM}}}
 \newcommand{\wz}{\ensuremath{w_0}}
 \newcommand{\wa}{\ensuremath{w_a}}
@@ -9,8 +8,8 @@
 
 \begin{document}
 
-\title{Is cosmic fate an inference or an assumption?\\
-A preregistered fragility audit of the heat-death conclusion\\
+\title{Is cosmic fate an inference or an assumption?\texorpdfstring{\\}{: }
+A preregistered fragility audit of the heat-death conclusion\texorpdfstring{\\}{ }
 with DESI DR2, Pantheon+, and \textit{Planck}}
 
 \author{Jiacheng Zhang\,\orcidlink{0009-0007-7438-320X}}
@@ -130,7 +129,10 @@ boundary (Sec.~\ref{sec:null}); A-003 added an analytic branch to the fate
 criteria after the frozen \textsc{other}-budget audit was triggered by
 parametrizations with bounded future $w(a)$ (Sec.~\ref{sec:fparam}). In each
 case the trigger, the outcome-independence of the argument, and the sign-off
-are logged. One boundary of this discipline should be stated plainly: the
+are logged. A later record, A-004, is not a preregistered amendment: it is a
+post-hoc structural audit of whether the grammar-specific priors can be
+matched by importance reweighting, and it returns a global No-Go. One boundary
+of this discipline should be stated plainly: the
 data predate the plan. The DESI DR2 constraints were public before the
 freeze, so this preregistration certifies the \emph{integrity of analysis
 choices}---criteria, gates, and fragility metrics fixed before any fate
@@ -462,6 +464,16 @@ lies at $z\in[0.7,1.5]$ ($w_3=-1.53\pm0.20$). Thus CPL's
 $\wz\approx-0.88$ is partly the transport of a mid-$z$ signal to $z=0$ by a
 linear grammar.
 
+A post-hoc matched-prior audit stops before importance weighting. On the
+declared seven-point $w(a)$ grid, the CPL, JBP, and BA pushforwards occupy
+different two-dimensional supports and BIN4 occupies a four-dimensional
+support. Their common intersection contains only constant histories and has
+probability zero under every continuous native prior. A nondegenerate common
+target is therefore not dominated by all four pushforwards; diagonal
+covariance regularization would manufacture overlap rather than identify a
+matched measure. A-004 accordingly reports a global No-Go and withholds all
+matched fate probabilities.
+
 The registered Gaussian-process branch is reported differently. Its
 hierarchical chain stopped with $R-1=0.232$, failing Gate~3; moreover the
 box-truncated hierarchical density was not normalized as a function of its
@@ -640,7 +652,10 @@ is an additional inherited assumption (the $w_4<0$ constraint keeps early
 dark energy subdominant). The analysis is geometry-only; growth
 data could shift the window-interior signal. The four fitted grammars are not
 a model average and their induced priors differ; the prior audit exposes but
-does not remove that dependence. The GP is a construction rather than a fit,
+does not remove that dependence. The A-004 post-hoc audit further shows that
+this dependence cannot be removed by importance reweighting on the declared
+seven-point summary, because the grammar pushforwards have incompatible
+singular supports. The GP is a construction rather than a fit,
 because the hierarchical chain failed the convergence gate and its truncated
 hyperprior requires proper normalization before quantitative reuse. The
 grammar family is not exhaustive---further parametrizations and
@@ -763,8 +778,10 @@ as such and kept separate from preregistered results.
 
 \section{Amendment log}\label{app:amendments}
 
-All three amendments are reproduced here in translation; the originals, with
-sign-off records, are in the repository.
+The three preregistered-plan amendments are reproduced here in translation;
+the originals, with sign-off records, are in the repository. A-004 is listed
+after them as an explicitly post-hoc audit record, not as a fourth
+preregistered amendment.
 
 \emph{A-001 (2026-07-03; during Gate 1, before any fate analysis).}
 \textbf{Change:} the Gate-1 significance clause, ``within $0.3\sigma$ of the
@@ -804,7 +821,7 @@ priors with a discrete \lcdm{} component or model averaging
 (Sec.~\ref{sec:null}).
 
 \emph{A-003 (2026-07-06; triggered automatically by the frozen 1\%
-\textsc{other} audit during the first parametrization-axis pass).}
+\textnormal{\textsc{other}} audit during the first parametrization-axis pass).}
 \textbf{Change:} an asymptotic branch added to the fate criteria: for
 parametrizations whose $w(a)$ has a finite limit $w_\infty$ as
 $a\to\infty$, classify analytically---\textsc{rip} iff
@@ -823,6 +840,19 @@ cases (a constant $w<-1$ future implies a finite-time singularity).
 \textsc{other} $=0$; D0--D4, P2/P3, and the entire mock calibration are
 CPL-based and numerically unchanged. Reclassification affected BA and BIN4
 only (Table~\ref{tab:grammar}).
+
+\emph{A-004 (2026-07-21; post-hoc structural audit after all phase-3
+results).} The candidate common object was the seven-vector $w(a)$ at
+$a=(0.5,0.67,0.8,1,1.5,2,4)$. CPL, JBP, and BA have two-dimensional
+pushforward supports in that ambient space; BIN4 has a four-dimensional
+support. Their common intersection is the one-dimensional set of constant
+histories, which has probability zero under each continuous native prior.
+Consequently, no nondegenerate common target is dominated by all four
+pushforwards and the required importance-density ratios do not exist.
+An earlier covariance-regularized Gaussian pilot was rejected because it
+manufactured full-dimensional densities and artificial overlap. The audit is
+a global No-Go: matched fate probabilities, ESS, and overlap are withheld.
+It changes no registered analysis or result.
 
 \section{Classifier numerics and known edges}\label{app:classifier}
 
@@ -1007,9 +1037,11 @@ The repository, \url{https://github.com/shlinawaf717-collab/cosmo_fate}
 (archived at Zenodo, \url{https://doi.org/10.5281/zenodo.21332434}),
 contains the frozen plan and amendment log, the full pipeline (likelihood configurations,
 fate classifier and its unit suite, mock generator, batch drivers, nested
-verification), all chains and per-mock records, the figure scripts, and
+verification), archived thin chains and per-mock records sufficient for the
+reported summaries, the figure scripts, and
 deterministic audits for induced prior fate mass, in-window chain minima,
-model averaging, and the registered constraint-horizon metric. All
+model averaging, the registered constraint-horizon metric, and the A-004
+matched-prior structural No-Go. All
 input data are public: DESI DR2 BAO compressed measurements and covariance;
 Pantheon+ (with SH0ES), Union3, and DES-Dovekie supernova files obtained via
 the \texttt{cobaya} installer; the CMB distance prior of
