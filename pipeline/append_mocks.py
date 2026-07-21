@@ -31,6 +31,12 @@ from pipeline.make_mocks import (GENERATOR_VERSION, advance_rng_to_index,
 
 DEFAULT_OUT = ROOT / 'runs/gate2/mocks'
 DEFAULT_TRUTH = ROOT / 'runs/gate2/truth_lcdm_d0.json'
+GENERATED_INPUTS = (
+    'sn_mock.dat',
+    'config.dataset',
+    'bao_mean.txt',
+    'cmb_mean.json',
+)
 
 
 class AppendSafetyError(RuntimeError):
@@ -88,7 +94,8 @@ def validate_existing(out_dir, manifest, expected_truth, expected_seed=None, exp
         raise AppendSafetyError(f"manifest seed {seed} != expected seed {expected_seed}")
     if truth != expected_truth or manifest.get('truth_fingerprint') not in (None, sha256_obj(expected_truth)):
         raise AppendSafetyError("manifest truth does not match requested truth")
-    if expected_input_fingerprint is not None and manifest.get('input_fingerprint') not in (None, expected_input_fingerprint):
+    stored_fingerprint = manifest.get('input_fingerprint')
+    if expected_input_fingerprint is not None and stored_fingerprint not in (None, expected_input_fingerprint):
         raise AppendSafetyError("manifest input fingerprint is incompatible")
     indices, staging = mock_indices(out_dir)
     if staging:
@@ -96,7 +103,28 @@ def validate_existing(out_dir, manifest, expected_truth, expected_seed=None, exp
     expected = list(range(n + 1))
     if indices != expected:
         raise AppendSafetyError(f"mock index set is not contiguous 0..{n}: {indices}")
-    return n, seed
+    return n, seed, stored_fingerprint is None
+
+
+def verify_legacy_m000(out_dir, seed, assets):
+    """Verify an un-fingerprinted legacy set against an exact m000 rebuild."""
+    with tempfile.TemporaryDirectory(prefix='cosmo-mock-migration-') as tmp:
+        rebuilt = Path(tmp) / 'm000'
+        write_mock_dir(rebuilt, 0, np.random.default_rng(seed), assets)
+        existing = out_dir / 'm000'
+        generated_inputs = list(GENERATED_INPUTS)
+        if assets.get('sn_cov_source'):
+            generated_inputs.append('sn_cov.cov')
+        if assets.get('bao_cov_source'):
+            generated_inputs.append('bao_cov.txt')
+        for name in generated_inputs:
+            old = existing / name
+            new = rebuilt / name
+            if not old.exists() or not new.exists():
+                raise AppendSafetyError(f"legacy fingerprint migration failed: missing m000/{name}")
+            if old.read_bytes() != new.read_bytes():
+                raise AppendSafetyError(
+                    f"legacy fingerprint migration failed: m000/{name} does not match an exact rebuild")
 
 
 def atomic_write_json(path, payload):
@@ -122,24 +150,31 @@ def append_mocks(out_dir=DEFAULT_OUT, truth_path=DEFAULT_TRUTH, append=0, dry_ru
     with exclusive_lock(out_dir / '.append_mocks.lock'):
         manifest = load_manifest(out_dir)
         assets = assets_factory(truth)
-        n_old, seed = validate_existing(out_dir, manifest, truth, expected_seed, assets.get('input_fingerprint'))
+        n_old, seed, legacy_fingerprint = validate_existing(
+            out_dir, manifest, truth, expected_seed, assets.get('input_fingerprint'))
+        if legacy_fingerprint:
+            verify_legacy_m000(out_dir, seed, assets)
         start, end = n_old + 1, n_old + append
         for k in range(start, end + 1):
             if (out_dir / f'm{k:03d}').exists():
                 raise AppendSafetyError(f"target already exists: m{k:03d}")
         new_manifest = build_manifest(truth, seed, end, assets['cmb_mu'].tolist(),
                                       assets.get('input_fingerprint'), n_old, (start, end))
+        if legacy_fingerprint:
+            new_manifest['input_fingerprint_provenance'] = 'adopted_after_exact_m000_regeneration_check'
         if dry_run:
             return {'old_n': n_old, 'new_n': end, 'append_range': (start, end), 'dry_run': True}
         rng = np.random.default_rng(seed)
         advance_rng_to_index(rng, start, assets)
         made = []
+        staging_paths = []
         try:
             for k in range(start, end + 1):
                 staging = out_dir / f'.append-staging-m{k:03d}'
                 final = out_dir / f'm{k:03d}'
                 if staging.exists() or final.exists():
                     raise AppendSafetyError(f"refusing to overwrite {staging if staging.exists() else final}")
+                staging_paths.append(staging)
                 write_mock_dir(staging, k, rng, assets)
                 os.replace(staging, final)
                 made.append(final)
@@ -148,6 +183,9 @@ def append_mocks(out_dir=DEFAULT_OUT, truth_path=DEFAULT_TRUTH, append=0, dry_ru
             atomic_write_json(out_dir / 'mocks_manifest.json', new_manifest)
         except Exception:
             for p in made:
+                if p.exists():
+                    shutil.rmtree(p)
+            for p in staging_paths:
                 if p.exists():
                     shutil.rmtree(p)
             raise

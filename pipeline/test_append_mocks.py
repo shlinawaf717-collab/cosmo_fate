@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from pipeline.append_mocks import AppendSafetyError, append_mocks
-from pipeline.make_mocks import build_manifest, write_mock_dir
+from pipeline.make_mocks import build_manifest, initialize_mocks, write_mock_dir
 
 
 def digest_tree(root):
@@ -117,12 +117,31 @@ class AppendMocksTest(unittest.TestCase):
     def test_deterministic_equivalence_to_from_scratch_generation(self):
         self.init_existing(n=1)
         append_mocks(self.out, self.truth_path, 2, False, 42, self.assets_factory)
-        appended = [(self.out / f'm{k:03d}' / 'cmb_mean.json').read_text() for k in (2, 3)]
         scratch = self.tmp / 'scratch'; scratch.mkdir()
         rng = np.random.default_rng(42)
         for k in range(4):
             write_mock_dir(scratch / f'm{k:03d}', k, rng, self.assets)
-        self.assertEqual(appended, [(scratch / f'm{k:03d}' / 'cmb_mean.json').read_text() for k in (2, 3)])
+        for k in (2, 3):
+            self.assertEqual(digest_tree(self.out / f'm{k:03d}'),
+                             digest_tree(scratch / f'm{k:03d}'))
+
+    def test_initializer_refuses_nonempty_destination_and_preserves_chain_output(self):
+        sentinel_dir = self.out / 'm000'
+        sentinel_dir.mkdir()
+        sentinel = sentinel_dir / 'chain.1.txt'
+        sentinel.write_text('expensive existing chain\n')
+        before = digest_tree(self.out)
+        with self.assertRaises(FileExistsError):
+            initialize_mocks(self.out, self.truth, 1, self.seed, self.assets)
+        self.assertEqual(before, digest_tree(self.out))
+        self.assertEqual(sentinel.read_text(), 'expensive existing chain\n')
+
+    def test_initializer_creates_fresh_set_only(self):
+        fresh = self.tmp / 'fresh'
+        manifest = initialize_mocks(fresh, self.truth, 1, self.seed, self.assets)
+        self.assertEqual(manifest['n'], 1)
+        self.assertTrue((fresh / 'm000' / 'sn_mock.dat').is_file())
+        self.assertTrue((fresh / 'm001' / 'bao_mean.txt').is_file())
 
     def test_simulated_failure_rolls_back_and_manifest_unchanged(self):
         self.init_existing(n=1)
@@ -150,6 +169,32 @@ class AppendMocksTest(unittest.TestCase):
         self.assertEqual(manifest['n'], 2)
         self.assertEqual(manifest['append_range'], [2, 2])
         self.assertTrue((self.out / 'm002').is_dir())
+
+    def test_legacy_manifest_requires_exact_m000_before_fingerprint_adoption(self):
+        self.init_existing(n=1)
+        manifest_path = self.out / 'mocks_manifest.json'
+        legacy = json.loads(manifest_path.read_text())
+        legacy.pop('input_fingerprint')
+        manifest_path.write_text(json.dumps(legacy))
+        res = append_mocks(self.out, self.truth_path, 1, True, 42, self.assets_factory)
+        self.assertTrue(res['dry_run'])
+
+        sn_path = self.out / 'm000' / 'sn_mock.dat'
+        sn_path.write_text(sn_path.read_text() + 'corruption\n')
+        with self.assertRaises(AppendSafetyError):
+            append_mocks(self.out, self.truth_path, 1, True, 42, self.assets_factory)
+
+    def test_legacy_fingerprint_provenance_is_recorded_after_append(self):
+        self.init_existing(n=1)
+        manifest_path = self.out / 'mocks_manifest.json'
+        legacy = json.loads(manifest_path.read_text())
+        legacy.pop('input_fingerprint')
+        manifest_path.write_text(json.dumps(legacy))
+        append_mocks(self.out, self.truth_path, 1, False, 42, self.assets_factory)
+        updated = json.loads(manifest_path.read_text())
+        self.assertEqual(updated['input_fingerprint'], self.assets['input_fingerprint'])
+        self.assertEqual(updated['input_fingerprint_provenance'],
+                         'adopted_after_exact_m000_regeneration_check')
 
 
 if __name__ == '__main__':

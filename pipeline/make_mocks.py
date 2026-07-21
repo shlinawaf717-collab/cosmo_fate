@@ -7,6 +7,8 @@ paths (camb background; predict_R_lA for the CMB prior).
 
 Usage: .venv/bin/python pipeline/make_mocks.py [n_mocks=100] [seed=42]
 Mock 000 is always generated with ZERO noise (pipeline validation: chi2~0 at truth).
+The destination must be empty. Existing mock/chain directories are never overwritten;
+use pipeline/append_mocks.py for a validated extension.
 """
 
 import hashlib
@@ -169,6 +171,11 @@ def production_assets(truth):
     cmb_mu = np.array([R, lA, truth['ombh2']])
     sig = np.asarray(PlanckDistPrior.sigma, float)
     cmb_cov = np.asarray(PlanckDistPrior.corr, float) * np.outer(sig, sig)
+    sn_data_path = os.path.join(SN_DIR, 'Pantheon+SH0ES.dat')
+    cmb_prior_definition = {
+        'sigma': sig.tolist(),
+        'corr': np.asarray(PlanckDistPrior.corr, float).tolist(),
+    }
     return {'sn_df': df, 'sn_mu': sn_mu, 'sn_mask': sn_mask,
             'L_sn': np.linalg.cholesky(Csub),
             'bao_rows': bao_rows, 'bao_mu': bao_mu,
@@ -177,9 +184,54 @@ def production_assets(truth):
             'sn_cov_source': os.path.join(SN_DIR, 'Pantheon+SH0ES_STAT+SYS.cov'),
             'bao_cov_source': bao_cov_path,
             'input_fingerprint': {
+                'sn_data_sha256': sha256_file(sn_data_path),
                 'sn_cov_sha256': sha256_file(os.path.join(SN_DIR, 'Pantheon+SH0ES_STAT+SYS.cov')),
                 'bao_cov_sha256': sha256_file(bao_cov_path),
-                'bao_mean_sha256': sha256_file(os.path.join(BAO_DIR, 'desi_gaussian_bao_ALL_GCcomb_mean.txt'))}}
+                'bao_mean_sha256': sha256_file(os.path.join(BAO_DIR, 'desi_gaussian_bao_ALL_GCcomb_mean.txt')),
+                'cmb_prior_sha256': sha256_obj(cmb_prior_definition)}}
+
+
+def initialize_mocks(out_dir, truth, n_mocks, seed, assets):
+    """Create a new mock set, refusing to touch a non-empty destination.
+
+    Existing mock directories may contain expensive chain products in addition
+    to generated inputs.  Initialization therefore has no overwrite mode; use
+    ``append_mocks.py`` to extend an existing, manifested set.
+    """
+    out_dir = Path(out_dir)
+    if n_mocks < 0:
+        raise ValueError('n_mocks must be non-negative')
+    out_dir.mkdir(parents=True, exist_ok=True)
+    existing = sorted(p.name for p in out_dir.iterdir())
+    if existing:
+        preview = ', '.join(existing[:5])
+        suffix = ' ...' if len(existing) > 5 else ''
+        raise FileExistsError(
+            f'refusing to initialize non-empty mock directory {out_dir}: {preview}{suffix}; '
+            'use pipeline/append_mocks.py to extend an existing set')
+
+    manifest_path = out_dir / 'mocks_manifest.json'
+    rng = np.random.default_rng(seed)
+    made = []
+    try:
+        for k in range(n_mocks + 1):
+            d = out_dir / f'm{k:03d}'
+            write_mock_dir(d, k, rng, assets)
+            made.append(d)
+        manifest = build_manifest(truth, seed, n_mocks, assets['cmb_mu'].tolist(),
+                                  assets.get('input_fingerprint'))
+        with manifest_path.open('x') as f:
+            json.dump(manifest, f, indent=1)
+            f.write('\n')
+    except Exception:
+        for d in made:
+            if d.exists():
+                import shutil
+                shutil.rmtree(d)
+        if manifest_path.exists():
+            manifest_path.unlink()
+        raise
+    return manifest
 
 
 def main(n_mocks=100, seed=42):
@@ -187,17 +239,7 @@ def main(n_mocks=100, seed=42):
     assets = production_assets(t)
     print(f"SN: {assets['sn_mask'].sum()} used rows of {len(assets['sn_mu'])}")
     print("CMB truth pred:", assets['cmb_mu'])
-    rng = np.random.default_rng(seed)
-    os.makedirs(OUT, exist_ok=True)
-    for k in range(n_mocks + 1):
-        d = os.path.join(OUT, f'm{k:03d}')
-        if os.path.exists(d):
-            import shutil
-            shutil.rmtree(d)
-        write_mock_dir(d, k, rng, assets)
-    manifest = build_manifest(t, seed, n_mocks, assets['cmb_mu'].tolist(), assets['input_fingerprint'])
-    with open(os.path.join(OUT, 'mocks_manifest.json'), 'w') as f:
-        json.dump(manifest, f, indent=1)
+    initialize_mocks(OUT, t, n_mocks, seed, assets)
     print(f"wrote {n_mocks + 1} mock dirs under {OUT}")
 
 
