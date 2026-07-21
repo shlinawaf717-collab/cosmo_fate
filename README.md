@@ -25,6 +25,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.lock
 .venv/bin/python pipeline/inwindow_fit_audit.py   # 四个已收敛语法的窗口内拟合审计
 .venv/bin/python pipeline/model_average_audit.py  # 探索性 LCDM/CPL 模型平均
 .venv/bin/python pipeline/make_mocks.py 100 42    # mock 逐位再生（seed 42）
+.venv/bin/python pipeline/append_mocks.py --append 10 --dry-run  # 安全检查未来追加 mock；默认不覆盖
 .venv/bin/python pipeline/run_gate2.py 1 100 --jobs=4   # 空校准 100 组（断点续跑 runs/gate2/results.jsonl）
 .venv/bin/python pipeline/make_paper_figs.py      # 论文图 F1–F6
 ```
