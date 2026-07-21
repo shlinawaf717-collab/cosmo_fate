@@ -18,11 +18,15 @@ from typing import Iterable
 
 import numpy as np
 
+try:  # package import in tests; direct-script import in CI/reproduction commands
+    from pipeline.wparams import EARLY_DE_MAX_RATIO, bin4_early_de_ratio, w_bin4
+except ModuleNotFoundError:  # pragma: no cover - exercised by direct invocation
+    from wparams import EARLY_DE_MAX_RATIO, bin4_early_de_ratio, w_bin4
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "runs/phase3/fparam/matched_prior_audit.json"
-METHOD_VERSION = "matched-prior-audit-v2-support-rank-no-go"
+METHOD_VERSION = "matched-prior-audit-v3-bin4-grid-corrected-a005"
 CLASSES = ("RIP", "DS", "DECAY")
-EPSILON_A003 = 0.01
 SUMMARY_A = np.array([0.5, 0.67, 0.8, 1.0, 1.5, 2.0, 4.0], dtype=float)
 GRAMMARS = ("CPL", "JBP", "BA", "BIN4")
 
@@ -46,9 +50,10 @@ def fate_summary(labels: np.ndarray) -> dict[str, float]:
 
 
 def finite_limit_labels(w_inf: np.ndarray) -> np.ndarray:
-    labels = np.full(len(w_inf), "DS", dtype="<U5")
-    labels[w_inf < -1.0 - EPSILON_A003] = "RIP"
-    labels[w_inf > -1.0 + EPSILON_A003] = "DECAY"
+    """A-005 exact finite-limit fate labels; tolerance is diagnostic only."""
+    labels = np.full(len(w_inf), "DECAY", dtype="<U5")
+    labels[w_inf < -1.0] = "RIP"
+    labels[w_inf == -1.0] = "DS"
     return labels
 
 
@@ -64,17 +69,13 @@ def support_basis(name: str) -> np.ndarray:
     if lname == "ba":
         return np.column_stack([ones, (1.0 - a) / (2.0 * a**2 - 2.0 * a + 1.0)])
     if lname == "bin4":
-        return np.array(
-            [
-                [0.0, 0.0, 0.0, 1.0],
-                [0.0, 0.0, 1.0, 0.0],
-                [0.0, 1.0, 0.0, 0.0],
-                [1.0, 0.0, 0.0, 0.0],
-                [1.0, 0.0, 0.0, 0.0],
-                [1.0, 0.0, 0.0, 0.0],
-                [1.0, 0.0, 0.0, 0.0],
-            ]
-        )
+        # Derive the columns from the production binning function.  On this
+        # grid z <= 1, so w4 never enters S: [w3,w2,w1,w1,w1,w1,w1].
+        columns = []
+        for active in ("w1", "w2", "w3", "w4"):
+            params = {name: float(name == active) for name in ("w1", "w2", "w3", "w4")}
+            columns.append(np.asarray(w_bin4(SUMMARY_A, params), dtype=float))
+        return np.column_stack(columns)
     raise ValueError(f"unknown grammar {name!r}")
 
 
@@ -125,10 +126,17 @@ def draw_grammar(name: str, n: int, rng: np.random.Generator) -> GrammarSamples:
         w2 = rng.uniform(-3.0, 1.0, n)
         w3 = rng.uniform(-3.0, 1.0, n)
         w4 = rng.uniform(-3.0, 1.0, n)
-        keep = w4 < 0.0
-        summaries = np.vstack([w4, w3, w2, w1, w1, w1, w1]).T[keep]
+        omegam = rng.uniform(0.01, 0.99, n)
+        H0 = rng.uniform(20.0, 100.0, n)
+        ratio = bin4_early_de_ratio(omegam, H0, w1, w2, w3, w4)
+        keep = (w4 < 0.0) & (ratio < EARLY_DE_MAX_RATIO)
+        coefficients = np.column_stack([w1, w2, w3, w4])[keep]
+        summaries = coefficients @ support_basis("BIN4").T
         labels = finite_limit_labels(w1[keep])
-        support = "w1..w4 in [-3,1], conditioned on w4<0; w(a>1)=w1"
+        support = (
+            "w1..w4 in [-3,1], conditioned on w4<0 and "
+            "rho_DE/rho_m(z=1059)<0.01; w(a>1)=w1"
+        )
     else:
         raise ValueError(f"unknown grammar {name!r}")
     return GrammarSamples(name.upper(), summaries, labels.astype("<U5"), support)
@@ -163,7 +171,7 @@ def compute(n: int = 20000, seed: int = 20260720) -> dict:
         }
 
     return {
-        "status": "DRAFT post-hoc structural audit; GLOBAL NO-GO; not preregistered and not signed",
+        "status": "author-confirmed post-hoc structural audit; GLOBAL NO-GO; not preregistered",
         "method_version": METHOD_VERSION,
         "seed": seed,
         "n_proposals_per_grammar": n,
@@ -173,7 +181,8 @@ def compute(n: int = 20000, seed: int = 20260720) -> dict:
             "reason_code": "INCOMPATIBLE_SINGULAR_SUPPORTS",
             "reason": (
                 "The native priors push forward to different lower-dimensional supports in the "
-                "7D summary. No grammar has a 7D density, and their 1D common intersection has "
+                "7D summary (BIN4 rank 3 because w4 is outside this grid). No grammar has a 7D "
+                "density, and their 1D common intersection has "
                 "probability zero under every continuous native prior."
             ),
         },

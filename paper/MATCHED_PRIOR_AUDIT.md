@@ -1,4 +1,4 @@
-# Matched-prior audit (DRAFT post-hoc method note)
+# Matched-prior audit (author-confirmed post-hoc method note)
 
 This note records the structural audit implemented in
 `pipeline/matched_prior_audit.py`. It is post-hoc, not preregistered, and does
@@ -26,7 +26,12 @@ lower intrinsic dimensions:
 | CPL | 2 | 2 |
 | JBP | 2 | 2 |
 | BA | 2 | 2 |
-| BIN4 | 4 | 4 |
+| BIN4 | 3 (`w1,w2,w3`; `w4` lies outside this grid) | 3 |
+
+For BIN4 the production binning function gives
+`S=[w3,w2,w1,w1,w1,w1,w1]`. The largest grid redshift is `z=1`, below the
+`w4` bin that starts at `z=1.5`; the early-time parameter `w4` affects the
+native support condition but not this candidate summary.
 
 The supports are different linear subspaces. Their common intersection is the
 one-dimensional set of constant histories, `w(a)=c`, which has probability

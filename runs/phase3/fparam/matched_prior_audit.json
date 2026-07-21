@@ -33,9 +33,9 @@
       },
       "matched_fate": null,
       "native_fate_context_only": {
-        "DECAY": 0.415362067817,
-        "DS": 0.007794284192,
-        "RIP": 0.576843647991
+        "DECAY": 0.419225901006,
+        "DS": 0.0,
+        "RIP": 0.580774098994
       },
       "native_support": "w0 in [-3,1], wa in [-3,2], conditioned on w0<0",
       "no_go": true,
@@ -44,21 +44,21 @@
     "BIN4": {
       "diagnostics": {
         "ambient_summary_dimension": 7,
-        "codimension": 3,
+        "codimension": 4,
         "common_intersection_has_native_probability_zero": true,
         "ess": null,
         "has_full_dimensional_density": false,
-        "intrinsic_support_dimension": 4,
-        "n_accepted": 15047,
+        "intrinsic_support_dimension": 3,
+        "n_accepted": 14434,
         "support_overlap_fraction": null
       },
       "matched_fate": null,
       "native_fate_context_only": {
-        "DECAY": 0.497441350435,
-        "DS": 0.005516049711,
-        "RIP": 0.497042599854
+        "DECAY": 0.494249688236,
+        "DS": 0.0,
+        "RIP": 0.505750311764
       },
-      "native_support": "w1..w4 in [-3,1], conditioned on w4<0; w(a>1)=w1",
+      "native_support": "w1..w4 in [-3,1], conditioned on w4<0 and rho_DE/rho_m(z=1059)<0.01; w(a>1)=w1",
       "no_go": true,
       "reason_code": "SINGULAR_PUSHFORWARD_SUPPORT"
     },
@@ -109,14 +109,14 @@
     "registered P1 coordinate supports encoded in pipeline/prior_fate_audit.py",
     "fixed-seed synthetic prior samples used only for native-fate context; no data likelihood, MCMC, or nested run"
   ],
-  "method_version": "matched-prior-audit-v2-support-rank-no-go",
+  "method_version": "matched-prior-audit-v3-bin4-grid-corrected-a005",
   "n_proposals_per_grammar": 20000,
   "seed": 20260720,
-  "status": "DRAFT post-hoc structural audit; GLOBAL NO-GO; not preregistered and not signed",
+  "status": "author-confirmed post-hoc structural audit; GLOBAL NO-GO; not preregistered",
   "verdict": {
     "decision": "NO-GO",
     "exact_matched_prior_identifiable_by_importance_reweighting": false,
-    "reason": "The native priors push forward to different lower-dimensional supports in the 7D summary. No grammar has a 7D density, and their 1D common intersection has probability zero under every continuous native prior.",
+    "reason": "The native priors push forward to different lower-dimensional supports in the 7D summary (BIN4 rank 3 because w4 is outside this grid). No grammar has a 7D density, and their 1D common intersection has probability zero under every continuous native prior.",
     "reason_code": "INCOMPATIBLE_SINGULAR_SUPPORTS"
   },
   "warnings": [

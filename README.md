@@ -19,12 +19,16 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.lock
     bao.desi_dr2 --packages-path data/cobaya_packages
 # 数据校验：对照 data/MANIFEST.md 的 SHA256 逐条 shasum -a 256
 
-.venv/bin/python pipeline/test_fate.py            # 分类器单元测试 8/8
+.venv/bin/python pipeline/test_fate.py            # 分类器单元测试（含 A-005 严格边界）
 .venv/bin/python pipeline/constraint_horizon_audit.py  # 重算注册 KL；a_h 未达到
 .venv/bin/python pipeline/prior_fate_audit.py     # 各语法诱导的先验终局构成
 .venv/bin/python pipeline/inwindow_fit_audit.py   # 四个已收敛语法的窗口内拟合审计
 .venv/bin/python pipeline/model_average_audit.py  # 探索性 LCDM/CPL 模型平均
 .venv/bin/python pipeline/matched_prior_audit.py  # A-004 结构审计；全局 No-Go，不生成 matched 概率
+.venv/bin/python pipeline/early_de_audit.py       # A-006 BIN4 早期暗能量硬门审计
+.venv/bin/python pipeline/full_planck_feasibility_audit.py  # full-Planck 接口 No-Go/重启条件
+.venv/bin/python pipeline/fragility_audit.py      # 正式履行 F_prior/F_param/F_data
+.venv/bin/python pipeline/gen_paper_numbers.py    # JSON 单一来源生成正文宏
 .venv/bin/python pipeline/make_mocks.py 100 42    # 仅初始化空 mock 目录；非空即拒绝，绝不覆盖链结果
 .venv/bin/python pipeline/append_mocks.py --append 10 --dry-run  # 先校验清单、m000 和输入指纹；去掉 --dry-run 才追加
 .venv/bin/python pipeline/run_gate2.py 1 100 --jobs=4   # 空校准 100 组（断点续跑 runs/gate2/results.jsonl）
@@ -45,7 +49,18 @@ MCMC/nested 运行配置均以 `*.input.yaml` 存于 `runs/` 各目录（cobaya 
   BIN4 审计中**未达到**。`a=1` 只是直接观测支持的边界，不能替代 `a_h`。
 - CPL/JBP/BA/BIN4 的坐标先验、维数和早期物质主导约束不同；论文同时报告
   各语法诱导的先验终局构成，不再称为“相同先验”。
+- A-005 将有限极限的物理边界严格置于 `w_inf=-1`；`epsilon=0.01` 只标记
+  边界邻近样本。重算后 BA/BIN4 的 `P(RIP)` 分别为 1.34%/49.96%，严格
+  `P(DS)=0`。
+- A-004 七点摘要中的 BIN4 映射为 `[w3,w2,w1,w1,w1,w1,w1]`，支持秩为 3；
+  共同交集仍为一维，matched-prior 全局 No-Go 不变。
+- A-006 要求 BIN4 满足 `rho_DE/rho_m(z=1059)<0.01`；归档后验全部通过。
+  当前背景代码没有 CMB 谱/扰动接口，故 BIN4 只称“压缩 CMB 条件下”，不称
+  full-Planck 结果。
 - GP 层级链没有达到冻结的 `R-1<0.01` 门槛，因此仅保留为均值回归未来如何
   预先固定终局的构造性反例，不进入四个拟合语法的定量比较。
-- nested 文件中的二项标准误只描述固定随机重采样的数值诊断，不是
-  nested-sampling 运行间不确定度。
+- nested headline 直接使用原始归一化 `logwt`；等权重重采样只作诊断。
+  D0 使用独立种子报告运行间离散度，且不与单次 dynesty 内部 `logZerr` 混合。
+  当前 D0 三种子均值为 `P(RIP)=0.179%`（种子间 SD `0.039` 个百分点），
+  `ln B(CPL/LCDM)=-1.617`（种子间 SD `0.224`）。D0--D4 的原始权重尾部
+  跨 `0.0008%--0.376%`，方向均为亚百分比，但数值跨度为 `2.665 dex`。

@@ -66,9 +66,16 @@ SN/BAO 似然使用 cobaya 内置实现（`sn.pantheonplus`, `sn.pantheonplussho
 
 ## DESI DR2 官方宇宙学链（2026-07-06 登记）
 
-来源:`https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base_w_wa/desi-bao-all_pantheonplus_planck2018-…-CamSpec-TTTEEE_planck-act-dr6-lensing/`
+来源:`https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/cobaya/base_w_wa/desi-bao-all_pantheonplus_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/`
 （公开,免账号;官方 SHA256 清单同目录 `dr2_vac_dr2_bao-cosmo-params_v1.0.sha256sum`）。
 本地:`runs/gate1/official/chain.{1-4}.txt` + margestats + updated.yaml。
-`chain.1.txt` SHA256:
-`db81d299d59051ae5e1e8f67952320e08a1644a4a1f8d19267705aee32798877`。
+逐链 SHA256：
+
+| 文件 | SHA256 |
+|---|---|
+| `chain.1.txt` | `db81d299d59051ae5e1e8f67952320e08a1644a4a1f8d19267705aee32798877` |
+| `chain.2.txt` | `442390266f6a3bfe88e9c7cd8e29d1e7cff47fc8582f3a3af80a6b40b9f83939` |
+| `chain.3.txt` | `1c92edf523df34784633f6852f7564f3d953203ae939d5d2e8cd4c3fd6f580ae` |
+| `chain.4.txt` | `b17dc02689c3a30dd34a96d91ac35180006f17d10b82331396ef55ce999594af` |
+
 用途:Gate 1 链级验证。

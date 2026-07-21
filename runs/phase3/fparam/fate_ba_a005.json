@@ -1,0 +1,28 @@
+{
+ "model": "ba",
+ "n": 60900,
+ "method": "A-005 exact finite-limit fate semantics",
+ "boundary_definition": "|w_inf + 1| <= 0.01 for finite-limit models; threshold variation otherwise",
+ "CRUNCH": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "RIP": {
+  "P": 0.013398019610268767,
+  "mc_err": 0.0010249327285997154
+ },
+ "DS": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "DECAY": {
+  "P": 0.9866019803897312,
+  "mc_err": 0.0010249327285997152
+ },
+ "OTHER": {
+  "P": 0.0,
+  "mc_err": 0.0
+ },
+ "boundary_fraction": 0.0034530423885156757,
+ "P_heat": 0.9866019803897312
+}

@@ -7,7 +7,7 @@
     "CPL": {
       "approx_chain_min_chi2": 1489.5341,
       "k_dark": 2,
-      "Rminus1_last": 0.007705552606554138,
+      "Rminus1_multivariate_recomputed": 0.006266848,
       "converged_registered_threshold": true,
       "chains": [
         "runs/phase3/fparam/cpl_1.1.txt",
@@ -19,7 +19,7 @@
     "JBP": {
       "approx_chain_min_chi2": 1492.0753,
       "k_dark": 2,
-      "Rminus1_last": 0.007154537418236734,
+      "Rminus1_multivariate_recomputed": 0.0093173622,
       "converged_registered_threshold": true,
       "chains": [
         "runs/phase3/fparam/jbp_1.1.txt",
@@ -31,7 +31,7 @@
     "BA": {
       "approx_chain_min_chi2": 1491.523,
       "k_dark": 2,
-      "Rminus1_last": 0.004935561552938879,
+      "Rminus1_multivariate_recomputed": 0.0025749379,
       "converged_registered_threshold": true,
       "chains": [
         "runs/phase3/fparam/ba_1.1.txt",
@@ -45,7 +45,7 @@
     "BIN4": {
       "approx_chain_min_chi2": 1485.3855,
       "k_dark": 4,
-      "Rminus1_last": 0.009782334489332016,
+      "Rminus1_multivariate_recomputed": 0.004587357,
       "converged_registered_threshold": true,
       "chains": [
         "runs/phase3/fparam/bin4_1.1.txt",

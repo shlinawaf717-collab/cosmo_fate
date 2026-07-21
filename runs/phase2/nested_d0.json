@@ -1,17 +1,82 @@
 {
- "lnZ_CPL": -773.7622937083197,
- "lnZ_CPL_err": 0.23526326984992424,
+ "schema_version": "nested-multiseed-aggregate-v1",
+ "source_schema_version": "nested-interface-v2-original-weights",
+ "seeds": [
+  1,
+  2,
+  3
+ ],
+ "n_independent_runs": 3,
+ "source_files": [
+  "runs/phase2/nested_d0_seed1.json",
+  "runs/phase2/nested_d0_seed2.json",
+  "runs/phase2/nested_d0_seed3.json"
+ ],
+ "headline_fate_estimator": "mean across independent normalized-original-logwt runs",
+ "P_fate_weighted": {
+  "CRUNCH": 0.0,
+  "RIP": 0.0017865085814127808,
+  "DS": 0.0,
+  "DECAY": 0.9981208114201506,
+  "OTHER": 9.267999843645958e-05
+ },
  "P_fate_nested": {
   "CRUNCH": 0.0,
-  "RIP": 0.001646161843701265,
+  "RIP": 0.0017865085814127808,
   "DS": 0.0,
-  "DECAY": 0.9983538381562987,
-  "OTHER": 0.0
+  "DECAY": 0.9981208114201506,
+  "OTHER": 9.267999843645958e-05
  },
- "P_RIP_se_binom": 0.00037734445843604243,
- "uncertainty_note": "P_RIP_se_binom describes the fixed-seed equal-weight resample only; it is not repeated-run nested-sampling uncertainty",
- "lnZ_LCDM": -772.0024708412291,
- "lnZ_LCDM_err": 0.20944979510373732,
- "lnB_CPL_over_LCDM": -1.7598228670906337,
- "lnB_err": 0.31498892489971103
+ "P_fate_between_seed_sd": {
+  "CRUNCH": 0.0,
+  "RIP": 0.00038648700903147926,
+  "DS": 0.0,
+  "DECAY": 0.0005091683107047506,
+  "OTHER": 0.00016016625407060938
+ },
+ "P_RIP_range": [
+  0.0013515707374280594,
+  0.002090545465449655
+ ],
+ "P_RIP_se_binom": null,
+ "lnZ_CPL": -773.4730264050175,
+ "lnZ_LCDM": -771.8556721552819,
+ "lnB_CPL_over_LCDM": -1.617354249735475,
+ "lnB_between_seed_sd": 0.22375230718046357,
+ "lnB_range": [
+  -1.8654686152717659,
+  -1.4308908078303375
+ ],
+ "per_run_internal_lnB_errors": [
+  0.3134242019044768,
+  0.313343772981324,
+  0.31360559611668504
+ ],
+ "uncertainty_note": "Between-seed standard deviations describe run-to-run nested variation. Per-run internal dynesty logZ errors remain separate and are not pooled as if they were independent measurements of one random quantity.",
+ "runs": [
+  {
+   "seed": 1,
+   "P_RIP_weighted": 0.0019174095413606281,
+   "lnB_CPL_over_LCDM": -1.5557033261043216,
+   "lnB_internal_error": 0.3134242019044768,
+   "CPL_ess": 3217.4451444394563,
+   "LCDM_ess": 2689.515510395163
+  },
+  {
+   "seed": 2,
+   "P_RIP_weighted": 0.002090545465449655,
+   "lnB_CPL_over_LCDM": -1.4308908078303375,
+   "lnB_internal_error": 0.313343772981324,
+   "CPL_ess": 3205.63029817468,
+   "LCDM_ess": 2706.4563436583444
+  },
+  {
+   "seed": 3,
+   "P_RIP_weighted": 0.0013515707374280594,
+   "lnB_CPL_over_LCDM": -1.8654686152717659,
+   "lnB_internal_error": 0.31360559611668504,
+   "CPL_ess": 3264.7246632983542,
+   "LCDM_ess": 2713.95301530052
+  }
+ ]
 }

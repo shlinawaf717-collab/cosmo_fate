@@ -27,18 +27,20 @@ posterior samples through a frozen fate classifier, and differentiate the
 verdict along eight assumption axes. Baseline CPL gives
 $P(\textsc{decay})=\DzeroDecayPct\%$ and
 $P(\textsc{rip})=\DzeroRipPct\%$, with a nested-sampling point estimate of
-$0.165\%$. Within continuous CPL with no point mass at \lcdm{}, one hundred
+$\NestedDzeroRipPct\%$ (between-seed SD $\NestedDzeroRipSeedSdPct$ percentage
+points). Within continuous CPL with no point mass at \lcdm{}, one hundred
 \lcdm{} mocks yield heat-death-compatible posterior mass consistent with
 $U(0,1)$; a zero-residual realization gives $52/48$. The real-data posterior
-tail lies below all 100 mocks ($\hat p=0.0099$, 95\% Monte Carlo upper bound
+tail lies below all 100 fitted-truth mocks ($\hat p=0.0099$, 95\% Monte Carlo upper bound
 $0.0295$). A two-parameter Wilks test gives $p=0.024$, but tests a different
 statistic and is not an independent calibration of that tail. Translation
 into fate is assumption-dominated: a quintessence prior sets
 $P(\textsc{rip})\equiv0$ at a fit cost of $\Delta\chi^2=8.9$, while Bayesian
-evidence favors \lcdm{} ($\ln B=-1.76$). Four converged $w(a)$ fits have
+evidence favors \lcdm{} ($\ln B=\NestedLnB$, between-seed SD
+$\NestedLnBSeedSd$). Four converged $w(a)$ fits have
 approximate chain-minimum $\Delta\mathrm{AIC}\in[-0.15,2.54]$, yet
-$P(\textsc{rip})$ spans $0.21$--$41.2\%$; their coordinate priors induce
-prior rip mass from $25.8$--$58.1\%$. A mean-reverting Gaussian process is
+$P(\textsc{rip})$ spans $\GrammarRipMinPct$--$\GrammarRipMaxPct\%$; their coordinate priors induce
+prior rip mass from $\PriorRipMinPct$--$\PriorRipMaxPct\%$. A mean-reverting Gaussian process is
 retained only as a constructive counterexample because its hierarchical chain
 failed the registered convergence gate. Finally, the registered constraint
 horizon is \emph{not reached}: BIN4 transports $3.03$ nat from its first bin
@@ -96,7 +98,7 @@ hundred null mocks ($\hat p=0.0099$, 95\% upper bound $0.0295$). The Wilks
 likelihood-ratio value $p=0.024$ points in the same qualitative direction but
 concerns a different null statistic. Third, in translation: four converged
 parametrizations fit the observed window comparably under an exploratory AIC
-audit, yet the Big Rip probability moves from $0.2\%$ (CPL) to $41\%$
+audit, yet the Big Rip probability moves from $0.2\%$ (CPL) to approximately $50\%$
 (binned $w$); under a quintessence prior it is zero before data arrive. A
 registered mean-reverting GP illustrates how a future mean function fixes a
 fate, but its nonconverged hierarchical fit is excluded from quantitative
@@ -120,7 +122,7 @@ tag (\texttt{prereg-v1}) before any real-data fate analysis, and is reproduced
 in English translation in Appendix~\ref{app:plan} (the frozen original is
 archived verbatim in the repository). Deviations are permitted only through an
 append-only amendment log (Appendix~\ref{app:amendments}) recording what changed,
-why, and \emph{when} relative to data contact. Three amendments occurred:
+why, and \emph{when} relative to data contact. Three preregistered-plan amendments occurred:
 A-001 recalibrated the pipeline-validation benchmark after we established that a
 compressed-CMB likelihood cannot, by construction, reproduce the full-likelihood
 exclusion significance (Sec.~\ref{sec:data}); A-002 replaced a mock-recovery
@@ -129,9 +131,12 @@ boundary (Sec.~\ref{sec:null}); A-003 added an analytic branch to the fate
 criteria after the frozen \textsc{other}-budget audit was triggered by
 parametrizations with bounded future $w(a)$ (Sec.~\ref{sec:fparam}). In each
 case the trigger, the outcome-independence of the argument, and the sign-off
-are logged. A later record, A-004, is not a preregistered amendment: it is a
+are logged. Three later records are not preregistered amendments: A-004 is a
 post-hoc structural audit of whether the grammar-specific priors can be
-matched by importance reweighting, and it returns a global No-Go. One boundary
+matched by importance reweighting and returns a global No-Go; A-005 corrects
+the finite-limit fate semantics without altering CPL-based results; A-006
+adds an early-dark-energy hard gate and records the full-Planck No-Go for the
+current background-only BIN4 implementation. One boundary
 of this discipline should be stated plainly: the
 data predate the plan. The DESI DR2 constraints were public before the
 freeze, so this preregistration certifies the \emph{integrity of analysis
@@ -198,20 +203,23 @@ $H^2(a)/H_0^2=\Omega_r a^{-4}+\Omega_m a^{-3}+\Omega_k a^{-2}
 classified with frozen criteria, in priority order: \textsc{crunch}
 ($H^2\le0$ reached); \textsc{rip} (finite-time singularity~\cite{Caldwell2003}: convergent
 $\int\!da/aH$; for parametrizations whose $w(a)$ has a finite limit
-$w_\infty$, amendment A-003 substitutes the analytic condition
-$w_\infty<-1-\epsilon$); \textsc{ds} (de Sitter asymptotics,
-$|w+1|<\epsilon$ with persistent dark energy); \textsc{decay} (dark-energy
+$w_\infty$, A-003 introduced an analytic branch and A-005 corrects its
+physical boundary to $w_\infty<-1$); \textsc{ds} (exact de Sitter
+asymptotics, $w_\infty=-1$ with persistent dark energy, in the finite-limit
+branch); \textsc{decay} (dark-energy
 dilution); \textsc{other} (unclassifiable---audited under a frozen 1\% budget
 whose breach triggers the amendment process, as occurred for A-003). Every
-class carries a boundary flag: samples that flip when thresholds are doubled
-or halved are reported as such.
+class carries a boundary flag: numerical-branch samples that flip when
+thresholds are doubled or halved, and finite-limit samples satisfying
+$|w_\infty+1|\le0.01$, are reported as boundary-adjacent without changing
+their physical label.
 
 The taxonomy is deliberately mapped to thermodynamics: \textsc{ds} \emph{and}
 \textsc{decay} are both heat-death-compatible (eternal expansion)---a point on
 which parts of the recent fate literature are imprecise. \emph{Decaying dark
 energy does not rescue the Universe from heat death}; in flat CPL cosmologies
 the only non-heat-death outcome is the Big Rip. The classifier passes an
-eight-case unit suite spanning all classes, boundary behavior, and two
+ten-case unit suite spanning all classes, boundary behavior, and two
 documented numerical edge cases (Appendix~\ref{app:classifier}).
 
 \section{Baseline fate probabilities}\label{sec:baseline}
@@ -234,10 +242,13 @@ $P(\textsc{decay})=99.82\%\pm0.06\%$, $P(\textsc{rip})=0.18\%\pm0.06\%$
 (batch-means errors), zero \textsc{other}, zero boundary flags. Under the
 frozen rule that sub-percent tails require a second sampling calculation,
 nested sampling gives a consistent weighted point estimate,
-$P(\textsc{rip})=0.165\%$. The previously quoted $0.038\%$ binomial standard
-error describes only a fixed-seed equal-weight resample; it is not
-run-to-run nested-sampling uncertainty and is therefore not used as an error
-bar.
+$P(\textsc{rip})=\NestedDzeroRipPct\%$. Across three independent seeds, the
+between-seed standard deviation is $\NestedDzeroRipSeedSdPct$ percentage
+points and the range is $\NestedDzeroRipMinPct$--$\NestedDzeroRipMaxPct\%$.
+The previously quoted $0.038\%$ binomial standard error describes only a
+fixed-seed equal-weight resample; it is not run-to-run nested-sampling
+uncertainty and is therefore not used as an error bar. The weighted nested
+\textsc{other} mass is $\NestedDzeroOtherPct\%$, below the registered budget.
 
 \begin{table}[t]
 \caption{Fate probabilities, D0+CPL+P1. \emph{Caution: the direction component
@@ -248,15 +259,18 @@ of this verdict is uninformative under the null (Sec.~\ref{sec:null}).}}
 Class & $P$ & thermodynamic class \\
 \hline
 \textsc{decay} & $99.82\%\pm0.06\%$ & heat-death-compatible \\
-\textsc{rip} & $0.18\%\pm0.06\%$ (nested point estimate $0.165\%$) & non-heat-death \\
+\textsc{rip} & $0.18\%\pm0.06\%$ (nested $\NestedDzeroRipPct\%$) & non-heat-death \\
 \textsc{ds} & 0 (grammar artifact; Sec.~\ref{sec:fparam}) & heat-death-compatible \\
 \textsc{other}/boundary & 0 / 0 & --- \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
 
-Two seeds of unease belong here. First, the same data give
-$\ln B(\mathrm{CPL}/\lcdm)=-1.76\pm0.31$: Bayesian evidence \emph{favors}
+Two seeds of unease belong here. First, for CPL against \lcdm{}, the
+three-seed mean is $\ln B=\NestedLnB$. The between-seed SD is
+$\NestedLnBSeedSd$, with range $[\NestedLnBMin,\NestedLnBMax]$. The three
+per-run internal dynesty errors span $\NestedLnBInternalMin$--
+$\NestedLnBInternalMax$. Bayesian evidence \emph{favors}
 \lcdm{} while $\Delta\chi^2$ disfavors it at $2.25\sigma$---a live Lindley
 phenomenon~\cite{Lindley1957}, developed as a fragility axis in Sec.~\ref{sec:fstat}. Second,
 $P(\textsc{ds})=0$ exactly: strict de Sitter asymptotics is a measure-zero
@@ -292,7 +306,8 @@ before the campaign's completion and before the zero-residual run. Results
 $p=\NullKSp$; mean $\NullMean\pm\NullMeanSE$; \textsc{other} and boundary budgets at the
 $10^{-3}$ level. (A hundred-realization KS test has limited power against
 mild distortions, which is why the registered predictions also pinned the
-mean, the accuracy count, and the budgets---all independently satisfied.)
+mean, the accuracy count, and the budgets---all separately satisfied, while
+retaining limited power against mild departures.)
 The zero-residual mock returns $52/48$. Its data vector equals the truth, but
 its likelihood covariance remains finite; it is a closed-loop diagnostic,
 not a zero-uncertainty experiment. The result isolates the role of boundary
@@ -301,7 +316,8 @@ geometry within this continuous CPL analysis.
 The null distribution also supplies the calibrated reading of the real data.
 Across one hundred \lcdm{} universes the lowest Big Rip probability produced
 by noise is $\RipNullMin\%$; the real Universe sits at $\DzeroRipPct\%$---eight times deeper,
-below every realization. The finite-simulation result is
+below every realization. The conditional parametric-bootstrap rank at this
+fitted truth is
 $\hat p=(0+1)/(100+1)=0.0099$, with a 95\% upper bound of $0.0295$.
 The asymptotic Wilks route gives $p=0.024$, but the statistics are not
 equivalent: the mock campaign ranks the one-sided posterior mass
@@ -342,24 +358,28 @@ $2.25\sigma$ (Pantheon+) through $2.81\sigma$ (DES-Dovekie) to $3.27\sigma$
 ladder~\cite{Efstathiou2024,HuangCaiWang2025} inside a single
 pipeline; the SH0ES anchor alone moves $H_0$ by $+1.35$~km\,s$^{-1}$\,Mpc$^{-1}$ and $\wz$ by $-0.034$
 ---Hubble-tension leakage into the dark-energy sector. Throughout,
-$P(\textsc{rip})$ stays within $0$--$0.31\%$: \emph{fate probabilities are
-robust to which data one believes} (they are not robust to which grammar one
-believes; Sec.~\ref{sec:fparam}).
+$P(\textsc{rip})$ stays within $\FDataNestedRipMinPct$--$\FDataNestedRipMaxPct\%$:
+the direction-level conclusion remains sub-percent for every combination,
+but the numerical tail spans $\FDataRip$ dex and is therefore not robust in a
+multiplicative sense. Grammar dependence is larger still
+(Sec.~\ref{sec:fparam}).
 
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{../runs/phase3/fdata/f4_loo_forest.pdf}
 \caption{Leave-one-out forest (CPL+P1 fixed). Left: the $\wa$ magnitude
 swings threefold across dataset ablations, and the full combination (dotted
 line) is more moderate than any probe-removal subset (D2--D4). Right: $P(\textsc{rip})$ stays
-within $0$--$0.31\%$ throughout (shaded); the D3 entry is the Monte Carlo
-upper limit for zero \textsc{rip} samples.}\label{fig:loo}
+within $\FDataNestedRipMinPct$--$\FDataNestedRipMaxPct\%$ throughout (shaded); the D3 entry is the
+small weighted tail retained by the original nested weights even though its
+fixed-seed equal-weight diagnostic contains zero \textsc{rip} draws.}\label{fig:loo}
 \end{figure}
 
 \begin{table}[t]
 \caption{Leave-one-out (CPL+P1 fixed). Per the frozen sub-percent rule,
 the sub-percent entries were recomputed with nested sampling. The weighted
-point estimates are consistent with the MCMC values and reproduce the zero
-tail for D3. Binomial errors stored with the equal-weight resamples are
+point estimates are consistent in direction with the MCMC values; for D3 the
+original weights resolve a small positive tail that the equal-weight diagnostic
+rounds to zero. Binomial errors stored with the equal-weight resamples are
 numerical resampling diagnostics, not repeated nested-run uncertainties
 (per-combination records in the repository).}\label{tab:loo}
 \begin{ruledtabular}
@@ -367,10 +387,10 @@ numerical resampling diagnostics, not repeated nested-run uncertainties
 Combo & removed & $\wz$ & $\wa$ & $P(\textsc{rip})$ \\
 \hline
 D0 & --- & $-0.884\pm0.057$ & $-0.62$ & $0.18\%$ \\
-D1 & SH0ES & $-0.848\pm0.055$ & $-0.55$ & $0.31\%$ \\
-D2 & CMB & $-0.853\pm0.067$ & $-1.06$ & $0.01\%$ \\
-D3 & BAO & $-0.711\pm0.083$ & $-1.64$ & $0.00\%$ \\
-D4 & SN & $-0.43\pm0.22$ & $-1.72$ & $0.16\%$ \\
+D1 & SH0ES & $-0.848\pm0.055$ & $-0.55$ & $\DOneNestedRipPct\%$ \\
+D2 & CMB & $-0.853\pm0.067$ & $-1.06$ & $\DTwoNestedRipPct\%$ \\
+D3 & BAO & $-0.711\pm0.083$ & $-1.64$ & $\DThreeNestedRipPct\%$ \\
+D4 & SN & $-0.43\pm0.22$ & $-1.72$ & $\DFourNestedRipPct\%$ \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -391,7 +411,8 @@ $\log_{10}P(\textsc{rip})$ spans from $-2.7$ to $-\infty$.
 \subsection{Inference-statistic axis}\label{sec:fstat}
 
 The same data, model, and priors yield $\Delta\chi^2=7.44$ (Wilks
-$p=0.024$, disfavoring \lcdm) and $\ln B=-1.76\pm0.31$ (Jeffreys-scale
+$p=0.024$, disfavoring \lcdm) and a three-seed
+$\ln B=\NestedLnB$ (between-seed SD $\NestedLnBSeedSd$; Jeffreys-scale
 support \emph{for} \lcdm). Nothing is inconsistent: the two statistics ask
 different questions, and the Occam penalty of the $15.5$-unit $(\wz,\wa)$
 prior area dominates the fit improvement. But the practical consequence is
@@ -437,10 +458,10 @@ in $\Delta$AIC. This is not a model-evidence calculation.}\label{tab:fitgrammar}
 \begin{tabular}{lrrrr}
 Grammar & $\chi^2_{\rm chain,min}$ & $\Delta\chi^2$ & $\Delta$AIC & $R-1$ \\
 \hline
-CPL  & 1489.534 & 0.000 & 0.000 & 0.0077 \\
-JBP  & 1492.075 & 2.541 & 2.541 & 0.0072 \\
-BA   & 1491.523 & 1.989 & 1.989 & 0.0049 \\
-BIN4 & 1485.386 & $-4.149$ & $-0.149$ & 0.0098 \\
+CPL  & 1489.534 & 0.000 & 0.000 & \RCPL \\
+JBP  & 1492.075 & 2.541 & 2.541 & \RJBP \\
+BA   & 1491.523 & 1.989 & 1.989 & \RBA \\
+BIN4 & 1485.386 & $-4.149$ & $-0.149$ & \RBIN \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -449,16 +470,16 @@ Second, the four fits do \emph{not} have identical priors. Their coordinate
 dimensions, early-matter-domination constraints, and induced measures on
 functions and fates differ. A deterministic P1 prior audit makes the baseline
 explicit: prior $P(\textsc{rip})$ is $25.8\%$ (CPL), $40.0\%$ (JBP),
-$58.1\%$ (BA), and $49.7\%$ (BIN4). The likelihood strongly suppresses the
+$\BAPriorRipPct\%$ (BA), and $\BINPriorRipPct\%$ (BIN4). The likelihood strongly suppresses the
 rip within every fitted grammar, but the residual posterior remains
 grammar-dependent. The divergent-future CPL and JBP families deliver
-near-certain \textsc{decay}; bounded-future BA revives a small
-\textsc{ds} component; and frozen-future BIN4 returns
-$41.2\%$ \textsc{rip}, $41.2\%$ \textsc{decay}, and $17.6\%$ \textsc{ds}.
-Its fate-controlling bin is measured as $w_1=-1.000\pm0.044$. A quarter of
-BIN4 samples carry boundary flags: halving/doubling the \textsc{ds} tolerance
-moves \textsc{rip}/\textsc{ds}/\textsc{decay} from $45.6/8.7/45.7$ to
-$32.7/34.6/32.7$ per cent. The binned reconstruction also relocates the
+near-certain \textsc{decay}; bounded-future BA retains a small
+\textsc{rip} component; and frozen-future BIN4 returns
+$\BINRipPct\%$ \textsc{rip} and $\BINDecayPct\%$ \textsc{decay}, with strict
+\textsc{ds} mass zero.
+Its fate-controlling bin is measured as $w_1=-1.000\pm0.044$. Under A-005,
+$\BINBoundaryPct\%$ of BIN4 posterior mass is reported as boundary-adjacent
+without changing its exact fate label. The binned reconstruction also relocates the
 finite-redshift signal: the low-$z$ bin is \lcdm-consistent and the deviation
 lies at $z\in[0.7,1.5]$ ($w_3=-1.53\pm0.20$). Thus CPL's
 $\wz\approx-0.88$ is partly the transport of a mid-$z$ signal to $z=0$ by a
@@ -466,8 +487,10 @@ linear grammar.
 
 A post-hoc matched-prior audit stops before importance weighting. On the
 declared seven-point $w(a)$ grid, the CPL, JBP, and BA pushforwards occupy
-different two-dimensional supports and BIN4 occupies a four-dimensional
-support. Their common intersection contains only constant histories and has
+different two-dimensional supports and BIN4 occupies a three-dimensional
+support: the grid reaches only $z=1$, so its summary is
+$(w_3,w_2,w_1,w_1,w_1,w_1,w_1)$ and contains no $w_4$ coordinate. Their
+common intersection contains only constant histories and has
 probability zero under every continuous native prior. A nondegenerate common
 target is therefore not dominated by all four pushforwards; diagonal
 covariance regularization would manufacture overlap rather than identify a
@@ -484,21 +507,21 @@ $w=-1$ makes $w(a\to\infty)=-1$ for every draw, so the asymptotic classifier
 returns \textsc{ds} by construction. This is a transparent counterexample
 showing that a future mean function can fix the fate before the likelihood is
 evaluated; it is not a fifth converged fit. Among the four fitted grammars,
-$P(\textsc{rip})$ spans $0.21$--$41.2\%$ and heat-death compatibility
-$58.8$--$99.8\%$. Adding the construction extends the latter endpoint to
+$P(\textsc{rip})$ spans $\GrammarRipMinPct$--$\GrammarRipMaxPct\%$ and heat-death compatibility
+$\GrammarHeatMinPct$--$\GrammarHeatMaxPct\%$. Adding the construction extends the latter endpoint to
 $100\%$.
 
 \begin{figure}[t]
 \includegraphics[width=\columnwidth]{../runs/phase3/fparam/f5_grammar_fates.pdf}
 \caption{Prior and posterior fate composition under the grammar-specific P1
-measures (A-003 criteria). Flat coordinate priors do not induce a common fate
+measures (A-005 corrected semantics). Flat coordinate priors do not induce a common fate
 measure. GP* is the deterministic mean-reverting construction, not a
 converged fitted grammar.}\label{fig:grammar}
 \end{figure}
 
 \begin{table*}[t]
 \caption{Grammar-specific induced prior fate mass and posterior fate
-probabilities (D0 fixed; A-003 criteria). The CPL posterior row uses the
+probabilities (D0 fixed; A-005 corrected semantics). The CPL posterior row uses the
 generic cross-grammar background machinery and agrees with the baseline
 within Monte Carlo error. GP* is a construction only.}\label{tab:grammar}
 \scriptsize
@@ -510,8 +533,8 @@ posterior $P(\text{heat-death})$ \\
 \hline
 CPL & $25.8\%$ & $0.21\%$ & $99.79\%$ & $0$ & $99.8\%$ \\
 JBP & $40.0\%$ & $0.79\%$ & $99.21\%$ & $0$ & $99.2\%$ \\
-BA & $58.1\%$ & $1.28\%$ & $98.35\%$ & $0.37\%$ & $98.7\%$ \\
-BIN4 & $49.7\%$ & $41.2\%$ & $41.2\%$ & $17.6\%$ & $58.8\%$ \\
+BA & $\BAPriorRipPct\%$ & $\BARipPct\%$ & $\BADecayPct\%$ & $0$ & $\BADecayPct\%$ \\
+BIN4 & $\BINPriorRipPct\%$ & $\BINRipPct\%$ & $\BINDecayPct\%$ & $0$ & $\BINDecayPct\%$ \\
 GP* & construction: $0$ & $0$ & $0$ & $100\%$ & $100\%$ \\
 \end{tabular}
 \end{ruledtabular}
@@ -551,30 +574,61 @@ observational support.}\label{fig:horizon}
 \subsection{Synthesis}\label{sec:summary}
 
 \begin{table*}[t]
-\caption{The eight-axis fragility matrix. Each row varies one assumption with
-all others fixed and reports the response of the fate verdict.}
+\caption{The eight-axis fragility matrix. Each row varies one audit package or
+axis and reports the response of the fate verdict. The grammar row necessarily
+couples functional form, native dimension, and its registered coordinate prior.}
 \label{tab:matrix}
 \scriptsize
-\begin{ruledtabular}
+\centering
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{llll}
+\toprule
 Axis & knob & response & verdict \\
-\hline
+\midrule
 SN compilation & Pantheon+/Dovekie/Union3 & \lcdm{} exclusion $2.25\!-\!3.27\sigma$ & magnitude fragile \\
 SH0ES anchor & in/out & $H_0$ ${+}1.35$~km\,s$^{-1}$\,Mpc$^{-1}$; $\wz\,{-}0.034$ & leakage, direction robust \\
-CMB information & compressed/full & stable $-0.5\sigma$ discount & priced, stable \\
-Dataset ablation & D1--D4 & $\wa\in[-1.72,-0.55]$; $P(\textsc{rip})\,0\!-\!0.31\%$ & direction robust \\
+CMB information & CPL compressed/full benchmark & stable $-0.5\sigma$ discount & BIN4 remains compressed-only \\
+Dataset ablation & D1--D4 & $\wa\in[-1.72,-0.55]$; $P(\textsc{rip})\,\FDataNestedRipMinPct\!-\!\FDataNestedRipMaxPct\%$ & direction stable; tail $\FDataRip$ dex \\
 Prior & P1/P2/P3 & $P(\textsc{rip})$: $0.18\%\to 0$ (excluded) & prior decides \\
-Statistic & $\Delta\chi^2$ vs $\ln B$ & $2.25\sigma$ against vs.\ $\ln B$ for \lcdm & conditioning flips \\
-Grammar & four fits + GP construction & $P(\textsc{rip})$ $0.21\to41\%$ in fits & dominant axis \\
+Statistic & $\Delta\chi^2$ vs $\ln B$ & $2.25\sigma$ against vs.\ $\ln B=\NestedLnB$ (CPL/\lcdm) & conditioning flips \\
+Grammar & four fits + GP construction & $P(\textsc{rip})$ $0.21\to49.96\%$ in fits & dominant axis \\
 Truth position & \lcdm{} in continuous CPL & verdict $\sim U(0,1)$; zero-residual 52/48 & conditional null law \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+The three registered log-span metrics are fulfilled explicitly in
+Table~\ref{tab:formalfragility}; they are not replaced by the broader
+eight-axis narrative matrix. Exact zeros imposed by P2/P3 and by the GP
+construction make the corresponding \textsc{rip} spans infinite. No
+original-weight $F_{\rm data}$ point is zero in v1.2: D3 retains a small
+positive tail even though its equal-weight diagnostic contains zero
+\textsc{rip} draws. The registered rule remains that a finite-run zero would
+not be promoted to a mathematical zero.
+
+\begin{table}[t]
+\caption{Registered fragility measures, in dex. The fitted-four row is a
+diagnostic subset of the registered $F_{\rm param}$ set, which also includes
+the deterministic GP construction.}
+\label{tab:formalfragility}
+\begin{ruledtabular}
+\begin{tabular}{lcc}
+Axis & $P(\textsc{rip})$ span & $P(\mathrm{heat})$ span \\
+\hline
+$F_{\rm prior}$ & $\FPriorRip$ & $\FPriorHeat$ \\
+$F_{\rm param}$, registered & $\FParamRip$ & $\FParamHeat$ \\
+$F_{\rm param}$, fitted four & $\FParamFitsRip$ & $\FParamFitsHeat$ \\
+$F_{\rm data}$ & $\FDataRip$ & $\FDataHeat$ \\
 \end{tabular}
 \end{ruledtabular}
-\end{table*}
+\end{table}
 
 Table~\ref{tab:matrix} assembles the audit. The stable content is a
 finite-redshift thawing-quadrant preference: the posterior-tail mock rank and
 the non-equivalent Wilks statistic both put it near the few-percent level,
-and its direction survives every data-side variation. Everything specifically
+and its sub-percent direction survives every data-side variation, while the
+tail magnitude itself spans $\FDataRip$ dex. Everything specifically
 eschatological---which fate, with what probability---responds at order unity
 to theory-side knobs that the current likelihood cannot adjudicate.
 
@@ -648,8 +702,13 @@ conclusion lives beyond its data window.
 CPL-like histories, for which the distance priors were
 validated~\cite{ChenHuangWang2018}; for the binned grammar, whose
 high-$z$ bin can depart further from $\Lambda$, extraction-side validity
-is an additional inherited assumption (the $w_4<0$ constraint keeps early
-dark energy subdominant). The analysis is geometry-only; growth
+is an additional inherited assumption. A-006 replaces the insufficient
+$w_4<0$ claim with the hard gate
+$\rho_{\rm DE}/\rho_m(z=1059)<0.01$; the archived posterior has zero weighted
+violating mass and a maximum sampled ratio $8.62\times10^{-5}$. A full-Planck
+BIN4 run is nevertheless a No-Go in the present geometry-only code because
+it supplies no CMB spectra or perturbation evolution. BIN4 results are thus
+compressed-CMB-conditioned. Growth
 data could shift the window-interior signal. The four fitted grammars are not
 a model average and their induced priors differ; the prior audit exposes but
 does not remove that dependence. The A-004 post-hoc audit further shows that
@@ -671,7 +730,8 @@ tail lies below all one hundred \lcdm{} mocks, and a distinct Wilks test gives
 a similar few-percent scale. Translating that preference into fate remains
 conditional. A quintessence prior excludes the rip before data; four
 comparably fitting, converged grammars move posterior $P(\textsc{rip})$ from
-$0.21\%$ to $41.2\%$ against induced prior values of $25.8$--$58.1\%$; and a
+$\GrammarRipMinPct\%$ to $\GrammarRipMaxPct\%$ against induced prior values of
+$\PriorRipMinPct$--$\PriorRipMaxPct\%$; and a
 mean-reverting GP construction fixes \textsc{ds} without qualifying as a
 converged fit. The registered $a_h$ is not reached, while $a=1$ marks the
 boundary of direct observational support. Current data therefore support a
@@ -779,9 +839,9 @@ as such and kept separate from preregistered results.
 \section{Amendment log}\label{app:amendments}
 
 The three preregistered-plan amendments are reproduced here in translation;
-the originals, with sign-off records, are in the repository. A-004 is listed
-after them as an explicitly post-hoc audit record, not as a fourth
-preregistered amendment.
+the originals, with sign-off records, are in the repository. A-004--A-006
+are listed after them as explicitly post-hoc records, not as additional
+preregistered amendments.
 
 \emph{A-001 (2026-07-03; during Gate 1, before any fate analysis).}
 \textbf{Change:} the Gate-1 significance clause, ``within $0.3\sigma$ of the
@@ -811,8 +871,8 @@ factual presupposition. The \lcdm{} truth sits on the zero-width
 mass is distributed approximately as $U(0,1)$ under the null and \emph{no}
 calibrated Bayesian procedure can exceed $\sim$50\% direction accuracy
 (Sec.~\ref{sec:null}). Measured: 50.0\% accuracy, KS $p=0.25$ against
-uniformity, zero-residual mock at 52/48, all budgets met, six pre-registered
-predictions correct---the failure mode matched the mathematical prediction,
+uniformity, zero-residual mock at 52/48, all budgets met, six mid-campaign
+logged predictions correct---the failure mode matched the mathematical prediction,
 excluding a pipeline-defect explanation. \textbf{Consequence:} Gate 2's
 output became a core result of the paper rather than a pass/fail check.
 The amendment's ``no calibrated procedure'' wording is scoped in the revised
@@ -844,8 +904,9 @@ only (Table~\ref{tab:grammar}).
 \emph{A-004 (2026-07-21; post-hoc structural audit after all phase-3
 results).} The candidate common object was the seven-vector $w(a)$ at
 $a=(0.5,0.67,0.8,1,1.5,2,4)$. CPL, JBP, and BA have two-dimensional
-pushforward supports in that ambient space; BIN4 has a four-dimensional
-support. Their common intersection is the one-dimensional set of constant
+pushforward supports in that ambient space; BIN4 has a three-dimensional
+support because this grid maps to $(w_3,w_2,w_1,w_1,w_1,w_1,w_1)$ and does
+not sample $w_4$. Their common intersection is the one-dimensional set of constant
 histories, which has probability zero under each continuous native prior.
 Consequently, no nondegenerate common target is dominated by all four
 pushforwards and the required importance-density ratios do not exist.
@@ -853,6 +914,29 @@ An earlier covariance-regularized Gaussian pilot was rejected because it
 manufactured full-dimensional densities and artificial overlap. The audit is
 a global No-Go: matched fate probabilities, ESS, and overlap are withheld.
 It changes no registered analysis or result.
+
+\emph{A-005 (2026-07-21; corrective post-hoc amendment).}
+Post-release review found that A-003 had used $\epsilon=0.01$ both as a
+boundary tolerance and as the width of a de Sitter fate class. This is
+physically incorrect: every positive-dark-energy finite-limit future with
+$w_\infty<-1$ reaches a Big Rip in finite proper time, while exact de Sitter
+asymptotics occupy $w_\infty=-1$. The finite-limit branch is therefore
+corrected to \textsc{rip} iff $w_\infty<-1$, \textsc{ds} iff
+$w_\infty=-1$, and \textsc{decay} iff $w_\infty>-1$; the registered
+$\epsilon$ is retained only as a boundary-adjacent flag. BA and BIN4 are
+reclassified in Table~\ref{tab:grammar}. CPL, JBP, D0--D4, P2/P3, null
+mocks, Wilks statistics, and Bayes evidence are unchanged. The original
+A-003 text remains above as provenance rather than being silently rewritten.
+
+\emph{A-006 (2026-07-21; post-hoc robustness and scope amendment).}
+The statement that $w_4<0$ keeps early dark energy subdominant was removed:
+it is not sufficient when $w_4$ lies just below zero. Future BIN4 fits impose
+$\rho_{\rm DE}/\rho_m(z=1059)<0.01$. A weighted audit of the archived
+posterior finds zero violating mass and a maximum sampled ratio
+$8.62\times10^{-5}$, so no refit or fate-probability change is required.
+A full-Planck run is a documented No-Go for the current background-only
+theory interface, which does not provide CMB spectra or perturbations. BIN4
+results are accordingly restricted to the compressed-CMB-conditioned scope.
 
 \section{Classifier numerics and known edges}\label{app:classifier}
 
@@ -862,8 +946,8 @@ thresholds: \textsc{rip} tail-convergence tolerance $10^{-3}$ (relative
 change of $t(a)$ from $a_{\max}$ to $2a_{\max}$); \textsc{ds} tolerance
 $|w(a_{\max})+1|<0.01$; \textsc{decay} thresholds
 $\rho_{\rm DE}(a_{\max})/\rho_{\rm DE}(1)<0.01$ or
-$\rho_{\rm DE}/\rho_m(a_{\max})<1$; A-003 asymptotic tolerance
-$\epsilon=0.01$. Numerics: the age integral $\int da/(aH)$ is evaluated by
+$\rho_{\rm DE}/\rho_m(a_{\max})<1$; A-005 finite-limit boundary-adjacent
+tolerance $\epsilon=0.01$. Numerics: the age integral $\int da/(aH)$ is evaluated by
 adaptive quadrature on 40 logarithmically spaced panels; the \textsc{crunch}
 scan uses a 400-point logarithmic grid in $a$; $\ln f_{\rm DE}$ is capped at
 700 before exponentiation to avoid overflow (samples beyond the cap are
@@ -871,11 +955,12 @@ already deep in the \textsc{rip} regime). The boundary flag re-runs the
 classification with all thresholds doubled and halved and marks any sample
 whose label flips.
 
-The implementation passes an eight-case unit suite: \lcdm{}
+The implementation passes a ten-case unit suite: \lcdm{}
 $\to$ \textsc{ds} (unflagged); phantom $\wa>0$ $\to$ \textsc{rip}; the DR2
 best fit $\to$ \textsc{decay}; mild thawing $\to$ \textsc{decay}; a closed,
-decaying-DE case $\to$ \textsc{crunch}; $\wz=-1.007$, $\wa=0$
-$\to$ \textsc{ds} with the boundary flag correctly raised; and two
+decaying-DE case $\to$ \textsc{crunch}; finite-limit cases just below,
+above, and exactly at $w_\infty=-1$ map to \textsc{rip}, \textsc{decay},
+and \textsc{ds}, respectively, with the boundary-adjacent flag raised; and two
 \emph{documented limitation cases} of the frozen criteria, constant-$w$
 curves with $w=-0.98$ (quasi-$\Lambda$: neither \textsc{ds}-tight nor
 decayed at $a_{\max}$) and $w=-1.2$ (power-law phantom: a true finite-time
@@ -903,8 +988,11 @@ valid because it follows from the assigned future mean, not from the
 nonconverged posterior. Separately, the cross-grammar machinery takes
 $r_{\rm drag}$ from a \lcdm{} computation (drag-epoch physics treated as
 dark-energy independent); this is self-consistent a posteriori even for the
-binned grammar, whose free high-$z$ bin sits at $w_4=-1.71\pm0.62$, leaving
-zero posterior mass with $\rho_{\rm DE}/\rho_m(z_{\rm drag})>0.01$.
+binned grammar, whose free high-$z$ bin sits at $w_4=-1.71\pm0.62$. The A-006
+weighted audit gives zero posterior mass above
+$\rho_{\rm DE}/\rho_m(z=1059)=0.01$ and a maximum sampled ratio
+$8.62\times10^{-5}$; this posterior check does not turn the compressed
+distance prior into a full-Planck likelihood.
 
 \section{Mock machinery and zero-residual validation}\label{app:mocks}
 
@@ -1000,12 +1088,12 @@ $0.7\sigma$): variance inflates to $0.1175>1/12$. Strongly curved
 boundary: KS $p=2.5\times10^{-6}$---uniformity is a locally-linear
 statement (the CPL boundary is exactly linear). The triple observed in
 Sec.~\ref{sec:null}---accuracy $\approx50\%$, uniform shape, variance
-consistent with $1/12$---is therefore not merely ``consistent with''
-calibration: each defect direction is separately detectable, and none
-occurred.
+consistent with $1/12$---shows no gross defect of the tested kinds. The
+diagnostics respond in distinct directions in the simulations, but a
+100-realization campaign retains limited power against mild misspecification.
 
 \emph{Finite-mock reporting rules.} With $k$
-of $n$ mocks at or below the real-data statistic, we report the plus-one
+of $n$ fitted-truth mocks at or below the real-data statistic, we report the conditional plus-one
 estimate $\hat{p}=(k+1)/(n+1)$~\cite{PhipsonSmyth2010} and, for $k=0$, the
 $95\%$ upper bound $1-0.05^{1/n}$; a Monte Carlo $p$-value is never
 reported as zero. These standard rules were adopted during the campaign

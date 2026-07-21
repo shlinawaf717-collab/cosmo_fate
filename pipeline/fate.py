@@ -76,12 +76,21 @@ class _CrunchSignal(Exception):
 
 
 def classify(bg, thresh=None):
-    """Return (label, boundary_flag). Implements §5 exactly."""
+    """Return ``(physical_label, boundary_adjacent_flag)``.
+
+    A-005 separates the exact finite-limit fate boundary at ``w_inf=-1``
+    from the numerical tolerance used to flag posterior mass near that
+    boundary.  Threshold variation remains the flagging rule for models that
+    require the original numerical tail classifier.
+    """
     th = dict(THRESH)
     if thresh:
         th.update(thresh)
 
     label = _classify_once(bg, th)
+    if getattr(bg, "w_inf", None) is not None:
+        return label, bool(abs(bg.w_inf + 1.0) <= th["asym_eps"])
+
     # boundary check: thresholds x2 and /2 (§5)
     flips = False
     for fac in (2.0, 0.5):
@@ -100,12 +109,15 @@ def _classify_once(bg, th):
     if finite.size and (finite <= 0).any():
         return "CRUNCH"
 
-    # A-003 asymptotic branch: analytic criteria when w(a) has a finite limit
+    # A-003 asymptotic branch, corrected by A-005: analytic physical criteria
+    # when w(a) has a finite limit.  A constant phantom future has a finite
+    # proper-time Big Rip for every w_inf < -1; epsilon is not a fate label.
     if getattr(bg, 'w_inf', None) is not None:
-        eps = th["asym_eps"]
-        if bg.w_inf < -1.0 - eps:
-            return "RIP"          # constant-w<-1 finite-time singularity (analytic)
-        if abs(bg.w_inf + 1.0) <= eps and bg.ode > 0:
+        if bg.ode <= 0:
+            return "DECAY"
+        if bg.w_inf < -1.0:
+            return "RIP"
+        if bg.w_inf == -1.0:
             return "DS"
         return "DECAY"
 

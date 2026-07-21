@@ -1,0 +1,19 @@
+{
+  "schema_version": "early-de-audit-v1-a006",
+  "chain_root": "runs/phase3/fparam/bin4",
+  "z_check": 1059.0,
+  "hard_gate": "rho_DE/rho_m < max_ratio",
+  "max_ratio": 0.01,
+  "n_post_burn_samples": 54880,
+  "weighted_failure_fraction": 0.0,
+  "n_failing_rows": 0,
+  "weighted_quantiles": {
+    "q50": 8.21113003803e-15,
+    "q95": 5.19563664801e-08,
+    "q99": 2.40131876684e-06,
+    "q999": 2.77778062905e-05
+  },
+  "maximum_row_ratio": 8.61781493416e-05,
+  "decision": "PASS",
+  "scope": "post-hoc validity audit of archived compressed-CMB-conditioned BIN4 chains"
+}

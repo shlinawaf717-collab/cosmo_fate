@@ -20,10 +20,14 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "runs/phase3/fparam/inwindow_fit_audit.json"
 MODELS = {
-    "CPL": {"root": "cpl", "k_dark": 2, "Rminus1": 0.007705552606554138},
-    "JBP": {"root": "jbp", "k_dark": 2, "Rminus1": 0.007154537418236734},
-    "BA": {"root": "ba", "k_dark": 2, "Rminus1": 0.004935561552938879},
-    "BIN4": {"root": "bin4", "k_dark": 4, "Rminus1": 0.009782334489332016},
+    "CPL": {"root": "cpl", "k_dark": 2,
+            "sampled": ["ombh2", "omegam", "H0", "w", "wa", "Mb"]},
+    "JBP": {"root": "jbp", "k_dark": 2,
+            "sampled": ["ombh2", "omegam", "H0", "w", "wa", "Mb"]},
+    "BA": {"root": "ba", "k_dark": 2,
+           "sampled": ["ombh2", "omegam", "H0", "w", "wa", "Mb"]},
+    "BIN4": {"root": "bin4", "k_dark": 4,
+             "sampled": ["ombh2", "omegam", "H0", "w1", "w2", "w3", "w4", "Mb"]},
 }
 
 
@@ -41,15 +45,48 @@ def chain_minimum(root: str, burn: float) -> tuple[float, list[str]]:
     return min(minima), [str(Path(name).relative_to(ROOT)) for name in files]
 
 
+def gelman_rubin(root: str, burn: float, sampled_names: list[str]) -> float:
+    """Compute GetDist multivariate R-1 from explicit archived text chains.
+
+    Passing a bare root to ``loadMCSamples`` can make chain discovery depend
+    on ignored Cobaya checkpoint files.  CI has only the release ``*.1.txt``
+    archives, so construct the same GetDist object directly from those files.
+    """
+    from getdist import MCSamples
+
+    files = sorted(glob.glob(str(ROOT / f"runs/phase3/fparam/{root}_*.1.txt")))
+    if len(files) < 2:
+        raise FileNotFoundError(f"need at least two archived chains for {root}")
+    chains, weights, loglikes = [], [], []
+    for filename in files:
+        with open(filename, encoding="utf-8") as handle:
+            columns = handle.readline().lstrip("#").split()
+        data = np.loadtxt(filename)
+        data = data[int(burn * len(data)) :]
+        chains.append(np.column_stack([data[:, columns.index(name)] for name in sampled_names]))
+        weights.append(data[:, columns.index("weight")])
+        loglikes.append(data[:, columns.index("minuslogpost")])
+    samples = MCSamples(samples=chains, weights=weights, loglikes=loglikes,
+                        names=sampled_names, labels=sampled_names)
+    value = float(samples.getGelmanRubin())
+    if not np.isfinite(value):
+        raise ValueError(f"non-finite Gelman-Rubin diagnostic for {root}")
+    # Eigen-solvers differ at ~1e-12 across BLAS implementations.  Ten decimal
+    # places are far finer than both the registered 0.01 gate and paper output,
+    # while keeping generated JSON bit-for-bit portable across CI platforms.
+    return round(value, 10)
+
+
 def compute(burn: float = 0.3) -> dict:
     rows = {}
     for name, spec in MODELS.items():
         chi2, files = chain_minimum(spec["root"], burn)
+        rminus1 = gelman_rubin(spec["root"], burn, spec["sampled"])
         rows[name] = {
             "approx_chain_min_chi2": chi2,
             "k_dark": spec["k_dark"],
-            "Rminus1_last": spec["Rminus1"],
-            "converged_registered_threshold": spec["Rminus1"] < 0.01,
+            "Rminus1_multivariate_recomputed": rminus1,
+            "converged_registered_threshold": rminus1 < 0.01,
             "chains": files,
         }
     baseline = rows["CPL"]
