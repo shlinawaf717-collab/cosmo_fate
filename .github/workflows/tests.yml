@@ -92,7 +92,7 @@ jobs:
           runs/phase3/fparam/full_planck_feasibility.json
           runs/phase3/fparam/inwindow_fit_audit.json
           runs/phase3/fparam/matched_prior_audit.json
-          runs/phase3/fparam/model_average.json
+          runs/phase3/fparam/model_average_audit.json
           runs/phase3/fparam/prior_fate_audit.json
 
   manuscript:

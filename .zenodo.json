@@ -1,6 +1,6 @@
 {
-  "title": "cosmo_fate: A preregistered fragility audit of DESI-era cosmic-fate claims",
-  "description": "v1.2.1 reproducibility hotfix for the v1.2 scientific-correction archive of \"Is cosmic fate an inference or an assumption?\" Scientific results and the PDF are unchanged. The hotfix rounds generated fragility and early-dark-energy audit floats to a declared portable precision so regenerated JSON is bit-for-bit stable across BLAS/NumPy runner backends. The archive retains the A-004--A-006 corrections, original-weight nested samples, independent-seed evidence checks, frozen preregistration, fitted-truth LCDM null mocks, and compressed-CMB and finite-mock evidence boundaries.",
+  "title": "cosmo_fate: A locally preregistered fragility audit of DESI-era cosmic-fate claims",
+  "description": "Reproducibility archive for \"Is cosmic fate an inference or an assumption?\" The archive retains the locally preregistered secondary-data analysis plan, explicitly labeled A-004--A-007 post-hoc audits, corrections, and provenance clarifications, original-weight nested samples, independent-seed evidence checks, fitted-truth LCDM null mocks, and the compressed-CMB and finite-mock evidence boundaries. The plan was frozen in local version control before the first fate result; the public repository was created later, so this is not described as a third-party-registry preregistration. Commit ancestry, grammar-specific P1 implementation provenance, and checksums are documented in plan/PREREGISTRATION_PROVENANCE.md.",
   "version": "1.2.1",
   "creators": [
     {

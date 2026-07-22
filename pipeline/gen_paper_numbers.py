@@ -37,6 +37,7 @@ fate_bin4 = load("runs/phase3/fparam/fate_bin4_a005.json")
 fragility = load("runs/phase3/fragility_metrics.json")
 inwindow = load("runs/phase3/fparam/inwindow_fit_audit.json")["models"]
 nested_d0 = load("runs/phase2/nested_d0.json")
+model_average = load("runs/phase3/fparam/model_average_audit.json")
 nested_data = {
     name: load(f"runs/phase3/fdata/nested_{name.lower()}.json")
     for name in ("D1", "D2", "D3", "D4")
@@ -82,6 +83,9 @@ macros = [
     ("NestedLnBMax", f"{nested_d0['lnB_range'][1]:.3f}"),
     ("NestedLnBInternalMin", f"{min(nested_d0['per_run_internal_lnB_errors']):.3f}"),
     ("NestedLnBInternalMax", f"{max(nested_d0['per_run_internal_lnB_errors']):.3f}"),
+    ("ModelAvgLCDMPct", f"{model_average['posterior_P_LCDM'] * 100:.1f}"),
+    ("ModelAvgCPLPct", f"{model_average['posterior_P_CPL'] * 100:.1f}"),
+    ("ModelAvgHeatPct", f"{model_average['model_averaged_P_heat_death_compatible'] * 100:.2f}"),
     ("DOneNestedRipPct", f"{nested_fate(nested_data['D1'])['RIP'] * 100:.3f}"),
     ("DTwoNestedRipPct", f"{nested_fate(nested_data['D2'])['RIP'] * 100:.3f}"),
     ("DThreeNestedRipPct", f"{nested_fate(nested_data['D3'])['RIP'] * 100:.4f}"),
@@ -123,7 +127,7 @@ with open(out, "w") as f:
     f.write("% Sources: runs/phase3/fparam/ah.json,"
             " runs/gate2/gate2_final_stats.json,"
             " runs/phase2/fate/d0_cpl_p1.json,"
-            " runs/phase3/fparam/{prior_fate_audit,fate_*}.json\n")
+            " runs/phase3/fparam/{prior_fate_audit,fate_*,model_average_audit}.json\n")
     for name, val in macros:
         f.write(f"\\newcommand{{\\{name}}}{{{val}}}\n")
 
