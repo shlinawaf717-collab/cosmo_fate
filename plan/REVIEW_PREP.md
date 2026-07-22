@@ -16,7 +16,7 @@ EDITORIAL_CHANGELOG.md（E-01…E-14，含 numbers.tex 宏机制）】**
 | 5 | 图 1 图注 | 加 "here and throughout, contour pairs show 68% and 95% credible regions" | 全文无处定义等高线置信等级（已 grep 验证） |
 | 6 | main.tex:321（正文，\emph）+ main.tex:338（图 4 注） | "the full combination is the most moderate of all subsets" → "more moderate than any probe-removal subset (D2–D4)" | **逻辑错误，优先级最高**：D1(−SH0ES) wa=−0.55 比 D0 的 −0.62 更温和；正文该句同句内自相矛盾（括号引 −0.55 为区间端点） |
 | 7 | main.tex:482 | 3.04 → 3.03 | ah.json 权威值 3.0347；图 6 正确（3.03），正文手抄双重舍入致错 |
-| 8 | App. A 首段 | "(2026-07-02, ...)" → "(drafted 2026-07-02, tagged 2026-07-03, ...)" | 论文引起草日期为冻结日期；可验证冻结事件（tag prereg-v1 → commit 98abc20）为 2026-07-03 10:26 +0800。审计关键数字必须与外部锚严格一致 |
+| 8 | App. A 首段 | "(2026-07-02, ...)" → "(drafted 2026-07-02, tagged 2026-07-03, ...)" | 本地版本历史记录 tag prereg-v1 → commit 98abc20 为 2026-07-03 10:26 +0800，首个终局结果 commit 76ed25d 为 11:29 且是其后代。公共仓库建立较晚，故这不是第三方平台时间锚；限制与校验和见 `PREREGISTRATION_PROVENANCE.md` |
 | 9 | Sec. VII C | 补报 ΔAIC/ΔBIC 一句 | **预注册履约缺口**：计划注册 "ΔAIC, ΔBIC, and ln B" 三件套，正文只报了 ln B（grep 证实 AIC/BIC 仅出现于 App. A 计划复述行 688）。数值由已报量平凡导出（Δk=2：ΔAIC = −7.44+4 = −3.44 弱挺 CPL；ΔBIC = −7.44+2ln N ≈ +7.4 挺 ΛCDM，N≈1673 依计数约定，以管线权威值为准）。补报反而强化 VII C：三种信息准则内部复现方向翻转（AIC 随 Δχ²，BIC 随证据）。性质：履行冻结承诺，非偏离——预注册纪律不能反过来为不交付注册量背书 |
 
 **结构性配套（与补丁同批实施）**：numbers.tex 宏机制——脚本从 runs/ 的 JSON 产物生成
@@ -27,43 +27,49 @@ EDITORIAL_CHANGELOG.md（E-01…E-14，含 numbers.tex 宏机制）】**
 
 **Q1. 真值位置轴只有 ΛCDM null，无 off-boundary 功效对照**
 （"你证明了判决不会虚警，凭什么说它能检出？"）
-答案骨架：深度统计量的功效由 Wilks 渐近路线独立支撑（p=0.024 与校准 p<0.030 咬合）；
-null 战役的目的按预注册是校准而非功效；off-boundary mock 战役承认为 future work，
-框架已开源可直接跑。
+答案骨架：现有工作没有测量 off-boundary 功效，不能由 Wilks 的真实数据 p=0.024
+替代功效曲线。Wilks 与 posterior-tail mock rank 是不同统计量，只构成定性同向交叉检查。
+null 战役完成的是 fitted-truth ΛCDM 下的大小/校准审计；off-boundary mock 战役明确列为
+future work，框架已开源可直接跑。
 
 **Q2. GP 的窗口内等价未自证**
 （摘要 "five grammars indistinguishable inside the data window"，Table III 无各语法 χ² 列）
-答案骨架：各语法窗口内拟合量在仓库 runs/ 逐组合记录；[11] 提供独立文献支撑；
-如需可在 response 中给出五语法 χ²_min 对照表（数据现成，不动冻结文本）。
+答案骨架：只有 CPL/JBP/BA/BIN4 四个收敛拟合进入窗口内比较；GP 未达到冻结的
+收敛门槛，不能计作第五个拟合或独立复现。正文报告四者的 exploratory AIC 审计；
+GP 只保留为均值函数预定未来的构造性例子。
 
 **Q3. anti-rip 深度的语法条件性**
 （"calibrated p<0.030 是 CPL 管线下的深度；BIN4 下真实数据落在 null 分布 ~41 百分位"）
-答案骨架：深度统计量按预注册在基线语法（CPL）下定义与校准；跨语法稳健的是信号的
-存在与中红移定位（w3=−1.53±0.20；GP 两核独立复现），其命运相关性不稳健——
-这正是层次 (iii)（translation）的内容，Discussion 已把深度重述为 thawing-quadrant
-preference。摘要措辞带 "Baseline (CPL)" 前缀，无不实。
+答案骨架：深度统计量按预注册在基线语法 CPL+P1 下定义与校准，只支持压缩 CMB
+管线中的有限红移条件性偏好。D1--D4 的方向稳定但未分别做 null 校准；BIN4 把最大
+窗口内偏离定位到中红移，但不能充当 CPL 深度的独立校准。命运翻译在语法间不稳健，
+这正是层次 (iii)（translation）的内容。
 
 **Q4. 为什么压缩 CMB 而非全似然**
-答案骨架：审计规模（8 轴 × 5 语法 × 100 mock × 嵌套复核 = 数百次完整拟合）下全似然
-不可行；信息亏损被测量、稳定（≈0.5σ，三编纂集复现）、定价并全文继承（A-001；
-Table IV "priced, stable" 行）；Union3 3.27+0.5≈3.8 与官方全似然值互证。
+答案骨架：压缩似然使重复拟合审计可运行，并在 CPL 上通过官方链与已发表结果校验；
+其约 0.5σ 信息亏损作为全篇条件继承。对 BIN4，当前背景接口没有 CMB 谱与扰动演化，
+所以 full Planck 不是“尚未运行”而是 A-006 明确的 No-Go；不能用 CPL 的压缩/完整差值
+替 BIN4 宣称 full-likelihood 结论。
 
 **Q5. 语法家族是不是挑出来让分歧最大化的（"设定好的"）**
 五层答案（由浅入深）：
-1. 程序性：五语法在 prereg-v1（2026-07-03，GitHub tag 可验）冻结于任何命运计算之前，
-   不可能依结果挑选；
+1. 程序性：本地 Git 历史显示五语法在 `prereg-v1`（2026-07-03 10:26）冻结于
+   首个终局结果（11:29）之前，且 tag commit 是结果 commit 的祖先；公共仓库建立
+   较晚，不能把 GitHub 页面冒充第三方预注册时间戳；
+   逐语法 P1 早期条件与首批 F_param 输出首次共同归档于 `777816f`，所以只将
+   模型家族及早期物质主导意图称为冻结内容，不把逐语法公式追溯性地称为显式预注册；
 2. 结构性：选择判据本身被冻结——ANALYSIS_PLAN §1 对照表逐行注记未来行为类别
    （发散/有界/冻结/均值回归），按命运相关的结构维度抽样；
 3. 社会性：五个全是社区现役工具（CPL=DESI 标准；BA/JBP 文献标准；binned/GP 标准
    非参数方法），无一为本文定制；
-4. 逻辑性（最硬）：结论是存在性命题 + 跨度声明为 lower bound——挑选偏倚只能**低估**
-   脆弱性（漏掉极端语法），不能伪造"合法语法间存在灾难性分歧"这一存在性事实；
+4. 范围性：语法跨度只对预注册家族成立，不称为全体合法语法的下界；家族选择会影响
+   跨度，防御依赖选择规则透明、各语法有文献先例，以及对 GP 失败的如实剔除；
 5. 反身性：语法预定判决正是论文的测量对象，且论文对自己执行了标签制度
    （"donated by mean function" / "decided before any photon arrived" / "excluded by prior" /
-   图 5 轴注 "A-005 corrected semantics"）——"你的语法预设了结论"的答案是"对，我们测的就是
-   预设了多少：2.3 dex"。
-一句话版本（预审信用）："The conclusion is existential and the span a lower bound;
-selection could only understate it."
+   图 5 轴注 "A-005 corrected semantics"）——"你的语法预设了结论"的答案是：这正是
+   被审计的对象；正文分别报告四个合格拟合的有限跨度与先验/构造造成的结构零。
+一句话版本："The reported span is a preregistered finite-family sensitivity
+diagnostic, not a bound over all admissible dark-energy grammars."
 
 ## 三、投稿前硬性检查项
 
@@ -120,6 +126,10 @@ selection could only understate it."
       三种子数字，检查 A-005/A-006、正式脆弱性表、图 4/5、引用、分页及 TeX
       overfull/未定义引用；最终 PDF SHA256 为
       `1a63fdcf37eb9e846c93e4814da6f9576c27fbc0c42951bf7dc7122480ef13fd`。
+- [x] 当前修订版逐页校对完成（2026-07-22）：32 页；已检查 locally preregistered
+      标题、A-003 作废标识、A-007 分页、五条正式期刊元数据、图表、引用与全篇页码；
+      无裁切、重叠、缺字、未定义引用或 overfull，最终 PDF SHA-256 为
+      `70f727d05d6e161764a27ee8599b9435ba6af8f0dde7a71d66399cecae688339`。
 
 ## 四、A-004 matched-prior 问题预案
 
