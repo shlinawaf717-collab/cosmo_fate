@@ -1,5 +1,11 @@
 # 交接文档（2026-07-21，v1.2 科学纠错版）
 
+> 2026-07-22 状态：完成的 v1.x 基线固定于 commit `70a47ec` 和 tag
+> `paper-v1x-final-20260722`。后续 PRD 强化研究不修改该历史，执行前以
+> `plan/PRD_EXTENSION_PROTOCOL.md` 和
+> `plan/prd_extension_protocol.json` 为准；新结果只进入
+> `runs/prd_extension/`。
+
 本仓库是 `cosmo_fate` 的可复现研究工作区。冻结预注册由本地 Git commit
 `98abc20` 和 tag `prereg-v1` 定义，记录时间为 2026-07-03 10:26；首个终局结果
 commit `76ed25d` 记录于 11:29，且前者是后者的祖先。公共仓库随后建立，因此论文
