@@ -43,7 +43,9 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.lock
 .venv/bin/python pipeline/gen_paper_numbers.py    # JSON 单一来源生成正文宏
 .venv/bin/python pipeline/make_mocks.py 100 42    # 仅初始化空 mock 目录；非空即拒绝，绝不覆盖链结果
 .venv/bin/python pipeline/append_mocks.py --append 10 --dry-run  # 先校验清单、m000 和输入指纹；去掉 --dry-run 才追加
-.venv/bin/python pipeline/run_gate2.py 1 100 --jobs=4   # 空校准 100 组（断点续跑 runs/gate2/results.jsonl）
+.venv/bin/python pipeline/migrate_null500.py --dry-run  # WP2 原子迁移预检
+.venv/bin/python pipeline/migrate_null500.py --audit    # 迁移或远程传输后的逐文件复核
+.venv/bin/python pipeline/run_gate2.py 101 500 --jobs=4 --dry-run  # WP2 预检；仅允许 runs/prd_extension/null500/
 .venv/bin/python pipeline/make_paper_figs.py      # 论文图 F1–F6
 ```
 
@@ -54,6 +56,12 @@ MCMC/nested 运行配置均以 `*.input.yaml` 存于 `runs/` 各目录（cobaya 
 `pipeline/example_read_chain.py` 演示读取并复现表 I）；未入库的合并链/mock 数据
 均可由入库配置与 seed 确定性再生。代码与文档以 MIT 许可发布（见 LICENSE）；
 精确环境见 `requirements.lock`。
+
+`pipeline/migrate_null500.py` 将 v1.x 的 `m000`--`m100`、结果账本和 fitted-truth
+快照原子迁入 `runs/prd_extension/null500/`，普通文件逐字节保持不变；每个 mock
+的 SN/BAO 协方差改为仓库相对链接。`migration_manifest.json` 与
+`migration_inventory.json` 用于本地和远程传输后的重复审计。新增 mock 的生成器
+同样只创建相对协方差链接。
 
 ## 解释边界（大修版）
 

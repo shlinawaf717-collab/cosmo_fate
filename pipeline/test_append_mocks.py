@@ -143,6 +143,41 @@ class AppendMocksTest(unittest.TestCase):
         self.assertTrue((fresh / 'm000' / 'sn_mock.dat').is_file())
         self.assertTrue((fresh / 'm001' / 'bao_mean.txt').is_file())
 
+    def test_generated_covariance_links_are_relative_and_portable(self):
+        shared = self.tmp / 'shared'
+        shared.mkdir()
+        sn_cov = shared / 'sn.cov'
+        bao_cov = shared / 'bao.txt'
+        sn_cov.write_text('sn covariance\n')
+        bao_cov.write_text('bao covariance\n')
+        assets = dict(self.assets)
+        assets.update(sn_cov_source=str(sn_cov), bao_cov_source=str(bao_cov))
+        target = self.tmp / 'portable' / 'm000'
+        write_mock_dir(target, 0, np.random.default_rng(42), assets)
+        for link, expected in ((target / 'sn_cov.cov', sn_cov),
+                               (target / 'bao_cov.txt', bao_cov)):
+            self.assertTrue(link.is_symlink())
+            self.assertFalse(Path(link.readlink()).is_absolute())
+            self.assertEqual(link.resolve(), expected.resolve())
+
+    def test_relative_links_resolve_through_a_symlinked_parent_alias(self):
+        shared = self.tmp / 'shared'
+        shared.mkdir()
+        sn_cov = shared / 'sn.cov'
+        bao_cov = shared / 'bao.txt'
+        sn_cov.write_text('sn covariance\n')
+        bao_cov.write_text('bao covariance\n')
+        assets = dict(self.assets)
+        assets.update(sn_cov_source=str(sn_cov), bao_cov_source=str(bao_cov))
+        real_parent = self.tmp / 'actual' / 'deep'
+        real_parent.mkdir(parents=True)
+        alias = self.tmp / 'alias'
+        alias.symlink_to(real_parent, target_is_directory=True)
+        target_via_alias = alias / 'm000'
+        write_mock_dir(target_via_alias, 0, np.random.default_rng(42), assets)
+        self.assertEqual((real_parent / 'm000' / 'sn_cov.cov').resolve(), sn_cov.resolve())
+        self.assertEqual((real_parent / 'm000' / 'bao_cov.txt').resolve(), bao_cov.resolve())
+
     def test_simulated_failure_rolls_back_and_manifest_unchanged(self):
         self.init_existing(n=1)
         before = digest_tree(self.out)

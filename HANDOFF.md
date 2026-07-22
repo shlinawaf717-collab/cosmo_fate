@@ -44,6 +44,8 @@ python3 -m venv .venv
   bao.desi_dr2 --packages-path data/cobaya_packages
 
 .venv/bin/python -m pytest -q pipeline/test_fate.py pipeline/test_append_mocks.py \
+  pipeline/test_migrate_null500.py pipeline/test_run_gate2.py \
+  pipeline/test_prd_extension_protocol.py \
   pipeline/test_nested_interface.py pipeline/test_aggregate_nested_d0.py \
   pipeline/test_inwindow_fit_audit.py \
   pipeline/test_matched_prior_audit.py pipeline/test_fragility_audit.py \
@@ -74,6 +76,22 @@ python3 -m venv .venv
 
 旧清单首次追加前必须通过精确 `m000` 重建检查；实际追加后才写入输入指纹及其
 迁移来源。当前论文仍以完成的 100 个有噪声 mock 为准。
+
+PRD 扩展的 Gate-2 驱动器默认且仅允许写入 `runs/prd_extension/` 下的命名
+战役目录；WP2 默认目录为 `runs/prd_extension/null500/`。在复制并审计原 100
+个 mock、追加 101--500 后，必须先运行只读预检：
+
+```bash
+.venv/bin/python pipeline/migrate_null500.py --dry-run
+.venv/bin/python pipeline/migrate_null500.py
+.venv/bin/python pipeline/migrate_null500.py --audit
+.venv/bin/python pipeline/run_gate2.py 101 500 --jobs=4 --dry-run
+```
+
+驱动器拒绝 `runs/gate2/`、`runs/phase2/`、`runs/phase3/` 及任何通过符号链接
+逃逸到 `runs/prd_extension/` 外的输出根目录。迁移采用同目录 staging 和原子
+改名；目标已存在时拒绝覆盖。目标中的 202 个 SN/BAO 协方差链接均为仓库相对
+路径，迁移清单记录源/目标树哈希、冻结提交核对、结果账本及 truth 哈希。
 
 ## 四、论文与发布
 

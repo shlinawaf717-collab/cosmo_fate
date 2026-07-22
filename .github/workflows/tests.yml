@@ -21,12 +21,15 @@ jobs:
           python -m pytest -q
           pipeline/test_fate.py
           pipeline/test_append_mocks.py
+          pipeline/test_migrate_null500.py
+          pipeline/test_run_gate2.py
           pipeline/test_nested_interface.py
           pipeline/test_aggregate_nested_d0.py
           pipeline/test_inwindow_fit_audit.py
           pipeline/test_matched_prior_audit.py
           pipeline/test_fragility_audit.py
           pipeline/test_early_de_gate.py
+          pipeline/test_prd_extension_protocol.py
       - run: python pipeline/constraint_horizon_audit.py
       - run: python pipeline/prior_fate_audit.py --n 2000000
       - run: python pipeline/inwindow_fit_audit.py

@@ -31,6 +31,15 @@ C_KMS = 299792.458
 GENERATOR_VERSION = 'make_mocks.v2.append-safe-core'
 
 
+def portable_symlink(source, target):
+    """Create a repository-movable relative link instead of a host-absolute link."""
+    source = os.path.realpath(os.fspath(source))
+    target = os.path.abspath(os.fspath(target))
+    target_parent = os.path.realpath(os.path.dirname(target))
+    relative = os.path.relpath(source, target_parent)
+    os.symlink(relative, target)
+
+
 def truth_background(t):
     import camb
     pars = camb.set_params(ombh2=t['ombh2'], omch2=t['omch2'], H0=t['H0'],
@@ -131,7 +140,7 @@ def write_mock_dir(d, k, rng, assets):
     dfm['m_b_corr'] = mock_mag
     dfm.to_csv(os.path.join(d, 'sn_mock.dat'), sep=' ', index=False)
     if assets.get('sn_cov_source'):
-        os.symlink(assets['sn_cov_source'], os.path.join(d, 'sn_cov.cov'))
+        portable_symlink(assets['sn_cov_source'], os.path.join(d, 'sn_cov.cov'))
     with open(os.path.join(d, 'config.dataset'), 'w') as f:
         f.write("name = PANTHEONPLUS_MOCK\ndata_file = sn_mock.dat\n"
                 "mag_covmat_file = sn_cov.cov\n")
@@ -142,7 +151,7 @@ def write_mock_dir(d, k, rng, assets):
         for (z, _, q), v in zip(assets['bao_rows'], vals):
             f.write(f"{z:.8f} {v:.8f} {q}\n")
     if assets.get('bao_cov_source'):
-        os.symlink(assets['bao_cov_source'], os.path.join(d, 'bao_cov.txt'))
+        portable_symlink(assets['bao_cov_source'], os.path.join(d, 'bao_cov.txt'))
 
     cmb = assets['cmb_mu'] + noise * (assets['L_cmb'] @ rng.standard_normal(3))
     with open(os.path.join(d, 'cmb_mean.json'), 'w') as f:

@@ -9,6 +9,8 @@ __pycache__/
 *.pyc
 .DS_Store
 runs/gate2/mocks/
+runs/prd_extension/**/mocks/
+runs/prd_extension/.null500-migration-*/
 tmp/
 paper/main.aux
 paper/main.bbl
