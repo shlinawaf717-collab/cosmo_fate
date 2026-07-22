@@ -1,0 +1,76 @@
+{
+  "schema_version": "wp2-throughput-benchmark-v1",
+  "plan": "plan/WP2_THROUGHPUT_BENCHMARK.md",
+  "machine": {
+    "model": "MacBook Air",
+    "chip": "Apple M5",
+    "cpu_cores": 10,
+    "performance_cores": 4,
+    "efficiency_cores": 6,
+    "memory_gib": 24
+  },
+  "batch_a": {
+    "status": "complete",
+    "indices": [101, 108],
+    "jobs": 4,
+    "completed": 8,
+    "failures": 0,
+    "wall_seconds": 2182.63,
+    "throughput_mocks_per_hour": 13.195,
+    "mcmc_wall_seconds_by_index": {
+      "101": 1378,
+      "102": 614,
+      "103": 812,
+      "104": 468,
+      "105": 579,
+      "106": 573,
+      "107": 853,
+      "108": 951
+    },
+    "mcmc_median_seconds": 713.0,
+    "mcmc_p90_nearest_rank_seconds": 1378,
+    "thermal_warning": false,
+    "memory_free_percent_after": 74
+  },
+  "batch_b": {
+    "status": "complete",
+    "indices": [109, 120],
+    "jobs": 6,
+    "completed": 12,
+    "failures": 0,
+    "wall_seconds": 2465.26,
+    "throughput_mocks_per_hour": 17.523,
+    "mcmc_wall_seconds_by_index": {
+      "109": 1333,
+      "110": 831,
+      "111": 1014,
+      "112": 1160,
+      "113": 990,
+      "114": 962,
+      "115": 849,
+      "116": 811,
+      "117": 1149,
+      "118": 831,
+      "119": 895,
+      "120": 896
+    },
+    "mcmc_median_seconds": 929.0,
+    "mcmc_p90_nearest_rank_seconds": 1160,
+    "thermal_warning": false,
+    "memory_free_percent_after": 77
+  },
+  "comparison": {
+    "six_vs_four_throughput_gain_fraction": 0.3280,
+    "minimum_gain_required": 0.15,
+    "all_results_unique_and_contiguous_0_through_120": true,
+    "all_pilot_chains_pass_Rminus1_0p01": true,
+    "all_pilot_chains_pass_Rminus1_cl_0p2": true,
+    "failed_chains": 0
+  },
+  "decision": {
+    "selected_jobs_for_m121_through_m500": 6,
+    "reason": "32.8% throughput gain with no failure, memory pressure, thermal warning, or convergence-gate failure",
+    "remaining_mocks": 380,
+    "projected_wall_hours_at_measured_throughput": 21.69
+  }
+}
