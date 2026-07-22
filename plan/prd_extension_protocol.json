@@ -1,0 +1,146 @@
+{
+  "schema_version": "prd-extension-protocol-v1",
+  "approved_at": "2026-07-22T15:26:52+08:00",
+  "status": "prospectively frozen extension after completion of v1.x",
+  "baseline": {
+    "commit": "70a47ec89ee474244157b6397ab9b93eece5fd45",
+    "tag": "paper-v1x-final-20260722",
+    "pdf": "output/pdf/Zhang_cosmic_fate_audit_major_revision.pdf",
+    "pdf_sha256": "d0378a4c9615c8486f71509df675790c72214d3de19d47ddae87b47e66598e62",
+    "original_prereg_commit": "98abc2017421f6825e8a2aa36f7cb76b5661db76",
+    "original_prereg_tag": "prereg-v1"
+  },
+  "separation": {
+    "v1x_artifacts_read_only": true,
+    "extension_results_root": "runs/prd_extension",
+    "forbidden_overwrite_roots": [
+      "runs/gate2",
+      "runs/phase2",
+      "runs/phase3"
+    ]
+  },
+  "wp1_equivalence": {
+    "mock_indices": [0, 1, 25, 50, 75, 100],
+    "max_mean_shift_pooled_sigma": 0.1,
+    "fate_probability_absolute_tolerance": 0.02,
+    "fate_probability_mcse_multiplier": 3.0,
+    "failure_action": "rerun all 500 null mocks in one locked environment"
+  },
+  "wp2_null500": {
+    "model": "fitted-truth flat LCDM",
+    "inference": "CPL+P1",
+    "truth_file": "runs/gate2/truth_lcdm_d0.json",
+    "noisy_total": 500,
+    "existing_noisy": 100,
+    "append_noisy": 400,
+    "existing_indices": [1, 100],
+    "append_indices": [101, 500],
+    "generator_seed": 42,
+    "mcmc_seed_offset": 3000,
+    "zero_noise_index": 0,
+    "zero_noise_in_null_distribution": false,
+    "primary_tail": "count P_RIP_mock <= P_RIP_observed",
+    "finite_p_rule": "(K+1)/(N+1)",
+    "interval": "two-sided 95% Clopper-Pearson",
+    "optional_stopping": false
+  },
+  "wp3_power": {
+    "model": "CPL+P1",
+    "truth_parameter": "wa",
+    "truth_values": [-0.6, -0.3, -0.15, 0.15, 0.3, 0.6],
+    "truth_ids": ["wam060", "wam030", "wam015", "wap015", "wap030", "wap060"],
+    "generator_seeds": [2026072201, 2026072202, 2026072203, 2026072204, 2026072205, 2026072206],
+    "noisy_mocks_per_truth": 100,
+    "asimov_per_truth": 1,
+    "mcmc_seed_formula": "310000 + 1000*truth_ordinal_1_based + mock_index_1_based",
+    "truth_construction": "constrained D0 maximum-likelihood fit of all non-wa parameters before noisy generation",
+    "direction_threshold": 0.5,
+    "depth_alpha": 0.05,
+    "outer_truth_minimum_direction_power_for_positive_claim": 0.8,
+    "optional_stopping": false
+  },
+  "wp4_full_cmb_cpl": {
+    "reproduction_run_id": "F0",
+    "reproduction_data": [
+      "DESI DR2 all BAO",
+      "Pantheon+ without SH0ES",
+      "Planck 2018 low-l TT clik",
+      "Planck 2018 low-l EE clik",
+      "Planck NPIPE high-l CamSpec TTTEEE",
+      "Planck+ACT DR6 lensing"
+    ],
+    "primary_science_run_id": "F1",
+    "primary_science_data": [
+      "DESI DR2 all BAO",
+      "Pantheon+SH0ES",
+      "Planck 2018 low-l TT clik",
+      "Planck 2018 low-l EE clik",
+      "Planck NPIPE high-l CamSpec TTTEEE",
+      "Planck+ACT DR6 lensing"
+    ],
+    "reference": "archived official DESI DR2 flat CPL chains",
+    "max_mean_shift_pooled_sigma": 0.2,
+    "max_sd_fractional_difference": 0.1,
+    "max_abs_delta_chi2_difference": 1.0,
+    "max_rminus1": 0.01,
+    "min_bulk_ess": 1000,
+    "min_tail_ess_w0_wa": 400,
+    "failed_gate_action": "NO-GO; do not start WP5"
+  },
+  "wp5_bin4": {
+    "requires_wp4_go": true,
+    "ppf_crossing": true,
+    "z_edges": [0.0, 0.3, 0.7, 1.5, 1100.0],
+    "early_de_z": 1059.0,
+    "early_de_max_ratio": 0.01,
+    "transition_delta_lna_primary": 0.01,
+    "transition_delta_lna_sensitivity": [0.005, 0.01, 0.02],
+    "transition_formula": "w_left + 0.5*(w_right-w_left)*(1+tanh((ln(a)-ln(a_edge))/Delta))",
+    "max_background_relative_error": 0.0001,
+    "max_native_limit_spectrum_relative_error": 0.001,
+    "te_error_normalization": "abs(delta C_TE)/sqrt(C_TT*C_EE)",
+    "max_transition_mean_shift_pooled_sigma": 0.1,
+    "max_transition_prip_absolute_shift": 0.02,
+    "failed_gate_action": "NO-GO; retain v1.x compressed-CMB scope"
+  },
+  "wp6_growth": {
+    "full_cmb_lensing_already_growth_sensitive": true,
+    "direct_likelihood_status": "staged data-only feasibility gate",
+    "forbid_marginal_point_compilation": true,
+    "forbid_overlap_without_joint_covariance": true,
+    "decision_file": "plan/GROWTH_DATA_DECISION.md",
+    "decision_must_precede_fate_calculation": true,
+    "allowed_initial_reference": "official DESI DR1 full-shape chains, external replication only",
+    "failure_action": "NO-GO; do not assemble covariance-free growth likelihood"
+  },
+  "wp7_fs7": {
+    "model": "FS7",
+    "coordinate": "x=ln(a)",
+    "fixed_early_anchor": {"a": 0.25, "w": -1.0},
+    "free_a_nodes": [0.4, 0.5882352941176471, 0.7692307692307692, 1.0, 1.5, 2.0, 4.0],
+    "early_extension": "w=-1 for a<=0.25",
+    "interpolation": "clamped cubic spline in ln(a) with dw/dln(a)=0 at a=0.25 and a=4",
+    "future_extension": "constant at final node for a>=4",
+    "node_bounds": [-3.0, 1.0],
+    "function_bound_grid_size": 512,
+    "function_bound_grid_a": [0.25, 4.0],
+    "prior_mean_w": -1.0,
+    "kernel": "squared exponential",
+    "jitter": 1e-10,
+    "primary_hyperparameters": {"sigma_f": 0.5, "ell": 0.7},
+    "sensitivity_hyperparameters": [
+      {"sigma_f": 0.25, "ell": 0.7},
+      {"sigma_f": 1.0, "ell": 0.7},
+      {"sigma_f": 0.5, "ell": 0.35},
+      {"sigma_f": 0.5, "ell": 1.4}
+    ],
+    "sampling": "direct normalized truncated prior with non-centred Cholesky parameterization",
+    "importance_reweight_native_grammars": false,
+    "primary_likelihood": "v1.x compressed-CMB D0",
+    "sbc_datasets": 50,
+    "max_rhat": 1.01,
+    "min_bulk_ess": 400,
+    "min_tail_ess": 400,
+    "max_fate_probability_mcse": 0.01
+  }
+}

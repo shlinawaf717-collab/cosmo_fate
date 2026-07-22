@@ -9,6 +9,17 @@
 - `runs/` — MCMC/nested sampling 输出，按 `<组合>_<模型>_<先验>` 命名
 - `paper/` — 文稿
 
+## 研究版本边界
+
+完成的 v1.x 论文由 commit `70a47ec` 与 annotated tag
+`paper-v1x-final-20260722` 固定；其论文、结果和原始本地预注册身份不由后续研究
+追溯性改写。PRD 强化研究使用独立协议
+`plan/PRD_EXTENSION_PROTOCOL.md`、机器清单
+`plan/prd_extension_protocol.json` 和追加式修订账本
+`plan/PRD_EXTENSION_AMENDMENTS.md`。所有新结果必须写入
+`runs/prd_extension/`，不得覆盖 v1.x 的 `runs/gate2/`、`runs/phase2/` 或
+`runs/phase3/`。
+
 阶段路线：0 预注册（本阶段）→ 1 管线验证（Gate 1：复现 DESI DR2 已发表 w₀wₐCDM 结果）→ 2 全后验 + 终局分类 → 3 脆弱性量化（F_prior / F_param / F_data、mock 校准、约束视界）→ 4 写作。
 
 ## 复现（Reproduce）
