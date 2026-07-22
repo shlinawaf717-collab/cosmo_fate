@@ -128,21 +128,19 @@ grammar and its induced prior measure.
 
 \section{Preregistered design and provenance}\label{sec:prereg}
 
-The analysis plan---model space, priors, dataset combinations,
-fate-classification criteria, statistical rules, and pass/fail gates---was
-locally preregistered and frozen in version control as commit
-\texttt{98abc20} under tag \texttt{prereg-v1} at 10:26 local time on
-2026-07-03, before the first real-data fate result at 11:29. The tag is an
-ancestor of that result commit, and the frozen plan is reproduced in English
-translation in Appendix~\ref{app:plan}. This was a local, version-controlled
-preregistration, not a deposit in a third-party registry: the public repository
-was created later. The repository therefore cannot by itself provide an
-independent timestamp for the original freeze. We state this verification
-limitation explicitly while retaining \emph{preregistered} for the temporal
-design: the protocol was written and frozen before the target analyses, and
-later deviations were labeled rather than silently folded into it. Commit
-ancestry, timestamps, tree identifiers, and the plan checksum are listed in
-the archived \texttt{plan/PREREGISTRATION\_PROVENANCE.md} audit.
+The analysis plan specified the model space, priors, dataset combinations,
+criteria for classifying fates, statistical rules, and pass/fail gates. The
+protocol was written and frozen in local version control before the first
+target fate calculation, according to the preserved Git history. Because the
+repository was made public only afterwards, the original freeze lacks an
+independently verifiable timestamp. We therefore describe the study as locally
+preregistered, not as a registry-verified preregistration. Specifically, commit
+\texttt{98abc20} under tag
+\texttt{prereg-v1}, recorded at 10:26 local time on 2026-07-03, is an ancestor
+of the first real-data fate-result commit recorded at 11:29. The frozen plan is
+reproduced in English translation in Appendix~\ref{app:plan}; commit ancestry,
+timestamps, tree identifiers, and the plan checksum are listed in the archived
+provenance audit, \path{plan/PREREGISTRATION_PROVENANCE.md}.
 
 More precisely, this is a secondary-data preregistration of the fate-translation
 audit. The datasets and validation strategy were already known, but the core

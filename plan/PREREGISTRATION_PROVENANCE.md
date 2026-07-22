@@ -4,15 +4,16 @@ Audit date: 2026-07-21; extended 2026-07-22 (Asia/Shanghai)
 
 ## Scope of the claim
 
-This project uses **preregistered** in the temporal sense that the analysis
-protocol was written and frozen before the first target fate calculation. The
-freeze was made in local Git history, not deposited at that time in OSF or
-another third-party registry. The present public repository therefore preserves
-the preregistration and its full descendant history, but does not independently
-timestamp the original local freeze.
+The protocol was written and frozen in local version control before the first
+target fate calculation, according to the preserved Git history. Because the
+repository was made public only afterwards, the original freeze lacks an
+independently verifiable timestamp. We therefore describe the study as locally
+preregistered, not as a registry-verified preregistration.
 
-This distinction is disclosed in the manuscript. It is a limitation of external
-verification, not a claim that the plan was written retrospectively.
+The present public repository preserves the preregistration and its full
+descendant history. The limitation concerns external verification of the
+original freeze time; it is not a claim that the plan was written
+retrospectively.
 
 The precise scope is a **secondary-data preregistration of the fate-translation
 audit**. The datasets and validation strategy were already known; the claim is
