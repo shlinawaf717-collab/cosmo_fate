@@ -188,6 +188,58 @@ this clarification.
 Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`; WP3 inference runner and
 result commits pending on `agent/prd-extension-wp0`.
 
+## PRD-A005 — 2026-07-27
+
+ID and date: PRD-A005, 2026-07-27
+
+Author: Zhang; recorded by Codex under the author's instruction
+
+Affected work package(s): WP7, new WP8, integrated interpretation
+
+Old rule: The frozen extension ended its inferential work packages with WP7.
+WP7 defined one common function-space model, FS7, whose final free node is at
+`a=4` and whose future is held constant at `w(4)` for all `a>=4`.  That rule
+made the asymptotic fate explicit but did not vary the unobserved continuation
+while holding the observed history fixed.
+
+New rule: A new WP8 future-continuation sensitivity analysis is established
+after WP7 and before integrated manuscript interpretation.  WP8 leaves WP7
+unchanged and retains its constant-after-`a=4` rule as one labelled baseline.
+Its primary analysis takes only the converged WP7 marginal history at `a<=1`
+and compares prospectively frozen continuations that preserve the present
+value and, except for one limiting diagnostic, the present derivative.  It
+reports every registered family separately and as an envelope; assigning
+equal or post-result weights to continuation families is prohibited.  The
+complete design, seeds, endpoints, validation thresholds, and interpretation
+gate are frozen in `plan/WP8_FUTURE_CONTINUATION_PROTOCOL.md` and
+`plan/wp8_future_continuation_protocol.json`.
+
+Trigger and scientific reason: Review of the residual limitations after
+WP1--WP7 identified that a common measure over functions through `a=4` does
+not itself test the rule connecting a finite, wholly unobserved future
+interval to `a=infinity`.  Histories identical over the observed domain can
+have different asymptotic fates under different continuations.  WP8 isolates
+that otherwise unmeasured source of fate uncertainty.
+
+Affected result inspected before change? yes; exact scope: completed WP2 and
+WP3 results, the frozen WP7 design, and WP4 input/preflight plus runtime-health
+information were known.  No WP4 aggregate scientific endpoint or fate
+classification was inspected, and no WP5, WP6, WP7, or WP8 inference result
+exists.  No continuation-family fate result was generated before this entry.
+
+Classification: exploratory; prospective pre-WP8-result design expansion
+
+Pre-amendment result disposition: All existing v1.x and WP1--WP4 artifacts
+remain unchanged.  WP7 remains a separately reportable common-function-prior
+model.  Its constant-after-`a=4` fate result, if produced, is interpreted as
+conditional on C0 rather than invalidated or overwritten by WP8.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP8_FUTURE_CONTINUATION_PROTOCOL.md`;
+`plan/wp8_future_continuation_protocol.json`;
+`pipeline/test_wp8_future_continuation_protocol.py`; implementation and result
+commits pending on `agent/prd-extension-wp0`.
+
 Every future entry must append, never rewrite, the following fields:
 
 ```text

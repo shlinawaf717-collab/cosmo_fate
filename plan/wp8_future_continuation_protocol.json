@@ -1,0 +1,142 @@
+{
+  "schema_version": "wp8-future-continuation-v1",
+  "approved_at": "2026-07-27T11:19:18+08:00",
+  "status": "prospectively frozen before any WP8 result",
+  "parent_amendment": "PRD-A005",
+  "requires": {
+    "wp7_primary_converged": true,
+    "source_model": "FS7",
+    "source_likelihood": "v1.x compressed-CMB D0",
+    "source_domain_max_a": 1.0,
+    "failure_action": "NO-GO; do not substitute a different posterior"
+  },
+  "results_root": "runs/prd_extension/wp8_future_continuation",
+  "coordinate": "x=ln(a)",
+  "boundary_state": [
+    "w1=w(a=1)",
+    "s1=dw/dln(a) at a=1 from the observed-history side"
+  ],
+  "smooth_formula": {
+    "expression": "w(x)=w_inf+(A+B*x)*exp(-x/tau)",
+    "A": "w1-w_inf",
+    "B": "s1+A/tau",
+    "properties": [
+      "w(0)=w1",
+      "dw/dx(0)=s1",
+      "w(infinity)=w_inf"
+    ]
+  },
+  "families": [
+    {
+      "id": "C0",
+      "name": "frozen_FS7_baseline",
+      "rule": "registered FS7 spline through a=4, constant at w(4) thereafter",
+      "c1_continuous_at_a1": true
+    },
+    {
+      "id": "C1",
+      "name": "present_constant",
+      "rule": "w(a)=w1 for a>=1",
+      "c1_continuous_at_a1": false,
+      "role": "limiting diagnostic"
+    },
+    {
+      "id": "C2",
+      "name": "relax_to_lambda",
+      "w_inf": -1.0,
+      "tau_values": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "c1_continuous_at_a1": true
+    },
+    {
+      "id": "C3",
+      "name": "matched_free_asymptote",
+      "w_inf_distribution": {
+        "distribution": "normal",
+        "loc": -1.0,
+        "scale": 0.5,
+        "truncated_bounds": [
+          -3.0,
+          1.0
+        ]
+      },
+      "tau_values": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "c1_continuous_at_a1": true,
+      "w_inf_likelihood_independent": true
+    }
+  ],
+  "family_model_averaging": false,
+  "function_admissibility": {
+    "w_bounds": [
+      -3.0,
+      1.0
+    ],
+    "grid_size": 512,
+    "grid_a": [
+      1.0,
+      1000000.0
+    ]
+  },
+  "monte_carlo": {
+    "draws_per_stochastic_setting": 100000,
+    "replicates": [
+      1,
+      2
+    ],
+    "seed_formula": "202607270800 + 10*tau_ordinal + replicate_ordinal",
+    "optional_stopping": false
+  },
+  "fate": {
+    "finite_limit_rule": {
+      "RIP": "w_inf < -1",
+      "DS": "w_inf == -1",
+      "DECAY": "w_inf > -1"
+    },
+    "boundary_flag_half_width": 0.01,
+    "boundary_flag_changes_label": false
+  },
+  "primary_endpoints": [
+    "per-setting fate composition",
+    "per-setting P_heat",
+    "continuation envelope for P_RIP and P_heat",
+    "Delta_cont_RIP",
+    "Delta_cont_heat",
+    "robust thermodynamic-side fraction across C0 C2 and the full admissible C3 asymptote support",
+    "C3 prior and posterior fate composition",
+    "rejection boundary and OTHER fractions",
+    "Monte Carlo standard errors and replicate differences"
+  ],
+  "validation": {
+    "C0_reproduction_absolute_tolerance": 1e-10,
+    "boundary_value_derivative_absolute_tolerance": 1e-10,
+    "past_loglike_absolute_tolerance": 1e-8,
+    "max_fate_probability_mcse": 0.002,
+    "replicate_absolute_floor": 0.005,
+    "replicate_combined_mcse_multiplier": 3.0,
+    "one_documented_implementation_correction": true,
+    "failure_action": "NO-GO"
+  },
+  "interpretation_gate": {
+    "max_unqualified_P_RIP_span": 0.1,
+    "max_unqualified_P_heat_span": 0.1,
+    "min_unqualified_robust_side_fraction": 0.9,
+    "failure_action": "report conditional family results and continuation envelope; prohibit a single continuation-unqualified fate probability"
+  },
+  "secondary": {
+    "full_cmb_crosscheck_only_after_primary_freeze": true,
+    "requires_validated_wp7_full_cmb_posterior": true,
+    "absence_invalidates_primary": false
+  },
+  "out_of_scope": [
+    "family-averaged fate probabilities without prospectively justified family weights",
+    "microphysical stability of every kinematic w(a) continuation",
+    "covariant-field-theory realizability of every continuation"
+  ]
+}
