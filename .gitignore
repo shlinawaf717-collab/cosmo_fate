@@ -1,4 +1,6 @@
 .venv/
+.venv-camb154/
+.conda-camb154/
 data/cobaya_packages/
 runs/**/*.txt
 runs/**/*.log

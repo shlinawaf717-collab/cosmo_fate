@@ -1,0 +1,102 @@
+{
+  "candidate": {
+    "camb": "1.6.6",
+    "json": "runs/prd_extension/wp4_full_cmb/camb_version_probe/camb166.json"
+  },
+  "created_at_utc": "2026-07-27T08:05:06.973152+00:00",
+  "gates": {
+    "H0": true,
+    "rdrag": true,
+    "spectra": true,
+    "thetastar": true
+  },
+  "geometry": {
+    "H0": {
+      "absolute_difference": 0.0,
+      "relative_difference": 0.0,
+      "signed_difference": 0.0
+    },
+    "rdrag": {
+      "absolute_difference": 0.0,
+      "relative_difference": 0.0,
+      "signed_difference": 0.0
+    },
+    "thetastar": {
+      "absolute_difference": 0.0,
+      "relative_difference": 0.0,
+      "signed_difference": 0.0
+    }
+  },
+  "purpose": "non-authoritative CAMB version-drift screen",
+  "reference": {
+    "camb": "1.5.4",
+    "json": "runs/prd_extension/wp4_full_cmb/camb_version_probe/camb154.json"
+  },
+  "schema_version": "wp4-camb-fixed-point-comparison-v1",
+  "scope_warning": "Passing does not establish full-likelihood or posterior equivalence and cannot stop or validate the running F0 chains.",
+  "spectra": {
+    "lens_potential.PE": {
+      "max_abs_over_reference_peak": 1.0645751946543666e-06,
+      "pass": true,
+      "rms_over_reference_rms": 1.1999036063531288e-06
+    },
+    "lens_potential.PP": {
+      "max_abs_over_reference_peak": 9.139960072797076e-06,
+      "pass": true,
+      "rms_over_reference_rms": 8.800278939753408e-06
+    },
+    "lens_potential.PT": {
+      "max_abs_over_reference_peak": 8.737285043054141e-05,
+      "pass": true,
+      "rms_over_reference_rms": 8.801410994790065e-05
+    },
+    "total.BB": {
+      "max_abs_over_reference_peak": 0.00020496414602744773,
+      "pass": true,
+      "rms_over_reference_rms": 0.0002269532221858206
+    },
+    "total.EE": {
+      "max_abs_over_reference_peak": 3.817887374804721e-08,
+      "pass": true,
+      "rms_over_reference_rms": 5.307923820420644e-07
+    },
+    "total.TE": {
+      "max_abs_over_reference_peak": 1.0817654161896563e-06,
+      "pass": true,
+      "rms_over_reference_rms": 1.0968576717495362e-06
+    },
+    "total.TT": {
+      "max_abs_over_reference_peak": 3.5414341592988796e-05,
+      "pass": true,
+      "rms_over_reference_rms": 3.481775340714541e-05
+    },
+    "unlensed_scalar.BB": {
+      "max_abs_over_reference_peak": 0.0,
+      "pass": true,
+      "rms_over_reference_rms": 0.0
+    },
+    "unlensed_scalar.EE": {
+      "max_abs_over_reference_peak": 6.238692265612772e-09,
+      "pass": true,
+      "rms_over_reference_rms": 9.804367691307557e-09
+    },
+    "unlensed_scalar.TE": {
+      "max_abs_over_reference_peak": 1.0817652023349676e-06,
+      "pass": true,
+      "rms_over_reference_rms": 1.0965712845144658e-06
+    },
+    "unlensed_scalar.TT": {
+      "max_abs_over_reference_peak": 3.5414537960594294e-05,
+      "pass": true,
+      "rms_over_reference_rms": 3.481808862281378e-05
+    }
+  },
+  "status": "PASS",
+  "thresholds_frozen_before_comparison": {
+    "H0_absolute": 0.01,
+    "rdrag_absolute": 0.01,
+    "spectrum_max_abs_over_reference_peak": 0.002,
+    "spectrum_rms_over_reference_rms": 0.0005,
+    "thetastar_absolute": 0.0001
+  }
+}

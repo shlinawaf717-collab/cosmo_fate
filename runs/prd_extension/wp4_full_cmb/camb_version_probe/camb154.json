@@ -1,0 +1,88 @@
+{
+  "created_at_utc": "2026-07-27T08:03:55.878971+00:00",
+  "environment": {
+    "camb": "1.5.4",
+    "numpy": "2.4.6",
+    "omp_num_threads": "1",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "python": "3.11.15"
+  },
+  "official_fixed_point": {
+    "logA": 3.0328665,
+    "minuslogpost": 6205.5117,
+    "ns": 0.96470841,
+    "ombh2": 0.022178687,
+    "omch2": 0.11899667,
+    "tau": 0.050062227,
+    "theta_MC_100": 1.0408271,
+    "w": -0.83930535,
+    "wa": -0.6054199
+  },
+  "official_fixed_point_source": {
+    "path": "runs/gate1/official/chain.1.txt",
+    "sha256": "db81d299d59051ae5e1e8f67952320e08a1644a4a1f8d19267705aee32798877",
+    "zero_based_data_row": 2367
+  },
+  "outputs": {
+    "H0": 67.43512251007833,
+    "derived": {
+      "DAstar": 13.91356959447368,
+      "age": 13.768474430022207,
+      "kd": 0.14018987620366333,
+      "keq": 0.010297765196904141,
+      "rdrag": 147.58071745315576,
+      "rstar": 144.84644820510965,
+      "thetad": 0.1610625815517036,
+      "thetaeq": 0.8177026392651747,
+      "thetarseq": 0.4518417200241583,
+      "thetastar": 1.0410444797907297,
+      "zdrag": 1059.4318644749949,
+      "zeq": 3374.317988714931,
+      "zstar": 1090.0923688265952
+    },
+    "omegal": 0.6880561114352839,
+    "omegam": 0.3118644445889972
+  },
+  "purpose": "non-authoritative CAMB version-drift screen",
+  "running_f0_chain_data_read": false,
+  "runtime_seconds": 16.858733290999226,
+  "schema_version": "wp4-camb-fixed-point-probe-v1",
+  "settings": {
+    "AccuracyBoost": 1,
+    "dark_energy_model": "ppf",
+    "halofit_version": "mead2016",
+    "lAccuracyBoost": 1,
+    "lSampleBoost": 1,
+    "lens_margin": 1250,
+    "lens_potential_accuracy": 4,
+    "lmax": 4000,
+    "num_massive_neutrinos": 1
+  },
+  "spectra": {
+    "arrays": {
+      "lens_potential": {
+        "dtype": "float64",
+        "shape": [
+          5151,
+          3
+        ]
+      },
+      "total": {
+        "dtype": "float64",
+        "shape": [
+          5151,
+          4
+        ]
+      },
+      "unlensed_scalar": {
+        "dtype": "float64",
+        "shape": [
+          5151,
+          4
+        ]
+      }
+    },
+    "path": "runs/prd_extension/wp4_full_cmb/camb_version_probe/camb154_spectra.npz",
+    "sha256": "885f4d11d5efd6ee08d315ea123b4910328af756dadb122b5e6af2b49f33bd89"
+  }
+}
