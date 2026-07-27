@@ -1,0 +1,60 @@
+{
+  "schema_version": "wp8-future-continuation-corrective-v2",
+  "status": "frozen before WP8 result",
+  "parent_protocol": "wp8-future-continuation-v1",
+  "parent_amendment": "PRD-A007",
+  "history_policy": "append; do not overwrite v1 or PRD-A005",
+  "structural_controls": {
+    "C2": {
+      "w_inf": -1.0,
+      "fate": "DS",
+      "P_RIP": 0.0,
+      "tau_changes_fate": false,
+      "tau_can_change_admissibility": true
+    },
+    "C3_unconditioned_measure": {
+      "P_RIP": 0.5,
+      "P_heat": 0.5,
+      "P_DS": 0.0,
+      "likelihood_update": 0.0
+    },
+    "admissible_support_method": "analytic intersection of affine w_inf constraints on the registered 512-point grid",
+    "accepted_draw_composition_label": "selection-conditioned, not a likelihood posterior update"
+  },
+  "retired_primary_endpoint": "thresholded robust thermodynamic-side fraction",
+  "replacement_primary_endpoint": {
+    "name": "analytic thermodynamic partial-identification support set",
+    "categories": [
+      "{RIP}",
+      "{heat}",
+      "{RIP,heat}",
+      "empty/invalid"
+    ],
+    "aggregate_threshold": null
+  },
+  "descriptive_only": [
+    "Delta_cont_RIP",
+    "Delta_cont_heat",
+    "selection-conditioned C3 fate composition"
+  ],
+  "interpretation": {
+    "family_averaged_probability_allowed": false,
+    "always_report": [
+      "conditional family results",
+      "continuation envelope",
+      "partial-identification support set"
+    ],
+    "retired_thresholds": [
+      "robust_side_fraction >= 0.90",
+      "Delta_cont_RIP <= 0.10",
+      "Delta_cont_heat <= 0.10"
+    ]
+  },
+  "unchanged_validation": [
+    "C0 reproduction",
+    "boundary value and derivative matching",
+    "past observable and likelihood invariance",
+    "fixed-seed replay",
+    "admissibility rejection and boundary accounting"
+  ]
+}

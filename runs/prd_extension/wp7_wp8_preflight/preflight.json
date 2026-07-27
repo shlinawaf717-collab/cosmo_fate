@@ -1,0 +1,401 @@
+{
+  "created_at_utc": "2026-07-27T08:34:03.924118+00:00",
+  "inputs": {
+    "wp7_protocol": {
+      "path": "plan/prd_extension_protocol.json",
+      "sha256": "1a08b1020b789d67733c795ae74d0d7b40efcbb36fdb2ae7409e5862b43a081b"
+    },
+    "wp8_v1_protocol": {
+      "path": "plan/wp8_future_continuation_protocol.json",
+      "sha256": "758c22afff11e9feb00811ff0d89d4cec7198187a58b92316498c01b72c3dbcd"
+    }
+  },
+  "posterior_or_scientific_endpoint_read": false,
+  "production_disposition": {
+    "apply_wp8_v2_partial_identification_amendment": true,
+    "change_wp7_jitter_before_sampling": false,
+    "require_leakage_caveat_and_decomposition": true,
+    "retain_ell_1p4_with_warning_and_convergence_gate": true,
+    "retain_global_spline_as_registered_model": true
+  },
+  "schema_version": "wp7-wp8-analytic-numerical-preflight-v1",
+  "status": "PASS_WITH_DECLARED_STRUCTURAL_WARNINGS",
+  "wp7_covariance": [
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.4650873176547938,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.1347751481727658,
+      "cholesky_relative_infinity_residual": 2.3592958563166848e-17,
+      "condition_number": 62801.80528637128,
+      "ell": 0.7,
+      "inverse_solve_infinity_residual": 2.679208900974454e-12,
+      "maximum_eigenvalue": 1.0242119210748077,
+      "minimum_eigenvalue": 1.630863820561339e-05,
+      "numerical_status": "PASS",
+      "sigma_f": 0.5
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.2325436678985909,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.13477508170867747,
+      "cholesky_relative_infinity_residual": 8.257535495002665e-17,
+      "condition_number": 62800.650076961865,
+      "ell": 0.7,
+      "inverse_solve_infinity_residual": 5.115607626837049e-12,
+      "maximum_eigenvalue": 0.25605298034370205,
+      "minimum_eigenvalue": 4.077234551392549e-06,
+      "numerical_status": "PASS",
+      "sigma_f": 0.25
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.9301746262383828,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.13477516478880747,
+      "cholesky_relative_infinity_residual": 4.7185917129341893e-17,
+      "condition_number": 62802.09409564304,
+      "ell": 0.7,
+      "inverse_solve_infinity_residual": 4.021687405156588e-12,
+      "maximum_eigenvalue": 4.096847683999233,
+      "minimum_eigenvalue": 6.523425282220734e-05,
+      "numerical_status": "PASS",
+      "sigma_f": 1.0
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.49999986861403517,
+      "a4_multiple_R2_from_nodes_a_le_1": 5.259437901861119e-07,
+      "cholesky_relative_infinity_residual": 1.165612187794102e-16,
+      "condition_number": 72.7706001431945,
+      "ell": 0.35,
+      "inverse_solve_infinity_residual": 4.5562750541681044e-15,
+      "maximum_eigenvalue": 0.6306454425315358,
+      "minimum_eigenvalue": 0.008666211921992973,
+      "numerical_status": "PASS",
+      "sigma_f": 0.5
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.14060749059963837,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.9209181343807231,
+      "cholesky_relative_infinity_residual": 5.3924585239532354e-17,
+      "condition_number": 250608013.73488393,
+      "ell": 1.4,
+      "inverse_solve_infinity_residual": 1.571618761600249e-08,
+      "maximum_eigenvalue": 1.4189051538040518,
+      "minimum_eigenvalue": 5.661850683294986e-09,
+      "numerical_status": "WARN_HIGH_CONDITION_NUMBER",
+      "sigma_f": 0.5
+    }
+  ],
+  "wp7_spline_past_future_leakage": {
+    "definition": "unit future-node basis response of the registered global clamped cubic spline over a in [0.25,1]",
+    "interpretation": "future-node posterior shifts cannot be called direct future-data constraints without reporting this deterministic spline coupling",
+    "maximum_abs_response": 0.07956993783248895,
+    "responses": [
+      {
+        "a_at_max_abs_response": 0.904495926090856,
+        "future_node_a": 1.5,
+        "max_abs_response_over_a_le_1": 0.07956993783248895,
+        "response_at_a1": 0.0
+      },
+      {
+        "a_at_max_abs_response": 0.904495926090856,
+        "future_node_a": 2.0,
+        "max_abs_response_over_a_le_1": 0.024283029199090995,
+        "response_at_a1": 0.0
+      },
+      {
+        "a_at_max_abs_response": 0.904495926090856,
+        "future_node_a": 4.0,
+        "max_abs_response_over_a_le_1": 0.002089015389018124,
+        "response_at_a1": 0.0
+      }
+    ],
+    "status": "PAST_FUTURE_COUPLING_DETECTED"
+  },
+  "wp8_structural_controls": {
+    "C2_fate": {
+      "P_RIP": 0.0,
+      "fate": "DS",
+      "tau_can_change_admissibility": true,
+      "tau_changes_fate": false,
+      "w_inf": -1.0
+    },
+    "C3_unconditioned_asymptote_measure": {
+      "P_RIP": 0.5,
+      "P_heat": 0.5,
+      "distribution": "symmetric truncated Normal(-1,0.5^2) on [-3,1]",
+      "likelihood_information": 0.0
+    },
+    "admissibility_warning": "conditioning on path admissibility can reweight w_inf through (w1,s1,tau); that selection-conditioned composition is not a likelihood posterior update of the independent asymptote measure",
+    "all_probe_intervals_cross_boundary": true,
+    "registered_grid_probe_states": [
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -1.1
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -1.0
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": -0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.0,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 0.5,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 1.0,
+        "w1": -0.9
+      },
+      {
+        "admissible_winf_interval": [
+          -3.0,
+          1.0
+        ],
+        "s1": 0.2,
+        "support_crosses_fate_boundary": true,
+        "tau": 2.0,
+        "w1": -0.9
+      }
+    ],
+    "robust_fraction_disposition": "replace the v1 thresholded robust fraction with an analytic partial-identification support-set statement"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "wp7-analytic-prediction-v1",
+  "status": "frozen before WP7 inference",
+  "parent_amendment": "PRD-A007",
+  "fate_node": {
+    "a": 4.0,
+    "variable": "y_f=w(a=4)+1",
+    "RIP": "y_f<0",
+    "heat": "y_f>=0"
+  },
+  "conditional_gaussian": {
+    "mean": "C_fo C_oo^{-1} y_o",
+    "variance": "C_ff-C_fo C_oo^{-1} C_of",
+    "P_RIP": "Phi(-conditional_mean/conditional_sd)"
+  },
+  "prediction": {
+    "statement": "P_RIP approaches 0.5 when the future-node prior is symmetric about zero and the likelihood supplies negligible information about the future-node residual after conditioning on the observed-history subspace",
+    "condition_1": "prior symmetry about w=-1 at the final node",
+    "condition_2": "negligible likelihood information about the final-node residual",
+    "interpretation": "prior symmetry plus non-identification, not evidence for physical equiprobability"
+  },
+  "required_diagnostics": [
+    "prior and posterior final-node sign probabilities",
+    "conditional SD and multiple R2 of a=4 given nodes a<=1",
+    "nodewise likelihood information",
+    "prior-correlation versus global-spline-leakage decomposition"
+  ],
+  "ell_1p4": {
+    "retain_registered_setting": true,
+    "change_jitter_before_sampling": false,
+    "must_pass_original_convergence_gates": true,
+    "failure_disposition": "report nonconverged after the one registered tuning revision"
+  },
+  "global_spline": {
+    "past_future_leakage_test_required": true,
+    "retain_registered_model": true,
+    "future_node_shift_is_not_automatically_a_direct_future_constraint": true
+  }
+}

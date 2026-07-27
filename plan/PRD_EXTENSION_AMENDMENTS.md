@@ -307,6 +307,79 @@ Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 finalizer, activation manifest, and result commits pending on
 `agent/prd-extension-wp0`.
 
+## PRD-A007 — 2026-07-27
+
+ID and date: PRD-A007, 2026-07-27
+
+Author: Zhang; recorded by Codex under the author's instruction
+
+Affected work package(s): WP7, WP8, integrated interpretation
+
+Old rule: WP8 v1 treated a worst-case robust-side fraction across C0, C2, and
+the full admissible C3 support as a primary numerical endpoint with a `0.90`
+interpretation threshold.  It also thresholded `Delta_cont_RIP` and
+`Delta_cont_heat`, called changes in the admitted C3 asymptote marginal an
+implementation failure, and required Monte Carlo fate estimates even where
+the family construction fixed them analytically.  WP7 registered a symmetric
+GP node prior and global clamped spline but did not predeclare the analytic
+non-identification prediction, the `ell=1.4` conditioning diagnostic, or a
+past--future spline leakage test.
+
+New rule: WP8 v1 and PRD-A005 remain immutable historical checkpoints.
+`plan/WP8_FUTURE_CONTINUATION_AMENDMENT_V2.md` replaces the thresholded robust
+fraction with an analytic partial-identification support set and removes all
+three structurally determined interpretation thresholds.  C2 is an analytic
+DS control; the unconditioned symmetric C3 measure is exactly 50/50 across the
+RIP/heat boundary; any asymmetry after path-admissibility conditioning is
+labelled selection-conditioned rather than a likelihood update.  C3
+admissible support is computed by deterministic interval intersection on the
+registered grid, with Monte Carlo retained only as verification.  Conditional
+family outputs, the envelope, and the support set are always reported because
+no family probabilities exist.
+
+For WP7, `plan/WP7_ANALYTIC_PREDICTION.md` freezes the conditional prediction
+that `P(RIP)` approaches one half only when the final-node prior is symmetric
+and the likelihood supplies negligible information about the final-node
+residual.  A half result under those conditions is interpreted as prior
+symmetry plus non-identification.  The registered `ell=1.4` setting and jitter
+remain unchanged; its high condition number is disclosed and it must pass the
+original convergence gates.  The registered global spline also remains
+unchanged, but deterministic future-node response over `a<1` is measured and
+must accompany any claim that future nodes are data constrained.
+
+Trigger and scientific reason: Analytic inspection showed that C2 fate is
+constant by definition, the unconditioned C3 asymptote probability is fixed by
+its symmetric prior, and a worst-case support containing both sides makes the
+v1 robust threshold a structural consequence rather than an empirical
+measurement.  Conditioning C3 on path admissibility can itself reweight the
+asymptote and must not be confused with likelihood information.  Independent
+numerical preflight also found a high-condition-number `ell=1.4` covariance
+and nonzero global-spline past--future coupling.  Correcting these points
+before WP7/WP8 inference prevents structural prior facts from being presented
+as data-driven endpoints.
+
+Affected result inspected before change? yes; exact scope: the algebra of the
+registered WP7/WP8 priors and continuations, deterministic probe-state
+admissible intervals, covariance eigenvalues/condition numbers, and spline
+basis responses were inspected.  Completed WP2/WP3 results and WP4 runtime
+health were already known.  No WP7 or WP8 prior simulation, likelihood,
+posterior, fate classification, aggregate endpoint, or family result exists.
+
+Classification: corrective; post-design and pre-WP7/WP8-result amendment
+
+Pre-amendment result disposition: PRD-A005, WP8 v1, and their tests remain
+versioned and are not rewritten.  No WP7/WP8 inference product is discarded
+because none exists.  The v2 supplement controls future execution and
+interpretation.  FS7's hyperparameters, jitter, interpolation, seeds,
+likelihood, and convergence gates are unchanged.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP7_ANALYTIC_PREDICTION.md`; `plan/wp7_analytic_prediction.json`;
+`plan/WP8_FUTURE_CONTINUATION_AMENDMENT_V2.md`;
+`plan/wp8_future_continuation_amendment_v2.json`;
+`pipeline/wp7_wp8_preflight.py`; tests and preflight result pending on
+`agent/prd-extension-wp0`.
+
 Every future entry must append, never rewrite, the following fields:
 
 ```text
