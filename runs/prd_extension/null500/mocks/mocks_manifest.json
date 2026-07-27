@@ -1,0 +1,32 @@
+{
+ "truth": {
+  "ombh2": 0.022629416582497192,
+  "omegam": 0.296801644757444,
+  "H0": 68.80609002111032,
+  "Mb": -19.397211225138456,
+  "omch2": 0.11724054230390356,
+  "chi2": 1498.3401104889924
+ },
+ "seed": 42,
+ "n": 500,
+ "cmb_truth_pred": [
+  1.7392238141910432,
+  301.35304010298927,
+  0.022629416582497192
+ ],
+ "generator_version": "make_mocks.v2.append-safe-core",
+ "truth_fingerprint": "c3aa6ba9137e8eaa24a48a2a94044bf86233522c7bd538a983c9fcc5dd4efbf8",
+ "input_fingerprint": {
+  "sn_data_sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+  "sn_cov_sha256": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+  "bao_cov_sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+  "bao_mean_sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+  "cmb_prior_sha256": "af9f33bea5f0c79ae850aa661f7d3a43f193a47c2984d7da55ea103b1ee319b9"
+ },
+ "previous_n": 100,
+ "append_range": [
+  101,
+  500
+ ],
+ "input_fingerprint_provenance": "adopted_after_exact_m000_regeneration_check"
+}

@@ -1,0 +1,44 @@
+[output] Output to be read-from/written-into folder '/Users/nocide/cosmo_fate/runs/prd_extension/wp3_power/truths/wam060', with prefix 'fit'
+[camb] `camb` module loaded successfully from /Users/nocide/cosmo_fate/.venv/lib/python3.13/site-packages/camb
+[bao.desi_dr2.desi_bao_all] Initialized.
+[minimize] *WARNING* This run has been SEEDED with seed 2026072301
+[minimize] Initializing
+[minimize] Run 1/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.021941932818072003), 'omegam': np.float64(0.316226284867119), 'H0': np.float64(68.36694693998106), 'w': np.float64(-0.8641557437776315), 'Mb': np.float64(-19.285648079694525)}
+[minimize] Run 2/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.022452996676095977), 'omegam': np.float64(0.3138249759204249), 'H0': np.float64(66.46116600330066), 'w': np.float64(-0.8840065588223129), 'Mb': np.float64(-19.232954025437543)}
+[minimize] Run 3/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.022153538447449054), 'omegam': np.float64(0.3112623068626732), 'H0': np.float64(67.86172878207907), 'w': np.float64(-0.9233515477679252), 'Mb': np.float64(-19.194426033315327)}
+[minimize] Run 4/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.022893488737161526), 'omegam': np.float64(0.30597984879971835), 'H0': np.float64(68.89559321202299), 'w': np.float64(-0.8167399051906737), 'Mb': np.float64(-19.22205197530389)}
+[minimize] Run 5/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.021957276571319947), 'omegam': np.float64(0.3024880507519271), 'H0': np.float64(67.61747530086612), 'w': np.float64(-0.8522530555722535), 'Mb': np.float64(-19.1999001339559)}
+[minimize] Run 6/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.022326659020396905), 'omegam': np.float64(0.30135595318148095), 'H0': np.float64(67.84376320675904), 'w': np.float64(-0.927508692524957), 'Mb': np.float64(-19.239909738180774)}
+[minimize] Run 7/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.02221964764643505), 'omegam': np.float64(0.31259114411140076), 'H0': np.float64(67.01244337250417), 'w': np.float64(-0.8847533526942207), 'Mb': np.float64(-19.26428556614913)}
+[minimize] Run 8/8 will start from random initial point:
+[minimize] {'ombh2': np.float64(0.022171957734734182), 'omegam': np.float64(0.30584118775942926), 'H0': np.float64(67.62549280596419), 'w': np.float64(-0.7077774741556369), 'Mb': np.float64(-19.225361571033545)}
+[minimize] Starting run 1/8
+[minimize] Run 1/8 converged.
+[minimize] Starting run 2/8
+[minimize] Run 2/8 converged.
+[minimize] Starting run 3/8
+[minimize] Run 3/8 converged.
+[minimize] Starting run 4/8
+[minimize] Run 4/8 converged.
+[minimize] Starting run 5/8
+[minimize] Run 5/8 converged.
+[minimize] Starting run 6/8
+[minimize] Run 6/8 converged.
+[minimize] Starting run 7/8
+[minimize] Run 7/8 converged.
+[minimize] Starting run 8/8
+[minimize] Run 8/8 converged.
+[minimize] Finished successfully!
+[minimize] -log(likelihood) minimized to 744.731
+[minimize] Parameter values at minimum:
+   weight  minuslogpost     ombh2    omegam         H0         w         Mb     omch2       rdrag  chi2__BAO    chi2__SN  minuslogprior  minuslogprior__0         chi2  chi2__bao.desi_dr2.desi_bao_all  chi2__sn.pantheonplusshoes  chi2__pipeline.cmb_distprior.PlanckDistPrior
+0     1.0    748.713396  0.022456  0.299617  68.996848 -0.886822 -19.380536  0.119534  147.128757  13.717183  1475.18771       3.982027          3.982027  1489.462739                        13.717183                  1475.18771                                      0.557846
+[minimize] Full set of minima:
+{'0': (744.7313693251049, True), '1': (744.7313693250908, True), '2': (744.7313693253202, True), '3': (744.7313693251115, True), '4': (744.7313693250453, True), '5': (744.7313693250845, True), '6': (744.731369325989, True), '7': (744.7313693250721, True)}

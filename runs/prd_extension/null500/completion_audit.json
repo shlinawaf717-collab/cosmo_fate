@@ -1,0 +1,57 @@
+{
+  "campaign": {
+    "chain_files": 501,
+    "checkpoint_files": 501,
+    "mock_directories": 501,
+    "mock_indices": [
+      0,
+      500
+    ],
+    "noisy_mock_count": 500,
+    "relative_covariance_links": 1002,
+    "result_rows": 501,
+    "run_root": "/Users/nocide/cosmo_fate/runs/prd_extension/null500",
+    "seed_rule": "3000 + k",
+    "unique_result_indices": 501
+  },
+  "convergence": {
+    "Rminus1_cl_limit_exclusive": 0.2,
+    "Rminus1_limit_exclusive": 0.01,
+    "max_Rminus1": 0.009989,
+    "max_Rminus1_cl": 0.121576,
+    "max_Rminus1_cl_mock": 299,
+    "max_Rminus1_mock": 136,
+    "passed": 501
+  },
+  "created_at": "2026-07-27T02:05:30.538052+00:00",
+  "ledger": {
+    "duplicates": 0,
+    "error_records": 0,
+    "fatal_error_log_matches": 0,
+    "max_P_heat_identity_error": 0.0,
+    "max_probability_sum_error": 1.1102230246251565e-16,
+    "missing_indices": [],
+    "post_burn_in_samples_max": 27552,
+    "post_burn_in_samples_median": 12152,
+    "post_burn_in_samples_min": 5096
+  },
+  "migration_audit": {
+    "audit": "PASS",
+    "baseline_result_rows": 101,
+    "migration_inventory_entries": 1415,
+    "mock_manifest_n": 500,
+    "regular_tree_sha256": "4392806c8757278a2ba2af2b2e41e4f86dd7214287fc98f793edf8680a2dc735",
+    "relative_covariance_links": 202,
+    "result_rows": 501,
+    "target": "runs/prd_extension/null500"
+  },
+  "production_m121_m500": {
+    "jobs": 6,
+    "last_chain_converged_at": "2026-07-23T10:11:23.740014",
+    "mcmc_span_seconds": 57566.104401,
+    "started_at": "2026-07-22T18:11:57.635613",
+    "throughput_mocks_per_hour": 23.7639842791974
+  },
+  "schema_version": "wp2-null500-completion-audit-v1",
+  "status": "PASS"
+}

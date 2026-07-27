@@ -1,0 +1,168 @@
+{
+  "classifier_demonstrably_powerful": true,
+  "completion_status": "PASS",
+  "interpretation_guardrail": "WP3 establishes calibration power under the six declared local alternatives. It does not by itself establish that the observed universe occupies any one off-boundary truth.",
+  "monotonicity_status": "PASS",
+  "outer_direction_power_threshold": 0.8,
+  "outer_points_pass": true,
+  "rows": [
+    {
+      "asimov_correct_mass": 0.9956077053397754,
+      "correct_direction": "heat_death_compatible",
+      "correct_mass_central68": [
+        0.9682635565239538,
+        1.0
+      ],
+      "correct_mass_median": 0.9965900778314147,
+      "depth_power": 0.9,
+      "depth_power_exact95": [
+        0.8237774022598247,
+        0.9509953107785141
+      ],
+      "direction_power": 1.0,
+      "direction_power_exact95": [
+        0.9637833073548094,
+        1.0
+      ],
+      "false_sign_exact95": [
+        0.0,
+        0.03621669264519054
+      ],
+      "false_sign_fraction": 0.0,
+      "truth_id": "wam060",
+      "wa": -0.6
+    },
+    {
+      "asimov_correct_mass": 0.9319859402460456,
+      "correct_direction": "heat_death_compatible",
+      "correct_mass_central68": [
+        0.5901690017709191,
+        0.9884534320061477
+      ],
+      "correct_mass_median": 0.9222907678351928,
+      "depth_power": 0.47,
+      "depth_power_exact95": [
+        0.3694051641943439,
+        0.572418515109955
+      ],
+      "direction_power": 0.93,
+      "direction_power_exact95": [
+        0.8610802715441336,
+        0.9713947110925815
+      ],
+      "false_sign_exact95": [
+        0.028605288907418584,
+        0.13891972845586648
+      ],
+      "false_sign_fraction": 0.07,
+      "truth_id": "wam030",
+      "wa": -0.3
+    },
+    {
+      "asimov_correct_mass": 0.7898340054393698,
+      "correct_direction": "heat_death_compatible",
+      "correct_mass_central68": [
+        0.5262308668707534,
+        0.9777809477464199
+      ],
+      "correct_mass_median": 0.8728944628322666,
+      "depth_power": 0.33,
+      "depth_power_exact95": [
+        0.23919853462260188,
+        0.43117275077757106
+      ],
+      "direction_power": 0.84,
+      "direction_power_exact95": [
+        0.7532124025889679,
+        0.9056897100260538
+      ],
+      "false_sign_exact95": [
+        0.09431028997394621,
+        0.2467875974110321
+      ],
+      "false_sign_fraction": 0.16,
+      "truth_id": "wam015",
+      "wa": -0.15
+    },
+    {
+      "asimov_correct_mass": 0.7638252148997134,
+      "correct_direction": "RIP",
+      "correct_mass_central68": [
+        0.4107918022649544,
+        0.932805346640247
+      ],
+      "correct_mass_median": 0.7285515070193552,
+      "depth_power": 0.18,
+      "depth_power_exact95": [
+        0.11031122915371111,
+        0.2694770859669012
+      ],
+      "direction_power": 0.77,
+      "direction_power_exact95": [
+        0.6751412672248969,
+        0.8482683886985327
+      ],
+      "false_sign_exact95": [
+        0.15173161130146726,
+        0.3248587327751031
+      ],
+      "false_sign_fraction": 0.23,
+      "truth_id": "wap015",
+      "wa": 0.15
+    },
+    {
+      "asimov_correct_mass": 0.9332532895542869,
+      "correct_direction": "RIP",
+      "correct_mass_central68": [
+        0.6696852682036085,
+        0.9962707681955332
+      ],
+      "correct_mass_median": 0.9477355093724511,
+      "depth_power": 0.57,
+      "depth_power_exact95": [
+        0.46713373832484634,
+        0.6686089833686121
+      ],
+      "direction_power": 0.93,
+      "direction_power_exact95": [
+        0.8610802715441336,
+        0.9713947110925815
+      ],
+      "false_sign_exact95": [
+        0.028605288907418584,
+        0.13891972845586648
+      ],
+      "false_sign_fraction": 0.07,
+      "truth_id": "wap030",
+      "wa": 0.3
+    },
+    {
+      "asimov_correct_mass": 0.9994259471871412,
+      "correct_direction": "RIP",
+      "correct_mass_central68": [
+        0.9841223293311229,
+        1.0
+      ],
+      "correct_mass_median": 0.9991485062615595,
+      "depth_power": 0.98,
+      "depth_power_exact95": [
+        0.9296160675289299,
+        0.9975686631760752
+      ],
+      "direction_power": 1.0,
+      "direction_power_exact95": [
+        0.9637833073548094,
+        1.0
+      ],
+      "false_sign_exact95": [
+        0.0,
+        0.03621669264519054
+      ],
+      "false_sign_fraction": 0.0,
+      "truth_id": "wap060",
+      "wa": 0.6
+    }
+  ],
+  "schema_version": "wp3-power-report-v1",
+  "source_audit": "runs/prd_extension/wp3_power/completion_audit.json"
+}

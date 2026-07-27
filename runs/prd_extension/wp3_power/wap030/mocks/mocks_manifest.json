@@ -1,0 +1,61 @@
+{
+ "truth": {
+  "H0": 69.531575,
+  "Mb": -19.389345,
+  "fit": {
+   "chi2": 1508.9115,
+   "likelihood_chi2": {
+    "BAO": 12.804079,
+    "SN": 1488.9382,
+    "bao.desi_dr2.desi_bao_all": 12.804079,
+    "pipeline.cmb_distprior.PlanckDistPrior": 7.1691749,
+    "sn.pantheonplusshoes": 1488.9382
+   },
+   "minuslogpost": 758.15009
+  },
+  "generator_seed": 2026072205,
+  "ombh2": 0.022647639,
+  "omch2": 0.11688159,
+  "omegam": 0.28993561,
+  "optimizer": {
+   "best_of": 8,
+   "hard_constraint": "w < -0.3",
+   "ignore_prior": true,
+   "method": "bobyqa",
+   "rhoend": 1e-05,
+   "seed": 2026072305
+  },
+  "provenance": {
+   "base_config": "pipeline/d0_cpl_p1.yaml",
+   "base_config_sha256": "9cf9967d9794b5945582106903d894ac7311c1c40016c66789f1c51011972f1e",
+   "bestfit": "runs/prd_extension/wp3_power/truths/wap030/fit.bestfit.txt",
+   "bestfit_sha256": "951164eb45edb23687712d5405ffabc996ab64241200d2313a5c86df769c9b01",
+   "created_at": "2026-07-23T04:47:06.212502+00:00",
+   "fit_config": "runs/prd_extension/wp3_power/truths/wap030/fit.yaml",
+   "fit_config_sha256": "3f35739d5b710e408c1adaa518ecdcdd09c507b7e668c98972b7bb22d20009ec",
+   "fit_log": "runs/prd_extension/wp3_power/truths/wap030/fit.log",
+   "requirements_lock_sha256": "0e269d5ebb8062aacf5624ff0b445ae328b03d86e3de3dd60c832168332f10f3"
+  },
+  "rdrag": 147.62134,
+  "truth_id": "wap030",
+  "truth_ordinal": 5,
+  "w": -1.1011641,
+  "wa": 0.3
+ },
+ "seed": 2026072205,
+ "n": 100,
+ "cmb_truth_pred": [
+  1.7379885575433276,
+  301.3387634858679,
+  0.022647639
+ ],
+ "generator_version": "make_mocks.v2.append-safe-core",
+ "truth_fingerprint": "8fad37d8c257c86988a9d89048d71ae8ffd8fccc53d63068e2ac80a73b80aeac",
+ "input_fingerprint": {
+  "sn_data_sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8",
+  "sn_cov_sha256": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+  "bao_cov_sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+  "bao_mean_sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+  "cmb_prior_sha256": "af9f33bea5f0c79ae850aa661f7d3a43f193a47c2984d7da55ea103b1ee319b9"
+ }
+}

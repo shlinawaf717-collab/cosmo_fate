@@ -42,9 +42,12 @@ def portable_symlink(source, target):
 
 def truth_background(t):
     import camb
+    w0 = float(t.get('w', -1.0))
+    wa = float(t.get('wa', 0.0))
     pars = camb.set_params(ombh2=t['ombh2'], omch2=t['omch2'], H0=t['H0'],
                            mnu=0.06, nnu=3.044, num_massive_neutrinos=1,
-                           tau=0.054, As=2.1e-9, ns=0.9649)
+                           tau=0.054, As=2.1e-9, ns=0.9649,
+                           dark_energy_model='ppf', w=w0, wa=wa)
     return camb.get_background(pars)
 
 
@@ -176,7 +179,11 @@ def production_assets(truth):
     bao_mu = np.array([v for _, v, _ in bao_rows])
     bao_cov_path = os.path.join(BAO_DIR, 'desi_gaussian_bao_ALL_GCcomb_cov.txt')
     bao_cov = np.loadtxt(bao_cov_path)
-    R, lA = predict_R_lA(truth['ombh2'], truth['omegam'], truth['H0'], -1.0, 0.0)
+    w0 = float(truth.get('w', -1.0))
+    wa = float(truth.get('wa', 0.0))
+    R, lA = predict_R_lA(
+        truth['ombh2'], truth['omegam'], truth['H0'], w0, wa
+    )
     cmb_mu = np.array([R, lA, truth['ombh2']])
     sig = np.asarray(PlanckDistPrior.sigma, float)
     cmb_cov = np.asarray(PlanckDistPrior.corr, float) * np.outer(sig, sig)

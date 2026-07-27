@@ -384,17 +384,83 @@ def audit_target(
     if sha256_file(inventory_path) != manifest["inventory"]["sha256"]:
         raise MigrationError("migration inventory file hash mismatch")
     recorded_inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
-    current_inventory = tree_inventory(target_root / "mocks")
-    if current_inventory != recorded_inventory:
-        raise MigrationError("migrated mock inventory no longer matches recorded contents")
-    regular_sha = regular_tree_digest(current_inventory)
-    if regular_sha != manifest["target"]["regular_tree_sha256"]:
-        raise MigrationError("migrated regular-tree hash mismatch")
-    if sha256_file(target_root / "results.jsonl") != manifest["results_sha256"]:
-        raise MigrationError("migrated result ledger hash mismatch")
+
+    # WP2 intentionally appends m101..m500, updates mocks_manifest.json, and
+    # appends result rows after this migration snapshot is created.  Audit the
+    # recorded migration entries in place instead of requiring the completed
+    # campaign tree to remain identical to the pre-production snapshot.
+    mocks_root = target_root / "mocks"
+    for entry in recorded_inventory:
+        relative = entry["path"]
+        if relative == "mocks_manifest.json":
+            continue
+        path = mocks_root / relative
+        if entry["type"] == "symlink":
+            if not path.is_symlink() or os.readlink(path) != entry["target"]:
+                raise MigrationError(f"migrated mock inventory mismatch: {relative}")
+        elif (
+            not path.is_file()
+            or path.is_symlink()
+            or path.stat().st_size != entry["size"]
+            or sha256_file(path) != entry["sha256"]
+        ):
+            raise MigrationError(f"migrated mock inventory mismatch: {relative}")
+
+    source_mock_root = Path(manifest["source"]["mock_root"])
+    if not source_mock_root.is_absolute():
+        source_mock_root = ROOT / source_mock_root
+    source_mock_manifest = source_mock_root / "mocks_manifest.json"
+    if (
+        not source_mock_manifest.is_file()
+        or sha256_file(source_mock_manifest) != manifest["source"]["mock_manifest_sha256"]
+    ):
+        raise MigrationError("frozen source mock manifest no longer matches migration record")
+    source_mock_metadata = json.loads(source_mock_manifest.read_text(encoding="utf-8"))
+    current_mock_manifest = mocks_root / "mocks_manifest.json"
+    if not current_mock_manifest.is_file():
+        raise MigrationError("extended mock manifest is missing")
+    current_mock_metadata = json.loads(current_mock_manifest.read_text(encoding="utf-8"))
+    current_n = current_mock_metadata.get("n")
+    if (
+        current_mock_metadata.get("seed") != source_mock_metadata.get("seed")
+        or current_mock_metadata.get("truth") != source_mock_metadata.get("truth")
+        or not isinstance(current_n, int)
+        or current_n < expected_noisy
+    ):
+        raise MigrationError("extended mock manifest changes frozen migration metadata")
+    if current_n > expected_noisy and (
+        current_mock_metadata.get("previous_n") != expected_noisy
+        or current_mock_metadata.get("append_range") != [expected_noisy + 1, current_n]
+    ):
+        raise MigrationError("extended mock manifest has an invalid append range")
+
+    results_path = target_root / "results.jsonl"
+    result_lines = results_path.read_bytes().splitlines(keepends=True)
+    baseline_rows = expected_noisy + 1
+    if len(result_lines) < baseline_rows:
+        raise MigrationError("migrated result ledger lost baseline rows")
+    baseline_payload = b"".join(result_lines[:baseline_rows])
+    if hashlib.sha256(baseline_payload).hexdigest() != manifest["results_sha256"]:
+        raise MigrationError("migrated result ledger baseline prefix mismatch")
+    rows = []
+    for line_number, line in enumerate(result_lines, 1):
+        try:
+            row = json.loads(line)
+            row["k"] = int(row["k"])
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+            raise MigrationError(
+                f"invalid result at {results_path}:{line_number}"
+            ) from exc
+        rows.append(row)
+    indices = [row["k"] for row in rows]
+    if len(indices) != len(set(indices)):
+        raise MigrationError("extended result ledger contains duplicate mock indices")
+    if set(range(baseline_rows)) - set(indices):
+        raise MigrationError("extended result ledger lost baseline mock indices")
+    if any(k < 0 or k > current_n for k in indices):
+        raise MigrationError("extended result ledger contains out-of-range mock indices")
     if sha256_file(target_root / "truth_lcdm_d0.json") != manifest["truth_sha256"]:
         raise MigrationError("migrated truth snapshot hash mismatch")
-    rows = read_results(target_root / "results.jsonl", expected_noisy)
     for name, canonical in covariances.items():
         for k in range(expected_noisy + 1):
             link = target_root / "mocks" / f"m{k:03d}" / name
@@ -405,8 +471,10 @@ def audit_target(
     return {
         "audit": "PASS",
         "target": relative_to_root(target_root),
-        "inventory_entries": len(current_inventory),
-        "regular_tree_sha256": regular_sha,
+        "migration_inventory_entries": len(recorded_inventory),
+        "regular_tree_sha256": manifest["target"]["regular_tree_sha256"],
+        "mock_manifest_n": current_n,
+        "baseline_result_rows": baseline_rows,
         "result_rows": len(rows),
         "relative_covariance_links": len(covariances) * (expected_noisy + 1),
     }

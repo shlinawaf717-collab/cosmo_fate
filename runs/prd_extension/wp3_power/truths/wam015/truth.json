@@ -1,0 +1,43 @@
+{
+  "H0": 69.204157,
+  "Mb": -19.385607,
+  "fit": {
+    "chi2": 1493.5162,
+    "likelihood_chi2": {
+      "BAO": 11.366433,
+      "SN": 1479.4907,
+      "bao.desi_dr2.desi_bao_all": 11.366433,
+      "pipeline.cmb_distprior.PlanckDistPrior": 2.6591238,
+      "sn.pantheonplusshoes": 1479.4907
+    },
+    "minuslogpost": 750.60661
+  },
+  "generator_seed": 2026072203,
+  "ombh2": 0.022546918,
+  "omch2": 0.11829166,
+  "omegam": 0.29541953,
+  "optimizer": {
+    "best_of": 8,
+    "hard_constraint": "w < 0.15",
+    "ignore_prior": true,
+    "method": "bobyqa",
+    "rhoend": 1e-05,
+    "seed": 2026072303
+  },
+  "provenance": {
+    "base_config": "pipeline/d0_cpl_p1.yaml",
+    "base_config_sha256": "9cf9967d9794b5945582106903d894ac7311c1c40016c66789f1c51011972f1e",
+    "bestfit": "runs/prd_extension/wp3_power/truths/wam015/fit.bestfit.txt",
+    "bestfit_sha256": "d503a069b1e046192239ae955f47389596dda369ee9a75535c11764587320a24",
+    "created_at": "2026-07-23T04:46:40.066174+00:00",
+    "fit_config": "runs/prd_extension/wp3_power/truths/wam015/fit.yaml",
+    "fit_config_sha256": "42497a8dbd1666917934a897bff02c06bb227c79d88f310f6210a02b2ab97baf",
+    "fit_log": "runs/prd_extension/wp3_power/truths/wam015/fit.log",
+    "requirements_lock_sha256": "0e269d5ebb8062aacf5624ff0b445ae328b03d86e3de3dd60c832168332f10f3"
+  },
+  "rdrag": 147.35704,
+  "truth_id": "wam015",
+  "truth_ordinal": 3,
+  "w": -0.98840986,
+  "wa": -0.15
+}

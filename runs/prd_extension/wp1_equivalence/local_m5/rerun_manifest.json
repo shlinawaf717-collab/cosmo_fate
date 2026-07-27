@@ -1,0 +1,25 @@
+{
+  "environment_lock": "runs/prd_extension/environment/local_m5_wp1.json",
+  "environment_scope": "local production environment equivalence; not x86/Linux cross-platform WP1",
+  "finished_at": "2026-07-23T03:54:20.137702+00:00",
+  "indices": [
+    0,
+    1,
+    25,
+    50,
+    75,
+    100
+  ],
+  "jobs": 6,
+  "newly_run": [
+    0,
+    1,
+    25,
+    50,
+    75,
+    100
+  ],
+  "run_root": "runs/prd_extension/wp1_equivalence/local_m5",
+  "schema_version": "wp1-local-rerun-v1",
+  "started_at": "2026-07-23T03:39:35.164420+00:00"
+}

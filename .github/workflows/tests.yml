@@ -30,6 +30,12 @@ jobs:
           pipeline/test_fragility_audit.py
           pipeline/test_early_de_gate.py
           pipeline/test_prd_extension_protocol.py
+          pipeline/test_make_mocks_cpl.py
+          pipeline/test_fit_wp3_truths.py
+          pipeline/test_make_wp3_mocks.py
+          pipeline/test_run_wp3.py
+          pipeline/test_audit_wp3_completion.py
+          pipeline/test_report_wp3_power.py
       - run: python pipeline/constraint_horizon_audit.py
       - run: python pipeline/prior_fate_audit.py --n 2000000
       - run: python pipeline/inwindow_fit_audit.py

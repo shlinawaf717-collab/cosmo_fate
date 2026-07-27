@@ -1,0 +1,79 @@
+{
+  "code_hashes": {
+    "pipeline/classify_posterior.py": "7a8f8f6016b43490ce9bb2039a84bee2a4dd6b788f5e31c585385f249ccaebc7",
+    "pipeline/cmb_distprior.py": "f277afef58fe1105009e3b4909cc5d2a2b12209faa75e14dc8f03d1d52beda0f",
+    "pipeline/d0_cpl_p1.yaml": "9cf9967d9794b5945582106903d894ac7311c1c40016c66789f1c51011972f1e",
+    "pipeline/fate.py": "f500aef476d3c3c760bbe26dbfccf632345c6bc6d26ebc37f775c7d72188dd21",
+    "pipeline/run_gate2.py": "063448b0592a057a9b95fa2b061770d34fe922b5d57c75d2f89ebb14d7b6df4a",
+    "pipeline/run_wp1_equivalence.py": "0fab37053f5db186c901b91bf773642355e5e52d8267dd7650254411b58c8a46"
+  },
+  "created_at": "2026-07-23T03:39:35.052559+00:00",
+  "data_hashes": {
+    "bao_cov.txt": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+    "sn_cov.cov": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc"
+  },
+  "git": {
+    "branch": "agent/prd-extension-wp0",
+    "commit": "bf8a3898b334b5668788dc70879f16bcd7d0e8af",
+    "worktree_dirty": true
+  },
+  "mcmc_seed_rule": "3000 + k",
+  "pip_freeze": [
+    "camb==1.6.6",
+    "certifi==2026.6.17",
+    "charset-normalizer==3.4.7",
+    "cobaya==3.6.2",
+    "contourpy==1.3.3",
+    "cycler==0.12.1",
+    "dill==0.4.1",
+    "dynesty==3.0.0",
+    "fonttools==4.63.0",
+    "getdist==1.7.7",
+    "idna==3.18",
+    "iniconfig==2.3.0",
+    "kiwisolver==1.5.0",
+    "matplotlib==3.11.0",
+    "mpmath==1.3.0",
+    "numpy==2.5.0",
+    "packaging==26.2",
+    "pandas==3.0.3",
+    "pillow==12.3.0",
+    "pluggy==1.6.0",
+    "portalocker==3.2.0",
+    "Py-BOBYQA==1.5.0",
+    "Pygments==2.20.0",
+    "pyparsing==3.3.2",
+    "pytest==9.1.1",
+    "python-dateutil==2.9.0.post0",
+    "PyYAML==6.0.3",
+    "RapidFuzz==3.14.5",
+    "requests==2.34.2",
+    "scipy==1.16.2",
+    "setuptools==82.0.1",
+    "six==1.17.0",
+    "sympy==1.14.0",
+    "tqdm==4.68.3",
+    "typing_extensions==4.16.0",
+    "urllib3==2.7.0"
+  ],
+  "pip_freeze_exactly_matches_lock": true,
+  "platform": {
+    "machine": "arm64",
+    "macos": "26.5.2",
+    "processor": "arm",
+    "python": "3.13.13",
+    "release": "25.5.0",
+    "system": "Darwin"
+  },
+  "registered_indices": [
+    0,
+    1,
+    25,
+    50,
+    75,
+    100
+  ],
+  "requirements_lock_sha256": "0e269d5ebb8062aacf5624ff0b445ae328b03d86e3de3dd60c832168332f10f3",
+  "schema_version": "wp1-environment-lock-v1",
+  "scope": "local production environment equivalence; not x86/Linux cross-platform WP1"
+}

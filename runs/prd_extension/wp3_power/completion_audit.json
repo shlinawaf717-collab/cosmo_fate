@@ -1,0 +1,448 @@
+{
+  "artifact_and_convergence_audit": {
+    "Rminus1_cl_limit_exclusive": 0.2,
+    "Rminus1_limit_exclusive": 0.01,
+    "fatal_error_log_matches": 0,
+    "max_P_heat_identity_error": 0.0,
+    "max_Rminus1": 0.009999,
+    "max_Rminus1_case": {
+      "k": 57,
+      "truth_id": "wam015"
+    },
+    "max_Rminus1_cl": 0.122598,
+    "max_Rminus1_cl_case": {
+      "k": 31,
+      "truth_id": "wam015"
+    },
+    "max_probability_sum_error": 1.1102230246251565e-16,
+    "missing_cases": 0,
+    "passed_cases": 606,
+    "post_burn_in_samples_max": 31360,
+    "post_burn_in_samples_median": 12348.0,
+    "post_burn_in_samples_min": 5824
+  },
+  "campaign": {
+    "asimov_cases": 6,
+    "duplicate_pairs": 0,
+    "error_rows": 0,
+    "first_final_chain_started_at": "2026-07-23T12:52:28.796965",
+    "last_final_chain_converged_at": "2026-07-24T14:44:09.598852",
+    "noisy_cases": 600,
+    "result_rows": 606,
+    "run_root": "/Users/nocide/cosmo_fate/runs/prd_extension/wp3_power",
+    "seed_rule": "310000 + 1000*j + k; k=0 Asimov per PRD-A004",
+    "truth_points": 6,
+    "unique_truth_mock_pairs": 606
+  },
+  "created_at": "2026-07-27T02:05:41.606746+00:00",
+  "input_audit": {
+    "created_at": "2026-07-27T02:05:34.833171+00:00",
+    "relative_covariance_links": 1212,
+    "schema_version": "wp3-mock-campaign-v1",
+    "shared_input_fingerprint": {
+      "bao_cov_sha256": "252a143274c8a07c78694c119617d36594f6d7965d00319ca611c6ffb886e509",
+      "bao_mean_sha256": "9ac154ab583ce759c0f7eef3c978c7c70a6ead2d18774caceadf1a350a640585",
+      "cmb_prior_sha256": "af9f33bea5f0c79ae850aa661f7d3a43f193a47c2984d7da55ea103b1ee319b9",
+      "sn_cov_sha256": "abf806d966485e64afdb359c87bffc0ecc00d05eff0a31ced66f247385df0fdc",
+      "sn_data_sha256": "1cb0fc379ef066afdc2ffd1857681cc478024570d8a3eba284fb645775198cf8"
+    },
+    "status": "PASS",
+    "total_asimov_mocks": 6,
+    "total_mock_directories": 606,
+    "total_noisy_mocks": 600,
+    "truths": {
+      "wam015": {
+        "asimov_input_check": "PASS",
+        "generator_seed": 2026072203,
+        "mock_directories": 101,
+        "mock_manifest_sha256": "4a88c069552bb16c3928436ad0b5c054cc8d0cf9593cfcd0049c911260ba03c7",
+        "truth_sha256": "581d1a155f5dde671a1fffa15c62d2851c8d53334d3dc14c2bc031843c2480da",
+        "wa": -0.15
+      },
+      "wam030": {
+        "asimov_input_check": "PASS",
+        "generator_seed": 2026072202,
+        "mock_directories": 101,
+        "mock_manifest_sha256": "3fb8cfe1a3a498c61e8cfc1e58536219b6a6f84d12c392d8eb8c133ca6ddfa46",
+        "truth_sha256": "46e69e3d49afb6fd45a682e743d4b36d208436880228f01bc459f4d38b57e57e",
+        "wa": -0.3
+      },
+      "wam060": {
+        "asimov_input_check": "PASS",
+        "generator_seed": 2026072201,
+        "mock_directories": 101,
+        "mock_manifest_sha256": "6a95589c37e515d5b53c3434c6cf72abf864e53b730bb958811a0cc1d0c02514",
+        "truth_sha256": "65033c27d6e00edfa58ddfbd5c837509b797df78217277a81e69fc11249b1c22",
+        "wa": -0.6
+      },
+      "wap015": {
+        "asimov_input_check": "PASS",
+        "generator_seed": 2026072204,
+        "mock_directories": 101,
+        "mock_manifest_sha256": "f80683674d9ba3681b48fe7c5b39d298db96b481750cbf693ab9d14f79b7e312",
+        "truth_sha256": "7eee9d9811e44d625df7de58ae87843a8e53eb3852a280c296e5ed7dae6aea2e",
+        "wa": 0.15
+      },
+      "wap030": {
+        "asimov_input_check": "PASS",
+        "generator_seed": 2026072205,
+        "mock_directories": 101,
+        "mock_manifest_sha256": "78587be597970be415fbe9e2af33f6974f49c282b63c6551157b3a4fc5f097fb",
+        "truth_sha256": "0c2a0182b86d443969e5edfd70cd822fbb67039db260635d8ba9436f4f3b735c",
+        "wa": 0.3
+      },
+      "wap060": {
+        "asimov_input_check": "PASS",
+        "generator_seed": 2026072206,
+        "mock_directories": 101,
+        "mock_manifest_sha256": "7be7539de9db9a71dd23fd9f4edfd850ac51c98c324fddf03fe61a7bf6ffc2eb",
+        "truth_sha256": "9d04bc04755f4893cdbafd1fd8df7e344657ae6c8938fbf026ae1532350be984",
+        "wa": 0.6
+      }
+    }
+  },
+  "operational_history": {
+    "completed_noisy_counts_at_detection": [
+      485,
+      514
+    ],
+    "disposition": "No result-ledger, input, resource, or scientific error was found. The same command, jobs=6, inputs, and deterministic seeds were used for resume. Incomplete cases were rerun; no completed ledger pair was duplicated. The final resume ran in detached screen.",
+    "driver_interruptions": 2
+  },
+  "registered_power_endpoints": {
+    "alpha": 0.05,
+    "classifier_demonstrably_powerful": true,
+    "monotonicity_diagnostic": {
+      "definition": "A reversal is beyond binomial uncertainty only when the outer point estimate is lower and its exact 95% upper bound is below the inner point's exact 95% lower bound.",
+      "negative_wa": [
+        {
+          "inner_truth": "wam015",
+          "outer_truth": "wam030",
+          "point_estimate_reversal": false,
+          "reversal_beyond_binomial_uncertainty": false
+        },
+        {
+          "inner_truth": "wam030",
+          "outer_truth": "wam060",
+          "point_estimate_reversal": false,
+          "reversal_beyond_binomial_uncertainty": false
+        }
+      ],
+      "positive_wa": [
+        {
+          "inner_truth": "wap015",
+          "outer_truth": "wap030",
+          "point_estimate_reversal": false,
+          "reversal_beyond_binomial_uncertainty": false
+        },
+        {
+          "inner_truth": "wap030",
+          "outer_truth": "wap060",
+          "point_estimate_reversal": false,
+          "reversal_beyond_binomial_uncertainty": false
+        }
+      ],
+      "status": "PASS"
+    },
+    "outer_direction_power_threshold": 0.8,
+    "outer_points_pass": true,
+    "truth_points": {
+      "wam015": {
+        "asimov_correct_mass": 0.7898340054393698,
+        "correct_direction": "heat_death_compatible",
+        "correct_mass_definition": "P_heat",
+        "correct_mass_distribution": {
+          "central_68_interval": [
+            0.5262308668707534,
+            0.9777809477464199
+          ],
+          "median": 0.8728944628322666
+        },
+        "depth_test": {
+          "alpha": 0.05,
+          "finite_simulation_rule": "(1 + count(null >= mock))/(500 + 1) <= 0.05",
+          "maximum_p_plus_one": 1.0,
+          "minimum_p_plus_one": 0.001996007984031936,
+          "null_endpoint": "P_heat",
+          "null_n": 500,
+          "tail": "upper"
+        },
+        "direction_power": {
+          "exact_binomial_95_interval": [
+            0.7532124025889679,
+            0.9056897100260538
+          ],
+          "n": 100,
+          "rate": 0.84,
+          "successes": 84
+        },
+        "false_sign_fraction": {
+          "exact_binomial_95_interval": [
+            0.09431028997394621,
+            0.2467875974110321
+          ],
+          "n": 100,
+          "rate": 0.16,
+          "successes": 16
+        },
+        "one_sided_depth_power": {
+          "exact_binomial_95_interval": [
+            0.23919853462260188,
+            0.43117275077757106
+          ],
+          "n": 100,
+          "rate": 0.33,
+          "successes": 33
+        },
+        "wa": -0.15
+      },
+      "wam030": {
+        "asimov_correct_mass": 0.9319859402460456,
+        "correct_direction": "heat_death_compatible",
+        "correct_mass_definition": "P_heat",
+        "correct_mass_distribution": {
+          "central_68_interval": [
+            0.5901690017709191,
+            0.9884534320061477
+          ],
+          "median": 0.9222907678351928
+        },
+        "depth_test": {
+          "alpha": 0.05,
+          "finite_simulation_rule": "(1 + count(null >= mock))/(500 + 1) <= 0.05",
+          "maximum_p_plus_one": 0.874251497005988,
+          "minimum_p_plus_one": 0.001996007984031936,
+          "null_endpoint": "P_heat",
+          "null_n": 500,
+          "tail": "upper"
+        },
+        "direction_power": {
+          "exact_binomial_95_interval": [
+            0.8610802715441336,
+            0.9713947110925815
+          ],
+          "n": 100,
+          "rate": 0.93,
+          "successes": 93
+        },
+        "false_sign_fraction": {
+          "exact_binomial_95_interval": [
+            0.028605288907418584,
+            0.13891972845586648
+          ],
+          "n": 100,
+          "rate": 0.07,
+          "successes": 7
+        },
+        "one_sided_depth_power": {
+          "exact_binomial_95_interval": [
+            0.3694051641943439,
+            0.572418515109955
+          ],
+          "n": 100,
+          "rate": 0.47,
+          "successes": 47
+        },
+        "wa": -0.3
+      },
+      "wam060": {
+        "asimov_correct_mass": 0.9956077053397754,
+        "correct_direction": "heat_death_compatible",
+        "correct_mass_definition": "P_heat",
+        "correct_mass_distribution": {
+          "central_68_interval": [
+            0.9682635565239538,
+            1.0
+          ],
+          "median": 0.9965900778314147
+        },
+        "depth_test": {
+          "alpha": 0.05,
+          "finite_simulation_rule": "(1 + count(null >= mock))/(500 + 1) <= 0.05",
+          "maximum_p_plus_one": 0.281437125748503,
+          "minimum_p_plus_one": 0.001996007984031936,
+          "null_endpoint": "P_heat",
+          "null_n": 500,
+          "tail": "upper"
+        },
+        "direction_power": {
+          "exact_binomial_95_interval": [
+            0.9637833073548094,
+            1.0
+          ],
+          "n": 100,
+          "rate": 1.0,
+          "successes": 100
+        },
+        "false_sign_fraction": {
+          "exact_binomial_95_interval": [
+            0.0,
+            0.03621669264519054
+          ],
+          "n": 100,
+          "rate": 0.0,
+          "successes": 0
+        },
+        "one_sided_depth_power": {
+          "exact_binomial_95_interval": [
+            0.8237774022598247,
+            0.9509953107785141
+          ],
+          "n": 100,
+          "rate": 0.9,
+          "successes": 90
+        },
+        "wa": -0.6
+      },
+      "wap015": {
+        "asimov_correct_mass": 0.7638252148997134,
+        "correct_direction": "RIP",
+        "correct_mass_definition": "P_RIP",
+        "correct_mass_distribution": {
+          "central_68_interval": [
+            0.4107918022649544,
+            0.932805346640247
+          ],
+          "median": 0.7285515070193552
+        },
+        "depth_test": {
+          "alpha": 0.05,
+          "finite_simulation_rule": "(1 + count(null >= mock))/(500 + 1) <= 0.05",
+          "maximum_p_plus_one": 0.9940119760479041,
+          "minimum_p_plus_one": 0.001996007984031936,
+          "null_endpoint": "P_RIP",
+          "null_n": 500,
+          "tail": "upper"
+        },
+        "direction_power": {
+          "exact_binomial_95_interval": [
+            0.6751412672248969,
+            0.8482683886985327
+          ],
+          "n": 100,
+          "rate": 0.77,
+          "successes": 77
+        },
+        "false_sign_fraction": {
+          "exact_binomial_95_interval": [
+            0.15173161130146726,
+            0.3248587327751031
+          ],
+          "n": 100,
+          "rate": 0.23,
+          "successes": 23
+        },
+        "one_sided_depth_power": {
+          "exact_binomial_95_interval": [
+            0.11031122915371111,
+            0.2694770859669012
+          ],
+          "n": 100,
+          "rate": 0.18,
+          "successes": 18
+        },
+        "wa": 0.15
+      },
+      "wap030": {
+        "asimov_correct_mass": 0.9332532895542869,
+        "correct_direction": "RIP",
+        "correct_mass_definition": "P_RIP",
+        "correct_mass_distribution": {
+          "central_68_interval": [
+            0.6696852682036085,
+            0.9962707681955332
+          ],
+          "median": 0.9477355093724511
+        },
+        "depth_test": {
+          "alpha": 0.05,
+          "finite_simulation_rule": "(1 + count(null >= mock))/(500 + 1) <= 0.05",
+          "maximum_p_plus_one": 0.6526946107784432,
+          "minimum_p_plus_one": 0.001996007984031936,
+          "null_endpoint": "P_RIP",
+          "null_n": 500,
+          "tail": "upper"
+        },
+        "direction_power": {
+          "exact_binomial_95_interval": [
+            0.8610802715441336,
+            0.9713947110925815
+          ],
+          "n": 100,
+          "rate": 0.93,
+          "successes": 93
+        },
+        "false_sign_fraction": {
+          "exact_binomial_95_interval": [
+            0.028605288907418584,
+            0.13891972845586648
+          ],
+          "n": 100,
+          "rate": 0.07,
+          "successes": 7
+        },
+        "one_sided_depth_power": {
+          "exact_binomial_95_interval": [
+            0.46713373832484634,
+            0.6686089833686121
+          ],
+          "n": 100,
+          "rate": 0.57,
+          "successes": 57
+        },
+        "wa": 0.3
+      },
+      "wap060": {
+        "asimov_correct_mass": 0.9994259471871412,
+        "correct_direction": "RIP",
+        "correct_mass_definition": "P_RIP",
+        "correct_mass_distribution": {
+          "central_68_interval": [
+            0.9841223293311229,
+            1.0
+          ],
+          "median": 0.9991485062615595
+        },
+        "depth_test": {
+          "alpha": 0.05,
+          "finite_simulation_rule": "(1 + count(null >= mock))/(500 + 1) <= 0.05",
+          "maximum_p_plus_one": 0.0998003992015968,
+          "minimum_p_plus_one": 0.001996007984031936,
+          "null_endpoint": "P_RIP",
+          "null_n": 500,
+          "tail": "upper"
+        },
+        "direction_power": {
+          "exact_binomial_95_interval": [
+            0.9637833073548094,
+            1.0
+          ],
+          "n": 100,
+          "rate": 1.0,
+          "successes": 100
+        },
+        "false_sign_fraction": {
+          "exact_binomial_95_interval": [
+            0.0,
+            0.03621669264519054
+          ],
+          "n": 100,
+          "rate": 0.0,
+          "successes": 0
+        },
+        "one_sided_depth_power": {
+          "exact_binomial_95_interval": [
+            0.9296160675289299,
+            0.9975686631760752
+          ],
+          "n": 100,
+          "rate": 0.98,
+          "successes": 98
+        },
+        "wa": 0.6
+      }
+    }
+  },
+  "schema_version": "wp3-power-completion-audit-v1",
+  "status": "PASS"
+}

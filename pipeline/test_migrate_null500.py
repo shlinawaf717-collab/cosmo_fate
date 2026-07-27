@@ -141,3 +141,33 @@ def test_audit_detects_post_migration_tampering(tmp_path):
     (target / "mocks" / "m001" / "chain.1.txt").write_text("tampered\n")
     with pytest.raises(migrate_null500.MigrationError, match="inventory"):
         migrate_null500.audit_target(target, covariances, expected_noisy=1)
+
+
+def test_audit_allows_declared_append_while_preserving_migration(tmp_path):
+    _, _, _, target, covariances, _ = migrate_fixture(tmp_path)
+    manifest_path = target / "mocks" / "mocks_manifest.json"
+    mock_manifest = json.loads(manifest_path.read_text())
+    mock_manifest.update(n=2, previous_n=1, append_range=[2, 2])
+    manifest_path.write_text(json.dumps(mock_manifest) + "\n", encoding="utf-8")
+    (target / "mocks" / "m002").mkdir()
+    with (target / "results.jsonl").open("a", encoding="utf-8") as stream:
+        stream.write(json.dumps({"k": 2, "P": {"RIP": 0.2}}) + "\n")
+
+    audit = migrate_null500.audit_target(target, covariances, expected_noisy=1)
+
+    assert audit["audit"] == "PASS"
+    assert audit["mock_manifest_n"] == 2
+    assert audit["baseline_result_rows"] == 2
+    assert audit["result_rows"] == 3
+
+
+def test_audit_rejects_append_that_changes_frozen_truth(tmp_path):
+    _, _, _, target, covariances, _ = migrate_fixture(tmp_path)
+    manifest_path = target / "mocks" / "mocks_manifest.json"
+    mock_manifest = json.loads(manifest_path.read_text())
+    mock_manifest.update(n=2, previous_n=1, append_range=[2, 2])
+    mock_manifest["truth"] = {"H0": 71.0}
+    manifest_path.write_text(json.dumps(mock_manifest) + "\n", encoding="utf-8")
+
+    with pytest.raises(migrate_null500.MigrationError, match="frozen migration metadata"):
+        migrate_null500.audit_target(target, covariances, expected_noisy=1)
