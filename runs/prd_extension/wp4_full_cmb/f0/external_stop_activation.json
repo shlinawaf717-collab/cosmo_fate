@@ -1,0 +1,72 @@
+{
+  "schema_version": "wp4-f0-external-stop-activation-v1",
+  "status": "ACTIVE",
+  "activated_at_utc": "2026-07-27T08:14:21Z",
+  "amendment": "PRD-A006",
+  "amendment_commit": "b72ebb55a455414b614f72edd0faf1682728540b",
+  "controller_code_commit": "f282ddb00ad1b1d2dec127bc1f105f94827d7499",
+  "first_authoritative_evaluation_must_follow_activation": true,
+  "pre_activation_diagnostics_count_as_passes": false,
+  "hashes": {
+    "policy": {
+      "path": "/Users/nocide/cosmo_fate/plan/wp4_f0_external_convergence_policy.json",
+      "sha256": "edc81a12e661c584a2fc69a619449212c71314ef8adbf2b0d285358df39a5285"
+    },
+    "statistics": {
+      "path": "/Users/nocide/cosmo_fate/pipeline/monitor_wp4_f0.py",
+      "sha256": "8665afd8e04114f2c84fc702b905fe4c003aebbf5b3b7b97a8a413011ffc71ee"
+    },
+    "evaluator": {
+      "path": "/Users/nocide/cosmo_fate/pipeline/evaluate_wp4_f0_external_stop.py",
+      "sha256": "430f713c6157084d90f5aedc9f4e687ed50356e62d24a137f1427fa37cc7e9c6"
+    },
+    "finalizer": {
+      "path": "/Users/nocide/cosmo_fate/pipeline/finalize_wp4_f0_external_stop.py",
+      "sha256": "8268207d0e8a504d4ed7ae17b48a6098a5f0aad318e50edf81d6fa7eb4b4bbe2"
+    },
+    "controller": {
+      "path": "/Users/nocide/cosmo_fate/pipeline/run_wp4_f0_external_controller.py",
+      "sha256": "104309af600d1db4a762be155c0c25e67fe25d8e68d5a673b7bc2c82a860e26f"
+    }
+  },
+  "runtime_hashes": {
+    "run_plan": {
+      "path": "runs/prd_extension/wp4_full_cmb/f0/run_plan.json",
+      "sha256": "45700d9c877020b837ed8e9ef58799a695332e3a10cf7281602709517b28358a"
+    },
+    "base_config": {
+      "path": "pipeline/wp4_f0.yaml",
+      "sha256": "625bfd397f5a64391210c1da9f59eecde977623dfd70758b266061ac84c55e28"
+    },
+    "proposal_covariance": {
+      "path": "runs/prd_extension/wp4_full_cmb/f0_proposal.covmat",
+      "sha256": "33a82fb2bc871d8bdba42db18dfde37f7f7eec7a98531176c9cde1e9ab4d2a9d"
+    },
+    "input_manifest": {
+      "path": "runs/prd_extension/wp4_full_cmb/input_manifest.json",
+      "sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614"
+    },
+    "chain_1_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f0/c1/run.yaml",
+      "sha256": "cda79b387b723b22bb1094bc928c39a8f558b9a87288c4b184f29c6e90ffb09c"
+    },
+    "chain_2_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f0/c2/run.yaml",
+      "sha256": "bc71bf9f33e4fbb0ace2706f4d968afdd23920eead4a79a76be52e1e71319ce6"
+    },
+    "chain_3_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f0/c3/run.yaml",
+      "sha256": "95791438318feef71bd507a8224cd6f23a8448523195b11db2f0972d36ee308b"
+    },
+    "chain_4_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f0/c4/run.yaml",
+      "sha256": "4d54f7d22b75c711af4f949ec4171a1f2e69d6febfcd7d6ec3e0460908d933fb"
+    }
+  },
+  "blinding_confirmation": {
+    "posterior_locations_or_intervals_inspected": false,
+    "best_fit_or_likelihood_values_inspected": false,
+    "fate_quantities_inspected": false,
+    "scientific_endpoints_inspected": false
+  }
+}

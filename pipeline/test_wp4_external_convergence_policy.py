@@ -3,12 +3,17 @@ import json
 from pathlib import Path
 
 from pipeline.monitor_wp4_f0 import SAMPLED_PARAMETERS
+from pipeline.evaluate_wp4_f0_external_stop import validate_activation
 
 
 ROOT = Path(__file__).resolve().parents[1]
 POLICY = ROOT / "plan/wp4_f0_external_convergence_policy.json"
 PROSE = ROOT / "plan/WP4_F0_EXTERNAL_CONVERGENCE_POLICY.md"
 AMENDMENTS = ROOT / "plan/PRD_EXTENSION_AMENDMENTS.md"
+ACTIVATION = (
+    ROOT
+    / "runs/prd_extension/wp4_full_cmb/f0/external_stop_activation.json"
+)
 
 
 def _sha256(path: Path) -> str:
@@ -57,3 +62,12 @@ def test_prose_and_amendment_link_machine_policy():
     assert "wp4_f0_external_convergence_policy.json" in prose
     assert "## PRD-A006" in amendments
     assert "WP4_F0_EXTERNAL_CONVERGENCE_POLICY.md" in amendments
+
+
+def test_activation_hashes_match_authoritative_components():
+    policy = json.loads(POLICY.read_text(encoding="utf-8"))
+    activation = validate_activation(ACTIVATION, policy)
+    assert activation["status"] == "ACTIVE"
+    for component in ("finalizer", "controller"):
+        registered = activation["hashes"][component]
+        assert _sha256(Path(registered["path"])) == registered["sha256"]
