@@ -20,6 +20,7 @@ runs/prd_extension/wp4_full_cmb/f0/c*/chain.updated.yaml
 runs/prd_extension/wp4_full_cmb/f0/driver.lock
 runs/prd_extension/wp4_full_cmb/f0/driver_events.jsonl
 runs/prd_extension/wp4_full_cmb/f0/monitor_diagnostic/
+runs/prd_extension/wp4_full_cmb/f0/external_monitor/
 tmp/
 paper/main.aux
 paper/main.bbl
