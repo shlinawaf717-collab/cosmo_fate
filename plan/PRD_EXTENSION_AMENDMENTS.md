@@ -240,6 +240,73 @@ Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `pipeline/test_wp8_future_continuation_protocol.py`; implementation and result
 commits pending on `agent/prd-extension-wp0`.
 
+## PRD-A006 — 2026-07-27
+
+ID and date: PRD-A006, 2026-07-27
+
+Author: Zhang; recorded by Codex under the author's instruction
+
+Affected work package(s): WP4 F0
+
+Old rule: The frozen protocol required `R-1 < 0.01`, bulk ESS `> 1000`, and
+tail ESS `> 400` for `w0` and `wa`, but did not state the R-1 estimator,
+burn-in, ESS algorithm, repeated-pass rule, or operational stop transaction.
+F0 was launched as four independent `cobaya-run --no-mpi` processes.  Under
+that mode Cobaya 3.6.2 applies a within-chain four-segment R-1 separately to
+each process and additionally waits for `Rminus1_cl < 0.2`, even though the
+confidence-limit statistic is absent from the registered protocol gate.  The
+initial driver also accepted completion only when Cobaya wrote
+`converged: true` to every checkpoint.
+
+New rule: The registered R-1 is defined as Cobaya 3.6.2's MPI-chain
+multivariate estimator across the four independent chains and all 17 sampled
+parameters, using a 50% row burn-in, with `R-1 < 0.01`.  The same estimator at
+20% and 70% burn-in must be `< 0.02` as a sensitivity guard.  At 50% burn-in,
+rank-normalized split bulk ESS must exceed 1000 and binary 5%/95% tail ESS
+must exceed 400 for each of `w` and `wa`, using the frozen algorithm and
+versions in `plan/WP4_F0_EXTERNAL_CONVERGENCE_POLICY.md`.  Every gate must pass
+in two authoritative snapshots separated by at least 320 new complete rows in
+every chain, with changed chain hashes and unchanged policy/code hashes.  The
+finalizer then pauses the four Cobaya children, verifies stable files,
+recomputes all gates, fsyncs the audit, and either resumes all children on
+failure or terminates them on success.  It does not edit the YAML or Cobaya
+checkpoints.  The confidence-limit statistic becomes secondary and cannot
+block or establish the registered stop.
+
+Trigger and scientific reason: Source inspection showed that `--no-mpi`
+silently changed the intended multi-chain convergence estimator into a
+stricter and different within-chain split estimator, and added an unregistered
+confidence-limit stopping requirement.  The new rule fixes the meaning of the
+already registered gates, retains independent-chain replication, avoids an
+irrelevant multi-fold runtime penalty, and adds repeatability, burn-in
+sensitivity, snapshot integrity, and reversible-stop safeguards.
+
+Affected result inspected before change? yes; exact scope: F0 runtime health,
+complete chain-row counts, Cobaya's within-chain progress R-1 values, and
+read-only candidate between-chain R-1/ESS diagnostics were inspected.  The
+CAMB 1.5.4 versus 1.6.6 fixed-point drift screen was also inspected.  No F0
+posterior mean, marginal interval, best-fit point, likelihood value,
+model-comparison statistic, fate classification, or aggregate scientific
+endpoint was inspected.
+
+Classification: corrective; post-launch and pre-scientific-endpoint
+stopping-definition amendment
+
+Pre-amendment result disposition: All original F0 chain samples, seeds,
+inputs, run YAMLs, proposals, checkpoints, and driver logs are retained.  The
+pre-policy diagnostic monitor is non-authoritative and none of its readings
+counts toward the two required passes.  No existing sample is excluded except
+by the frozen burn-in definitions.  Because no sampler configuration or
+scientific rule changes, this amendment does not consume WP4's one permitted
+configuration correction.  The amendment is disclosed as post-launch and is
+not called preregistered.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP4_F0_EXTERNAL_CONVERGENCE_POLICY.md`;
+`plan/wp4_f0_external_convergence_policy.json`; authoritative evaluator,
+finalizer, activation manifest, and result commits pending on
+`agent/prd-extension-wp0`.
+
 Every future entry must append, never rewrite, the following fields:
 
 ```text

@@ -1,0 +1,117 @@
+{
+  "schema_version": "wp4-f0-external-convergence-policy-v1",
+  "status": "FROZEN_DURING_F0_BEFORE_SCIENTIFIC_ENDPOINTS",
+  "amendment": "PRD-A006",
+  "classification": "corrective_post_launch_stopping_definition",
+  "decision_authority": true,
+  "consumes_wp4_configuration_correction": false,
+  "blinding": {
+    "allowed": [
+      "complete_row_counts",
+      "summed_integer_weights",
+      "file_sizes_mtimes_sha256",
+      "registered_convergence_statistics",
+      "boolean_gate_states",
+      "code_policy_configuration_input_hashes"
+    ],
+    "prohibited": [
+      "posterior_locations",
+      "posterior_intervals",
+      "best_fit_points",
+      "likelihood_values",
+      "model_comparison_statistics",
+      "fate_quantities"
+    ]
+  },
+  "chains": [
+    "runs/prd_extension/wp4_full_cmb/f0/c1/chain.1.txt",
+    "runs/prd_extension/wp4_full_cmb/f0/c2/chain.1.txt",
+    "runs/prd_extension/wp4_full_cmb/f0/c3/chain.1.txt",
+    "runs/prd_extension/wp4_full_cmb/f0/c4/chain.1.txt"
+  ],
+  "sampled_parameters": [
+    "logA",
+    "ns",
+    "theta_MC_100",
+    "ombh2",
+    "omch2",
+    "tau",
+    "w",
+    "wa",
+    "A_planck",
+    "amp_143",
+    "amp_217",
+    "amp_143x217",
+    "n_143",
+    "n_217",
+    "n_143x217",
+    "calTE",
+    "calEE"
+  ],
+  "statistics": {
+    "rminus1": {
+      "definition": "Cobaya_3.6.2_MPI_multivariate",
+      "primary_row_burn_fraction": 0.5,
+      "primary_exclusive_maximum": 0.01,
+      "sensitivity_row_burn_fractions": [
+        0.2,
+        0.7
+      ],
+      "sensitivity_exclusive_maximum": 0.02,
+      "parameters": "all_17_sampled"
+    },
+    "ess": {
+      "row_burn_fraction": 0.5,
+      "weight_handling": "expand_integer_weights_as_metropolis_dwell_states",
+      "chain_equalization": "common_final_weighted_length",
+      "split_chains": true,
+      "bulk_definition": "pooled_rank_normalized_geyer_initial_positive_monotone",
+      "tail_definition": "minimum_binary_indicator_ess_at_pooled_q05_q95",
+      "gated_parameters": [
+        "w",
+        "wa"
+      ],
+      "bulk_exclusive_minimum": 1000,
+      "tail_exclusive_minimum": 400
+    }
+  },
+  "repeated_pass": {
+    "required_consecutive_authoritative_passes": 2,
+    "minimum_new_complete_rows_per_chain": 320,
+    "require_changed_chain_hashes": true,
+    "failed_intervening_snapshot_resets_sequence": true
+  },
+  "snapshot": {
+    "open_mode": "read_only",
+    "capture_at_most_initial_file_size": true,
+    "discard_partial_final_line": true,
+    "hash_exact_captured_prefix": true,
+    "final_stop_snapshot_requires_paused_children_and_stable_sizes": true
+  },
+  "stop_transaction": {
+    "pause_only_cobaya_children": true,
+    "recompute_all_gates_after_pause": true,
+    "resume_all_children_on_failure": true,
+    "fsync_final_audit_before_termination": true,
+    "edit_cobaya_checkpoint": false,
+    "expected_driver_nonzero_exit_is_disclosed": true,
+    "resume_command": "PYTHONPATH=. .venv/bin/python pipeline/run_wp4_f0.py --jobs 4"
+  },
+  "implementation": {
+    "statistics_path": "pipeline/monitor_wp4_f0.py",
+    "statistics_sha256": "8665afd8e04114f2c84fc702b905fe4c003aebbf5b3b7b97a8a413011ffc71ee",
+    "numpy": "2.5.0",
+    "scipy": "1.16.2",
+    "cobaya": "3.6.2",
+    "cobaya_mcmc_source_sha256": "455def4cc5462f57d0fbd365793630382a105112d7223c4c90329d3252534594",
+    "cobaya_functions_source_sha256": "fc7271c28079ba4b0827754efcbb72c56ca1cc0ce74c3197585d7ac0d199d7ae"
+  },
+  "pre_freeze_inspection": {
+    "convergence_diagnostics_inspected": true,
+    "chain_counts_and_runtime_health_inspected": true,
+    "posterior_locations_or_intervals_inspected": false,
+    "best_fit_or_likelihood_values_inspected": false,
+    "fate_quantities_inspected": false,
+    "scientific_endpoints_inspected": false
+  }
+}
