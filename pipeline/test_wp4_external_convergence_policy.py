@@ -3,7 +3,6 @@ import json
 from pathlib import Path
 
 from pipeline.monitor_wp4_f0 import SAMPLED_PARAMETERS
-from pipeline.evaluate_wp4_f0_external_stop import validate_activation
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -66,8 +65,20 @@ def test_prose_and_amendment_link_machine_policy():
 
 def test_activation_hashes_match_authoritative_components():
     policy = json.loads(POLICY.read_text(encoding="utf-8"))
-    activation = validate_activation(ACTIVATION, policy)
+    activation = json.loads(ACTIVATION.read_text(encoding="utf-8"))
     assert activation["status"] == "ACTIVE"
-    for component in ("finalizer", "controller"):
+    components = {
+        "policy": POLICY,
+        "statistics": ROOT / policy["implementation"]["statistics_path"],
+        "evaluator": ROOT / "pipeline/evaluate_wp4_f0_external_stop.py",
+        "finalizer": ROOT / "pipeline/finalize_wp4_f0_external_stop.py",
+        "controller": ROOT / "pipeline/run_wp4_f0_external_controller.py",
+    }
+    for component, expected_path in components.items():
         registered = activation["hashes"][component]
-        assert _sha256(Path(registered["path"])) == registered["sha256"]
+        expected_relative = expected_path.relative_to(ROOT)
+        registered_parts = Path(registered["path"]).parts
+        assert registered_parts[-len(expected_relative.parts) :] == (
+            expected_relative.parts
+        )
+        assert _sha256(expected_path) == registered["sha256"]
