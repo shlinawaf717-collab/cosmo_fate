@@ -1,0 +1,98 @@
+{
+  "chains": [
+    {
+      "path": "runs/gate1/official/chain.1.txt",
+      "posterior_weight": 71016.0,
+      "raw_rows": 25208,
+      "sha256": "db81d299d59051ae5e1e8f67952320e08a1644a4a1f8d19267705aee32798877"
+    },
+    {
+      "path": "runs/gate1/official/chain.2.txt",
+      "posterior_weight": 71587.0,
+      "raw_rows": 25280,
+      "sha256": "442390266f6a3bfe88e9c7cd8e29d1e7cff47fc8582f3a3af80a6b40b9f83939"
+    },
+    {
+      "path": "runs/gate1/official/chain.3.txt",
+      "posterior_weight": 69992.0,
+      "raw_rows": 24847,
+      "sha256": "1c92edf523df34784633f6852f7564f3d953203ae939d5d2e8cd4c3fd6f580ae"
+    },
+    {
+      "path": "runs/gate1/official/chain.4.txt",
+      "posterior_weight": 71820.0,
+      "raw_rows": 25583,
+      "sha256": "b17dc02689c3a30dd34a96d91ac35180006f17d10b82331396ef55ce999594af"
+    }
+  ],
+  "condition_number": 1458473982.3269525,
+  "covariance": {
+    "path": "runs/prd_extension/wp4_full_cmb/f0_proposal.covmat",
+    "sha256": "33a82fb2bc871d8bdba42db18dfde37f7f7eec7a98531176c9cde1e9ab4d2a9d"
+  },
+  "fate_calculation_performed": false,
+  "maximum_eigenvalue": 10.96332246734026,
+  "means": {
+    "A_planck": 1.0013839722177107,
+    "amp_143": 17.40431320569125,
+    "amp_143x217": 8.143375188359947,
+    "amp_217": 11.26166842491075,
+    "calEE": 0.9976468947507694,
+    "calTE": 0.9971150808703457,
+    "logA": 3.0433051578105834,
+    "n_143": 1.032967184066381,
+    "n_143x217": 1.8571747152669436,
+    "n_217": 1.610848049365434,
+    "ns": 0.9658539203588061,
+    "ombh2": 0.02224462752952205,
+    "omch2": 0.11902188741778713,
+    "tau": 0.05511539133204651,
+    "theta_MC_100": 1.0408507015343782,
+    "w": -0.8379581981443356,
+    "wa": -0.6176883262728882
+  },
+  "minimum_eigenvalue": 7.516981859250312e-09,
+  "parameters": [
+    "logA",
+    "ns",
+    "theta_MC_100",
+    "ombh2",
+    "omch2",
+    "tau",
+    "w",
+    "wa",
+    "A_planck",
+    "amp_143",
+    "amp_217",
+    "amp_143x217",
+    "n_143",
+    "n_217",
+    "n_143x217",
+    "calTE",
+    "calEE"
+  ],
+  "posterior_weight": 284415.0,
+  "role": "proposal efficiency only; posterior target is unchanged",
+  "sampling_performed": false,
+  "schema_version": "wp4-f0-proposal-v1",
+  "standard_deviations": {
+    "A_planck": 0.00217450570999844,
+    "amp_143": 1.9771244915553141,
+    "amp_143x217": 1.884243309251505,
+    "amp_217": 1.8766025014243153,
+    "calEE": 0.0037648665902036194,
+    "calTE": 0.003666999381590512,
+    "logA": 0.013140511603336204,
+    "n_143": 0.18234181380500547,
+    "n_143x217": 0.591326851559404,
+    "n_217": 0.40195695680234195,
+    "ns": 0.003653633601549311,
+    "ombh2": 0.0001259300161279048,
+    "omch2": 0.0008232144220352615,
+    "tau": 0.007179438326062425,
+    "theta_MC_100": 0.00023868520736520217,
+    "w": 0.054892120223643405,
+    "wa": 0.20680797400938541
+  },
+  "status": "PASS"
+}

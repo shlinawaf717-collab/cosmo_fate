@@ -1,0 +1,158 @@
+{
+  "blockers": [],
+  "data_manifest_markers": {
+    "## WP4 full-CMB F0": true,
+    "`runs/prd_extension/wp4_full_cmb/input_manifest.json`": true,
+    "act-dr6-lenslike 1.2.1": true,
+    "clipy-like 0.15": true
+  },
+  "f0_config": {
+    "path": "pipeline/wp4_f0.yaml",
+    "present": true,
+    "sha256": "625bfd397f5a64391210c1da9f59eecde977623dfd70758b266061ac84c55e28"
+  },
+  "fate_calculation_performed": false,
+  "inference_permitted": true,
+  "input_manifest": {
+    "hash_registered": true,
+    "path": "runs/prd_extension/wp4_full_cmb/input_manifest.json",
+    "present": true,
+    "sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614"
+  },
+  "installed_versions": {
+    "act-dr6-lenslike": "1.2.1",
+    "camb": "1.6.6",
+    "clipy-like": "0.15",
+    "cobaya": "3.6.2"
+  },
+  "likelihood_data": {
+    "act_dr6_lensing_v1p2": {
+      "kind": "directory",
+      "path": "data/cobaya_packages/data/ACT_dr6_likelihood/v1.2",
+      "present": true
+    },
+    "desi_dr2_bao_covariance": {
+      "kind": "file",
+      "path": "data/cobaya_packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt",
+      "present": true
+    },
+    "desi_dr2_bao_mean": {
+      "kind": "file",
+      "path": "data/cobaya_packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_mean.txt",
+      "present": true
+    },
+    "pantheonplus_catalogue": {
+      "kind": "file",
+      "path": "data/cobaya_packages/data/sn_data/PantheonPlus/Pantheon+SH0ES.dat",
+      "present": true
+    },
+    "pantheonplus_covariance": {
+      "kind": "file",
+      "path": "data/cobaya_packages/data/sn_data/PantheonPlus/Pantheon+SH0ES_STAT+SYS.cov",
+      "present": true
+    },
+    "pantheonplus_dataset": {
+      "kind": "file",
+      "path": "data/cobaya_packages/data/sn_data/PantheonPlus/config.dataset",
+      "present": true
+    },
+    "planck_lowl_ee_clik": {
+      "kind": "directory",
+      "path": "data/cobaya_packages/data/planck_2018/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik",
+      "present": true
+    },
+    "planck_lowl_tt_clik": {
+      "kind": "directory",
+      "path": "data/cobaya_packages/data/planck_2018/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik",
+      "present": true
+    },
+    "planck_npipe_camspec": {
+      "kind": "file",
+      "path": "data/cobaya_packages/data/planck_NPIPE_CamSpec/CamSpec_NPIPE/CamSpec_NPIPE_12_6_cl.dataset",
+      "present": true
+    },
+    "planck_supplementary_data": {
+      "kind": "directory",
+      "path": "data/cobaya_packages/data/planck_supp_data_and_covmats",
+      "present": true
+    }
+  },
+  "modules": {
+    "act_dr6_lenslike": true,
+    "clipy": true
+  },
+  "next_action": "derive and validate a proposal covariance, then launch F0 without calculating or inspecting fate classifications",
+  "official_config": {
+    "camb_version": "1.5.4",
+    "cobaya_version": "3.5",
+    "free_parameters": [
+      "logA",
+      "ns",
+      "theta_MC_100",
+      "ombh2",
+      "omch2",
+      "tau",
+      "w",
+      "wa",
+      "A_planck",
+      "amp_143",
+      "amp_217",
+      "amp_143x217",
+      "n_143",
+      "n_217",
+      "n_143x217",
+      "calTE",
+      "calEE"
+    ],
+    "likelihood_identity_match": true,
+    "likelihoods": [
+      "desi_y3_cosmo_bindings.cobaya_likelihoods.bao_likelihoods_v1p2.desi_bao_all",
+      "sn.pantheonplus",
+      "planck_2018_lowl.TT_clik",
+      "planck_2018_lowl.EE_clik",
+      "planck_NPIPE_highl_CamSpec.TTTEEE",
+      "act_dr6_lenslike_v1_2.ACTDR6LensLike"
+    ],
+    "path": "runs/gate1/official/chain.updated.yaml",
+    "present": true,
+    "sha256": "ce490ac81bd61fa3ca65738666dde4a1f3d07c64983fdc0d2646cdab1a9a14b9"
+  },
+  "official_reference": {
+    "parameters": {
+      "H0": {
+        "mean": 67.5157233447462,
+        "sd": 0.592672534992391,
+        "source_column": "H0"
+      },
+      "Omega_m": {
+        "mean": 0.31139126501450326,
+        "sd": 0.005678413864477624,
+        "source_column": "omegam"
+      },
+      "w0": {
+        "mean": -0.8379581981443311,
+        "sd": 0.05489212022370509,
+        "source_column": "w"
+      },
+      "wa": {
+        "mean": -0.6176883262728899,
+        "sd": 0.20680797400937936,
+        "source_column": "wa"
+      }
+    },
+    "path": "runs/prd_extension/wp4_full_cmb/official_reference.json"
+  },
+  "platform": {
+    "machine": "arm64",
+    "python": "3.13.13",
+    "release": "25.5.0",
+    "system": "Darwin"
+  },
+  "schema_version": "wp4-preflight-v1",
+  "smoke_test": {
+    "passed_and_current": true,
+    "path": "runs/prd_extension/wp4_full_cmb/smoke_test.json",
+    "present": true
+  },
+  "status": "READY_FOR_F0_REPRODUCTION"
+}

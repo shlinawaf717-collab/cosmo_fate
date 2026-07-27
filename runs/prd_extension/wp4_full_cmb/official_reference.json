@@ -1,0 +1,62 @@
+{
+  "chains": [
+    {
+      "file": "runs/gate1/official/chain.1.txt",
+      "posterior_weight": 71016.0,
+      "raw_rows": 25208,
+      "sha256": "db81d299d59051ae5e1e8f67952320e08a1644a4a1f8d19267705aee32798877"
+    },
+    {
+      "file": "runs/gate1/official/chain.2.txt",
+      "posterior_weight": 71587.0,
+      "raw_rows": 25280,
+      "sha256": "442390266f6a3bfe88e9c7cd8e29d1e7cff47fc8582f3a3af80a6b40b9f83939"
+    },
+    {
+      "file": "runs/gate1/official/chain.3.txt",
+      "posterior_weight": 69992.0,
+      "raw_rows": 24847,
+      "sha256": "1c92edf523df34784633f6852f7564f3d953203ae939d5d2e8cd4c3fd6f580ae"
+    },
+    {
+      "file": "runs/gate1/official/chain.4.txt",
+      "posterior_weight": 71820.0,
+      "raw_rows": 25583,
+      "sha256": "b17dc02689c3a30dd34a96d91ac35180006f17d10b82331396ef55ce999594af"
+    }
+  ],
+  "gate_thresholds": {
+    "max_Rminus1": 0.01,
+    "max_abs_delta_chi2_difference": 1.0,
+    "max_mean_shift_pooled_sigma": 0.2,
+    "max_sd_fractional_difference": 0.1,
+    "min_bulk_ess": 1000,
+    "min_tail_ess_w0_wa": 400
+  },
+  "parameters": {
+    "H0": {
+      "mean": 67.5157233447462,
+      "sd": 0.592672534992391,
+      "source_column": "H0"
+    },
+    "Omega_m": {
+      "mean": 0.31139126501450326,
+      "sd": 0.005678413864477624,
+      "source_column": "omegam"
+    },
+    "w0": {
+      "mean": -0.8379581981443311,
+      "sd": 0.05489212022370509,
+      "source_column": "w"
+    },
+    "wa": {
+      "mean": -0.6176883262728899,
+      "sd": 0.20680797400937936,
+      "source_column": "wa"
+    }
+  },
+  "posterior_weight": 284415.0,
+  "raw_rows": 100918,
+  "schema_version": "wp4-official-reference-v1",
+  "source": "DESI DR2 official flat-CPL chains: DESI BAO all + Pantheon+ + Planck low-l TT/EE + NPIPE CamSpec TTTEEE + Planck/ACT DR6 lensing"
+}

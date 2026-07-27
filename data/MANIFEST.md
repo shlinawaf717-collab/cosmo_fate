@@ -79,3 +79,66 @@ SN/BAO 似然使用 cobaya 内置实现（`sn.pantheonplus`, `sn.pantheonplussho
 | `chain.4.txt` | `b17dc02689c3a30dd34a96d91ac35180006f17d10b82331396ef55ce999594af` |
 
 用途:Gate 1 链级验证。
+
+## WP4 full-CMB F0（2026-07-27，采样前登记）
+
+目标组合与 `plan/PRD_EXTENSION_PROTOCOL.md` §7 一致：DESI DR2 all BAO、
+Pantheon+（不含 SH0ES）、Planck 2018 low-l TT/EE `clik`、Planck NPIPE
+high-l CamSpec TTTEEE、Planck+ACT DR6 lensing。此节登记时尚未运行 F0
+采样，也未计算任何 fate 端点。
+
+本节及其所列静态配置、清单和预检产物均在 F0 driver 启动前于本机生成；
+Git 静态检查点则是在 F0 已开始运行后补交，因此 Git 提交时间不作为独立的
+采样前时间戳。冻结内容由 `f0/run_plan.json` 中的逐文件哈希核验。
+
+### 官方参考配置和目标链
+
+- 官方配置：`runs/gate1/official/chain.updated.yaml`，SHA256
+  `ce490ac81bd61fa3ca65738666dde4a1f3d07c64983fdc0d2646cdab1a9a14b9`。
+  该文件完整保留官方 likelihood 组件、CAMB 精度、采样设置、17 个自由参数
+  及全部 nuisance prior。
+- 官方运行版本：Cobaya 3.5、CAMB 1.5.4、ACT likelihood v1.2。
+- 本机复现环境：Cobaya 3.6.2、CAMB 1.6.6、clipy-like 0.15、
+  act-dr6-lenslike 1.2.1。低多极 `clik` 数据仍为 Planck R3.00 官方
+  `.clik` payload；Cobaya 3.6.2 通过纯 Python clipy 0.15 读取。
+- 公开组件名规范化：官方内部
+  `desi_y3_cosmo_bindings...desi_bao_all` 映射为公开
+  `bao.desi_dr2.desi_bao_all`；官方并存版本别名
+  `act_dr6_lenslike_v1_2.ACTDR6LensLike` 映射为公开且锁定版本的
+  `act_dr6_lenslike.ACTDR6LensLike`。这些是路径/包名规范化，不改变
+  数据组合；数值等价性由 F0 的冻结阈值判断，不预先假定。
+
+官方 nuisance prior（逐项来自上述已哈希配置）：
+
+| 参数 | prior / 固定值 |
+|---|---|
+| `A_planck` | Normal(1, 0.0025) |
+| `amp_143`, `amp_217`, `amp_143x217` | Uniform(0, 50) |
+| `n_143`, `n_217`, `n_143x217` | Uniform(0, 5) |
+| `calTE`, `calEE` | Normal(1, 0.01) |
+| `use_fg_residual_model`, `amp_100` | 0 |
+| `cal0`, `cal2`, `n_100` | 1 |
+
+### 输入文件逐文件哈希
+
+逐文件路径、字节数和 SHA256 登记于
+`runs/prd_extension/wp4_full_cmb/input_manifest.json`；该 JSON 的 SHA256
+为 `ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614`。
+共 1305 个唯一文件、3,577,141,302 bytes；按
+`path + NUL + bytes + NUL + sha256 + LF` 排序计算的总树哈希为
+`3414342f1963062afa0da43ddc26802af7c0851888feb8667ebc5c431539b531`。
+
+| 输入组 | 来源/版本 | 文件数 | 树 SHA256 |
+|---|---|---:|---|
+| DESI DR2 BAO | CobayaSampler/bao_data v2.6 | 2 | `b2f535cc46f11c3dbd621030df7100fcbcb096c1a398e3a9c1c02bba335227dc` |
+| Pantheon+ | CobayaSampler/sn_data v1.8 | 3 | `2eaca17f999fca1fddf37ca59efe756c19c0a277e68183922ad40d41133655d2` |
+| Planck 2018 low-l TT/EE | PLA baseline R3.00，product 151902 | 294 | `bbb4b3faa858cfccca0d2a30d08722db53d036a685f6c286b54b3576112f72c4` |
+| Planck supplementary | CobayaSampler/planck_supp_data_and_covmats v2.1 | 960 | `9d41e0d054b4908eb36e86c39848713ee57efd5311eec02071036d22f2d6ec03` |
+| Planck NPIPE CamSpec | CobayaSampler/planck_native_data v1，`CamSpec_NPIPE.zip` | 15 | `e8d9ba7ee24361201ae4d409bbc416cbe2ddaf1d33360af3b0594814c721349e` |
+| ACT DR6 lensing | NASA LAMBDA `ACT_dr6_likelihood_v1.2.tgz` | 31 | `20490efd1a2e60b5d3b08710bda06616a4daa82b64a917271e4107d1ff42c414` |
+
+安装来源：
+
+- Planck R3.00：`https://pla.esac.esa.int/pla-sl/data-action?COSMOLOGY.COSMOLOGY_OID=151902`
+- NPIPE CamSpec：`https://github.com/CobayaSampler/planck_native_data/releases/tag/v1`
+- ACT DR6 v1.2：`https://lambda.gsfc.nasa.gov/data/suborbital/ACT/ACT_dr6/likelihood/data/ACT_dr6_likelihood_v1.2.tgz`

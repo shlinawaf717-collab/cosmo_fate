@@ -1,0 +1,62 @@
+{
+  "base_config": {
+    "path": "pipeline/wp4_f0.yaml",
+    "sha256": "625bfd397f5a64391210c1da9f59eecde977623dfd70758b266061ac84c55e28"
+  },
+  "chain_seeds": [
+    4411,
+    4412,
+    4413,
+    4414
+  ],
+  "chains": [
+    {
+      "chain": 1,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f0/c1/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f0/c1/run.yaml",
+      "run_yaml_sha256": "cda79b387b723b22bb1094bc928c39a8f558b9a87288c4b184f29c6e90ffb09c",
+      "seed": 4411
+    },
+    {
+      "chain": 2,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f0/c2/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f0/c2/run.yaml",
+      "run_yaml_sha256": "bc71bf9f33e4fbb0ace2706f4d968afdd23920eead4a79a76be52e1e71319ce6",
+      "seed": 4412
+    },
+    {
+      "chain": 3,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f0/c3/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f0/c3/run.yaml",
+      "run_yaml_sha256": "95791438318feef71bd507a8224cd6f23a8448523195b11db2f0972d36ee308b",
+      "seed": 4413
+    },
+    {
+      "chain": 4,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f0/c4/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f0/c4/run.yaml",
+      "run_yaml_sha256": "4d54f7d22b75c711af4f949ec4171a1f2e69d6febfcd7d6ec3e0460908d933fb",
+      "seed": 4414
+    }
+  ],
+  "convergence_gates": {
+    "Rminus1_exclusive": 0.01,
+    "bulk_ess_minimum": 1000,
+    "tail_ess_w0_wa_minimum": 400
+  },
+  "fate_calculation_during_F0": false,
+  "input_manifest": {
+    "path": "runs/prd_extension/wp4_full_cmb/input_manifest.json",
+    "sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614"
+  },
+  "jobs": 4,
+  "model": "flat CPL F0 reproduction",
+  "proposal_covariance": {
+    "path": "runs/prd_extension/wp4_full_cmb/f0_proposal.covmat",
+    "sha256": "33a82fb2bc871d8bdba42db18dfde37f7f7eec7a98531176c9cde1e9ab4d2a9d"
+  },
+  "sampling_endpoint_inspection_during_run": false,
+  "schema_version": "wp4-f0-run-plan-v1",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "thread_limits_per_chain": 1
+}

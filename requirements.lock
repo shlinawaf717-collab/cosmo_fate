@@ -1,6 +1,10 @@
+act_dr6_lenslike==1.2.1
+astropy==8.0.1
+astropy-iers-data==0.2026.7.27.0.56.29
 camb==1.6.6
 certifi==2026.6.17
 charset-normalizer==3.4.7
+clipy-like==0.15
 cobaya==3.6.2
 contourpy==1.3.3
 cycler==0.12.1
@@ -21,6 +25,7 @@ pluggy==1.6.0
 portalocker==3.2.0
 Py-BOBYQA==1.5.0
 pyparsing==3.3.2
+pyerfa==2.0.1.5
 python-dateutil==2.9.0.post0
 PyYAML==6.0.3
 Pygments==2.20.0

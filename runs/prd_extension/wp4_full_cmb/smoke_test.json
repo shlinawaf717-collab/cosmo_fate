@@ -1,0 +1,52 @@
+{
+  "chain_sample_files": [],
+  "clik_self_checks": [
+    {
+      "difference": 1.02746e-06,
+      "expected": -11.6257,
+      "got": -11.6257,
+      "path": "{YAML_ROOT}/../data/cobaya_packages/data/planck_2018/baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik"
+    },
+    {
+      "difference": -4.1778e-08,
+      "expected": -197.99,
+      "got": -197.99,
+      "path": "{YAML_ROOT}/../data/cobaya_packages/data/planck_2018/baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik"
+    }
+  ],
+  "command": ".venv/bin/cobaya-run pipeline/wp4_f0.yaml --test --no-mpi --force",
+  "component_log_markers": {
+    "Loading ACT DR6 lensing likelihood v1.2": true,
+    "Test initialization successful": true,
+    "[bao.desi_dr2.desi_bao_all] Initialized.": true,
+    "camb` module loaded successfully": true,
+    "planck_npipe_highl_camspec.ttteee": true
+  },
+  "config": {
+    "path": "pipeline/wp4_f0.yaml",
+    "sha256": "625bfd397f5a64391210c1da9f59eecde977623dfd70758b266061ac84c55e28"
+  },
+  "fate_calculation_performed": false,
+  "input_manifest": {
+    "path": "runs/prd_extension/wp4_full_cmb/input_manifest.json",
+    "sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614"
+  },
+  "returncode": 0,
+  "sampling_performed": false,
+  "schema_version": "wp4-f0-smoke-v1",
+  "status": "PASS",
+  "test_mode_checkpoint": {
+    "sampler": {
+      "mcmc": {
+        "Rminus1_last": "inf",
+        "burn_in": 0.0,
+        "converged": false,
+        "mpi_size": 0
+      }
+    }
+  },
+  "updated_config": {
+    "path": "runs/prd_extension/wp4_full_cmb/f0_smoke/chain.updated.yaml",
+    "sha256": "6ab1ae6e32c7eee710b73e691b66e08dc86ef7602b8b709650b2413c18a0c446"
+  }
+}

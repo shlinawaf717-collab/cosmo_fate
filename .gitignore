@@ -11,6 +11,12 @@ __pycache__/
 runs/gate2/mocks/
 runs/prd_extension/**/mocks/
 runs/prd_extension/.null500-migration-*/
+runs/prd_extension/wp4_full_cmb/f0/c*/chain.covmat
+runs/prd_extension/wp4_full_cmb/f0/c*/chain.input.yaml
+runs/prd_extension/wp4_full_cmb/f0/c*/chain.input.yaml.locked
+runs/prd_extension/wp4_full_cmb/f0/c*/chain.updated.yaml
+runs/prd_extension/wp4_full_cmb/f0/driver.lock
+runs/prd_extension/wp4_full_cmb/f0/driver_events.jsonl
 tmp/
 paper/main.aux
 paper/main.bbl
