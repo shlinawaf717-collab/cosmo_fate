@@ -21,9 +21,28 @@ def _interval_text(interval: list[float]) -> str:
     return f"[{interval[0]:.3f}, {interval[1]:.3f}]"
 
 
-def build_report(audit: dict) -> dict:
+def load_truth_profiles(root: Path = WP3_ROOT) -> dict[str, dict]:
+    profiles = {}
+    for truth_id in ORDER:
+        path = root / "truths" / truth_id / "truth.json"
+        truth = json.loads(path.read_text(encoding="utf-8"))
+        profiles[truth_id] = {
+            "profile_chi2": float(truth["fit"]["chi2"]),
+            "source": str(path.relative_to(ROOT)),
+        }
+    reference = min(row["profile_chi2"] for row in profiles.values())
+    for row in profiles.values():
+        row["delta_chi2_from_best_registered_truth"] = (
+            row["profile_chi2"] - reference
+        )
+    return profiles
+
+
+def build_report(audit: dict, truth_profiles: dict[str, dict] | None = None) -> dict:
     if audit.get("status") != "PASS":
         raise ValueError("WP3 completion audit has not passed")
+    if truth_profiles is None:
+        truth_profiles = load_truth_profiles()
     registered = audit["registered_power_endpoints"]
     points = registered["truth_points"]
     rows = []
@@ -33,6 +52,11 @@ def build_report(audit: dict) -> dict:
             {
                 "truth_id": truth_id,
                 "wa": point["wa"],
+                "profile_chi2": truth_profiles[truth_id]["profile_chi2"],
+                "delta_chi2_from_best_registered_truth": truth_profiles[
+                    truth_id
+                ]["delta_chi2_from_best_registered_truth"],
+                "truth_fit_source": truth_profiles[truth_id]["source"],
                 "correct_direction": point["correct_direction"],
                 "direction_power": point["direction_power"]["rate"],
                 "direction_power_exact95": point["direction_power"][
@@ -54,22 +78,26 @@ def build_report(audit: dict) -> dict:
             }
         )
     return {
-        "schema_version": "wp3-power-report-v1",
+        "schema_version": "wp3-power-report-v2",
         "source_audit": str(AUDIT.relative_to(ROOT)),
         "completion_status": audit["status"],
         "outer_direction_power_threshold": registered[
             "outer_direction_power_threshold"
         ],
         "outer_points_pass": registered["outer_points_pass"],
-        "classifier_demonstrably_powerful": registered[
-            "classifier_demonstrably_powerful"
-        ],
+        "positive_claim_scope": registered["positive_claim_scope"],
         "monotonicity_status": registered["monotonicity_diagnostic"]["status"],
+        "monotonicity_evidential_role": registered[
+            "monotonicity_diagnostic"
+        ]["evidential_role"],
         "rows": rows,
         "interpretation_guardrail": (
-            "WP3 establishes calibration power under the six declared local "
-            "alternatives. It does not by itself establish that the observed "
-            "universe occupies any one off-boundary truth."
+            "Power is truth-specific. The six declared alternatives have "
+            "different profile chi-square penalties against the observed D0 "
+            "data and are not a symmetric sequence of equally supported "
+            "effect sizes. WP3 establishes strong direction power under the "
+            "two registered outer-point alternatives; it does not establish "
+            "that the observed universe occupies any one off-boundary truth."
         ),
     }
 
@@ -78,6 +106,8 @@ def write_csv(report: dict, path: Path) -> None:
     fields = (
         "truth_id",
         "wa",
+        "profile_chi2",
+        "delta_chi2_from_best_registered_truth",
         "correct_direction",
         "direction_power",
         "direction_low95",
@@ -101,6 +131,10 @@ def write_csv(report: dict, path: Path) -> None:
                 {
                     "truth_id": row["truth_id"],
                     "wa": row["wa"],
+                    "profile_chi2": row["profile_chi2"],
+                    "delta_chi2_from_best_registered_truth": row[
+                        "delta_chi2_from_best_registered_truth"
+                    ],
                     "correct_direction": row["correct_direction"],
                     "direction_power": row["direction_power"],
                     "direction_low95": row["direction_power_exact95"][0],
@@ -123,16 +157,19 @@ def write_markdown(report: dict, path: Path) -> None:
     lines = [
         "# WP3 off-boundary power report",
         "",
-        "| Truth | wa | Correct side | Direction power (exact 95%) | Depth power (exact 95%) | False sign (exact 95%) | Correct mass median [central 68%] |",
-        "|---|---:|---|---:|---:|---:|---:|",
+        "| Truth | wa | profile chi2 | delta chi2 | Correct side | Direction power (exact 95%) | Depth power (exact 95%) | False sign (exact 95%) | Correct mass median [central 68%] |",
+        "|---|---:|---:|---:|---|---:|---:|---:|---:|",
     ]
     for row in report["rows"]:
         lines.append(
-            "| {truth_id} | {wa:+.2f} | {side} | {direction:.2f} {direction_ci} "
+            "| {truth_id} | {wa:+.2f} | {chi2:.2f} | {delta_chi2:.2f} "
+            "| {side} | {direction:.2f} {direction_ci} "
             "| {depth:.2f} {depth_ci} | {false:.2f} {false_ci} | "
             "{median:.3f} [{low68:.3f}, {high68:.3f}] |".format(
                 truth_id=row["truth_id"],
                 wa=row["wa"],
+                chi2=row["profile_chi2"],
+                delta_chi2=row["delta_chi2_from_best_registered_truth"],
                 side=row["correct_direction"],
                 direction=row["direction_power"],
                 direction_ci=_interval_text(row["direction_power_exact95"]),
@@ -150,9 +187,10 @@ def write_markdown(report: dict, path: Path) -> None:
         [
             "",
             f"- Outer-point direction-power gate (`>=0.80`): **{status}**.",
-            f"- Monotonicity diagnostic: **{report['monotonicity_status']}**.",
-            f"- Classifier demonstrably powerful under the registered rule: "
-            f"**{str(report['classifier_demonstrably_powerful']).upper()}**.",
+            f"- Positive claim: {report['positive_claim_scope']}.",
+            f"- Coarse monotonicity diagnostic: "
+            f"**{report['monotonicity_status']}**; "
+            f"{report['monotonicity_evidential_role']}.",
             "",
             report["interpretation_guardrail"],
             "",
@@ -195,6 +233,16 @@ def write_figure(report: dict, path: Path) -> None:
             capsize=3,
             color=color,
         )
+        for x_value, y_value, row in zip(x, y, rows):
+            ax.annotate(
+                rf"$\Delta\chi^2={row['delta_chi2_from_best_registered_truth']:.1f}$",
+                (x_value, y_value),
+                xytext=(0, -15 if y_value > 0.94 else 8),
+                textcoords="offset points",
+                ha="center",
+                fontsize=6.5,
+                color="#444444",
+            )
         ax.axvline(0, color="#777777", linewidth=0.9, linestyle=":")
         ax.set_xlabel(r"Truth $w_a$")
         ax.set_ylabel(label)
@@ -209,7 +257,10 @@ def write_figure(report: dict, path: Path) -> None:
         label="Registered outer-point threshold",
     )
     axes[0].legend(frameon=False, fontsize=8, loc="lower right")
-    fig.suptitle("WP3 registered off-boundary power curve")
+    fig.suptitle(
+        "WP3 truth-specific power; registered alternatives are not equally "
+        "supported by observed D0"
+    )
     fig.savefig(path, dpi=220)
     plt.close(fig)
 

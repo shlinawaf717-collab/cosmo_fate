@@ -186,7 +186,7 @@ def _load_null(null_root: Path) -> tuple[np.ndarray, np.ndarray]:
 
 
 def _monotonicity(points: dict[str, dict]) -> dict:
-    """Flag only reversals whose exact 95% intervals are disjoint."""
+    """Coarsely flag only reversals whose exact 95% intervals are disjoint."""
 
     sides = {
         "negative_wa": ("wam015", "wam030", "wam060"),
@@ -215,11 +215,20 @@ def _monotonicity(points: dict[str, dict]) -> dict:
                 }
             )
         report[side] = comparisons
-    report["status"] = "PASS" if all_clear else "DIAGNOSTIC_TRIGGERED"
+    report["status"] = (
+        "NO_DISJOINT_INTERVAL_REVERSAL"
+        if all_clear
+        else "DISJOINT_INTERVAL_REVERSAL_DETECTED"
+    )
     report["definition"] = (
         "A reversal is beyond binomial uncertainty only when the outer point "
         "estimate is lower and its exact 95% upper bound is below the inner "
         "point's exact 95% lower bound."
+    )
+    report["evidential_role"] = (
+        "coarse descriptive safeguard only; overlapping exact intervals make "
+        "this insensitive to moderate non-monotonicity, so a clear status is "
+        "not separate evidence of classifier power"
     )
     return report
 
@@ -398,7 +407,7 @@ def audit_completion(
     )
     monotonicity = _monotonicity(truth_points)
     return {
-        "schema_version": "wp3-power-completion-audit-v1",
+        "schema_version": "wp3-power-completion-audit-v2",
         "created_at": datetime.now(timezone.utc).isoformat(),
         "status": "PASS",
         "campaign": {
@@ -439,7 +448,12 @@ def audit_completion(
             "truth_points": truth_points,
             "outer_direction_power_threshold": 0.80,
             "outer_points_pass": outer_pass,
-            "classifier_demonstrably_powerful": outer_pass,
+            "positive_claim_scope": (
+                "direction classifier is powerful under the two registered "
+                "outer-point alternatives (wam060 and wap060)"
+                if outer_pass
+                else "registered outer-point direction-power gate failed"
+            ),
             "monotonicity_diagnostic": monotonicity,
         },
         "operational_history": {

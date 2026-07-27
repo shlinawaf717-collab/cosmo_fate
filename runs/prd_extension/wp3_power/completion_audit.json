@@ -34,9 +34,9 @@
     "truth_points": 6,
     "unique_truth_mock_pairs": 606
   },
-  "created_at": "2026-07-27T02:05:41.606746+00:00",
+  "created_at": "2026-07-27T08:42:08.396163+00:00",
   "input_audit": {
-    "created_at": "2026-07-27T02:05:34.833171+00:00",
+    "created_at": "2026-07-27T08:42:02.767522+00:00",
     "relative_covariance_links": 1212,
     "schema_version": "wp3-mock-campaign-v1",
     "shared_input_fingerprint": {
@@ -111,9 +111,9 @@
   },
   "registered_power_endpoints": {
     "alpha": 0.05,
-    "classifier_demonstrably_powerful": true,
     "monotonicity_diagnostic": {
       "definition": "A reversal is beyond binomial uncertainty only when the outer point estimate is lower and its exact 95% upper bound is below the inner point's exact 95% lower bound.",
+      "evidential_role": "coarse descriptive safeguard only; overlapping exact intervals make this insensitive to moderate non-monotonicity, so a clear status is not separate evidence of classifier power",
       "negative_wa": [
         {
           "inner_truth": "wam015",
@@ -142,10 +142,11 @@
           "reversal_beyond_binomial_uncertainty": false
         }
       ],
-      "status": "PASS"
+      "status": "NO_DISJOINT_INTERVAL_REVERSAL"
     },
     "outer_direction_power_threshold": 0.8,
     "outer_points_pass": true,
+    "positive_claim_scope": "direction classifier is powerful under the two registered outer-point alternatives (wam060 and wap060)",
     "truth_points": {
       "wam015": {
         "asimov_correct_mass": 0.7898340054393698,
@@ -443,6 +444,6 @@
       }
     }
   },
-  "schema_version": "wp3-power-completion-audit-v1",
+  "schema_version": "wp3-power-completion-audit-v2",
   "status": "PASS"
 }

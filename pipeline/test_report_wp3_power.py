@@ -33,10 +33,23 @@ def test_report_preserves_complete_registered_order():
             "truth_points": points,
             "outer_direction_power_threshold": 0.8,
             "outer_points_pass": True,
-            "classifier_demonstrably_powerful": True,
-            "monotonicity_diagnostic": {"status": "PASS"},
+            "positive_claim_scope": "outer alternatives only",
+            "monotonicity_diagnostic": {
+                "status": "NO_DISJOINT_INTERVAL_REVERSAL",
+                "evidential_role": "coarse diagnostic only",
+            },
         },
     }
-    report = build_report(audit)
+    profiles = {
+        truth_id: {
+            "profile_chi2": 100.0 + i,
+            "delta_chi2_from_best_registered_truth": float(i),
+            "source": f"truths/{truth_id}/truth.json",
+        }
+        for i, truth_id in enumerate(ORDER)
+    }
+    report = build_report(audit, profiles)
     assert [row["truth_id"] for row in report["rows"]] == list(ORDER)
     assert report["outer_points_pass"] is True
+    assert report["rows"][-1]["delta_chi2_from_best_registered_truth"] == 5.0
+    assert "outer alternatives only" in report["positive_claim_scope"]

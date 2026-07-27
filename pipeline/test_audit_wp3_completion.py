@@ -52,4 +52,5 @@ def test_monotonicity_only_triggers_for_disjoint_reversal():
         is False
     )
     assert report["positive_wa"][0]["reversal_beyond_binomial_uncertainty"] is True
-    assert report["status"] == "DIAGNOSTIC_TRIGGERED"
+    assert report["status"] == "DISJOINT_INTERVAL_REVERSAL_DETECTED"
+    assert "not separate evidence" in report["evidential_role"]
