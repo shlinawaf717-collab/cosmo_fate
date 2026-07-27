@@ -51,6 +51,11 @@ The extension has three primary questions.
    priors with one explicitly generated function-space prior, how much of the
    fate uncertainty remains?
 
+PRD-A008 prospectively corrects question 2's scope to a full CMB-spectrum and
+CMB-lensing-sensitive analysis.  A direct late-time growth likelihood remains
+conditional on the separate WP6 availability/overlap gate; the frozen wording
+above is retained as the historical rule rather than silently rewritten.
+
 The claim hierarchy is fixed.
 
 - Direction, depth, evidence, boundary behaviour, and extrapolative fate are

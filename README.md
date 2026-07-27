@@ -20,6 +20,11 @@
 `runs/prd_extension/`，不得覆盖 v1.x 的 `runs/gate2/`、`runs/phase2/` 或
 `runs/phase3/`。
 
+当前强化版检查点：WP2 已完成 500 个 noisy mock，正式端点为 `K=2/500`、
+plus-one `p=0.005988`；WP3 已完成 600 个 noisy case 与 6 个 Asimov case，
+外点方向功效门通过，但正面结论仅限两个注册外点备择。WP4 F0 仍在原配置下运行，
+只有冻结的外部统计门可以授权停止；未产生论文级全 CMB 科学端点。
+
 阶段路线：0 预注册（本阶段）→ 1 管线验证（Gate 1：复现 DESI DR2 已发表 w₀wₐCDM 结果）→ 2 全后验 + 终局分类 → 3 脆弱性量化（F_prior / F_param / F_data、mock 校准、约束视界）→ 4 写作。
 
 ## 复现（Reproduce）
@@ -46,6 +51,9 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.lock
 .venv/bin/python pipeline/migrate_null500.py --dry-run  # WP2 原子迁移预检
 .venv/bin/python pipeline/migrate_null500.py --audit    # 迁移或远程传输后的逐文件复核
 .venv/bin/python pipeline/run_gate2.py 101 500 --jobs=4 --dry-run  # WP2 预检；仅允许 runs/prd_extension/null500/
+.venv/bin/python pipeline/report_null500_endpoints.py  # 从 501 行账本生成 WP2 六项正式端点
+.venv/bin/python pipeline/report_wp3_power.py          # 生成 WP3 表、图和限定解释
+.venv/bin/python pipeline/wp7_wp8_preflight.py         # WP7/WP8 解析与数值预检
 .venv/bin/python pipeline/make_paper_figs.py      # 论文图 F1–F6
 ```
 
@@ -65,6 +73,12 @@ MCMC/nested 运行配置均以 `*.input.yaml` 存于 `runs/` 各目录（cobaya 
 
 ## 解释边界（大修版）
 
+- WP2 的 500-mock 结果为 `2/500`，95% Clopper--Pearson 区间
+  `[0.000485,0.014374]`；它提高了有限模拟尾部精度，但使 v1.x
+  “低于每一个 mock / 八倍更深”的修辞失效。
+- WP3 只证明分类器在两个注册外点备择下方向功效充足。六个真值的 D0 profile
+  `Delta chi2` 跨 `0--39.37`，不能解释成对称、等支持的效应量曲线；单调性门只是
+  粗筛查。
 - 注册的约束视界 `a_h` 是后验到先验 KL 首次低于 0.1 nat 的位置；它在
   BIN4 审计中**未达到**。`a=1` 只是直接观测支持的边界，不能替代 `a_h`。
 - CPL/JBP/BA/BIN4 的坐标先验、维数和早期物质主导约束不同；论文同时报告

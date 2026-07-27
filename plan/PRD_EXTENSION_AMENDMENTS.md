@@ -380,6 +380,50 @@ Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `pipeline/wp7_wp8_preflight.py`; tests and preflight result pending on
 `agent/prd-extension-wp0`.
 
+## PRD-A008 — 2026-07-27
+
+ID and date: PRD-A008, 2026-07-27
+
+Author: Zhang; recorded by Codex under the author's instruction
+
+Affected work package(s): WP4, WP6, integrated interpretation
+
+Old rule: Research question 2 promised a “full CMB-spectrum and
+growth-sensitive analysis rather than a geometry-only distance prior,” even
+though WP6 separately allowed the direct late-time growth likelihood to return
+a data-availability or overlap No-Go.
+
+New rule: Research question 2 asks whether the finite-redshift preference and
+fate-fragility result survive a full CMB-spectrum and CMB-lensing-sensitive
+analysis.  CMB lensing remains part of WP4.  A direct late-time growth
+likelihood is a separate conditional WP6 extension and is run only if its
+registered availability, covariance, and double-counting gate returns Go.  A
+WP6 No-Go satisfies the protocol and is not described as a completed direct
+growth inference.
+
+Trigger and scientific reason: The old question promised an inference that the
+registered data gate was explicitly permitted to prohibit.  Separating
+full-CMB/lensing completion from direct late-time growth removes that internal
+contradiction without weakening WP4 or bypassing WP6.
+
+Affected result inspected before change? yes; exact scope: completed WP2 and
+WP3 endpoints, WP4 operational health and blinded convergence diagnostics, and
+the CAMB fixed-point version diagnostic were known.  No WP4 posterior mean,
+interval, best fit, likelihood endpoint, fate classification, or model
+comparison was inspected; no WP6 inference exists.
+
+Classification: corrective; pre-WP4-scientific-endpoint and pre-WP6-inference
+
+Pre-amendment result disposition: WP2, WP3, all existing WP4 samples, the
+frozen F0/F1 likelihood definitions, and the WP6 data gate are unchanged.
+Only the claim scope is corrected.  The original question remains visible in
+the historical protocol text with an explicit supersession note.
+
+Files and commits: `plan/PRD_EXTENSION_PROTOCOL.md`;
+`plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/prd_extension_scope_amendment_a008.json`; tests and commit pending on
+`agent/prd-extension-wp0`.
+
 Every future entry must append, never rewrite, the following fields:
 
 ```text

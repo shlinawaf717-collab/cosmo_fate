@@ -117,6 +117,78 @@ def fig3():
     print("wrote", out, f"(n_mocks={len(mocks)})")
 
 
+def fig3_null500():
+    """WP2 extension figure without overwriting the v1.x 100-mock artifact."""
+    root = os.path.join(RUNS, "prd_extension", "null500")
+    rows = [json.loads(line) for line in open(os.path.join(root, "results.jsonl"))]
+    mocks = [row["P_heat"] for row in rows if row["k"] > 0]
+    m000 = next(row["P_heat"] for row in rows if row["k"] == 0)
+    with open(os.path.join(RUNS, "phase2", "fate", "d0_cpl_p1.json")) as stream:
+        real = json.load(stream)["P_heat_death_compatible"]
+    with open(os.path.join(root, "endpoints.json")) as stream:
+        endpoints = json.load(stream)["endpoints"]
+
+    fig, ax = plt.subplots(figsize=(6.4, 3.6))
+    nbins = 20
+    ax.hist(
+        mocks,
+        bins=np.linspace(0, 1, nbins + 1),
+        color="#a8c4e0",
+        edgecolor="white",
+        label=r"500 mocks, $\Lambda$CDM truth",
+    )
+    ax.axhline(
+        len(mocks) / nbins,
+        color="0.4",
+        ls="--",
+        lw=1,
+        label="uniform expectation",
+    )
+    ax.axvline(
+        real,
+        color="#c1443c",
+        lw=2.5,
+        label=f"real data (D0): {real:.3f}",
+    )
+    ax.axvline(
+        m000,
+        color="0.15",
+        ls=":",
+        lw=2,
+        label=f"zero-residual mock: {m000:.2f}",
+    )
+    depth = endpoints["primary_depth"]
+    plus_one = endpoints["finite_simulation_lower_tail"]["p_plus_one"]
+    ax.text(
+        0.025,
+        0.965,
+        (
+            rf"$P(\mathrm{{RIP}})_{{\rm mock}}\leq"
+            rf" P(\mathrm{{RIP}})_{{\rm obs}}$: "
+            rf"${depth['K']}/{depth['N']}$"
+            "\n"
+            rf"plus-one $p={plus_one:.4f}$"
+        ),
+        transform=ax.transAxes,
+        ha="left",
+        va="top",
+        fontsize=8,
+        bbox={"facecolor": "white", "edgecolor": "0.8", "alpha": 0.9},
+    )
+    ax.set_xlabel(
+        r"$P$(heat-death compatible) "
+        r"$= P(\mathrm{DS}) + P(\mathrm{DECAY})$"
+    )
+    ax.set_ylabel("mocks per bin")
+    ax.set_xlim(-0.02, 1.04)
+    ax.legend(fontsize=8, loc="lower left")
+    fig.tight_layout()
+    out = os.path.join(root, "null500_histogram.pdf")
+    fig.savefig(out)
+    plt.close(fig)
+    print("wrote", out, f"(n_mocks={len(mocks)})")
+
+
 def chain_stats(pattern, param="wa", burn=0.3):
     """Weighted mean/std of `param` over all chain files matching pattern."""
     vals, wts = [], []
@@ -360,6 +432,7 @@ if __name__ == "__main__":
     fig1()
     fig2()
     fig3()
+    fig3_null500()
     fig4()
     fig5()
     fig6()

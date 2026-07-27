@@ -31,12 +31,19 @@ Baseline CPL gives
 $P(\textsc{decay})=\DzeroDecayPct\%$ and
 $P(\textsc{rip})=\DzeroRipPct\%$, with a nested-sampling point estimate of
 $\NestedDzeroRipPct\%$ (between-seed SD $\NestedDzeroRipSeedSdPct$ percentage
-points). Within continuous CPL with no point mass at \lcdm{}, one hundred
-fitted-truth \lcdm{} mocks yield heat-death-compatible posterior mass
-consistent with $U(0,1)$; a zero-residual realization gives $52/48$. The
-real-data posterior tail lies below all 100 mocks ($\hat p=0.0099$, 95\%
-Monte Carlo upper bound $0.0295$). A two-parameter Wilks test gives $p=0.024$,
-but tests a different statistic and is not an independent calibration of that
+points). A separately frozen public extension expands the fitted-truth
+\lcdm{} null campaign to \NullFiveN{} mocks. The heat-death-compatible mass
+remains consistent with $U(0,1)$ (KS $p=\NullFiveKSp$);
+\NullFiveK/\NullFiveN{} mocks reach a Big Rip probability no larger than the
+observed value, giving the finite-simulation result
+$\hat p=\NullFivePlusOne$ (exact 95\% binomial interval
+$[\NullFiveCPLow,\NullFiveCPHigh]$). Off-boundary power is truth-specific:
+at the two registered $\wa=\pm0.60$ alternatives direction power is unity and
+one-sided depth power is $0.90/0.98$, whereas at
+$\wa=-0.15/+0.15$ they are $0.84/0.77$ and $0.33/0.18$. The six constrained
+truth fits span $\Delta\chi^2=0$--$39.4$, so they are not equally supported
+effect sizes. A two-parameter Wilks test gives $p=0.024$, but tests a
+different statistic and is not an independent calibration of the posterior
 tail. Translation into fate is assumption-dominated: a quintessence prior sets
 $P(\textsc{rip})\equiv0$ at a fit cost of $\Delta\chi^2=8.9$, while Bayesian
 evidence favors \lcdm{} ($\ln B=\NestedLnB$, between-seed SD
@@ -92,8 +99,9 @@ before the first real-data fate computation (Sec.~\ref{sec:prereg}), validate th
 official DESI DR2 chains (Sec.~\ref{sec:data}), propagate every posterior
 sample to $a=10^{4}$ through a frozen fate classifier and report the
 baseline verdict (Secs.~\ref{sec:fate}--\ref{sec:baseline}), calibrate the
-classifier on one hundred mock universes in which the truth is
-exactly \lcdm{} (Sec.~\ref{sec:null}), and then measure the fate verdict's
+classifier on a completed 500-mock fitted-truth \lcdm{} ensemble
+(Sec.~\ref{sec:null}), measure its off-boundary power
+(Sec.~\ref{sec:power}), and then measure the fate verdict's
 response along eight axes of assumption variation (Sec.~\ref{sec:matrix}):
 the supernova compilation, the SH0ES anchor, the CMB information content,
 the dataset combination, the prior on the dark-energy sector, the inference
@@ -104,10 +112,15 @@ model and prior, when the truth is exactly \lcdm{} the direction-class
 posterior mass is consistent with $U(0,1)$ across repeated datasets. This is
 a conditional boundary-calibration result, not a theorem about model
 averaging or priors that put discrete mass on \lcdm{}. Second, in depth: the
-real data push the Big Rip probability to $0.18\%$ under CPL, below all one
-hundred null mocks ($\hat p=0.0099$, 95\% upper bound $0.0295$). The Wilks
+real data push the Big Rip probability to $0.18\%$ under CPL. Two of
+\NullFiveN{} fitted-truth null mocks are at least as deep, giving
+$\hat p=\NullFivePlusOne$ and an exact 95\% binomial interval
+$[\NullFiveCPLow,\NullFiveCPHigh]$. The Wilks
 likelihood-ratio value \cite{Wilks1938} $p=0.024$ points in the same qualitative direction but
-concerns a different null statistic. Third, in translation: four converged
+concerns a different null statistic. Registered off-boundary experiments give
+unit direction power at $\wa=\pm0.60$ but only $0.84/0.77$ at
+$\wa=-0.15/+0.15$, so power is not summarized by the outer points alone.
+Third, in translation: four converged
 parametrizations have similar archived chain-minimum AIC values in an
 exploratory audit, yet the Big Rip probability moves from $0.2\%$ (CPL) to approximately $50\%$
 (binned $w$); under a quintessence prior it is zero before data arrive. A
@@ -147,6 +160,16 @@ audit. The datasets and validation strategy were already known, but the core
 classifier, audit axes, gates, and two reportable outcome forms were frozen
 before the first target fate calculation. It is not a claim of preregistration
 before data access or of an independently timestamped public registration.
+
+The 500-mock and off-boundary-power results were not part of that original
+local preregistration. They belong to a separately versioned PRD-strengthening
+protocol, frozen after completion of the v1.x paper and before the WP2--WP7
+extension results. The immutable historical checkpoint is tag
+\texttt{paper-v1x-final-20260722}; extension products are isolated below
+\path{runs/prd_extension/}. We describe this layer as a prospectively
+specified public extension, not as part of the original preregistered core.
+Its append-only \texttt{PRD-A} ledger records the WP2 execution-order
+deviation and all later corrective scope changes.
 
 Departures from the frozen plan are recorded in an append-only log
 (Appendix~\ref{app:amendments}) stating what changed, why, and when relative to
@@ -305,12 +328,14 @@ however, one must ask what such a table looks like when the truth is exactly
 
 We are unaware of a published repeated-\lcdm{}-mock calibration of a posterior
 cosmic-fate class probability using the same end-to-end inference pipeline. We
-generated one hundred mock datasets whose truth is the \lcdm{} best fit to D0,
-drawing noise from the exact likelihood covariances
-(SN $1657\times1657$; BAO $13\times13$; CMB prior $3\times3$), plus one
-zero-residual realization for which all three $\chi^2$ vanish at the
-truth---a closed-loop validation of the mock machinery. Each mock was
-processed by the full CPL+P1 pipeline.
+first generated 100 mock datasets whose truth is the \lcdm{} best fit to D0.
+A separately frozen extension appended 400 without optional stopping, giving
+\NullFiveN{} noisy realizations in total. Noise is drawn from the exact
+likelihood covariances (SN $1657\times1657$; BAO $13\times13$; CMB prior
+$3\times3$), and every mock is processed by the same CPL+P1 pipeline. A
+separate zero-residual realization, excluded from the finite null
+distribution, makes all three $\chi^2$ values vanish at the truth and closes
+the mock--likelihood loop.
 
 Because the \lcdm{} truth sits on the zero-width CPL fate boundary, local
 regular asymptotics predict the heat-death-compatible posterior mass to
@@ -323,24 +348,33 @@ limit on Bayesian procedures. Spike-and-slab priors, explicit \lcdm{} model
 probability, curved boundaries, or misspecified posterior widths change the
 result (Appendix~\ref{app:boundarystats}).
 These predictions were logged mid-campaign (at ${\sim}17$ of 100 mocks),
-before the campaign's completion and before the zero-residual run. Results
-(Fig.~\ref{fig:null}): accuracy $\NullAcc/100$ (68\% CI $[45,55]$); KS uniformity
-$p=\NullKSp$; mean $\NullMean\pm\NullMeanSE$; \textsc{other} and boundary budgets at the
-$10^{-3}$ level. (A hundred-realization KS test has limited power against
-mild distortions, which is why the registered predictions also pinned the
-mean, the accuracy count, and the budgets---all separately satisfied, while
-retaining limited power against mild departures.)
+before the original campaign completed and before the zero-residual run.
+They all passed at the historical 100-mock checkpoint. The public extension
+did not assume that its original $0/100$ lower-tail count would remain zero.
+In the pooled campaign, \NullFiveDirectionK/\NullFiveN{}
+($\NullFiveDirectionPct\%$, exact 95\% interval
+$[\NullFiveDirectionLowPct,\NullFiveDirectionHighPct]\%$) have
+$P(\mathrm{heat})>0.5$, and the complete $P(\mathrm{heat})$ distribution
+remains compatible with $U(0,1)$ (KS $p=\NullFiveKSp$;
+Fig.~\ref{fig:null}). The maximum \textsc{other} and boundary fractions are
+\NullFiveOtherMaxPct\% and \NullFiveBoundaryMaxPct\%, respectively.
 The zero-residual mock returns $52/48$. Its data vector equals the truth, but
 its likelihood covariance remains finite; it is a closed-loop diagnostic,
 not a zero-uncertainty experiment. The result isolates the role of boundary
 geometry within this continuous CPL analysis.
 
 The null distribution also supplies the calibrated reading of the real data.
-Across one hundred \lcdm{} universes the lowest Big Rip probability produced
-by noise is $\RipNullMin\%$; the real Universe sits at $\DzeroRipPct\%$---eight times deeper,
-below every realization. The conditional parametric-bootstrap rank at this
-fitted truth is
-$\hat p=(0+1)/(100+1)=0.0099$, with a 95\% upper bound of $0.0295$.
+The minimum null Big Rip probability is now
+\NullFiveRipMinPct\%, slightly below the observed \DzeroRipPct\%;
+\NullFiveK/\NullFiveN{} mocks satisfy
+$P(\textsc{rip})_{\rm mock}\le P(\textsc{rip})_{\rm obs}$.
+Thus the historical v1.x statement ``below every realization'' was correct
+for its first 100 mocks but does not survive the higher-resolution extension.
+The registered conditional plus-one value is
+$\hat p=(\NullFiveK+1)/(\NullFiveN+1)=\NullFivePlusOne$, with the exact
+two-sided 95\% Clopper--Pearson interval
+$[\NullFiveCPLow,\NullFiveCPHigh]$ for the underlying fitted-truth tail
+probability.
 The asymptotic Wilks route gives $p=0.024$, but the statistics are not
 equivalent: the mock campaign ranks the one-sided posterior mass
 $P(\wa>0\mid D)$ within a CPL pipeline, whereas Wilks tests the point
@@ -354,13 +388,74 @@ What that signal does and does not imply about the actual fate is the
 subject of the fragility matrix.
 
 \begin{figure}[t]
-\includegraphics[width=0.95\columnwidth]{../runs/gate2/f3_null_histogram.pdf}
-\caption{Null calibration of the fate verdict. Under \lcdm{} truth the
+\includegraphics[width=0.95\columnwidth]{../runs/prd_extension/null500/null500_histogram.pdf}
+\caption{The completed 500-mock null calibration. Under \lcdm{} truth the
 heat-death-compatible posterior mass is consistent with $U(0,1)$
-(KS $p=0.25$) for continuous CPL+P1; the zero-residual mock returns 52/48.
-The real-data value
-(red) lies beyond every mock realization.}\label{fig:null}
+(KS $p=\NullFiveKSp$) for continuous CPL+P1; the excluded zero-residual
+diagnostic returns 52/48. Two mocks have
+$P(\textsc{rip})\le P(\textsc{rip})_{\rm obs}$; the red line marks the
+observed heat-death-compatible mass.}\label{fig:null}
 \end{figure}
+
+\section{Off-boundary power}\label{sec:power}
+
+Null calibration at the $\wa=0$ boundary does not show how quickly the
+statistic becomes informative away from that boundary. The extension
+therefore froze six CPL truths at
+$\wa=\{-0.60,-0.30,-0.15,+0.15,+0.30,+0.60\}$. At each value all other
+parameters were reprofiled against D0 before any of its 100 noisy mocks were
+generated. Direction power is the fraction placing more than one half of the
+posterior on the truth-consistent thermodynamic side. One-sided depth power
+is the fraction rejected at $\alpha=0.05$ against the completed 500-mock null
+CDF. Table~\ref{tab:power} reports exact binomial intervals.
+
+\begin{table*}[t]
+\caption{Registered WP3 truth-specific power. $\Delta\chi^2$ is relative to
+the best of the six constrained D0 truth fits, not a common distance from the
+fate boundary. Brackets are exact 95\% binomial intervals. The ``false''
+column is the fraction placing majority mass on the opposite side.}
+\label{tab:power}
+\scriptsize
+\begin{ruledtabular}
+\begin{tabular}{lrrlccc}
+Truth & $\wa$ & $\Delta\chi^2$ & correct side &
+direction power & depth power & false-sign fraction \\
+\hline
+wam060 & $-0.60$ & \WpWamSixtyDeltaChi & heat &
+\WpWamSixtyDirection & \WpWamSixtyDepth & \WpWamSixtyFalse \\
+wam030 & $-0.30$ & \WpWamThirtyDeltaChi & heat &
+\WpWamThirtyDirection & \WpWamThirtyDepth & \WpWamThirtyFalse \\
+wam015 & $-0.15$ & \WpWamFifteenDeltaChi & heat &
+\WpWamFifteenDirection & \WpWamFifteenDepth & \WpWamFifteenFalse \\
+wap015 & $+0.15$ & \WpWapFifteenDeltaChi & \textsc{rip} &
+\WpWapFifteenDirection & \WpWapFifteenDepth & \WpWapFifteenFalse \\
+wap030 & $+0.30$ & \WpWapThirtyDeltaChi & \textsc{rip} &
+\WpWapThirtyDirection & \WpWapThirtyDepth & \WpWapThirtyFalse \\
+wap060 & $+0.60$ & \WpWapSixtyDeltaChi & \textsc{rip} &
+\WpWapSixtyDirection & \WpWapSixtyDepth & \WpWapSixtyFalse \\
+\end{tabular}
+\end{ruledtabular}
+\end{table*}
+
+Both registered outer-point alternatives pass the predeclared 0.80 direction
+gate, so the justified positive claim is that the direction classifier is
+powerful under those two alternatives. This is not a global statement:
+direction power at $\wa=+0.15$ is $0.77$, and inner-point depth power is only
+$0.18$--$0.33$. Moreover, the six generating truths have observed-D0
+profile penalties from $0$ to $39.37$. Figure~\ref{fig:power} therefore shows
+truth-specific operating characteristics, not a symmetric effect-size curve.
+The registered monotonicity rule merely checks for a reversal with disjoint
+exact intervals; no such reversal appears, but that coarse clear result is
+not separate evidence of power.
+
+\begin{figure*}[t]
+\includegraphics[width=\textwidth]{../runs/prd_extension/wp3_power/power_curve.png}
+\caption{WP3 direction and one-sided depth power at six registered constrained
+truths. Error bars are exact 95\% binomial intervals; annotations give each
+truth's D0 profile $\Delta\chi^2$ relative to the best registered truth.
+The unequal profile penalties prevent reading the two sides as equally
+supported, symmetric effect sizes.}\label{fig:power}
+\end{figure*}
 
 \section{The fragility matrix}\label{sec:matrix}
 \subsection{Data axis}\label{sec:fdata}
@@ -651,7 +746,8 @@ $F_{\rm data}$ & $\FDataRip$ & $\FDataHeat$ \\
 
 Table~\ref{tab:matrix} assembles the audit. For D0 within CPL+P1, the
 posterior-tail mock rank and the non-equivalent Wilks statistic both lie near
-the few-percent level. Across D1--D4, the anti-rip posterior direction remains
+the percent level: the 500-mock plus-one value is \NullFivePlusOne, while
+Wilks gives $0.024$. Across D1--D4, the anti-rip posterior direction remains
 sub-percent within the same CPL pipeline, but those variants were not
 separately null-calibrated and the tail magnitude spans $\FDataRip$ dex.
 Quantities specifically about fate---which endpoint, with what
@@ -667,8 +763,12 @@ distribution when the truth lies on the local \lcdm{} boundary. This statement
 does not transfer automatically to BIN4 or to explicit model averaging.
 (ii) \emph{Depth}: within CPL+P1 and the adopted compressed-CMB likelihood,
 the D0 posterior lies in the anti-rip tail of the fitted-truth mock distribution
-($\hat p=0.0099$, 95\% Monte Carlo upper bound $0.0295$); the non-equivalent
-Wilks test gives $p=0.024$. This is a pipeline-conditional finite-redshift
+(\NullFiveK/\NullFiveN{} null mocks at least as deep,
+$\hat p=\NullFivePlusOne$, exact 95\% interval
+$[\NullFiveCPLow,\NullFiveCPHigh]$); the non-equivalent Wilks test gives
+$p=0.024$. The off-boundary experiment additionally shows strong direction
+power at the two registered outer truths, but materially weaker inner-point
+direction and depth power. This is a pipeline-conditional finite-redshift
 preference, not a calibration of data systematics, likelihood compression, or
 cross-model uncertainty. Across D1--D4 the anti-rip posterior direction remains
 sub-percent within CPL+P1, but these variants were not separately
@@ -733,8 +833,12 @@ $\rho_{\rm DE}/\rho_m(z=1059)<0.01$; the archived posterior has zero weighted
 violating mass and a maximum sampled ratio $8.62\times10^{-5}$. A full-Planck
 BIN4 run is nevertheless a No-Go in the present geometry-only code because
 it supplies no CMB spectra or perturbation evolution. BIN4 results are thus
-compressed-CMB-conditioned. Growth
-data could shift the window-interior signal. The four fitted grammars are not
+compressed-CMB-conditioned. A separately frozen full-CMB/lensing CPL
+extension is still in progress at this manuscript checkpoint and contributes
+no scientific endpoint here. Direct late-time growth inference is separately
+conditional on the WP6 data-availability and overlap gate; CMB lensing alone
+must not be described as a complete direct-growth test. Growth data could
+shift the window-interior signal. The four fitted grammars are not
 a model average and their induced priors differ; the prior audit exposes but
 does not remove that dependence. The A-004 post-hoc audit further shows that
 this dependence cannot be removed by importance reweighting on the declared
@@ -751,10 +855,14 @@ unknown-unknowns are bounded only by the audit trail, which is public.
 \section{Conclusions}\label{sec:conclusions}
 
 Within CPL+P1 and the adopted compressed-CMB likelihood, the data exhibit a
-pipeline-conditional finite-redshift preference: the real CPL tail lies below
-all one hundred fitted-truth \lcdm{} mocks, and a distinct Wilks test gives a
-similar few-percent scale. Translating that preference into fate remains
-conditional. A quintessence prior excludes the rip before data; four
+pipeline-conditional finite-redshift preference: \NullFiveK{} of
+\NullFiveN{} fitted-truth \lcdm{} mocks are at least as deep as the real CPL
+tail, giving the registered plus-one value \NullFivePlusOne, while a distinct
+Wilks test gives $p=0.024$. Off the boundary, the direction classifier is
+powerful under the two registered outer-point alternatives, but the weaker
+inner-point and depth results forbid a blanket power claim. Translating the
+finite-redshift preference into fate remains conditional. A quintessence
+prior excludes the rip before data; four
 converged native-prior grammars with similar archived chain-minimum AIC values
 move posterior
 $P(\textsc{rip})$ from $\GrammarRipMinPct\%$ to $\GrammarRipMaxPct\%$ against
@@ -1046,13 +1154,17 @@ distance prior into a full-Planck likelihood.
 
 The null-calibration truth is the \lcdm{} best fit to D0
 ($\Omega_m=0.2968$, $H_0=68.81$, $M_B=-19.397$), located by repeated
-bounded minimization. Each of the 100 mocks draws one noise realization per
+bounded minimization. Each noisy mock draws one noise realization per
 likelihood from the exact covariances used in inference---SN
 $1657\times1657$ (stat+sys, after the $z>0.01$ mask), BAO $13\times13$, CMB
 prior $3\times3$---added to the truth's predicted data vectors, and is then
 processed by the full CPL+P1 pipeline (MCMC and classifier identical to the
 real-data runs). The campaign is a point null---mocks are generated at the
 single best-fit truth rather than marginalized over the \lcdm{} posterior.
+The historical v1.x checkpoint contained noisy indices 1--100. The frozen
+WP2 extension replayed the same generator stream and appended indices
+101--500 in an isolated result tree; it could not stop early and did not
+overwrite the v1.x inputs.
 For the direction layer this is sufficient: the uniformity prediction is
 truth-value-independent for any truth on the fate boundary
 (Appendix~\ref{app:boundarystats}), and every \lcdm{} parameter point sits
@@ -1065,16 +1177,18 @@ test: at the truth point all three likelihood $\chi^2$ vanish identically,
 verifying the mock--likelihood round trip; its fate verdict (52/48) is the
 finite-covariance boundary diagnostic of Sec.~\ref{sec:null}.
 
-Six falsifiable predictions were logged mid-campaign (after ${\sim}17$
-of 100 mocks had been inspected), derived from the
+Six falsifiable predictions were logged during the original campaign (after
+${\sim}17$ of its 100 mocks had been inspected), derived from the
 probability-integral-transform argument, before the campaign's completion
 and before the zero-residual realization ran:
 direction accuracy $50\pm10\%$; $P_{\rm heat}$ consistent with $U(0,1)$;
 0--3 of 100 mocks below the real data's $P(\textsc{rip})$;
 \textsc{other} and boundary budgets at the $10^{-3}$ level;
 \texttt{mock000} near 0.5; and the resulting A-002 trigger. All six were
-correct. Per-mock records (101 rows), summary statistics, and the batch
-logs are in the repository.
+correct at that historical checkpoint. The extension explicitly declined to
+predict that $0/100$ would remain zero: its completed result is
+\NullFiveK/\NullFiveN. Per-mock records (501 rows), the completion audit,
+the six versioned endpoint blocks, and the batch logs are in the repository.
 
 \section{Boundary calibration statistics}\label{app:boundarystats}
 
@@ -1142,12 +1256,15 @@ diagnostics respond in distinct directions in the simulations, but a
 
 \emph{Finite-mock reporting rules.} With $k$
 of $n$ fitted-truth mocks at or below the real-data statistic, we report the conditional plus-one
-estimate $\hat{p}=(k+1)/(n+1)$~\cite{PhipsonSmyth2010} and, for $k=0$, the
-$95\%$ upper bound $1-0.05^{1/n}$; a Monte Carlo $p$-value is never
-reported as zero. These standard rules were adopted during the campaign
-and applied uniformly; they weaken, not strengthen, the headline bound.
-For $k=0$, $n=100$: $\hat{p}=0.0099$, upper bound
-$0.0295$---quoted throughout as $p<0.030$.
+estimate $\hat{p}=(k+1)/(n+1)$~\cite{PhipsonSmyth2010} and the exact
+two-sided 95\% Clopper--Pearson interval for the underlying tail probability;
+a finite-simulation $p$-value is never reported as zero. At the historical
+$k=0,n=100$ checkpoint these rules gave $\hat p=0.0099$ and upper bound
+$0.0295$. The completed extension has $k=\NullFiveK,n=\NullFiveN$,
+$\hat p=\NullFivePlusOne$, and interval
+$[\NullFiveCPLow,\NullFiveCPHigh]$. The larger campaign strengthens finite
+tail resolution while invalidating the historical ``below every mock''
+wording.
 
 \emph{Relation to the calibration literature.} The lineage runs from the
 probability integral transform~\cite{Rosenblatt1952} through prequential
@@ -1178,7 +1295,9 @@ reported summaries, the figure scripts, and
 deterministic audits for induced prior fate mass, in-window chain minima,
 model averaging, the registered constraint-horizon metric, the A-004
 matched-prior structural No-Go, and the A-007 grammar-prior implementation
-trace. All
+trace. The extension additionally versions the WP2 completion and endpoint
+artifacts and the WP3 truth fits, 606-case completion audit, exact power table,
+and profile-$\chi^2$-annotated figure. All
 input data are public: DESI DR2 BAO compressed measurements and covariance;
 Pantheon+ (with SH0ES), Union3, and DES-Dovekie supernova files obtained via
 the \texttt{cobaya} installer; the CMB distance prior of

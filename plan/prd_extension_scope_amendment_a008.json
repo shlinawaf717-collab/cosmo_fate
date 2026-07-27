@@ -1,0 +1,19 @@
+{
+  "amendment_id": "PRD-A008",
+  "classification": "corrective; pre-WP4-scientific-endpoint and pre-WP6-inference",
+  "effective_question_2": "Do the finite-redshift dark-energy preference and fate-fragility result survive a full CMB-spectrum and CMB-lensing-sensitive analysis rather than a geometry-only distance prior?",
+  "growth_scope": {
+    "cmb_lensing_is_in_wp4": true,
+    "direct_late_time_growth_is_promised_unconditionally": false,
+    "direct_late_time_growth_requires_wp6_data_gate": true,
+    "wp6_no_go_is_reportable": true
+  },
+  "history_policy": "append-only correction; preserve the original question 2 wording",
+  "result_state_at_freeze": {
+    "wp2_complete": true,
+    "wp3_complete": true,
+    "wp4_scientific_endpoint_inspected": false,
+    "wp6_inference_exists": false
+  },
+  "schema_version": "prd-extension-scope-amendment-a008-v1"
+}
