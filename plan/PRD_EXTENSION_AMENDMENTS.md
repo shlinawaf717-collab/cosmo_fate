@@ -471,6 +471,53 @@ Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 monitor, evaluator, finalizer, controller, activation manifest, tests, and
 freeze commit pending on `agent/prd-extension-wp0`.
 
+## PRD-A010 — 2026-08-13
+
+ID and date: PRD-A010, 2026-08-13
+
+Author: Zhang; recorded by Codex under the author's instruction
+
+Affected work package(s): WP4 F1
+
+Old rule: F1 was frozen and launched on the local ARM64 Mac with four seeds
+4511--4514. No cross-platform replacement procedure for an already started F1
+candidate was defined.
+
+New rule: An x86-64 WSL2 Linux host may replace the Mac candidate only after
+all pre-production gates in `plan/WP4_F1_WINDOWS_MIGRATION_POLICY.md` pass.
+The WSL2 run starts from zero with the same seeds, target, proposal, four-job
+topology, and stopping rules. Mac chain samples and checkpoints are never
+copied, resumed, pooled, or selectively retained. Once WSL2 production starts,
+the complete WSL2 set is the sole F1 scientific chain set regardless of later
+speed or result; if preflight fails before sampling, WSL2 does not start and
+the original Mac candidate may continue.
+
+Trigger and scientific reason: A faster home Windows desktop became available
+minutes after Mac F1 launch. The current generated run YAMLs contain Mac
+absolute paths, and mixing ARM macOS and x86 Linux segments would obscure the
+numerical environment. A from-zero replacement after exact data, dependency,
+CAMB, full-likelihood fixed-point, and smoke gates preserves one-platform
+production and prevents post-result platform selection.
+
+Affected result inspected before change? yes; exact scope: only Mac F1 runtime
+health, elapsed time, proposal acceptance, and complete row counts during the
+first minutes were inspected. At this amendment the chains contained only
+initial tens of rows. No F1 posterior location, interval, likelihood value,
+best fit, model comparison, fate classification, or scientific endpoint was
+inspected.
+
+Classification: feasibility-driven; post-Mac-launch and pre-WSL2-production
+platform replacement rule
+
+Pre-amendment result disposition: The Mac F1 chain files and logs are retained
+as an excluded operational record if WSL2 production starts. They are not
+deleted or combined. F0, the proposal audit, the scientific target, and all
+stopping thresholds remain unchanged.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP4_F1_WINDOWS_MIGRATION_POLICY.md`; Windows/WSL2 task-package manifest,
+environment report, preflight result, and production return archive pending.
+
 Every future entry must append, never rewrite, the following fields:
 
 ```text
