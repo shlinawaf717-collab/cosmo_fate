@@ -80,6 +80,25 @@ SN/BAO 似然使用 cobaya 内置实现（`sn.pantheonplus`, `sn.pantheonplussho
 
 用途:Gate 1 链级验证。
 
+### DESI DR2 官方 posterior-maximization 基准（2026-08-13，F0 解盲后登记）
+
+WP4 F0 完成冻结的外部停止审计、并由作者明确授权解盲后，补存同一数据组合
+的 DESI 官方 `iminuit` posterior-maximization 产物。两份文件均从官方公开
+目录逐字节下载并以远端流 SHA256 复核；它们只用于 §7 的 CPL 相对
+ΛCDM `Delta chi2` 复现门，不参与采样、停止或 fate 分类。
+
+| 模型 | 本地文件 | SHA256 | likelihood `chi2` |
+|---|---|---|---:|
+| flat CPL (`base_w_wa`) | `runs/gate1/official_bestfits/base_w_wa/bestfit.minimum.txt` | `2eb4d1a0679b85ea759e558bba75c82348e09d58b04cdf84b9d252f227ece6c6` | 12394.829 |
+| flat ΛCDM (`base`) | `runs/gate1/official_bestfits/base/bestfit.minimum.txt` | `4ac3b96a23ec55de34b64de667ba8efb4243b351485c289b5d58bbef1655a58b` | 12404.756 |
+
+来源根目录：
+`https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/iminuit/`；
+各模型下的数据组合目录均为
+`desi-bao-all_pantheonplus_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/`。
+官方基准定义为各模型 posterior maximum 处的 likelihood chi-square 差，
+`Delta chi2 = chi2_CPL - chi2_LCDM = -9.927`；负值偏向 CPL。
+
 ## WP4 full-CMB F0（2026-07-27，采样前登记）
 
 目标组合与 `plan/PRD_EXTENSION_PROTOCOL.md` §7 一致：DESI DR2 all BAO、

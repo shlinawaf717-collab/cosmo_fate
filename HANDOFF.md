@@ -21,7 +21,7 @@ A-004--A-007 是明确标注的事后审计、纠错或实现溯源记录，不�
 | Gate 1 | 通过；压缩 CMB 管线与官方 DESI DR2 链在声明精度内一致 |
 | WP2 null500 | 500 个有噪声 mock + mock000 完成并审计；`K=2/500`，plus-one `p=0.005988`，方向统计量与 `U(0,1)` 相容 |
 | WP3 power | 600 个 noisy + 6 个 Asimov 完成；两个注册外点方向门通过，结论不外推为全局功效 |
-| WP4 F0 | 原 YAML、checkpoint 和 4 链持续运行；外部权威门与安全 finalizer 已冻结启用，尚无科学端点 |
+| WP4 F0 | 四链已由冻结 external finalizer 安全停止；收敛、官方链均值/标准差和 CPL 相对 ΛCDM 的 `Delta chi2` 复现门全部通过；尚未计算 fate，F1 尚未启动 |
 | WP7/WP8 | 解析预测和数值 preflight 已冻结；WP8 主端点改为部分识别支持集，尚未生产推断 |
 | D0 CPL | MCMC `P(RIP)=0.18%`；nested 原始权重三种子均值 `0.179%`、种子间 SD `0.039` 个百分点 |
 | 数据轴 | D0--D4 全部亚百分比；原始权重尾概率 `0.0008%--0.376%`，正式跨度 `2.665 dex` |
@@ -34,9 +34,11 @@ A-004--A-007 是明确标注的事后审计、纠错或实现溯源记录，不�
 | A-006 | BIN4 早期暗能量硬门通过；full Planck 在当前背景接口上为 No-Go |
 | PRD-A008 | full CMB/CMB-lensing 与条件性的 direct-growth WP6 分开表述 |
 
-论文的硬边界：WP2/WP3 已进入强化版工作稿，但当前核心宇宙学结果仍使用 Planck
-距离先验。WP4 尚未完成，因此没有完整 CMB 谱科学结论；direct late-time growth
-还必须先通过 WP6 数据可用性、协方差和重复计数门。
+论文的硬边界：WP2/WP3 已进入强化版工作稿，WP4 F0 已证明本机全 CMB/lensing
+管线可以在注册阈值内复现 DESI 官方 CPL 结果，但它不是主科学数据组合，也未计算
+fate。当前核心 fate 结论仍使用 Planck 距离先验；必须完成 Pantheon+SH0ES 的
+WP4 F1 后，才有完整 CMB 谱下的主科学结论。direct late-time growth 仍须先通过
+WP6 数据可用性、协方差和重复计数门。
 
 ## 二、复现与测试
 
@@ -122,6 +124,7 @@ v1.2.1 仅把生成审计浮点数统一到跨 BLAS/NumPy 平台可复现的声�
 
 1. WP2 500-mock null 战役：完成。
 2. WP3 off-boundary 方向/深度功效：完成并收窄解释。
-3. WP4 CPL full CMB/lensing F0：运行中；通过后才进入 F1。
+3. WP4 CPL full CMB/lensing F0：完成并通过；F1 proposal 已由冻结的 F0 后半链
+   生成并审计，F1 尚未启动。
 4. WP5 BIN4 扰动实现、WP6 direct-growth 数据门、WP7 共同函数先验、WP8
    future-continuation 部分识别：待后续工作包依次执行。

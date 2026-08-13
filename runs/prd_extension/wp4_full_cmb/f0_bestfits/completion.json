@@ -1,0 +1,36 @@
+{
+  "completed_at_utc": "2026-08-13T06:34:23.660520+00:00",
+  "delta_chi2_cpl_minus_lcdm": -9.92699999999968,
+  "likelihood_chi2": {
+    "cpl": 12394.829,
+    "lcdm": 12404.756
+  },
+  "models": {
+    "cpl": {
+      "completed_at_utc": "2026-08-13T06:34:23.660016+00:00",
+      "log": "runs/prd_extension/wp4_full_cmb/f0_bestfits/cpl/bestfit.log",
+      "log_sha256": "0c554fdfb325eeea69f73317f5cff7134c754192eac0ffa4337886d1ab33f78f",
+      "minimum": "runs/prd_extension/wp4_full_cmb/f0_bestfits/cpl/bestfit.minimum.txt",
+      "minimum_present": true,
+      "minimum_sha256": "85fb05e62a84f75ea7b9ac23063a39a3d93adc8f9a39d56efd7f41f9976604bf",
+      "model": "cpl",
+      "returncode": 0,
+      "started_at_utc": "2026-08-13T06:31:30.969163+00:00"
+    },
+    "lcdm": {
+      "completed_at_utc": "2026-08-13T06:33:23.647272+00:00",
+      "log": "runs/prd_extension/wp4_full_cmb/f0_bestfits/lcdm/bestfit.log",
+      "log_sha256": "3e31402b89fd786e024b5332c662d16b8260406d39c70c4a30f8ee5208db3703",
+      "minimum": "runs/prd_extension/wp4_full_cmb/f0_bestfits/lcdm/bestfit.minimum.txt",
+      "minimum_present": true,
+      "minimum_sha256": "bfded1af7cc8702eb5ca9377de889e501294c564f25811d8938d8eb7d2761821",
+      "model": "lcdm",
+      "returncode": 0,
+      "started_at_utc": "2026-08-13T06:31:30.969281+00:00"
+    }
+  },
+  "run_plan": "runs/prd_extension/wp4_full_cmb/f0_bestfits/run_plan.json",
+  "run_plan_sha256": "461facc0a70ad807aadbb9bef8c3b2dc43ff7f4534f2668fa2ee55bd79f251cc",
+  "schema_version": "wp4-f0-bestfit-completion-v1",
+  "status": "PASS"
+}

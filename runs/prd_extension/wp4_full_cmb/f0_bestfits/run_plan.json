@@ -1,0 +1,79 @@
+{
+  "base_config": "pipeline/wp4_f0.yaml",
+  "base_config_sha256": "625bfd397f5a64391210c1da9f59eecde977623dfd70758b266061ac84c55e28",
+  "created_at_utc": "2026-08-13T06:31:24.231103+00:00",
+  "environment": {
+    "cobaya_run": "/Users/nocide/cosmo_fate/.venv/bin/cobaya-run",
+    "omp_num_threads": 1,
+    "python": "/opt/homebrew/Caskroom/miniforge/base/bin/python3.13"
+  },
+  "fate_quantities_computed": false,
+  "final_stop_audit": "runs/prd_extension/wp4_full_cmb/f0/external_monitor/final_stop_audit.json",
+  "final_stop_audit_sha256": "91ab67e8b98f05cff483fadc752bdce2bc91a99f61db0d430ea78a9cff712ecc",
+  "lcdm_covmat": {
+    "minimum_eigenvalue": 7.514255624052424e-09,
+    "parameters": [
+      "logA",
+      "ns",
+      "theta_MC_100",
+      "ombh2",
+      "omch2",
+      "tau",
+      "A_planck",
+      "amp_143",
+      "amp_217",
+      "amp_143x217",
+      "n_143",
+      "n_217",
+      "n_143x217",
+      "calTE",
+      "calEE"
+    ],
+    "path": "runs/prd_extension/wp4_full_cmb/f0_bestfits/lcdm/proposal.covmat",
+    "sha256": "6b4e133f548648bf8baa1ea4fd61d9b8a118976a4148119d6107d98a89cf1742",
+    "shape": [
+      15,
+      15
+    ]
+  },
+  "models": {
+    "cpl": {
+      "config": "runs/prd_extension/wp4_full_cmb/f0_bestfits/cpl/bestfit.yaml",
+      "config_sha256": "fb9c993ca11d0d235a33dbcfeb46c05a9d914efb6a8185869f226ee6ec761b81",
+      "covmat": "runs/prd_extension/wp4_full_cmb/f1_proposal.covmat",
+      "covmat_sha256": "85c6dd42f3267dbd3261eee66efaf19c538be3a5b4ac50fbf256ac9c0b6eb321",
+      "official_start": "runs/gate1/official_bestfits/base_w_wa/bestfit.minimum.txt",
+      "official_start_sha256": "2eb4d1a0679b85ea759e558bba75c82348e09d58b04cdf84b9d252f227ece6c6",
+      "output": "runs/prd_extension/wp4_full_cmb/f0_bestfits/cpl/bestfit",
+      "seed": 2026081301
+    },
+    "lcdm": {
+      "config": "runs/prd_extension/wp4_full_cmb/f0_bestfits/lcdm/bestfit.yaml",
+      "config_sha256": "89e09ed060158995958e459135b4ae5e8fc21708990ab806e5f235202d40f781",
+      "covmat": "runs/prd_extension/wp4_full_cmb/f0_bestfits/lcdm/proposal.covmat",
+      "covmat_sha256": "6b4e133f548648bf8baa1ea4fd61d9b8a118976a4148119d6107d98a89cf1742",
+      "official_start": "runs/gate1/official_bestfits/base/bestfit.minimum.txt",
+      "official_start_sha256": "4ac3b96a23ec55de34b64de667ba8efb4243b351485c289b5d58bbef1655a58b",
+      "output": "runs/prd_extension/wp4_full_cmb/f0_bestfits/lcdm/bestfit",
+      "seed": 2026081302
+    }
+  },
+  "objective": "maximum posterior separately in CPL and flat LCDM",
+  "optimizer": {
+    "best_of": 1,
+    "ignore_prior": false,
+    "implementation": "Cobaya 3.6.2 Py-BOBYQA",
+    "max_evals": 2000,
+    "method": "bobyqa",
+    "rhoend": 0.05,
+    "starting_point_role": "optimizer initialization only",
+    "starting_points": "DESI official posterior maxima"
+  },
+  "parallel_models": 2,
+  "purpose": "unblinded F0 reproduction delta-chi2 gate",
+  "reported_statistic": "likelihood chi2(CPL MAP) minus likelihood chi2(LCDM MAP)",
+  "schema_version": "wp4-f0-bestfit-plan-v1",
+  "source_covmat": "runs/prd_extension/wp4_full_cmb/f1_proposal.covmat",
+  "source_covmat_sha256": "85c6dd42f3267dbd3261eee66efaf19c538be3a5b4ac50fbf256ac9c0b6eb321",
+  "status": "FROZEN_BEFORE_OPTIMIZATION"
+}

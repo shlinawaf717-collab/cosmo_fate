@@ -1,0 +1,76 @@
+{
+  "chains": [
+    {
+      "captured_prefix_sha256": "224d6625c24dc9aba1a7bbe7ff2d637bf532dc01b7e599f12204b589f6280797",
+      "complete_rows": 25533,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp4_full_cmb/f0/c1/chain.1.txt",
+      "post_burn_rows": 12767,
+      "post_burn_weight": 35560
+    },
+    {
+      "captured_prefix_sha256": "eb119b34d6410c076b75378d4f04a9bef76e51c63d8d4947e7d46df7ff4a39ec",
+      "complete_rows": 24957,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp4_full_cmb/f0/c2/chain.1.txt",
+      "post_burn_rows": 12479,
+      "post_burn_weight": 35730
+    },
+    {
+      "captured_prefix_sha256": "ec299dc14af11283a8dc6c4e3b581956cc098366b7cc79a8532fdfe9ee75543d",
+      "complete_rows": 25324,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp4_full_cmb/f0/c3/chain.1.txt",
+      "post_burn_rows": 12662,
+      "post_burn_weight": 35550
+    },
+    {
+      "captured_prefix_sha256": "f8f9ac01e7e84e62faf38512c8549d8d5881172516e019de9a0e03fb99e2f8e3",
+      "complete_rows": 24862,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp4_full_cmb/f0/c4/chain.1.txt",
+      "post_burn_rows": 12431,
+      "post_burn_weight": 35413
+    }
+  ],
+  "condition_number": 1473018387.0396938,
+  "covariance": {
+    "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp4_full_cmb/f1_proposal.covmat",
+    "sha256": "85c6dd42f3267dbd3261eee66efaf19c538be3a5b4ac50fbf256ac9c0b6eb321"
+  },
+  "f0_closure_audit": {
+    "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp4_full_cmb/f0/external_monitor/final_stop_audit.json",
+    "sha256": "91ab67e8b98f05cff483fadc752bdce2bc91a99f61db0d430ea78a9cff712ecc",
+    "status": "EXTERNALLY_STOPPED"
+  },
+  "fate_quantities_reported": false,
+  "final_minimum_eigenvalue": 7.492196870549174e-09,
+  "integer_weights_used": true,
+  "likelihood_values_reported": false,
+  "maximum_eigenvalue": 11.036143749640186,
+  "parameters": [
+    "logA",
+    "ns",
+    "theta_MC_100",
+    "ombh2",
+    "omch2",
+    "tau",
+    "w",
+    "wa",
+    "A_planck",
+    "amp_143",
+    "amp_217",
+    "amp_143x217",
+    "n_143",
+    "n_217",
+    "n_143x217",
+    "calTE",
+    "calEE"
+  ],
+  "post_burn_weight": 142253,
+  "posterior_locations_reported": false,
+  "raw_minimum_eigenvalue": 7.49219687060248e-09,
+  "regularization_applied": false,
+  "relative_eigenvalue_floor": 1e-12,
+  "role": "F1 proposal efficiency only; posterior target is unchanged",
+  "row_burn_fraction": 0.5,
+  "schema_version": "wp4-f1-proposal-from-f0-v1",
+  "source": "complete F0 chain prefixes after 50% row burn-in",
+  "status": "PASS"
+}

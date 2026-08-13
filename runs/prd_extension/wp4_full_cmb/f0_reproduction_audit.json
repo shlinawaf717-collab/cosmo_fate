@@ -1,0 +1,206 @@
+{
+  "convergence": {
+    "bulk_ess_w_wa": true,
+    "post_termination_gates_pass": true,
+    "rminus1_primary": true,
+    "source": "runs/prd_extension/wp4_full_cmb/f0/external_monitor/final_stop_audit.json",
+    "status": "PASS",
+    "tail_ess_w_wa": true
+  },
+  "delta_chi2": {
+    "absolute_delta_chi2_difference": 6.399999983841553e-05,
+    "definition": "CPL chi2 minus LCDM chi2, evaluated at each model's posterior maximum and summed from non-aggregated likelihood components; negative values favor CPL",
+    "gate_pass": true,
+    "local": {
+      "delta_chi2_cpl_minus_lcdm": -9.926825000000463,
+      "models": {
+        "cpl": {
+          "atomic_component_sum_chi2": 12394.829124,
+          "atomic_components": {
+            "chi2__act_dr6_lenslike.ACTDR6LensLike": 19.913888,
+            "chi2__bao.desi_dr2.desi_bao_all": 10.078561,
+            "chi2__planck_2018_lowl.EE_clik": 396.15111,
+            "chi2__planck_2018_lowl.TT_clik": 23.078465,
+            "chi2__planck_NPIPE_highl_CamSpec.TTTEEE": 10542.466,
+            "chi2__sn.pantheonplus": 1403.1411
+          },
+          "minuslogpost": 6204.3154,
+          "minuslogprior": 6.9007982,
+          "path": "runs/prd_extension/wp4_full_cmb/f0_bestfits/cpl/bestfit.minimum.txt",
+          "reported_total_chi2": 12394.829,
+          "sha256": "85fb05e62a84f75ea7b9ac23063a39a3d93adc8f9a39d56efd7f41f9976604bf"
+        },
+        "lcdm": {
+          "atomic_component_sum_chi2": 12404.755949,
+          "atomic_components": {
+            "chi2__act_dr6_lenslike.ACTDR6LensLike": 20.709593,
+            "chi2__bao.desi_dr2.desi_bao_all": 13.70128,
+            "chi2__planck_2018_lowl.EE_clik": 397.32492,
+            "chi2__planck_2018_lowl.TT_clik": 22.706656,
+            "chi2__planck_NPIPE_highl_CamSpec.TTTEEE": 10545.04,
+            "chi2__sn.pantheonplus": 1405.2735
+          },
+          "minuslogpost": 6206.6698,
+          "minuslogprior": 4.2918501,
+          "path": "runs/prd_extension/wp4_full_cmb/f0_bestfits/lcdm/bestfit.minimum.txt",
+          "reported_total_chi2": 12404.756,
+          "sha256": "bfded1af7cc8702eb5ca9377de889e501294c564f25811d8938d8eb7d2761821"
+        }
+      }
+    },
+    "numeric_resolution_note": "Comparison uses the decimal precision published in each bestfit.minimum.txt component; the 1.0 gate is much wider than the resulting rounding scale.",
+    "official": {
+      "delta_chi2_cpl_minus_lcdm": -9.926761000000624,
+      "models": {
+        "cpl": {
+          "atomic_component_sum_chi2": 12394.829122000001,
+          "atomic_components": {
+            "chi2__act_dr6_lenslike_v1_2.ACTDR6LensLike": 19.91389,
+            "chi2__desi_y3_cosmo_bindings.cobaya_likelihoods.bao_likelihoods_v1p2.desi_bao_all": 10.078566,
+            "chi2__planck_2018_lowl.EE_clik": 396.15111,
+            "chi2__planck_2018_lowl.TT_clik": 23.078456,
+            "chi2__planck_NPIPE_highl_CamSpec.TTTEEE": 10542.466,
+            "chi2__sn.pantheonplus": 1403.1411
+          },
+          "minuslogpost": 6204.3155,
+          "minuslogprior": 6.9008056,
+          "path": "runs/gate1/official_bestfits/base_w_wa/bestfit.minimum.txt",
+          "reported_total_chi2": 12394.829,
+          "sha256": "2eb4d1a0679b85ea759e558bba75c82348e09d58b04cdf84b9d252f227ece6c6",
+          "url": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/iminuit/base_w_wa/desi-bao-all_pantheonplus_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/bestfit.minimum.txt"
+        },
+        "lcdm": {
+          "atomic_component_sum_chi2": 12404.755883000002,
+          "atomic_components": {
+            "chi2__act_dr6_lenslike_v1_2.ACTDR6LensLike": 20.709638,
+            "chi2__desi_y3_cosmo_bindings.cobaya_likelihoods.bao_likelihoods_v1p2.desi_bao_all": 13.70118,
+            "chi2__planck_2018_lowl.EE_clik": 397.32492,
+            "chi2__planck_2018_lowl.TT_clik": 22.706645,
+            "chi2__planck_NPIPE_highl_CamSpec.TTTEEE": 10545.04,
+            "chi2__sn.pantheonplus": 1405.2735
+          },
+          "minuslogpost": 6206.6699,
+          "minuslogprior": 4.2918709,
+          "path": "runs/gate1/official_bestfits/base/bestfit.minimum.txt",
+          "reported_total_chi2": 12404.756,
+          "sha256": "4ac3b96a23ec55de34b64de667ba8efb4243b351485c289b5d58bbef1655a58b",
+          "url": "https://data.desi.lbl.gov/public/papers/y3/bao-cosmo-params/iminuit/base/desi-bao-all_pantheonplus_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck-NPIPE-highl-CamSpec-TTTEEE_planck-act-dr6-lensing/bestfit.minimum.txt"
+        }
+      }
+    },
+    "status": "PASS",
+    "threshold_max_absolute_difference": 1.0
+  },
+  "generated_at_utc": "2026-08-13T06:54:37.623380+00:00",
+  "posterior_moments": {
+    "all_mean_gates_pass": true,
+    "all_sd_gates_pass": true,
+    "estimator": "integer-weighted population mean and SD",
+    "f0_chains": [
+      {
+        "full_rows": 25533,
+        "path": "runs/prd_extension/wp4_full_cmb/f0/c1/chain.1.txt",
+        "post_burn_rows": 12767,
+        "post_burn_weight": 35560,
+        "sha256": "224d6625c24dc9aba1a7bbe7ff2d637bf532dc01b7e599f12204b589f6280797"
+      },
+      {
+        "full_rows": 24957,
+        "path": "runs/prd_extension/wp4_full_cmb/f0/c2/chain.1.txt",
+        "post_burn_rows": 12479,
+        "post_burn_weight": 35730,
+        "sha256": "eb119b34d6410c076b75378d4f04a9bef76e51c63d8d4947e7d46df7ff4a39ec"
+      },
+      {
+        "full_rows": 25324,
+        "path": "runs/prd_extension/wp4_full_cmb/f0/c3/chain.1.txt",
+        "post_burn_rows": 12662,
+        "post_burn_weight": 35550,
+        "sha256": "ec299dc14af11283a8dc6c4e3b581956cc098366b7cc79a8532fdfe9ee75543d"
+      },
+      {
+        "full_rows": 24862,
+        "path": "runs/prd_extension/wp4_full_cmb/f0/c4/chain.1.txt",
+        "post_burn_rows": 12431,
+        "post_burn_weight": 35413,
+        "sha256": "f8f9ac01e7e84e62faf38512c8549d8d5881172516e019de9a0e03fb99e2f8e3"
+      }
+    ],
+    "f0_post_burn_weight": 142253,
+    "f0_row_burn_fraction_per_chain": 0.5,
+    "max_mean_shift_pooled_sd": 0.03129451124787805,
+    "max_sd_fractional_difference_vs_official": 0.020088907672379815,
+    "official_reference": "runs/prd_extension/wp4_full_cmb/official_reference.json",
+    "official_reference_sha256": "932b97932e8d7eb5e492228a86736f42387dbe90d54c7cb3e3a9cf5b243346fc",
+    "official_row_burn_fraction": 0.0,
+    "parameters": {
+      "H0": {
+        "absolute_mean_difference": 0.018734622094569886,
+        "local_mean": 67.53445796684078,
+        "local_sd": 0.6045786788278085,
+        "mean_gate_pass": true,
+        "mean_shift_pooled_sd": 0.03129451124787805,
+        "official_mean": 67.5157233447462,
+        "official_sd": 0.592672534992391,
+        "pooled_sd": 0.5986552065369036,
+        "sd_fractional_difference_vs_official": 0.020088907672379815,
+        "sd_gate_pass": true,
+        "source_column": "H0"
+      },
+      "Omega_m": {
+        "absolute_mean_difference": 0.00013209923529289291,
+        "local_mean": 0.31125916577921037,
+        "local_sd": 0.005771491001561414,
+        "mean_gate_pass": true,
+        "mean_shift_pooled_sd": 0.023073531592254972,
+        "official_mean": 0.31139126501450326,
+        "official_sd": 0.005678413864477624,
+        "pooled_sd": 0.005725141587655107,
+        "sd_fractional_difference_vs_official": 0.016391397193862785,
+        "sd_gate_pass": true,
+        "source_column": "omegam"
+      },
+      "w0": {
+        "absolute_mean_difference": 0.0002986895201899653,
+        "local_mean": -0.8376595086241412,
+        "local_sd": 0.05424598466980455,
+        "mean_gate_pass": true,
+        "mean_shift_pooled_sd": 0.005473510576485733,
+        "official_mean": -0.8379581981443311,
+        "official_sd": 0.05489212022370509,
+        "pooled_sd": 0.05457000877519796,
+        "sd_fractional_difference_vs_official": 0.011771007409939865,
+        "sd_gate_pass": true,
+        "source_column": "w"
+      },
+      "wa": {
+        "absolute_mean_difference": 0.005173591650807219,
+        "local_mean": -0.6228619179236972,
+        "local_sd": 0.2034899243138733,
+        "mean_gate_pass": true,
+        "mean_shift_pooled_sd": 0.02521788440990414,
+        "official_mean": -0.6176883262728899,
+        "official_sd": 0.20680797400937936,
+        "pooled_sd": 0.20515565725946971,
+        "sd_fractional_difference_vs_official": 0.016044109089118467,
+        "sd_gate_pass": true,
+        "source_column": "wa"
+      }
+    },
+    "status": "PASS",
+    "thresholds": {
+      "max_mean_shift_pooled_sigma": 0.2,
+      "max_sd_fractional_difference": 0.1
+    }
+  },
+  "schema_version": "wp4-f0-reproduction-audit-v1",
+  "status": "PASS",
+  "unblinding": {
+    "authorized_by": "user instruction in Codex task",
+    "fate_quantities_computed": false,
+    "final_stop_audit": "runs/prd_extension/wp4_full_cmb/f0/external_monitor/final_stop_audit.json",
+    "final_stop_audit_sha256": "91ab67e8b98f05cff483fadc752bdce2bc91a99f61db0d430ea78a9cff712ecc",
+    "precondition": "successful frozen F0 external-stop audit",
+    "precondition_pass": true
+  }
+}
