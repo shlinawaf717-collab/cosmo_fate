@@ -424,6 +424,53 @@ Files and commits: `plan/PRD_EXTENSION_PROTOCOL.md`;
 `plan/prd_extension_scope_amendment_a008.json`; tests and commit pending on
 `agent/prd-extension-wp0`.
 
+## PRD-A009 — 2026-08-13
+
+ID and date: PRD-A009, 2026-08-13
+
+Author: Zhang; recorded by Codex under the author's instruction
+
+Affected work package(s): WP4 F1
+
+Old rule: The extension protocol fixed F1's data combination and the generic
+`R-1`, bulk-ESS, and tail-ESS thresholds, but did not freeze F1's execution
+topology, estimator details, repeated-pass separation, or stop transaction.
+
+New rule: Before any F1 production sample, F1 is frozen as four independent
+one-thread chains with seeds 4511--4514.  It replaces F0 Pantheon+ with
+Pantheon+SH0ES, samples `Mb`, and retains the v1.x D0 CPL+P1 condition
+`w0+wa<0`.  Its authoritative prospective stopping system applies the
+18-dimensional between-chain Cobaya estimator, 20/50/70% burn-in guards,
+registered `w`/`wa` ESS gates, two passes separated by 320 rows per chain,
+and the reversible paused finalization procedure in
+`plan/WP4_F1_EXTERNAL_CONVERGENCE_POLICY.md`.
+
+Trigger and scientific reason: F0 established that independent no-MPI Cobaya
+processes otherwise use a different within-chain split estimator and an
+unregistered confidence-limit wait.  Freezing F1's intended multi-chain rule
+before production prevents both an accidental runtime penalty and any
+post-result choice of stopping rule.  Reinstating P1 and `Mb` makes F1 the
+registered like-for-like full-CMB replacement of v1.x D0 rather than a silent
+change of target.
+
+Affected result inspected before change? no; exact scope: F0 was fully
+unblinded and passed before this entry.  The F0-derived proposal covariance
+was built and audited.  No F1 sample, posterior, likelihood, best fit,
+model-comparison result, or fate endpoint existed or was inspected.
+
+Classification: corrective; prospective pre-F1-production operational
+definition
+
+Pre-amendment result disposition: F0 and its audits remain unchanged.  The
+17-dimensional F0 covariance is retained as a proposal only and is not
+presented as an F1 result.  No F1 result is discarded because none exists.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP4_F1_EXTERNAL_CONVERGENCE_POLICY.md`;
+`plan/wp4_f1_external_convergence_policy.json`; F1 configuration, driver,
+monitor, evaluator, finalizer, controller, activation manifest, tests, and
+freeze commit pending on `agent/prd-extension-wp0`.
+
 Every future entry must append, never rewrite, the following fields:
 
 ```text

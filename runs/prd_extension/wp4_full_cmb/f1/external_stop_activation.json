@@ -1,0 +1,74 @@
+{
+  "activated_at_utc": "2026-08-13T07:20:39+00:00",
+  "blinding_confirmation": {
+    "f1_best_fit_or_likelihood_values_inspected": false,
+    "f1_fate_quantities_inspected": false,
+    "f1_posterior_locations_or_intervals_inspected": false,
+    "f1_samples_exist_at_activation": false,
+    "f1_scientific_endpoints_inspected": false
+  },
+  "first_authoritative_evaluation_must_follow_production_start": true,
+  "hashes": {
+    "controller": {
+      "path": "pipeline/run_wp4_f1_external_controller.py",
+      "sha256": "10423f44663b255fd0ce4590bfa0971335902c5c5c56dea0a20100fc5db078a2"
+    },
+    "evaluator": {
+      "path": "pipeline/evaluate_wp4_f1_external_stop.py",
+      "sha256": "288d4a715d6e162c1733e0238ae476181cbc6493416845f5e5296cdf3f42d086"
+    },
+    "finalizer": {
+      "path": "pipeline/finalize_wp4_f1_external_stop.py",
+      "sha256": "0a0a9d810f5831ef9c36715b6b083e8e1e46893179adf203e43ad6605e11269d"
+    },
+    "policy": {
+      "path": "plan/wp4_f1_external_convergence_policy.json",
+      "sha256": "94c7e592096e30cfb614e76eeedb825b2bb4beaec133292b7b06caf147a150c2"
+    },
+    "statistics": {
+      "path": "pipeline/monitor_wp4_f1.py",
+      "sha256": "4ea1736ed9733375d9d1dc64be0b531a99cc3819e988aa6db9fdcf89038552ea"
+    },
+    "statistics_base": {
+      "path": "pipeline/monitor_wp4_f0.py",
+      "sha256": "8665afd8e04114f2c84fc702b905fe4c003aebbf5b3b7b97a8a413011ffc71ee"
+    }
+  },
+  "pre_production_diagnostics_count_as_passes": false,
+  "runtime_hashes": {
+    "base_config": {
+      "path": "pipeline/wp4_f1.yaml",
+      "sha256": "744f5d063e953f45aa7731283f3c1eaed0b894765f18f83a65de5d1ee0b45f7b"
+    },
+    "chain_1_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f1/c1/run.yaml",
+      "sha256": "771b41b928c86c04a54d9f134c371af1a76eebd89b8196037af31a5a96b0dec2"
+    },
+    "chain_2_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f1/c2/run.yaml",
+      "sha256": "0efa9e990c1ebaf6ebbb16c258735a1b6dea61e8d89f0beba4314db6a0422f81"
+    },
+    "chain_3_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f1/c3/run.yaml",
+      "sha256": "5e61763a41c4be52c1301a0b06641439aa6b00abeebfe46840d10f642ed83933"
+    },
+    "chain_4_run_yaml": {
+      "path": "runs/prd_extension/wp4_full_cmb/f1/c4/run.yaml",
+      "sha256": "e09e7646e24eea6ff2297e1cd8a83c29f1de4f43e3b004bed4285ab3fd99ab4a"
+    },
+    "input_manifest": {
+      "path": "runs/prd_extension/wp4_full_cmb/input_manifest.json",
+      "sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614"
+    },
+    "proposal_covariance": {
+      "path": "runs/prd_extension/wp4_full_cmb/f1_proposal.covmat",
+      "sha256": "85c6dd42f3267dbd3261eee66efaf19c538be3a5b4ac50fbf256ac9c0b6eb321"
+    },
+    "run_plan": {
+      "path": "runs/prd_extension/wp4_full_cmb/f1/run_plan.json",
+      "sha256": "6f98e1fb6612a9a3e5215390e639fcc899f165ce2a02a3d436cdba4cd035c186"
+    }
+  },
+  "schema_version": "wp4-f1-external-stop-activation-v1",
+  "status": "ACTIVE_BEFORE_PRODUCTION"
+}

@@ -1,0 +1,62 @@
+{
+  "base_config": {
+    "path": "pipeline/wp4_f1.yaml",
+    "sha256": "744f5d063e953f45aa7731283f3c1eaed0b894765f18f83a65de5d1ee0b45f7b"
+  },
+  "chain_seeds": [
+    4511,
+    4512,
+    4513,
+    4514
+  ],
+  "chains": [
+    {
+      "chain": 1,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f1/c1/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f1/c1/run.yaml",
+      "run_yaml_sha256": "771b41b928c86c04a54d9f134c371af1a76eebd89b8196037af31a5a96b0dec2",
+      "seed": 4511
+    },
+    {
+      "chain": 2,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f1/c2/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f1/c2/run.yaml",
+      "run_yaml_sha256": "0efa9e990c1ebaf6ebbb16c258735a1b6dea61e8d89f0beba4314db6a0422f81",
+      "seed": 4512
+    },
+    {
+      "chain": 3,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f1/c3/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f1/c3/run.yaml",
+      "run_yaml_sha256": "5e61763a41c4be52c1301a0b06641439aa6b00abeebfe46840d10f642ed83933",
+      "seed": 4513
+    },
+    {
+      "chain": 4,
+      "output_prefix": "runs/prd_extension/wp4_full_cmb/f1/c4/chain",
+      "run_yaml": "runs/prd_extension/wp4_full_cmb/f1/c4/run.yaml",
+      "run_yaml_sha256": "e09e7646e24eea6ff2297e1cd8a83c29f1de4f43e3b004bed4285ab3fd99ab4a",
+      "seed": 4514
+    }
+  ],
+  "convergence_authority": "prospective external F1 policy",
+  "data_change_from_f0": "Pantheon+ replaced by Pantheon+SH0ES",
+  "execution_mode": "four independent no-MPI chains",
+  "fate_calculation_during_sampling": false,
+  "input_manifest": {
+    "path": "runs/prd_extension/wp4_full_cmb/input_manifest.json",
+    "sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614"
+  },
+  "jobs": 4,
+  "model": "flat CPL+P1 F1 primary full-CMB fate run",
+  "proposal_covariance": {
+    "path": "runs/prd_extension/wp4_full_cmb/f1_proposal.covmat",
+    "scope": "17 F0 parameters; Mb uses its frozen scalar proposal",
+    "sha256": "85c6dd42f3267dbd3261eee66efaf19c538be3a5b4ac50fbf256ac9c0b6eb321"
+  },
+  "sampling_endpoint_inspection_during_run": false,
+  "schema_version": "wp4-f1-run-plan-v1",
+  "status": "FROZEN_BEFORE_PRODUCTION",
+  "target_prior": "CPL+P1 with w+wa<0",
+  "thread_limits_per_chain": 1
+}
