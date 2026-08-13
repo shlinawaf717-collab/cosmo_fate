@@ -1,0 +1,49 @@
+{
+  "schema_version": "wp4-f1-mac-retirement-audit-v1",
+  "status": "RETIRED_EXCLUDED_FROM_SCIENTIFIC_F1",
+  "retired_at_utc": "2026-08-13T08:57:11Z",
+  "reason": "User directed full migration of WP4 F1 production to Windows/WSL2.",
+  "windows_chain_rule": "Four fresh WSL2 chains only; do not copy, resume, pool, select, or compare against these Mac samples for the scientific F1 endpoint.",
+  "mac_chain_set": [
+    {
+      "chain": 1,
+      "complete_rows": 205,
+      "bytes": 194876,
+      "sha256": "8585afd9089fa685236bb5ba0523f1df2021c05ad6a722b5168fc1fb8989f627",
+      "checkpoint_present": true
+    },
+    {
+      "chain": 2,
+      "complete_rows": 200,
+      "bytes": 190146,
+      "sha256": "437cd527ecce6a841d8e9fce7bec313f79efbec2fc6a6e35990763689071768a",
+      "checkpoint_present": true
+    },
+    {
+      "chain": 3,
+      "complete_rows": 202,
+      "bytes": 192038,
+      "sha256": "45c3ea182e223d03476f765231df29215944bf1c6c626c698feaf7c1afbb6509",
+      "checkpoint_present": true
+    },
+    {
+      "chain": 4,
+      "complete_rows": 227,
+      "bytes": 215688,
+      "sha256": "e2e67d39954b7d25d749195f972ebfd3cb2629870ca9b2cd07d150aeebb05026",
+      "checkpoint_present": true
+    }
+  ],
+  "last_authoritative_state": "AUTHORITATIVE_CONTINUE",
+  "consecutive_passes": 0,
+  "stop_eligible": false,
+  "termination": {
+    "method": "SIGTERM to the exact four Cobaya children after stopping the external controller",
+    "expected_chain_returncode": -15,
+    "matching_processes_after_retirement": 0,
+    "driver_lock_after_retirement": "UNLOCKED",
+    "checkpoint_or_chain_edits_performed": false
+  },
+  "scientific_endpoints_inspected": false,
+  "fate_calculation_performed": false
+}
