@@ -34,8 +34,18 @@ def build_report(returncode: int, text: str) -> dict:
         for match in CLIK_CHECK.finditer(text)
     ]
     markers = {marker: marker in text for marker in REQUIRED_LOG_MARKERS}
+    updated_payload = (
+        yaml.safe_load(updated.read_text(encoding="utf-8"))
+        if updated.is_file() else {}
+    )
     f1_markers = {
-        "pantheonplusshoes_initialized": "sn.pantheonplusshoes" in text.lower(),
+        # Cobaya's SN class is silent during initialization, so the resolved
+        # updated configuration, rather than a non-contractual log line, is
+        # the authoritative component check.
+        "pantheonplusshoes_in_resolved_config": (
+            "sn.pantheonplusshoes" in updated_payload.get("likelihood", {})
+            and "sn.pantheonplus" not in updated_payload.get("likelihood", {})
+        ),
         "Mb_sampled": "Mb" in text,
         "matter_dom_prior": "matter_dom" in text,
     }
