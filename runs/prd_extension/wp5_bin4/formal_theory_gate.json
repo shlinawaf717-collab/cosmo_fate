@@ -1,0 +1,103 @@
+{
+  "cases": [
+    {
+      "gates": {
+        "EE": true,
+        "H": true,
+        "TE": true,
+        "TT": true,
+        "distance": true,
+        "lensing_PP": true,
+        "matter_power": true
+      },
+      "metrics": {
+        "EE_max_relative": 1.496447410431756e-10,
+        "H_max_relative": 2.220446049250313e-16,
+        "TE_max_sqrt_TT_EE_normalized": 2.4261614152308194e-09,
+        "TT_max_relative": 4.711113055222427e-09,
+        "distance_max_relative": 0.0,
+        "lensing_PP_max_relative": 8.961054120959489e-12,
+        "matter_power_max_relative": 0.0
+      },
+      "name": "LCDM",
+      "runtime_seconds": {
+        "native": 0.8896398750002845,
+        "table": 1.2424197500004084
+      },
+      "status": "PASS",
+      "w0": -1.0,
+      "wa": 0.0
+    },
+    {
+      "gates": {
+        "EE": true,
+        "H": true,
+        "TE": true,
+        "TT": true,
+        "distance": true,
+        "lensing_PP": true,
+        "matter_power": true
+      },
+      "metrics": {
+        "EE_max_relative": 5.402335911952605e-09,
+        "H_max_relative": 1.9761969838327786e-14,
+        "TE_max_sqrt_TT_EE_normalized": 4.285649813730447e-09,
+        "TT_max_relative": 7.212494823605198e-09,
+        "distance_max_relative": 1.5432100042289676e-14,
+        "lensing_PP_max_relative": 9.936280687128374e-10,
+        "matter_power_max_relative": 7.153413772442718e-08
+      },
+      "name": "constant_w",
+      "runtime_seconds": {
+        "native": 1.117405250000047,
+        "table": 1.2483281670001816
+      },
+      "status": "PASS",
+      "w0": -0.9,
+      "wa": 0.0
+    },
+    {
+      "gates": {
+        "EE": true,
+        "H": true,
+        "TE": true,
+        "TT": true,
+        "distance": true,
+        "lensing_PP": true,
+        "matter_power": true
+      },
+      "metrics": {
+        "EE_max_relative": 1.0913149490754392e-06,
+        "H_max_relative": 1.8285712943821864e-09,
+        "TE_max_sqrt_TT_EE_normalized": 2.2820499896145314e-07,
+        "TT_max_relative": 2.3731334315435504e-06,
+        "distance_max_relative": 2.1222318347113855e-08,
+        "lensing_PP_max_relative": 1.155713368428124e-05,
+        "matter_power_max_relative": 7.49554011272302e-05
+      },
+      "name": "CPL",
+      "runtime_seconds": {
+        "native": 1.1316826249994847,
+        "table": 1.2579911249995348
+      },
+      "status": "PASS",
+      "w0": -0.85,
+      "wa": -0.6
+    }
+  ],
+  "created_at_utc": "2026-08-19T03:08:29.725499+00:00",
+  "environment": {
+    "camb": "1.6.6",
+    "halofit": "mead2016",
+    "lens_potential_accuracy": 4,
+    "lmax": 4000
+  },
+  "prerequisite": "PRD-A013 exact-smoothed background development gate PASS",
+  "schema_version": "wp5-formal-theory-gate-v1",
+  "scope": "no likelihood evaluation, posterior, fate endpoint, or real-data fit",
+  "status": "PASS",
+  "thresholds": {
+    "TT_EE_TE_lensing_matter_relative": 0.001,
+    "background_relative": 0.0001
+  }
+}

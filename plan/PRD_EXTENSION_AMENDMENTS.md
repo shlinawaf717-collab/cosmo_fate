@@ -619,3 +619,49 @@ and are not reinterpreted as full-likelihood evidence.
 Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `plan/WP4_F1_NESTED_PLAN.md`; nested preparation, driver, aggregation, tests,
 and Windows incremental task package pending.
+
+## PRD-A013 — 2026-08-19
+
+ID and date: PRD-A013, 2026-08-19
+
+Author: Zhang; recorded by Codex after explicit author approval
+
+Affected work package(s): WP5 perturbation-consistent BIN4
+
+Old rule: The tanh-smoothed BIN4 history evolved by CAMB had to agree with the
+exact discontinuous piecewise `BackgroundW` history to relative `1e-4` in
+`H(z)` and distance over the likelihood range.
+
+New rule: Implementation accuracy is tested against an independent exact
+integration of the same registered tanh-smoothed history at the unchanged
+`1e-4` threshold. The discontinuous piecewise history remains a mandatory,
+separately reported model-difference diagnostic at all three registered
+widths. The width-posterior thresholds, spectra/power thresholds, bin edges,
+kernel, P1 intent, early-DE gate, likelihood and No-Go action are unchanged.
+
+Trigger and scientific reason: Mac development showed native LCDM,
+constant-w, and CPL tabulated-PPF limits agreeing at `1e-7` or better and a
+1200-versus-3600-point `H(z)` difference of only `7.2e-11`, while finite tanh
+smoothing differed from the discontinuous target by `2.77e-4` even for mild
+steps and `1.12e-3` at the archived BIN4 posterior-mean diagnostic point. The
+old gate therefore treated a declared model approximation as numerical error.
+
+Affected result inspected before change? yes; exact scope: implementation
+limit residuals, resolution residuals, and smooth-versus-step background
+diagnostics were inspected. The archived compressed-CMB BIN4 posterior mean
+was used as a declared diagnostic point. No WP5 real-data likelihood, best
+fit, posterior, parameter interval, fate result, evidence, or width endpoint
+exists or was inspected.
+
+Classification: corrective; post-implementation-diagnostic and pre-real-data-
+inference amendment
+
+Pre-amendment result disposition: The development diagnostic and literal-gate
+failure remain visible. No result is discarded. WP5 may proceed only through
+the corrected hierarchy; failure of the exact-smoothed, spectra/power, early-
+DE, convergence, or three-width posterior gates remains a No-Go.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP5_SMOOTH_BACKGROUND_AMENDMENT.md`;
+`plan/wp5_smooth_background_amendment_a013.json`; implementation and tests
+pending.

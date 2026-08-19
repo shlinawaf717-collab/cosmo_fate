@@ -1,0 +1,421 @@
+{
+  "CAMB_vs_independent_exact_smoothed": [
+    {
+      "H_max_relative": 2.354181960484425e-09,
+      "chi_max_relative_nonzero": 8.352357694363377e-10,
+      "delta_lna": 0.005,
+      "ln_rho_max_absolute": 8.815217125701658e-09,
+      "name": "mild_steps",
+      "pass": true,
+      "threshold": 0.0001,
+      "w_max_absolute": 3.037950213613527e-08,
+      "w_values": [
+        -0.9,
+        -1.0,
+        -1.1,
+        -1.2
+      ]
+    },
+    {
+      "H_max_relative": 1.1341640959727783e-09,
+      "chi_max_relative_nonzero": 8.351092040115304e-10,
+      "delta_lna": 0.01,
+      "ln_rho_max_absolute": 4.251761984153113e-09,
+      "name": "mild_steps",
+      "pass": true,
+      "threshold": 0.0001,
+      "w_max_absolute": 2.8848317290552927e-08,
+      "w_values": [
+        -0.9,
+        -1.0,
+        -1.1,
+        -1.2
+      ]
+    },
+    {
+      "H_max_relative": 5.080800224988025e-10,
+      "chi_max_relative_nonzero": 8.359288816706112e-10,
+      "delta_lna": 0.02,
+      "ln_rho_max_absolute": 1.901924701064317e-09,
+      "name": "mild_steps",
+      "pass": true,
+      "threshold": 0.0001,
+      "w_max_absolute": 3.5838641831986706e-08,
+      "w_values": [
+        -0.9,
+        -1.0,
+        -1.1,
+        -1.2
+      ]
+    },
+    {
+      "H_max_relative": 9.532022504643578e-09,
+      "chi_max_relative_nonzero": 8.355467429055352e-10,
+      "delta_lna": 0.005,
+      "ln_rho_max_absolute": 5.599718859439218e-08,
+      "name": "archived_compressed_BIN4_posterior_means",
+      "pass": true,
+      "threshold": 0.0001,
+      "w_max_absolute": 1.6570626426570811e-07,
+      "w_values": [
+        -1.0001526733,
+        -0.8898679517,
+        -1.5257126119,
+        -1.7125405922
+      ]
+    },
+    {
+      "H_max_relative": 4.593293301269341e-09,
+      "chi_max_relative_nonzero": 8.362803782802075e-10,
+      "delta_lna": 0.01,
+      "ln_rho_max_absolute": 2.7025811977221537e-08,
+      "name": "archived_compressed_BIN4_posterior_means",
+      "pass": true,
+      "threshold": 0.0001,
+      "w_max_absolute": 1.6871318742062158e-07,
+      "w_values": [
+        -1.0001526733,
+        -0.8898679517,
+        -1.5257126119,
+        -1.7125405922
+      ]
+    },
+    {
+      "H_max_relative": 1.993436971048368e-09,
+      "chi_max_relative_nonzero": 8.35852498326517e-10,
+      "delta_lna": 0.02,
+      "ln_rho_max_absolute": 1.1672942543117237e-08,
+      "name": "archived_compressed_BIN4_posterior_means",
+      "pass": true,
+      "threshold": 0.0001,
+      "w_max_absolute": 2.2420768197584096e-07,
+      "w_values": [
+        -1.0001526733,
+        -0.8898679517,
+        -1.5257126119,
+        -1.7125405922
+      ]
+    }
+  ],
+  "amendment": "PRD-A013",
+  "blocker_interpretation": "The table/PPF machinery reproduces native limits. The current blocker is the finite difference between the registered tanh-smoothed model and the exact discontinuous-bin BackgroundW target near transitions; it is not repaired by increasing table resolution.",
+  "created_at_utc": "2026-08-19T03:06:45.983117+00:00",
+  "environment": {
+    "camb": "1.6.6",
+    "machine": "Mac arm64"
+  },
+  "exact_smoothed_background_pass": true,
+  "formal_no_go_declared": false,
+  "interface_limits_pass": true,
+  "native_table_limit_checks": [
+    {
+      "EE_max_absolute_over_reference_peak": 3.471606574265135e-11,
+      "H_max_relative": 2.220446049250313e-16,
+      "TE_max_normalized": 3.446395554752145e-08,
+      "TT_max_absolute_over_reference_peak": 5.636416639675764e-08,
+      "background_pass": true,
+      "chi_max_relative_nonzero": 0.0,
+      "matter_power_max_relative": 0.0,
+      "runtime_seconds": [
+        0.4197630000007848,
+        0.7830227499998728
+      ],
+      "spectra_and_power_pass": true,
+      "w0": -1.0,
+      "wa": 0.0
+    },
+    {
+      "EE_max_absolute_over_reference_peak": 1.8379973319593183e-14,
+      "H_max_relative": 3.175237850427948e-14,
+      "TE_max_normalized": 1.8135310190062742e-11,
+      "TT_max_absolute_over_reference_peak": 2.9701051978107325e-11,
+      "background_pass": true,
+      "chi_max_relative_nonzero": 2.5091040356528538e-14,
+      "matter_power_max_relative": 0.0,
+      "runtime_seconds": [
+        0.6226380000007339,
+        0.7202230840002812
+      ],
+      "spectra_and_power_pass": true,
+      "w0": -0.9,
+      "wa": 0.0
+    },
+    {
+      "EE_max_absolute_over_reference_peak": 7.594120565440854e-09,
+      "H_max_relative": 1.4665122671786435e-08,
+      "TE_max_normalized": 1.823645518524889e-08,
+      "TT_max_absolute_over_reference_peak": 3.3418424095772875e-08,
+      "background_pass": true,
+      "chi_max_relative_nonzero": 1.4880268928152418e-07,
+      "matter_power_max_relative": 3.2493555535140217e-07,
+      "runtime_seconds": [
+        0.6303127080000195,
+        0.7124263750001774
+      ],
+      "spectra_and_power_pass": true,
+      "w0": -0.85,
+      "wa": -0.6
+    }
+  ],
+  "next_action": "run the formal lmax=4000 spectra, lensing, and matter-power gate before any real-data fit",
+  "primary_delta_piecewise_background_pass": false,
+  "schema_version": "wp5-bin4-development-preflight-v1",
+  "scope": "Mac reduced-lmax development diagnostic; no real-data fit and no WP5 scientific endpoint",
+  "smooth_vs_exact_piecewise": [
+    {
+      "H0": 69.15309875,
+      "deltas": {
+        "0.005": {
+          "DESI_BAO_H_max_absolute_relative": 3.903806146529519e-05,
+          "DESI_BAO_H_signed_relative": [
+            -3.903806146529519e-05,
+            4.649633763749011e-16,
+            -2.7562803469359894e-05,
+            0.0,
+            -2.220446049250313e-16,
+            -3.5419122754615145e-06,
+            8.881784197001252e-16
+          ],
+          "DESI_BAO_chi_signed_relative": [
+            4.129063990684282e-07,
+            2.033914121778333e-06,
+            2.430707442514931e-06,
+            2.0647973583570003e-06,
+            1.6099311243056028e-06,
+            1.500756501984086e-06,
+            1.305682651983917e-06
+          ],
+          "DESI_BAO_redshifts": [
+            0.295,
+            0.51,
+            0.706,
+            0.934,
+            1.321,
+            1.484,
+            2.33
+          ],
+          "H_max_relative": 0.00013816260652843582,
+          "chi_max_relative": 3.104586539182108e-06,
+          "formal_background_pass": false,
+          "formal_background_threshold": 0.0001,
+          "ln_fde_max_absolute": 0.0005183681810694077
+        },
+        "0.01": {
+          "DESI_BAO_H_max_absolute_relative": 0.00015303015847917042,
+          "DESI_BAO_H_signed_relative": [
+            -0.00015303015847917042,
+            -1.586575216887732e-14,
+            -0.00010127058543904659,
+            -1.1668916614396759e-15,
+            -4.096113361525459e-11,
+            -2.3434587520618015e-05,
+            1.1102230246251565e-15
+          ],
+          "DESI_BAO_chi_signed_relative": [
+            3.3996351726401826e-06,
+            8.13440361289016e-06,
+            9.20388965980693e-06,
+            8.257586349403271e-06,
+            6.438474815305467e-06,
+            6.099208373513903e-06,
+            5.221675898686912e-06
+          ],
+          "DESI_BAO_redshifts": [
+            0.295,
+            0.51,
+            0.706,
+            0.934,
+            1.321,
+            1.484,
+            2.33
+          ],
+          "H_max_relative": 0.00027691033171628465,
+          "chi_max_relative": 1.1985495457222939e-05,
+          "formal_background_pass": false,
+          "formal_background_threshold": 0.0001,
+          "ln_fde_max_absolute": 0.0010382262126379868
+        },
+        "0.02": {
+          "DESI_BAO_H_max_absolute_relative": 0.0004174967128425659,
+          "DESI_BAO_H_signed_relative": [
+            -0.0004174967128425659,
+            -4.7138961756633985e-09,
+            -0.00026837534515298785,
+            -9.435819481451231e-10,
+            -1.3796058571867638e-07,
+            -8.103356202615692e-05,
+            3.580551683336319e-16
+          ],
+          "DESI_BAO_chi_signed_relative": [
+            1.9302970856830268e-05,
+            3.252529403791927e-05,
+            3.5268983337991344e-05,
+            3.3016633422202395e-05,
+            2.574490579261516e-05,
+            2.4845244069491722e-05,
+            2.0878796363625477e-05
+          ],
+          "DESI_BAO_redshifts": [
+            0.295,
+            0.51,
+            0.706,
+            0.934,
+            1.321,
+            1.484,
+            2.33
+          ],
+          "H_max_relative": 0.000554248609122121,
+          "chi_max_relative": 4.531462980650325e-05,
+          "formal_background_pass": false,
+          "formal_background_threshold": 0.0001,
+          "ln_fde_max_absolute": 0.002077945806536745
+        }
+      },
+      "early_de_ratio_z1059": 4.997060404255433e-11,
+      "name": "mild_steps",
+      "omegam": 0.3003901033,
+      "w_values": [
+        -0.9,
+        -1.0,
+        -1.1,
+        -1.2
+      ]
+    },
+    {
+      "H0": 69.15309875,
+      "deltas": {
+        "0.005": {
+          "DESI_BAO_H_max_absolute_relative": 0.00017580998578141103,
+          "DESI_BAO_H_signed_relative": [
+            4.150469075135857e-05,
+            -5.655485955749975e-16,
+            -0.00017580998578141103,
+            -7.771561172376096e-16,
+            -1.0370968040561857e-15,
+            -4.3259551687038e-06,
+            -2.55351295663786e-15
+          ],
+          "DESI_BAO_chi_signed_relative": [
+            -4.430433876051382e-07,
+            -2.179512670182416e-06,
+            3.909291094131085e-06,
+            3.854915365429983e-06,
+            2.996627192979008e-06,
+            2.7847451744925496e-06,
+            2.3227362281786544e-06
+          ],
+          "DESI_BAO_redshifts": [
+            0.295,
+            0.51,
+            0.706,
+            0.934,
+            1.321,
+            1.484,
+            2.33
+          ],
+          "H_max_relative": 0.0005603998113331565,
+          "chi_max_relative": 4.695997997572476e-06,
+          "formal_background_pass": false,
+          "formal_background_threshold": 0.0001,
+          "ln_fde_max_absolute": 0.0032905695197611995
+        },
+        "0.01": {
+          "DESI_BAO_H_max_absolute_relative": 0.0006453263521891186,
+          "DESI_BAO_H_signed_relative": [
+            0.00016275296807833915,
+            -1.0063460583392718e-13,
+            -0.0006453263521891186,
+            -6.661338147750939e-15,
+            -5.464697146305905e-11,
+            -2.8618300541634293e-05,
+            -1.5543122344752192e-15
+          ],
+          "DESI_BAO_chi_signed_relative": [
+            -3.6493318092405637e-06,
+            -8.718895943574507e-06,
+            1.2348496507780608e-05,
+            1.5383988907582573e-05,
+            1.195877896411156e-05,
+            1.1234541664221214e-05,
+            9.270891563657795e-06
+          ],
+          "DESI_BAO_redshifts": [
+            0.295,
+            0.51,
+            0.706,
+            0.934,
+            1.321,
+            1.484,
+            2.33
+          ],
+          "H_max_relative": 0.0011218008280192704,
+          "chi_max_relative": 1.8331016269135247e-05,
+          "formal_background_pass": false,
+          "formal_background_threshold": 0.0001,
+          "ln_fde_max_absolute": 0.006596052041229969
+        },
+        "0.02": {
+          "DESI_BAO_H_max_absolute_relative": 0.0017063848410463715,
+          "DESI_BAO_H_signed_relative": [
+            0.0004443618560028656,
+            -2.8007606018768846e-08,
+            -0.0017063848410463715,
+            -5.3306663189553246e-09,
+            -1.8405530582919968e-07,
+            -9.892004028964645e-05,
+            -4.440892098500626e-16
+          ],
+          "DESI_BAO_chi_signed_relative": [
+            -2.073855063229538e-05,
+            -3.487925971381862e-05,
+            3.9581887429245255e-05,
+            6.125592532645533e-05,
+            4.761980627979488e-05,
+            4.53160096068838e-05,
+            3.692886986319157e-05
+          ],
+          "DESI_BAO_redshifts": [
+            0.295,
+            0.51,
+            0.706,
+            0.934,
+            1.321,
+            1.484,
+            2.33
+          ],
+          "H_max_relative": 0.0022399964650202664,
+          "chi_max_relative": 7.038427615269072e-05,
+          "formal_background_pass": false,
+          "formal_background_threshold": 0.0001,
+          "ln_fde_max_absolute": 0.01320705005368683
+        }
+      },
+      "early_de_ratio_z1059": 2.812990303628919e-15,
+      "name": "archived_compressed_BIN4_posterior_means",
+      "omegam": 0.3003901033,
+      "w_values": [
+        -1.0001526733,
+        -0.8898679517,
+        -1.5257126119,
+        -1.7125405922
+      ]
+    }
+  ],
+  "status": "READY_FOR_FORMAL_LMAX4000_GATE",
+  "table_resolution_1200_vs_3600": {
+    "H_max_relative": 7.21416260063279e-11,
+    "chi_max_relative_nonzero": 2.371103313691947e-12,
+    "coarse": {
+      "base_points": 1200,
+      "table_points": 1920
+    },
+    "fine": {
+      "base_points": 3600,
+      "table_points": 4320
+    }
+  },
+  "thresholds": {
+    "background_relative": 0.0001,
+    "spectra_and_matter_relative": 0.001
+  }
+}

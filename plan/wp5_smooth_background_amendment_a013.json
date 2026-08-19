@@ -1,0 +1,39 @@
+{
+  "affected_wp": ["WP5"],
+  "approved_by": "Zhang",
+  "approved_date": "2026-08-19",
+  "classification": "corrective_pre_real_data_inference",
+  "inspected_before_amendment": [
+    "native_vs_tabulated_LCDM_constant_w_CPL_diagnostics",
+    "1200_vs_3600_table_resolution_diagnostic",
+    "smooth_vs_exact_piecewise_background_diagnostic",
+    "archived_compressed_BIN4_posterior_mean_diagnostic_point"
+  ],
+  "not_generated_before_amendment": [
+    "WP5_real_data_likelihood",
+    "WP5_best_fit",
+    "WP5_posterior",
+    "WP5_fate_endpoint",
+    "WP5_model_evidence"
+  ],
+  "new_background_implementation_gate": {
+    "comparison": "CAMB_tabulated_PPF_vs_independent_exact_same_tanh_smoothed_history",
+    "H_relative_max": 0.0001,
+    "comoving_distance_relative_max": 0.0001
+  },
+  "piecewise_role": "mandatory_separate_model_difference_diagnostic",
+  "unchanged": {
+    "bin_edges_z": [0.0, 0.3, 0.7, 1.5, 1100.0],
+    "kernel": "tanh_in_ln_a",
+    "primary_delta_ln_a": 0.01,
+    "sensitivity_delta_ln_a": [0.005, 0.01, 0.02],
+    "posterior_mean_max_pooled_sd": 0.1,
+    "P_RIP_max_absolute_difference": 0.02,
+    "early_de_z": 1059.0,
+    "early_de_max_rhoDE_over_rhom": 0.01,
+    "real_data_combination": "WP4_F1_full_CMB_lensing_plus_PantheonPlusSH0ES",
+    "optional_width_selection": false
+  },
+  "schema_version": "wp5-smooth-background-amendment-a013-v1",
+  "status": "approved_before_WP5_real_data_inference"
+}

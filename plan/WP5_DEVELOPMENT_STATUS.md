@@ -2,8 +2,9 @@
 
 Date: 2026-08-19
 
-Status: development interface passes native limits; literal frozen piecewise
-background gate is blocked before any real-data fit.
+Status: development interface passes native limits; the literal piecewise
+background gate was blocked before any real-data fit and is superseded by the
+author-approved PRD-A013 exact-smoothed validation hierarchy.
 
 ## Completed in the first development pass
 
@@ -45,8 +46,8 @@ not CAMB interpolation resolution.
 
 ## Decision boundary
 
-No real-data BIN4 likelihood has been evaluated. The frozen protocol has not
-been changed. Two scientifically distinct dispositions remain:
+No real-data BIN4 likelihood has been evaluated. Two scientifically distinct
+dispositions were considered:
 
 1. apply the literal `1e-4` exact-piecewise gate and close WP5 as a documented
    No-Go; or
@@ -55,9 +56,10 @@ been changed. Two scientifically distinct dispositions remain:
    smoothed-versus-step difference as a model diagnostic, and let the already
    registered three-width posterior sensitivity gate decide usability.
 
-The second route is not a numerical relaxation: it changes the validation
-target to the same smooth model whose perturbations CAMB evolves. It requires
-explicit author approval because the original text says "exact piecewise".
+The author approved the second route on 2026-08-19. It is not a numerical
+relaxation: it changes the validation target to the same smooth model whose
+perturbations CAMB evolves. PRD-A013 records this explicitly because the
+original text says "exact piecewise".
 
 ## Remaining workload if the corrective route is approved
 
