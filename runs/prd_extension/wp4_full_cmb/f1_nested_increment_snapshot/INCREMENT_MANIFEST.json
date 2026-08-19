@@ -1,0 +1,98 @@
+{
+  "files": [
+    {
+      "bytes": 1738,
+      "path": "README_\u4e2d\u6587.md",
+      "sha256": "ed6dcc5015331b369c23554a499a62cd06d0f3776627ffe4ff1fc7246687417e"
+    },
+    {
+      "bytes": 4904,
+      "path": "pipeline/fate.py",
+      "sha256": "f500aef476d3c3c760bbe26dbfccf632345c6bc6d26ebc37f775c7d72188dd21"
+    },
+    {
+      "bytes": 1367,
+      "path": "pipeline/package_wp4_f1_nested_results.py",
+      "sha256": "5d12cdab6eb7eba89e75b6a0dab3d0605ad484abb37d3a66d2e04e7c4fa863fe"
+    },
+    {
+      "bytes": 9131,
+      "path": "pipeline/prepare_wp4_f1_nested.py",
+      "sha256": "b15d7b2fb0c2b2f441eba58a00fb17b06ac65fb33c58df63c2733cbc16891494"
+    },
+    {
+      "bytes": 6155,
+      "path": "pipeline/report_wp4_f1_nested.py",
+      "sha256": "02a38b6e0dbdaec6db78c091bfba3f0c336900dff0145d3bd074528780d09b13"
+    },
+    {
+      "bytes": 8187,
+      "path": "pipeline/run_wp4_f1_nested.py",
+      "sha256": "69895caa7a80627a4750380fda07622f4e576909eedede90e2eaa1e46872c41a"
+    },
+    {
+      "bytes": 733,
+      "path": "pipeline/verify_nested_increment.py",
+      "sha256": "059e715b35d4b06f501387afdeb58b13b7e41a79f0e8cb10bbae1c08ea86e698"
+    },
+    {
+      "bytes": 455,
+      "path": "windows/10_install_and_preflight.cmd",
+      "sha256": "ef6f6f89bfe05b397ca0cf9d578ecedc43273b49b31a0c9ff29aba15edc974a3"
+    },
+    {
+      "bytes": 149,
+      "path": "windows/11_start_nested.cmd",
+      "sha256": "227bb673170496096f4d3e87fd9e5e9abae1804516f6be68a3eed72dcd6975d4"
+    },
+    {
+      "bytes": 143,
+      "path": "windows/12_status.cmd",
+      "sha256": "44a0a7a0f420ed7ecbe630b359c4635026f5fc222397b96627ff2e7f4a3874b8"
+    },
+    {
+      "bytes": 330,
+      "path": "windows/13_package_results.cmd",
+      "sha256": "8287bb7f85fbe59b524d8b50c10ea35fc8363282f2de08b8210135ce063ff573"
+    },
+    {
+      "bytes": 5076,
+      "path": "wsl/10_install_and_preflight.sh",
+      "sha256": "76548fa6630cc7c0eea5d8ffa5a5f5abd67b40ed027dd47a3443c99a494dd5ab"
+    },
+    {
+      "bytes": 1310,
+      "path": "wsl/11_start_nested.sh",
+      "sha256": "9fa63634d3b662be5300209de6ee9c6fba887a51feef0bdece6fce0723e622f6"
+    },
+    {
+      "bytes": 1120,
+      "path": "wsl/12_status.sh",
+      "sha256": "7de57b30a5027a223dbc01edbb59ed43e08e1eaf7a7cff6fde924029c6d0be6a"
+    },
+    {
+      "bytes": 276,
+      "path": "wsl/13_package_results.sh",
+      "sha256": "b2f468ed80ee1a7e21a0977e06bf865d5739a07d37e3e3c38234849a61d481f5"
+    }
+  ],
+  "identity": "WP4_F1_NESTED_INCREMENT_20260819",
+  "schema_version": "wp4-f1-nested-increment-v1",
+  "scientific_settings": {
+    "models": [
+      "cpl",
+      "rip",
+      "decay",
+      "lcdm"
+    ],
+    "nlive": 500,
+    "num_repeats": "5d",
+    "precision_criterion": 0.01,
+    "seeds": [
+      2026082001,
+      2026082002,
+      2026082003
+    ]
+  },
+  "source_git_commit": "9f1e87048a42636fb377c0045a2056e5248f196d"
+}
