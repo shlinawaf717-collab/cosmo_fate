@@ -1,0 +1,60 @@
+{
+  "config": "runs/prd_extension/wp6_growth/config/wp6_cpl_dr1_fs_bao.yaml",
+  "config_sha256": "a5124fb961df88900cc5f457239ba2d8c595c2440a56610601957204c4eae65e",
+  "created_at_utc": "2026-08-19T06:07:31.157387+00:00",
+  "data_audit_sha256": "fb4b198c4bcc12880a71db0e9fa8eccab0cef9290b27479c3a4eb5e510a3a408",
+  "decision_sha256": "e975679a77b8073198e071b81f72898f68cd1a59dd6a0582e31a9fa1f4e3f9b9",
+  "fate_calculation_performed": false,
+  "official_code_commit": "7d51f4f86dc3bee6bf10f1a684913c943a89a844",
+  "replacement": {
+    "DR1_FS_BAO_present": true,
+    "DR2_BAO_present": false
+  },
+  "sampling_performed": false,
+  "schema_version": "wp6-growth-config-plan-v1",
+  "selected_files": [
+    {
+      "bytes": 777276,
+      "expected_sha256": "20165401aa742608c0827323fc836d7c764f7f1bac5526c232c4ff66950d6083",
+      "path": "data/wp6_desi_dr1/likelihood/likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_BGS_BRIGHT-21.5_GCcomb_z0.1-0.4_thetacut0.05.h5",
+      "sha256": "20165401aa742608c0827323fc836d7c764f7f1bac5526c232c4ff66950d6083"
+    },
+    {
+      "bytes": 792150,
+      "expected_sha256": "c7825581ad703217df993ac2283af25530a35a33bb6d20dbbc6ea6c2f4ecbf91",
+      "path": "data/wp6_desi_dr1/likelihood/likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_LRG_GCcomb_z0.4-0.6_thetacut0.05.h5",
+      "sha256": "c7825581ad703217df993ac2283af25530a35a33bb6d20dbbc6ea6c2f4ecbf91"
+    },
+    {
+      "bytes": 792150,
+      "expected_sha256": "75e4a34041c343f54dabe9709d4ceafd67c2e58de96a3dbcb063439d79dd2dd9",
+      "path": "data/wp6_desi_dr1/likelihood/likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_LRG_GCcomb_z0.6-0.8_thetacut0.05.h5",
+      "sha256": "75e4a34041c343f54dabe9709d4ceafd67c2e58de96a3dbcb063439d79dd2dd9"
+    },
+    {
+      "bytes": 792150,
+      "expected_sha256": "68f772fa42d5bfe148dc54ba80efb3c0dfa7be43182012d1f16a39b3e0ee25cd",
+      "path": "data/wp6_desi_dr1/likelihood/likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_LRG_GCcomb_z0.8-1.1_thetacut0.05.h5",
+      "sha256": "68f772fa42d5bfe148dc54ba80efb3c0dfa7be43182012d1f16a39b3e0ee25cd"
+    },
+    {
+      "bytes": 792150,
+      "expected_sha256": "51a1235ff0dec09f8a1c411f1d97733a8dddf57c1de4ce6f95d62c043c361b93",
+      "path": "data/wp6_desi_dr1/likelihood/likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_ELG_LOPnotqso_GCcomb_z1.1-1.6_thetacut0.05.h5",
+      "sha256": "51a1235ff0dec09f8a1c411f1d97733a8dddf57c1de4ce6f95d62c043c361b93"
+    },
+    {
+      "bytes": 777276,
+      "expected_sha256": "7aa05511e7d844ac517cfc7d2eb2fb0787a84fc678a115050c6b41a9aea5b5de",
+      "path": "data/wp6_desi_dr1/likelihood/likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_QSO_GCcomb_z0.8-2.1_thetacut0.05.h5",
+      "sha256": "7aa05511e7d844ac517cfc7d2eb2fb0787a84fc678a115050c6b41a9aea5b5de"
+    },
+    {
+      "bytes": 27578,
+      "expected_sha256": "0ad45b0bd906d3bca2d2c5f0e4644b2e14966797bc732ec1a9832a907f7799eb",
+      "path": "data/wp6_desi_dr1/likelihood/likelihood_bao_syst_Lya_GCcomb_z1.8-4.2.h5",
+      "sha256": "0ad45b0bd906d3bca2d2c5f0e4644b2e14966797bc732ec1a9832a907f7799eb"
+    }
+  ],
+  "status": "FROZEN_BEFORE_WP6_LIKELIHOOD_INITIALIZATION"
+}

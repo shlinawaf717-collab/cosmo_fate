@@ -1,0 +1,39 @@
+{
+  "artifacts": {
+    "runs/prd_extension/wp6_growth/smoke/chain.checkpoint": {
+      "bytes": 94,
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    "runs/prd_extension/wp6_growth/smoke/chain.covmat": {
+      "bytes": 32788,
+      "sha256": "dce0a0159896b3c96c9b8ea16452e9442d6f39198483a0dc5e50ddb79d20d675"
+    },
+    "runs/prd_extension/wp6_growth/smoke/chain.input.yaml": {
+      "bytes": 12425,
+      "sha256": "e51f737dba3a4f933972029afe1052309025b5abab662e756e7837cf7a196bef"
+    },
+    "runs/prd_extension/wp6_growth/smoke/chain.progress": {
+      "bytes": 85,
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    "runs/prd_extension/wp6_growth/smoke/chain.updated.yaml": {
+      "bytes": 15736,
+      "sha256": "95b252a6b5e4fd880d5097d447b9040fcc134e484d5029577a90ff8ede88479d"
+    }
+  },
+  "checks": {
+    "dr1_fs_bao_present": true,
+    "dr1_theory_present": true,
+    "dr2_bao_absent": true,
+    "fate_calculation_not_performed": true,
+    "posterior_sample_rows_zero": true,
+    "required_initialization_artifacts_present": true
+  },
+  "config_sha256": "a5124fb961df88900cc5f457239ba2d8c595c2440a56610601957204c4eae65e",
+  "created_at_utc": "2026-08-19T06:13:59.185190+00:00",
+  "likelihood_evaluated_during_initialization": true,
+  "missing": [],
+  "schema_version": "wp6-no-sampling-smoke-audit-v1",
+  "scientific_endpoint_generated": false,
+  "status": "PASS"
+}

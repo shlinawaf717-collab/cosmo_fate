@@ -1,0 +1,9 @@
+# WP6 direct dependencies; frozen before reference-likelihood evaluation.
+camb==1.6.6
+cobaya==3.6.2
+cosmoprimo @ git+https://github.com/cosmodesi/cosmoprimo.git@8eedcb141703e67416c014f66d77aadc7c044c1d
+h5py==3.16.0
+lsstypes @ git+https://github.com/adematti/lsstypes.git@738b4f69e8ee7d3370402a3c09df3db8fbc9ee84
+numpy==2.5.0
+scipy==1.16.2
+velocileptors==3.1

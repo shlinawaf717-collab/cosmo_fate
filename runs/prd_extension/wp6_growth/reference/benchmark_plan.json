@@ -1,0 +1,31 @@
+{
+  "configs": {
+    "official_cpl_map_point": {
+      "path": "runs/prd_extension/wp6_growth/reference/configs/official_cpl_map_point.yaml",
+      "sha256": "496724f9d7d6869f1451c571b1c20793daa3832713bacc94c3704189860e4a7b"
+    },
+    "public_release_fixed_point": {
+      "path": "runs/prd_extension/wp6_growth/reference/configs/public_release_fixed_point.yaml",
+      "sha256": "d7ee0356b9161e993cf511573e551c4b424e60a0aa4d268cfe10c4ffdc0f5065"
+    }
+  },
+  "created_at_utc": "2026-08-19T06:13:58.504095+00:00",
+  "fate_calculation_authorized": false,
+  "posterior_sampling_authorized": false,
+  "schema_version": "wp6-reference-benchmark-plan-v1",
+  "status": "FROZEN_BEFORE_REFERENCE_EVALUATION",
+  "tests": {
+    "official_cpl_map_point": {
+      "expected_chi2_FS_BAO": 331.75452,
+      "max_abs_delta_chi2": 0.1,
+      "role": "cross-implementation posterior-supported MAP point",
+      "source_sha256": "8d4f1d65b0a932d37f142ae6d18397c38f8d1451bad00aba5f4caf35323e86c9",
+      "source_url": "https://data.desi.lbl.gov/public/dr1/vac/dr1/full-shape-cosmo-params/v1.0/iminuit/base_w_wa/desi-reptvelocileptors-fs-bao-all_pantheonplus_planck2018-lowl-TT-clik_planck2018-lowl-EE-clik_planck2018-highl-plik-TTTEEE_planck-act-dr6-lensing/bestfit.minimum.txt"
+    },
+    "public_release_fixed_point": {
+      "expected_chi2_FS_BAO": 1176.98,
+      "max_abs_delta_chi2": 0.1,
+      "source": "pinned official test_fs_bao_all.yaml and code comment"
+    }
+  }
+}
