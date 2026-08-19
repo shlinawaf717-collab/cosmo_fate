@@ -57,7 +57,16 @@ def run_chain(record: dict) -> dict:
 
 def main() -> int:
     plan_path=SYSTEM_ROOT/"run_plan.json"; plan=json.loads(plan_path.read_text())
-    validate()
+    _,activation=validate()
+    authorization_path=SYSTEM_ROOT/"WP5_PRODUCTION_STARTED.json"
+    if not authorization_path.is_file():
+        raise RuntimeError("WP5 production authorization is missing")
+    authorization=json.loads(authorization_path.read_text())
+    if not authorization.get("production_authorized"):
+        raise RuntimeError("WP5 production is not authorized")
+    import hashlib
+    if authorization.get("run_plan_sha256")!=hashlib.sha256(plan_path.read_bytes()).hexdigest() or authorization.get("activation_sha256")!=hashlib.sha256((SYSTEM_ROOT/"activation.json").read_bytes()).hexdigest():
+        raise RuntimeError("WP5 production authorization hash mismatch")
     if plan.get("status")!="FROZEN_BEFORE_WP5_PRODUCTION" or plan.get("max_parallel_chains")!=8:
         raise RuntimeError("WP5 run plan is not authoritative")
     with LOCK.open("w",encoding="utf-8") as lock:
