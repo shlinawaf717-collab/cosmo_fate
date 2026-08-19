@@ -1,0 +1,8 @@
+{
+  "activation_sha256": "bedd9b4a9ec4f3752c44aed6cb1f954e150d0604aa9496a9664d682d509e0285",
+  "created_at_utc": "2026-08-19T08:13:03.191094+00:00",
+  "plan_sha256": "98decc1e6dc13875ce5fbda42aa33832d80b572fa338944efbb24f3dcfd58e38",
+  "production_authorized": true,
+  "schema_version": "wp7-fs7-sbc-start-v1",
+  "scientific_endpoints_inspected_before_start": false
+}
