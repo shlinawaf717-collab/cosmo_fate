@@ -2,8 +2,11 @@
 
 Status date: 2026-08-19
 
-Status: **deterministic implementation and all five D0 no-sampling smokes pass;
-posterior production and fate calculation remain unauthorized.**
+Status: **READY TO AUTHORIZE.** Deterministic implementation, normalized-prior
+calibration, fixed points, five real-data smokes, 50 frozen SBC inputs, SBC
+smoke, information plan, and both production activations pass.  Posterior
+production and fate calculation remain deliberately unauthorized until the
+separate start command is executed.
 
 ## Completed in this development pass
 
@@ -61,17 +64,45 @@ cannot be called a direct observational constraint without decomposing:
 2. the global-spline likelihood response over `a<1`;
 3. likelihood information in the conditional final-node residual.
 
-## Remaining gates before production
+## Completed after the first development pass
 
-1. implement an auditable direct-rejection prior sampler for SBC and prior
-   diagnostics, using the same truncation operator as the external prior;
-2. freeze the nodewise information and prior-correlation/leakage decomposition;
-3. validate the FS7 D0 background at fixed points against the corresponding
-   LCDM and CPL limits;
-4. freeze 50 SBC datasets, production seeds, four-chain execution, proposal,
-   stopping, R-hat/ESS/MCSE, and endpoint-withholding logic;
-5. commit and timestamp the complete production system before any WP7
-   posterior sampling or fate classification.
+1. The direct-rejection sampler and external prior now share one vectorized
+   admissibility operator; symmetry and deterministic replay tests pass.
+2. The first nontrivial 4000-vs-5000 trapezoid comparison failed the frozen
+   `2e-5` gate at `5.49e-5`.  The gate was not relaxed: FS7 now integrates its
+   cubic spline with an exact antiderivative and agrees with independent
+   adaptive quadrature to `1.75e-15`.
+3. At the LCDM point, FS7 and CPL-LCDM DESI BAO, Pantheon+SH0ES and compressed
+   CMB log-likelihoods agree exactly at reported precision.
+4. The nodewise 20/40/80-bin prior-quantile KL estimator, conditional future
+   residual, analytic prior-correlation term, and actual likelihood-window
+   spline response have been frozen from 200,000 prior draws per setting.
+5. Fifty physical primary-prior SBC truth/noise inputs and 100 two-chain
+   inference configs are frozen and audited.  No aggregate truth/fate
+   composition or SBC rank has been calculated.
+6. Twenty real-data configs, four per setting, are frozen with six-way
+   execution, blinded rank-Rhat/node-ESS/hidden-sign-MCSE monitoring, two-pass
+   separation, and transactional finalization.
+7. Both production-system no-sampling smokes and the final public-commit
+   readiness audit pass.
+
+## Start boundary
+
+`runs/prd_extension/wp7/production_readiness.json` is
+`READY_TO_AUTHORIZE_WP7`.  It verifies 20 real-data and 100 SBC configs, all 50
+SBC datasets, both activations, the remote source commit, absence of posterior
+sample files, absence of start authorizations, and absence of a fate endpoint.
+
+The next action is intentionally separate and state-changing:
+
+```bash
+PYTHONPATH=. .venv/bin/python pipeline/authorize_wp7.py sbc
+PYTHONPATH=. .venv/bin/python pipeline/run_wp7_sbc.py
+```
+
+The academically conservative order is to complete and audit SBC before
+authorizing the real-data campaign.  Real data can later be authorized with
+`pipeline/authorize_wp7.py real`; authorization has not been run here.
 
 Evidence artifacts:
 
@@ -79,3 +110,4 @@ Evidence artifacts:
 - `runs/prd_extension/wp7/truncation_preflight.json`;
 - `runs/prd_extension/wp7/smoke_audit.json`;
 - `runs/prd_extension/wp7/config_plan.json`.
+- `runs/prd_extension/wp7/production_readiness.json`.

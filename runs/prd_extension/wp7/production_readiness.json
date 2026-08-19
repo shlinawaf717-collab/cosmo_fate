@@ -1,0 +1,38 @@
+{
+  "authorization_action_required": true,
+  "checks": {
+    "policy_frozen": true,
+    "posterior_sample_files_absent": true,
+    "real_activation_ready": true,
+    "real_chain_count_20": true,
+    "required_artifacts_present": true,
+    "sbc_activation_ready": true,
+    "sbc_chain_count_100": true,
+    "sbc_inputs_pass": true,
+    "source_commit_is_head": true,
+    "source_commit_is_on_remote_branch": true,
+    "start_authorizations_absent": true
+  },
+  "created_at_utc": "2026-08-19T07:55:34.849624+00:00",
+  "fate_endpoint_calculated": false,
+  "posterior_sample_files": [],
+  "real_activation": {
+    "path": "runs/prd_extension/wp7/production_system/activation.json",
+    "sha256": "6241e52f192be4cb18998ac24b1713aad40e3c6fb008a361c453905c09f9cc6c"
+  },
+  "real_plan": {
+    "path": "runs/prd_extension/wp7/production_system/run_plan.json",
+    "sha256": "b32bcfaca54a314da5c8fe11b3e369eec0057eca11bc0d2885ef16e24b87706c"
+  },
+  "sbc_activation": {
+    "path": "runs/prd_extension/wp7/sbc/sbc_activation.json",
+    "sha256": "bedd9b4a9ec4f3752c44aed6cb1f954e150d0604aa9496a9664d682d509e0285"
+  },
+  "sbc_plan": {
+    "path": "runs/prd_extension/wp7/sbc/inference_plan.json",
+    "sha256": "98decc1e6dc13875ce5fbda42aa33832d80b572fa338944efbb24f3dcfd58e38"
+  },
+  "schema_version": "wp7-fs7-production-readiness-v1",
+  "source_git_commit": "4bdfbb943a62c55dc28180308c4f401488357985",
+  "status": "READY_TO_AUTHORIZE_WP7"
+}
