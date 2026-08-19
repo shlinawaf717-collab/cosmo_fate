@@ -1,0 +1,1 @@
+../../../../../data/cobaya_packages/data/bao_data/desi_bao_dr2/desi_gaussian_bao_ALL_GCcomb_cov.txt
