@@ -1,0 +1,30 @@
+{
+  "decision": "GO_FOR_STAGED_IMPLEMENTATION_WITH_DR1_FS_BAO_REPLACEMENT",
+  "decision_date": "2026-08-19",
+  "primary_model": "WP4_F1_flat_CPL_plus_P1",
+  "data_change": {
+    "remove": "DESI_DR2_all_BAO",
+    "insert": "DESI_DR1_desi_fs_bao_all",
+    "retain": ["PantheonPlusSH0ES", "WP4_full_CMB_and_lensing"]
+  },
+  "double_counting_rule": "DR1_FS_BAO_and_DR2_BAO_must_never_be_used_together",
+  "dr1_code": {
+    "repository": "https://github.com/cosmodesi/desi-kp-cosmological-likelihoods",
+    "commit": "7d51f4f86dc3bee6bf10f1a684913c943a89a844"
+  },
+  "dr1_data": {
+    "release": "full-shape-bao-clustering/v1.0",
+    "likelihood_checksum_ledger_sha256": "3e1a5f17dcf068eb535c25f5c6c56a028a86e79e5804e4069dcb14d424034065",
+    "selected_file_count": 7,
+    "full_shape_tracers": ["BGS", "LRG_z0", "LRG_z1", "LRG_z2", "ELG", "QSO"],
+    "lya_role": "BAO_only"
+  },
+  "status": "committed_data_only_decision_before_WP6_likelihood_or_fate",
+  "forbidden": [
+    "DR1_FS_BAO_plus_DR2_BAO",
+    "hand_compiled_fsigma8_points",
+    "covariance_free_growth_combination",
+    "public_chain_reweighting_as_direct_likelihood"
+  ],
+  "schema_version": "wp6-growth-data-decision-v1"
+}

@@ -1,0 +1,86 @@
+{
+  "checked_at_utc": "2026-08-19T06:00:00Z",
+  "decision": "GO_FOR_STAGED_IMPLEMENTATION_WITH_DR1_FS_BAO_REPLACEMENT",
+  "dr2_audit": {
+    "official_publication_page": "https://data.desi.lbl.gov/doc/papers/dr2/",
+    "public_product_root": "https://data.desi.lbl.gov/public/papers/y3/",
+    "public_cosmology_product_directories_found": ["bao-cosmo-params"],
+    "current_growth_related_publications": [
+      "DESI_DR2_Results_IV_Lya_Alcock_Paczynski",
+      "validation_of_DESI_DR2_Lya_full_shape_analysis"
+    ],
+    "downloadable_DR2_full_shape_likelihood_and_covariance_found": false,
+    "disposition": "not_usable_as_direct_WP6_likelihood_at_check_time"
+  },
+  "dr1_audit": {
+    "official_results_page": "https://data.desi.lbl.gov/doc/releases/dr1/vac/full-shape-cosmo-params/",
+    "official_clustering_page": "https://data.desi.lbl.gov/doc/releases/dr1/vac/full-shape-bao-clustering/",
+    "data_root": "https://data.desi.lbl.gov/public/dr1/vac/dr1/full-shape-bao-clustering/v1.0/data/likelihood/",
+    "code_repository": "https://github.com/cosmodesi/desi-kp-cosmological-likelihoods",
+    "code_commit": "7d51f4f86dc3bee6bf10f1a684913c943a89a844",
+    "code_commit_date": "2026-02-13T08:36:51Z",
+    "likelihood_ledger_url": "https://data.desi.lbl.gov/public/dr1/vac/dr1/full-shape-bao-clustering/v1.0/data/likelihood/dr1_vac_dr1_full-shape-bao-clustering_v1.0_data_likelihood.sha256sum",
+    "likelihood_ledger_sha256": "3e1a5f17dcf068eb535c25f5c6c56a028a86e79e5804e4069dcb14d424034065",
+    "public_components": {
+      "data_vectors": true,
+      "window_matrices": true,
+      "joint_FS_BAO_covariance": true,
+      "HOD_rotation_photo_systematics": true,
+      "Cobaya_likelihood": true,
+      "velocileptors_theory_adapter": true,
+      "download_script": true,
+      "official_chains_and_maxima": true
+    }
+  },
+  "selected_files": [
+    {
+      "name": "likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_BGS_BRIGHT-21.5_GCcomb_z0.1-0.4_thetacut0.05.h5",
+      "sha256": "20165401aa742608c0827323fc836d7c764f7f1bac5526c232c4ff66950d6083"
+    },
+    {
+      "name": "likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_LRG_GCcomb_z0.4-0.6_thetacut0.05.h5",
+      "sha256": "c7825581ad703217df993ac2283af25530a35a33bb6d20dbbc6ea6c2f4ecbf91"
+    },
+    {
+      "name": "likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_LRG_GCcomb_z0.6-0.8_thetacut0.05.h5",
+      "sha256": "75e4a34041c343f54dabe9709d4ceafd67c2e58de96a3dbcb063439d79dd2dd9"
+    },
+    {
+      "name": "likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_LRG_GCcomb_z0.8-1.1_thetacut0.05.h5",
+      "sha256": "68f772fa42d5bfe148dc54ba80efb3c0dfa7be43182012d1f16a39b3e0ee25cd"
+    },
+    {
+      "name": "likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_ELG_LOPnotqso_GCcomb_z1.1-1.6_thetacut0.05.h5",
+      "sha256": "51a1235ff0dec09f8a1c411f1d97733a8dddf57c1de4ce6f95d62c043c361b93"
+    },
+    {
+      "name": "likelihood_spectrum-poles-rotated+bao-recon_syst-rotation-hod-photo_QSO_GCcomb_z0.8-2.1_thetacut0.05.h5",
+      "sha256": "7aa05511e7d844ac517cfc7d2eb2fb0787a84fc678a115050c6b41a9aea5b5de"
+    },
+    {
+      "name": "likelihood_bao_syst_Lya_GCcomb_z1.8-4.2.h5",
+      "sha256": "0ad45b0bd906d3bca2d2c5f0e4644b2e14966797bc732ec1a9832a907f7799eb"
+    }
+  ],
+  "code_file_sha256": {
+    "README.md": "0a2a82e31787e168bd0343aa36512363832b27642e1ecc0c6b3d4b42335e7fe1",
+    "dr1/README.md": "3e08961ef9f40f00656118288f23a46f7cbfd16ed93caa04436c8ecc40f0f2c7",
+    "dr1/cobaya/README.md": "e3095505e3ba836268e2302561a4876b138f417458e22b82858a545542fa2499",
+    "dr1/cobaya/download.py": "9d5f46a0828eaa3402a14cac08394968f83554dbe2d97210c0215d38c3e9b1a5",
+    "dr1/cobaya/desi_fs_bao_all.py": "bd38dbd94aa57ff0230a167d98efd2e78d92da197b21af4ccd8c19cad8c2d8cd",
+    "dr1/cobaya/desi_fs_bao_all.yaml": "14f56645ca3261bcbba542d6a4f04b38597b7f9f99cc3da87d43a6a083fd5cdb",
+    "dr1/cobaya/reptvelocileptors.py": "da867a7430fac3ea33122a1657ca8488d444638f05eb4601d196c0d1bc5a7c49"
+  },
+  "overlap": {
+    "DR1_is_subset_of_DR2": true,
+    "shared_tracers": ["BGS", "LRG", "ELG", "QSO", "Lya"],
+    "shared_effective_redshift_structure": true,
+    "public_DR1_FS_DR2_BAO_joint_covariance_found": false,
+    "addition_allowed": false,
+    "authorized_rule": "replace_all_DR2_BAO_with_single_DR1_FS_plus_BAO_likelihood"
+  },
+  "likelihood_evaluated": false,
+  "posterior_or_fate_result_generated": false,
+  "schema_version": "wp6-growth-data-audit-v1",
+  "status": "PASS_DATA_GATE_WITH_REPLACEMENT"
+}
