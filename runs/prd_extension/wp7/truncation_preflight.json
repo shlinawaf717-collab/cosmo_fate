@@ -1,0 +1,163 @@
+{
+  "created_at_utc": "2026-08-19T07:27:40.451939+00:00",
+  "evidence_authorized": false,
+  "fate_endpoint_calculated": false,
+  "gates": {
+    "every_setting_has_accepted_points": true,
+    "relative_qmc_error_below_5pct": true
+  },
+  "likelihood_evaluation_performed": false,
+  "method": "eight independently scrambled Sobol sequences transformed to N(0,I)",
+  "posterior_sampling_performed": false,
+  "prior_fate_composition_calculated": false,
+  "schema_version": "wp7-fs7-truncation-feasibility-v1",
+  "scientific_role": "prior-normalization and direct-rejection feasibility only",
+  "settings": [
+    {
+      "accepted_counts": [
+        16377,
+        16375,
+        16376,
+        16374,
+        16377,
+        16375,
+        16377,
+        16374
+      ],
+      "ell": 0.7,
+      "expected_raw_draws_per_accepted_draw": 1.0005114308614176,
+      "normalization_estimate": 0.9994888305664062,
+      "qmc_standard_error_across_scrambles": 2.810624685718564e-05,
+      "relative_qmc_standard_error": 2.8120621259227024e-05,
+      "scramble_seeds": [
+        2026083101,
+        2026083102,
+        2026083103,
+        2026083104,
+        2026083105,
+        2026083106,
+        2026083107,
+        2026083108
+      ],
+      "sigma_f": 0.5,
+      "sobol_points_per_scramble": 16384
+    },
+    {
+      "accepted_counts": [
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384,
+        16384
+      ],
+      "ell": 0.7,
+      "expected_raw_draws_per_accepted_draw": 1.0,
+      "normalization_estimate": 1.0,
+      "qmc_standard_error_across_scrambles": 0.0,
+      "relative_qmc_standard_error": 0.0,
+      "scramble_seeds": [
+        2026083101,
+        2026083102,
+        2026083103,
+        2026083104,
+        2026083105,
+        2026083106,
+        2026083107,
+        2026083108
+      ],
+      "sigma_f": 0.25,
+      "sobol_points_per_scramble": 16384
+    },
+    {
+      "accepted_counts": [
+        13344,
+        13347,
+        13367,
+        13369,
+        13350,
+        13332,
+        13328,
+        13370
+      ],
+      "ell": 0.7,
+      "expected_raw_draws_per_accepted_draw": 1.2271854840974843,
+      "normalization_estimate": 0.8148727416992188,
+      "qmc_standard_error_across_scrambles": 0.0003552265382544874,
+      "relative_qmc_standard_error": 0.0004359288513121066,
+      "scramble_seeds": [
+        2026083101,
+        2026083102,
+        2026083103,
+        2026083104,
+        2026083105,
+        2026083106,
+        2026083107,
+        2026083108
+      ],
+      "sigma_f": 1.0,
+      "sobol_points_per_scramble": 16384
+    },
+    {
+      "accepted_counts": [
+        16374,
+        16375,
+        16372,
+        16372,
+        16376,
+        16375,
+        16381,
+        16374
+      ],
+      "ell": 0.35,
+      "expected_raw_draws_per_accepted_draw": 1.0005572561622609,
+      "normalization_estimate": 0.9994430541992188,
+      "qmc_standard_error_across_scrambles": 6.151014517439689e-05,
+      "relative_qmc_standard_error": 6.154442208183688e-05,
+      "scramble_seeds": [
+        2026083101,
+        2026083102,
+        2026083103,
+        2026083104,
+        2026083105,
+        2026083106,
+        2026083107,
+        2026083108
+      ],
+      "sigma_f": 0.5,
+      "sobol_points_per_scramble": 16384
+    },
+    {
+      "accepted_counts": [
+        16378,
+        16378,
+        16376,
+        16378,
+        16380,
+        16379,
+        16377,
+        16378
+      ],
+      "ell": 1.4,
+      "expected_raw_draws_per_accepted_draw": 1.0003663450970814,
+      "normalization_estimate": 0.9996337890625,
+      "qmc_standard_error_across_scrambles": 2.5792060996353652e-05,
+      "relative_qmc_standard_error": 2.580150979144329e-05,
+      "scramble_seeds": [
+        2026083101,
+        2026083102,
+        2026083103,
+        2026083104,
+        2026083105,
+        2026083106,
+        2026083107,
+        2026083108
+      ],
+      "sigma_f": 0.5,
+      "sobol_points_per_scramble": 16384
+    }
+  ],
+  "status": "PASS"
+}

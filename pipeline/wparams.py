@@ -40,6 +40,14 @@ def w_bin4(a, p):
     return w if w.shape else float(w)
 
 
+def w_fs7(a, p):
+    """Frozen WP7 global clamped spline with explicit constant extensions."""
+    from pipeline.wp7_fs7 import w_of_a
+
+    nodes = [p[f"fs7_w{i}"] for i in range(1, 8)]
+    return w_of_a(a, nodes)
+
+
 def bin4_early_de_ratio(omegam, H0, w1, w2, w3, w4, z=Z_EARLY_DE_GATE):
     """Exact piecewise-constant ``rho_DE/rho_m`` for BIN4 at redshift ``z``."""
     z = float(z)
@@ -115,6 +123,8 @@ MODELS = {
     'bin4': {'params': ['w1', 'w2', 'w3', 'w4'], 'w_of_a': w_bin4, 'w_inf': lambda p: p['w1']},
     'gp':   {'params': ['w1', 'w2', 'w3', 'w4', 'w5', 'w6', 'gp_sigf', 'gp_ell'],
              'w_of_a': w_gp, 'w_inf': lambda p: -1.0},
+    'fs7':  {'params': [f'fs7_w{i}' for i in range(1, 8)],
+             'w_of_a': w_fs7, 'w_inf': lambda p: p['fs7_w7']},
 }
 
 

@@ -1,0 +1,186 @@
+theory:
+  pipeline.bgtheory.BackgroundW:
+    python_path: .
+    model: fs7
+likelihood:
+  bao.desi_dr2.desi_bao_all: null
+  sn.pantheonplusshoes:
+    use_abs_mag: true
+  pipeline.cmb_distprior.ProviderDistPrior:
+    python_path: .
+prior:
+  fs7_function_bounds: import_module('pipeline.wp7_fs7').admissibility_ell035
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omegam:
+    prior:
+      min: 0.01
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.3
+      scale: 0.006
+    proposal: 0.003
+    latex: \Omega_\mathrm{m}
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 68.5
+      scale: 0.8
+    proposal: 0.3
+    latex: H_0
+  Mb:
+    prior:
+      min: -20
+      max: -18
+    ref:
+      dist: norm
+      loc: -19.39
+      scale: 0.03
+    proposal: 0.02
+    latex: M_B
+  rdrag:
+    latex: r_\mathrm{drag}
+  z1:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{1}
+  z2:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{2}
+  z3:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{3}
+  z4:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{4}
+  z5:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{5}
+  z6:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{6}
+  z7:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{7}
+  fs7_w1:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.50000000010000001)*z1 + (0)*z2
+      + (0)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{1}
+  fs7_w2:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.27246883056679799)*z1 + (0.4192382812548987)*z2
+      + (0)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{2}
+  fs7_w3:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.087288703716214014)*z1 + (0.38780971666213654)*z2
+      + (0.30328914580969824)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{3}
+  fs7_w4:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.016243867021131442)*z1 + (0.17840118742390215)*z2
+      + (0.38959904891736385)*z3 + (0.25714146747000388)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{4}
+  fs7_w5:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.00040005177942658855)*z1 + (0.016419182355297643)*z2
+      + (0.11239478640020767)*z3 + (0.31527801732961352)*z4 + (0.37107604919762321)*z5
+      + (0)*z6 + (0)*z7'
+    latex: w_{5}
+  fs7_w6:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (1.2803896315115147e-05)*z1 + (0.0013121863047112405)*z2
+      + (0.018164207102725594)*z3 + (0.10837301511250166)*z4 + (0.3829505091623483)*z5
+      + (0.30211345023221819)*z6 + (0)*z7'
+    latex: w_{6}
+  fs7_w7:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (1.9983129473137436e-10)*z1 + (1.8258947944507313e-07)*z2
+      + (1.2296147359074733e-05)*z3 + (0.00036240132315983672)*z4 + (0.012967207153429311)*z5
+      + (0.099872947771653287)*z6 + (0.48975209489709487)*z7'
+    latex: w_{7}
+sampler:
+  mcmc:
+    Rminus1_stop: 0.01
+    Rminus1_cl_stop: 0.2
+    max_samples: 500000
+    seed: 2026083004
+output: chain
+wp7_metadata:
+  role: development configuration before WP7 posterior production
+  sigma_f: 0.5
+  ell: 0.35
+  truncated_prior: normalized by conditioning N(0,I) on the registered node and spline
+    bounds
+  external_prior_normalization: constant within setting; evidence forbidden until
+    independently estimated
+test: true

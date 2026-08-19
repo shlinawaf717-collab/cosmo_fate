@@ -1,0 +1,71 @@
+{
+  "created_at_utc": "2026-08-19T07:28:02.238917+00:00",
+  "fate_endpoint_calculated": false,
+  "likelihood_evaluated_during_initialization": true,
+  "posterior_sampling_performed": false,
+  "production_authorized": false,
+  "schema_version": "wp7-fs7-no-sampling-smoke-v1",
+  "settings": [
+    {
+      "checks": {
+        "config_hash": true,
+        "d0_components_present": true,
+        "fs7_background_loaded": true,
+        "input_yaml_present": true,
+        "posterior_sample_rows_zero": true,
+        "updated_yaml_present": true
+      },
+      "pass": true,
+      "tag": "primary"
+    },
+    {
+      "checks": {
+        "config_hash": true,
+        "d0_components_present": true,
+        "fs7_background_loaded": true,
+        "input_yaml_present": true,
+        "posterior_sample_rows_zero": true,
+        "updated_yaml_present": true
+      },
+      "pass": true,
+      "tag": "sig025"
+    },
+    {
+      "checks": {
+        "config_hash": true,
+        "d0_components_present": true,
+        "fs7_background_loaded": true,
+        "input_yaml_present": true,
+        "posterior_sample_rows_zero": true,
+        "updated_yaml_present": true
+      },
+      "pass": true,
+      "tag": "sig100"
+    },
+    {
+      "checks": {
+        "config_hash": true,
+        "d0_components_present": true,
+        "fs7_background_loaded": true,
+        "input_yaml_present": true,
+        "posterior_sample_rows_zero": true,
+        "updated_yaml_present": true
+      },
+      "pass": true,
+      "tag": "ell035"
+    },
+    {
+      "checks": {
+        "config_hash": true,
+        "d0_components_present": true,
+        "fs7_background_loaded": true,
+        "input_yaml_present": true,
+        "posterior_sample_rows_zero": true,
+        "updated_yaml_present": true
+      },
+      "pass": true,
+      "tag": "ell140"
+    }
+  ],
+  "status": "PASS"
+}

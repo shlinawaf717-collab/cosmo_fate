@@ -1,0 +1,122 @@
+{
+  "checks": {
+    "all_roundtrips_stable": true,
+    "clamped_endpoint_derivatives": true,
+    "constant_extensions": true,
+    "lcdm_density_identity": true,
+    "lcdm_knot_identity": true,
+    "registered_nodes_match": true,
+    "zero_latent_admissible": true
+  },
+  "created_at_utc": "2026-08-19T07:23:33.129616+00:00",
+  "fate_endpoint_calculated": false,
+  "hyperparameter_geometry": [
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.4650873176547938,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.1347751481727658,
+      "condition_number": 62801.80528656117,
+      "ell": 0.7,
+      "fixture_admissibility": {
+        "admissible": true,
+        "grid_size": 512,
+        "maximum_w": -0.898431127928976,
+        "minimum_w": -1.0,
+        "nodes_within_bounds": true,
+        "spline_within_bounds": true
+      },
+      "latent_roundtrip_max_abs_error": 9.377915111130619e-15,
+      "minimum_eigenvalue": 1.630863820561339e-05,
+      "sigma_f": 0.5
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.2325436678985909,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.13477508170867747,
+      "condition_number": 62800.65007710982,
+      "ell": 0.7,
+      "fixture_admissibility": {
+        "admissible": true,
+        "grid_size": 512,
+        "maximum_w": -0.9492155639757139,
+        "minimum_w": -1.0,
+        "nodes_within_bounds": true,
+        "spline_within_bounds": true
+      },
+      "latent_roundtrip_max_abs_error": 4.017619570362285e-15,
+      "minimum_eigenvalue": 4.077234551392549e-06,
+      "sigma_f": 0.25
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.9301746262383828,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.13477516478880747,
+      "condition_number": 62802.094095654495,
+      "ell": 0.7,
+      "fixture_admissibility": {
+        "admissible": true,
+        "grid_size": 512,
+        "maximum_w": -0.7968622558467258,
+        "minimum_w": -1.0,
+        "nodes_within_bounds": true,
+        "spline_within_bounds": true
+      },
+      "latent_roundtrip_max_abs_error": 3.3514857555871913e-15,
+      "minimum_eigenvalue": 6.523425282220734e-05,
+      "sigma_f": 1.0
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.49999986861403517,
+      "a4_multiple_R2_from_nodes_a_le_1": 5.259437901861119e-07,
+      "condition_number": 72.77060014319378,
+      "ell": 0.35,
+      "fixture_admissibility": {
+        "admissible": true,
+        "grid_size": 512,
+        "maximum_w": -0.8998004603547611,
+        "minimum_w": -1.0182337614380614,
+        "nodes_within_bounds": true,
+        "spline_within_bounds": true
+      },
+      "latent_roundtrip_max_abs_error": 3.469446951953614e-16,
+      "minimum_eigenvalue": 0.008666211921992973,
+      "sigma_f": 0.5
+    },
+    {
+      "a4_conditional_sd_given_nodes_a_le_1": 0.14060749059963837,
+      "a4_multiple_R2_from_nodes_a_le_1": 0.9209181343807231,
+      "condition_number": 250608012.60331154,
+      "ell": 1.4,
+      "fixture_admissibility": {
+        "admissible": true,
+        "grid_size": 512,
+        "maximum_w": -0.895245727752397,
+        "minimum_w": -1.0,
+        "nodes_within_bounds": true,
+        "spline_within_bounds": true
+      },
+      "latent_roundtrip_max_abs_error": 1.4598738884430418e-13,
+      "minimum_eigenvalue": 5.661850683294986e-09,
+      "sigma_f": 0.5
+    }
+  ],
+  "implementation_identities": {
+    "constant_extension_max_abs_error": 0.0,
+    "endpoint_derivative_max_abs_error": 0.0,
+    "lcdm_knot_max_abs_error": 0.0,
+    "lcdm_ln_fde_max_abs_error": 0.0
+  },
+  "inputs": {
+    "analytic_prediction": {
+      "path": "plan/wp7_analytic_prediction.json",
+      "sha256": "15e65938ca81db424ec7c97b96fdd69af346d8627e5c69faa58378246f8c7f62"
+    },
+    "protocol": {
+      "path": "plan/prd_extension_protocol.json",
+      "sha256": "1a08b1020b789d67733c795ae74d0d7b40efcbb36fdb2ae7409e5862b43a081b"
+    }
+  },
+  "likelihood_evaluation_performed": false,
+  "next_gate": "implement normalized truncation workflow and D0 no-sampling smoke",
+  "posterior_sampling_performed": false,
+  "prior_simulation_performed": false,
+  "schema_version": "wp7-fs7-development-preflight-v1",
+  "status": "PASS_WITH_ELL_1P4_WARNING"
+}

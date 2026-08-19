@@ -1,0 +1,38 @@
+{
+  "base_config": {
+    "path": "pipeline/fparam_base.yaml",
+    "sha256": "7d0fbd052e060e49460a64dfa7a1140c3d9a429493fa664e0c9dd0ce03255035"
+  },
+  "configs": {
+    "ell035": {
+      "path": "runs/prd_extension/wp7/configs/fs7_ell035.yaml",
+      "sha256": "61ff22e745fe83a4b24ab002911e9ebc05129958fb25b9f2a61865620557cd48"
+    },
+    "ell140": {
+      "path": "runs/prd_extension/wp7/configs/fs7_ell140.yaml",
+      "sha256": "c41136ecd1572a18fd223a6ef1a04a3236cee79766a37ab424e7f04cf11033ca"
+    },
+    "primary": {
+      "path": "runs/prd_extension/wp7/configs/fs7_primary.yaml",
+      "sha256": "c48145ee9c31d512bda18b0b6fc873e5bd41ee4b3179ac2830735c516c568ef4"
+    },
+    "sig025": {
+      "path": "runs/prd_extension/wp7/configs/fs7_sig025.yaml",
+      "sha256": "c6d59842b8d82e0a9da117f500d6d129265af898778aad30bb45ffded1e752fe"
+    },
+    "sig100": {
+      "path": "runs/prd_extension/wp7/configs/fs7_sig100.yaml",
+      "sha256": "f4cf009a0359e341f48dc4e12f0a6b8aa0535cd6601436ce70b10d49e896321e"
+    }
+  },
+  "created_at_utc": "2026-08-19T07:25:52.205283+00:00",
+  "evidence_authorized": false,
+  "fate_calculation_authorized": false,
+  "posterior_production_authorized": false,
+  "protocol": {
+    "path": "plan/prd_extension_protocol.json",
+    "sha256": "1a08b1020b789d67733c795ae74d0d7b40efcbb36fdb2ae7409e5862b43a081b"
+  },
+  "schema_version": "wp7-fs7-development-config-plan-v1",
+  "status": "FROZEN_BEFORE_D0_NO_SAMPLING_SMOKE"
+}
