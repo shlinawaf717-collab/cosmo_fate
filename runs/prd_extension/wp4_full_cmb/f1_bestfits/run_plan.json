@@ -1,0 +1,141 @@
+{
+  "base_config": "pipeline/wp4_f1.yaml",
+  "base_config_sha256": "744f5d063e953f45aa7731283f3c1eaed0b894765f18f83a65de5d1ee0b45f7b",
+  "covariance": {
+    "cpl": {
+      "minimum_eigenvalue": 5.636945601925417e-09,
+      "parameters": [
+        "logA",
+        "ns",
+        "theta_MC_100",
+        "ombh2",
+        "omch2",
+        "tau",
+        "w",
+        "wa",
+        "Mb",
+        "A_planck",
+        "amp_143",
+        "amp_217",
+        "amp_143x217",
+        "n_143",
+        "n_217",
+        "n_143x217",
+        "calTE",
+        "calEE"
+      ],
+      "path": "runs/prd_extension/wp4_full_cmb/f1_bestfits/cpl/proposal.covmat",
+      "sha256": "c9083acd4b410d13bb05f108b2bc1e6eb737d5f97b0d72a4c9cd2c4caf6985c3",
+      "shape": [
+        18,
+        18
+      ]
+    },
+    "lcdm": {
+      "minimum_eigenvalue": 7.334508399972464e-09,
+      "parameters": [
+        "logA",
+        "ns",
+        "theta_MC_100",
+        "ombh2",
+        "omch2",
+        "tau",
+        "Mb",
+        "A_planck",
+        "amp_143",
+        "amp_217",
+        "amp_143x217",
+        "n_143",
+        "n_217",
+        "n_143x217",
+        "calTE",
+        "calEE"
+      ],
+      "path": "runs/prd_extension/wp4_full_cmb/f1_bestfits/lcdm/proposal.covmat",
+      "sha256": "3b64fcc19de5f418c4b466a618e2d9d4bfaf3002e0ac74bf0cb836ffac1c1515",
+      "shape": [
+        16,
+        16
+      ]
+    },
+    "source": "integer-weighted F1 post-burn posterior"
+  },
+  "created_at_utc": "2026-08-19T01:36:48.151082+00:00",
+  "information_criteria": {
+    "bic_scope_warning": "descriptive nominal-vector penalty, not evidence",
+    "delta_AIC": "delta_chi2 + 2*delta_k",
+    "delta_BIC": "delta_chi2 + delta_k*ln(nominal_data_count)",
+    "delta_definition": "CPL minus LCDM",
+    "delta_k": 2,
+    "nominal_data_count": 11712
+  },
+  "mcmc_endpoints": "runs/prd_extension/wp4_full_cmb/f1_wsl2/mcmc_endpoints.json",
+  "mcmc_endpoints_sha256": "5c2a57527eb819cf7bb7cc4fdb7b966202e1215fa046b11afb5c3efceba67b95",
+  "models": {
+    "cpl": {
+      "config": "runs/prd_extension/wp4_full_cmb/f1_bestfits/cpl/bestfit.yaml",
+      "config_sha256": "f52f4b01a4486a42f41dd3ea3540ce4618424fbcad5b46b450a0408d81f846fb",
+      "covmat": "runs/prd_extension/wp4_full_cmb/f1_bestfits/cpl/proposal.covmat",
+      "covmat_sha256": "c9083acd4b410d13bb05f108b2bc1e6eb737d5f97b0d72a4c9cd2c4caf6985c3",
+      "seed": 2026081901,
+      "start": {
+        "A_planck": 1.0001356,
+        "Mb": -19.386046,
+        "amp_143": 16.44599,
+        "amp_143x217": 7.0592999,
+        "amp_217": 10.103885,
+        "calEE": 1.0000445,
+        "calTE": 0.99929449,
+        "logA": 3.0431454,
+        "n_143": 1.1141013,
+        "n_143x217": 2.127174,
+        "n_217": 1.8264771,
+        "ns": 0.96446453,
+        "ombh2": 0.022272757,
+        "omch2": 0.11910788,
+        "tau": 0.055231915,
+        "theta_MC_100": 1.0408504,
+        "w": -0.88449496,
+        "wa": -0.60773188
+      },
+      "start_role": "optimizer initialization only"
+    },
+    "lcdm": {
+      "config": "runs/prd_extension/wp4_full_cmb/f1_bestfits/lcdm/bestfit.yaml",
+      "config_sha256": "a993f1901d4460915ee2e1019acc7bbb660f7cfb009e7c8d41442da0211af693",
+      "covmat": "runs/prd_extension/wp4_full_cmb/f1_bestfits/lcdm/proposal.covmat",
+      "covmat_sha256": "3b64fcc19de5f418c4b466a618e2d9d4bfaf3002e0ac74bf0cb836ffac1c1515",
+      "seed": 2026081902,
+      "start": {
+        "A_planck": 1.0010226585553617,
+        "Mb": -19.382692702653433,
+        "amp_143": 17.29553294713233,
+        "amp_143x217": 8.054552471408682,
+        "amp_217": 11.167649767275298,
+        "calEE": 0.9970066302570894,
+        "calTE": 0.9966901125327821,
+        "logA": 3.041037875682019,
+        "n_143": 1.0296298950100842,
+        "n_143x217": 1.859409235436772,
+        "n_217": 1.616074570301301,
+        "ns": 0.9654992460756915,
+        "ombh2": 0.022268649654695,
+        "omch2": 0.11922615458899437,
+        "tau": 0.05404988206982036,
+        "theta_MC_100": 1.0408564269017935
+      },
+      "start_role": "optimizer initialization only"
+    }
+  },
+  "optimizer": {
+    "best_of": 1,
+    "ignore_prior": false,
+    "implementation": "Cobaya 3.6.2 Py-BOBYQA",
+    "max_evals": 2000,
+    "rhoend": 0.05
+  },
+  "parallel_models": 2,
+  "schema_version": "wp4-f1-bestfit-plan-v1",
+  "scope_note": "Frozen after MCMC unblinding and before F1 best-fit/model-comparison output.",
+  "status": "FROZEN_BEFORE_OPTIMIZATION"
+}

@@ -28,6 +28,7 @@ runs/prd_extension/wp4_full_cmb/f1/c*/chain.updated.yaml
 runs/prd_extension/wp4_full_cmb/f1/driver.lock
 runs/prd_extension/wp4_full_cmb/f1/driver_events.jsonl
 runs/prd_extension/wp4_full_cmb/f1/external_monitor/
+runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/
 tmp/
 paper/main.aux
 paper/main.bbl

@@ -1,0 +1,63 @@
+{
+  "completed_at_utc": "2026-08-19T01:49:17.534939+00:00",
+  "information_criteria": {
+    "delta_AIC": -10.296245999999883,
+    "delta_BIC": 4.440492472402301,
+    "delta_chi2": -14.296245999999883,
+    "delta_definition": "CPL minus LCDM",
+    "delta_k": 2,
+    "nominal_data_count": 11712
+  },
+  "likelihood_chi2": {
+    "cpl": {
+      "components": {
+        "chi2__act_dr6_lenslike.ACTDR6LensLike": 19.704071,
+        "chi2__bao.desi_dr2.desi_bao_all": 13.855974,
+        "chi2__planck_2018_lowl.EE_clik": 396.18664,
+        "chi2__planck_2018_lowl.TT_clik": 22.890822,
+        "chi2__planck_NPIPE_highl_CamSpec.TTTEEE": 10543.443,
+        "chi2__sn.pantheonplusshoes": 1476.7776
+      },
+      "total": 12472.858107
+    },
+    "lcdm": {
+      "components": {
+        "chi2__act_dr6_lenslike.ACTDR6LensLike": 22.980548,
+        "chi2__bao.desi_dr2.desi_bao_all": 11.161454,
+        "chi2__planck_2018_lowl.EE_clik": 395.92835,
+        "chi2__planck_2018_lowl.TT_clik": 22.209801,
+        "chi2__planck_NPIPE_highl_CamSpec.TTTEEE": 10548.993,
+        "chi2__sn.pantheonplusshoes": 1485.8812
+      },
+      "total": 12487.154353
+    }
+  },
+  "models": {
+    "cpl": {
+      "completed_at_utc": "2026-08-19T01:48:06.692241+00:00",
+      "log": "runs/prd_extension/wp4_full_cmb/f1_bestfits/cpl/bestfit.log",
+      "log_sha256": "a2179213b25e3c4b4819bed1ebe9a1c872392662c5405e1125624d240d33189d",
+      "minimum": "runs/prd_extension/wp4_full_cmb/f1_bestfits/cpl/bestfit.minimum.txt",
+      "minimum_present": true,
+      "minimum_sha256": "b87d34053c188dea3fe14064f9a949c2d81463371c14680b9d90144d03fd8516",
+      "model": "cpl",
+      "returncode": 0,
+      "started_at_utc": "2026-08-19T01:37:28.652112+00:00"
+    },
+    "lcdm": {
+      "completed_at_utc": "2026-08-19T01:49:17.534346+00:00",
+      "log": "runs/prd_extension/wp4_full_cmb/f1_bestfits/lcdm/bestfit.log",
+      "log_sha256": "1b09a2d4824b46c6a84486a554d3880cef2401e9c4d788a76c9f205d3e0300e2",
+      "minimum": "runs/prd_extension/wp4_full_cmb/f1_bestfits/lcdm/bestfit.minimum.txt",
+      "minimum_present": true,
+      "minimum_sha256": "225d6c89de4d63fa210fe8fa55e73a487a6565975d16ce3e9ebeb49c4013ec04",
+      "model": "lcdm",
+      "returncode": 0,
+      "started_at_utc": "2026-08-19T01:37:28.652179+00:00"
+    }
+  },
+  "run_plan": "runs/prd_extension/wp4_full_cmb/f1_bestfits/run_plan.json",
+  "run_plan_sha256": "6c87a81707f3308ddc06ec7fdd46d4cabede86f289dcee177d0255b947e984c5",
+  "schema_version": "wp4-f1-bestfit-completion-v1",
+  "status": "PASS"
+}

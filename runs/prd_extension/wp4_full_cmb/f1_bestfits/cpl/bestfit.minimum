@@ -1,0 +1,59 @@
+ -log(Like) = 6243.907017886135
+  chi-sq    = 12487.81403577227
+
+    1  3.042968452e+00   logA                                      \ln(10^{10} A_\mathrm{s})
+    3  9.660921156e-01   ns                                        n_\mathrm{s}
+    4  1.040863358e+00   theta_MC_100                              100\theta_\mathrm{MC}
+    7  2.228873432e-02   ombh2                                     \Omega_\mathrm{b} h^2
+    8  1.191339614e-01   omch2                                     \Omega_\mathrm{c} h^2
+    9  5.518612218e-02   tau                                       \tau_\mathrm{reio}
+   12  -8.866059200e-01  w                                         w_{0}
+   13  -6.083145616e-01  wa                                        w_{a}
+   14  -1.938564099e+01  Mb                                        M_B
+   33  1.000560998e+00   A_planck                                  y_\mathrm{cal}
+   38  1.632221256e+01   amp_143                                   A^{\rm power}_{143}
+   39  1.022044881e+01   amp_217                                   A^{\rm power}_{217}
+   40  7.114221596e+00   amp_143x217                               A^{\rm power}_{143\times217}
+   42  1.094957678e+00   n_143                                     \gamma^{\rm power}_{143}
+   43  1.811442953e+00   n_217                                     \gamma^{\rm power}_{217}
+   44  2.119194924e+00   n_143x217                                 \gamma^{\rm power}_{143\times217}
+   45  9.969780158e-01   calTE                                     c_{TE}
+   46  9.974876894e-01   calEE                                     c_{EE}
+
+   10  0.06              mnu                                       \sum m_\nu
+   11  3.044             nnu                                       N_\mathrm{eff}
+   15  0.0               omk                                       \Omega_\mathrm{k}
+   34  0.0               use_fg_residual_model                     use\ fg\ residual\ model
+   35  1.0               cal0                                      cal0
+   36  1.0               cal2                                      cal2
+   37  0.0               amp_100                                   amp\ 100
+   41  1.0               n_100                                     n\ 100
+
+    2  2.096739164e-09   As                                        A_\mathrm{s}
+    6  6.884331474e+01   H0                                        H_0
+   16  2.997584142e-01   omegam                                    \Omega_\mathrm{m}
+   17  1.420675623e-01   omegamh2                                  \Omega_\mathrm{m} h^2
+   18  7.001653586e-01   omegal                                    \Omega_\Lambda
+   19  7.752444994e+00   zrei                                      z_\mathrm{reio}
+   20  2.453626529e-01   YHe                                       Y_\mathrm{P}
+   21  2.466925164e-01   Y_p                                       Y_P^\mathrm{BBN}
+   22  2.600943421e+00   DHBBN                                     10^5 \mathrm{D}/\mathrm{H}
+   23  8.238331655e-01   sigma8                                    \sigma_8
+   24  9.929065716e-01   s8h5                                      \sigma_8/h^{0.5}
+   25  4.510502864e-01   s8omegamp5                                \sigma_8 \Omega_\mathrm{m}^{0.5}
+   26  6.095819758e-01   s8omegamp25                               \sigma_8 \Omega_\mathrm{m}^{0.25}
+   27  2.096739164e+00   A                                         10^9 A_\mathrm{s}
+   28  1.877631448e+00   clamp                                     10^9 A_\mathrm{s} e^{-2\tau}
+   29  1.373234244e+01   age                                       \mathrm{Age}/\mathrm{Gyr}
+   30  1.474224583e+02   rdrag                                     r_\mathrm{d}
+   31  1.059682467e+03   zdrag                                     z_\mathrm{d}
+   32  1.014905070e+04   H0rdrag                                   H_0 r_\mathrm{d}
+   47  1.385597363e+01   chi2__BAO                                 \chi^2_\mathrm{BAO}
+   48  1.096252057e+04   chi2__CMB                                 \chi^2_\mathrm{CMB}
+   49  1.476777579e+03   chi2__SN                                  \chi^2_\mathrm{SN}
+   50  1.385597363e+01   chi2__bao.desi_dr2.desi_bao_all           \chi^2_{\rm bao.desi\ dr2.desi\ bao\ all}
+   51  1.476777579e+03   chi2__sn.pantheonplusshoes                \chi^2_{\rm sn.pantheonplusshoes}
+   52  2.289082186e+01   chi2__planck_2018_lowl.TT_clik            \chi^2_{\rm planck\ 2018\ lowl.TT\ clik}
+   53  3.961866404e+02   chi2__planck_2018_lowl.EE_clik            \chi^2_{\rm planck\ 2018\ lowl.EE\ clik}
+   54  1.054344311e+04   chi2__planck_NPIPE_highl_CamSpec.TTTEEE   \chi^2_{\rm planck\ NPIPE\ highl\ CamSpec.TTTEEE}
+   55  1.970407111e+01   chi2__act_dr6_lenslike.ACTDR6LensLike     \chi^2_{\rm act\ dr6\ lenslike.ACTDR6LensLike}

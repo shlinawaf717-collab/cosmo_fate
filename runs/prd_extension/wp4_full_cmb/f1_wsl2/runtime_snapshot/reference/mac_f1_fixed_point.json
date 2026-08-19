@@ -1,0 +1,53 @@
+{
+  "component_chi2": {
+    "act_dr6_lenslike.ACTDR6LensLike": 22.190186945240953,
+    "bao.desi_dr2.desi_bao_all": 20.163633946727302,
+    "planck_2018_lowl.EE_clik": 396.06313964201627,
+    "planck_2018_lowl.TT_clik": 22.76854005621425,
+    "planck_NPIPE_highl_CamSpec.TTTEEE": 11085.089033757473,
+    "sn.pantheonplusshoes": 3429.445523056894
+  },
+  "created_at_utc": "2026-08-13T07:42:16.681235+00:00",
+  "environment": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13"
+  },
+  "fixed_point": {
+    "A_planck": 1.0,
+    "Mb": -19.25,
+    "amp_143": 10.0,
+    "amp_143x217": 10.0,
+    "amp_217": 20.0,
+    "calEE": 1.0,
+    "calTE": 1.0,
+    "logA": 3.036,
+    "n_143": 1.0,
+    "n_143x217": 1.0,
+    "n_217": 1.0,
+    "ns": 0.965,
+    "ombh2": 0.02237,
+    "omch2": 0.12,
+    "tau": 0.0544,
+    "theta_MC_100": 1.04109,
+    "w": -1.0,
+    "wa": -0.1
+  },
+  "loglikes": {
+    "act_dr6_lenslike.ACTDR6LensLike": -11.095093472620476,
+    "bao.desi_dr2.desi_bao_all": -10.081816973363651,
+    "planck_2018_lowl.EE_clik": -198.03156982100813,
+    "planck_2018_lowl.TT_clik": -11.384270028107125,
+    "planck_NPIPE_highl_CamSpec.TTTEEE": -5542.544516878736,
+    "sn.pantheonplusshoes": -1714.722761528447
+  },
+  "logpost": -7495.235550111918,
+  "logpriors": {
+    "0": -7.375521409635885,
+    "matter_dom": 0.0
+  },
+  "purpose": "cross-platform full-likelihood drift screen before WSL2 F1",
+  "runtime_seconds": 28.718394916999387,
+  "schema_version": "wp4-f1-cross-platform-fixed-point-v1",
+  "scope_warning": "This fixed non-posterior point is an implementation diagnostic, not an F1 posterior, best fit, model comparison, or fate result.",
+  "total_likelihood_chi2": 14975.720057404566
+}

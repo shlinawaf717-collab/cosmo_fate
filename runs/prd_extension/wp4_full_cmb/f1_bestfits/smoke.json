@@ -1,0 +1,21 @@
+{
+  "created_at_utc": "2026-08-19T01:37:19.168646+00:00",
+  "models": {
+    "cpl": {
+      "initialization_success": true,
+      "log": "runs/prd_extension/wp4_full_cmb/f1_bestfits/cpl/smoke.log",
+      "log_sha256": "7bcf1a9fe102802b9ddac094be5f0f37415964e0245472c03a40cb14bd9d9690",
+      "returncode": 0
+    },
+    "lcdm": {
+      "initialization_success": true,
+      "log": "runs/prd_extension/wp4_full_cmb/f1_bestfits/lcdm/smoke.log",
+      "log_sha256": "c5ce01e470134c60fa4585cf3a3b6ffa0c69f0d58cbd90f33707161383733bdd",
+      "returncode": 0
+    }
+  },
+  "optimization_performed": false,
+  "sampling_performed": false,
+  "schema_version": "wp4-f1-bestfit-smoke-v1",
+  "status": "PASS"
+}

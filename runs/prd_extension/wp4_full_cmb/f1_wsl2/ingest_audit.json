@@ -1,0 +1,336 @@
+{
+  "activation_snapshot": {
+    "activation_sha256": "92c2407224a40ec0f99ad63b54cb98af386b6a138650d2019729d4b02d5049be",
+    "activation_status": "ACTIVE_BEFORE_WSL2_PRODUCTION",
+    "checked_hashes": 24,
+    "checks": [
+      {
+        "actual_sha256": "2fc9dadebc3eb3c7da4d6f70cb8595e0330e0169ee288ca79abbd64eaa0a156a",
+        "expected_sha256": "2fc9dadebc3eb3c7da4d6f70cb8595e0330e0169ee288ca79abbd64eaa0a156a",
+        "group": "hashes",
+        "name": "controller",
+        "pass": true,
+        "registered_path": "tools/controller_wsl2_f1.py",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/runtime_snapshot/tools/controller_wsl2_f1.py"
+      },
+      {
+        "actual_sha256": "0c7780c0b94bcc9218b00c5c869705afd34748a0484f041528dbc84286a10cc6",
+        "expected_sha256": "0c7780c0b94bcc9218b00c5c869705afd34748a0484f041528dbc84286a10cc6",
+        "group": "hashes",
+        "name": "driver",
+        "pass": true,
+        "registered_path": "tools/run_wsl2_f1.py",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/runtime_snapshot/tools/run_wsl2_f1.py"
+      },
+      {
+        "actual_sha256": "de3920e2f191615709277f2f98e6dba09ca9152d868d8881a68539b916f08d60",
+        "expected_sha256": "de3920e2f191615709277f2f98e6dba09ca9152d868d8881a68539b916f08d60",
+        "group": "hashes",
+        "name": "evaluator",
+        "pass": true,
+        "registered_path": "tools/evaluate_wsl2_f1.py",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/runtime_snapshot/tools/evaluate_wsl2_f1.py"
+      },
+      {
+        "actual_sha256": "96880c8c69259f49b8c654be3b4c1753d47d06d93e79181e0c3466e80fe7c7b1",
+        "expected_sha256": "96880c8c69259f49b8c654be3b4c1753d47d06d93e79181e0c3466e80fe7c7b1",
+        "group": "hashes",
+        "name": "finalizer",
+        "pass": true,
+        "registered_path": "tools/finalize_wsl2_f1.py",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/runtime_snapshot/tools/finalize_wsl2_f1.py"
+      },
+      {
+        "actual_sha256": "913639098572a4b10aa1cc3b9e9d841850faed537c2b9c4de424c3edb3888648",
+        "expected_sha256": "913639098572a4b10aa1cc3b9e9d841850faed537c2b9c4de424c3edb3888648",
+        "group": "hashes",
+        "name": "policy",
+        "pass": true,
+        "registered_path": "work/f1/external_convergence_policy.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/external_convergence_policy.json"
+      },
+      {
+        "actual_sha256": "479776618bc261e41e19877d28a3cbfd3a4c72ff9b01f563af9a436ebfb3bd9c",
+        "expected_sha256": "479776618bc261e41e19877d28a3cbfd3a4c72ff9b01f563af9a436ebfb3bd9c",
+        "group": "hashes",
+        "name": "statistics",
+        "pass": true,
+        "registered_path": "tools/monitor_wsl2_f1.py",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/runtime_snapshot/tools/monitor_wsl2_f1.py"
+      },
+      {
+        "actual_sha256": "8665afd8e04114f2c84fc702b905fe4c003aebbf5b3b7b97a8a413011ffc71ee",
+        "expected_sha256": "8665afd8e04114f2c84fc702b905fe4c003aebbf5b3b7b97a8a413011ffc71ee",
+        "group": "hashes",
+        "name": "statistics_base",
+        "pass": true,
+        "registered_path": "payload/pipeline/monitor_wp4_f0.py",
+        "resolved_path": "pipeline/monitor_wp4_f0.py"
+      },
+      {
+        "actual_sha256": "744f5d063e953f45aa7731283f3c1eaed0b894765f18f83a65de5d1ee0b45f7b",
+        "expected_sha256": "744f5d063e953f45aa7731283f3c1eaed0b894765f18f83a65de5d1ee0b45f7b",
+        "group": "runtime_hashes",
+        "name": "base_config",
+        "pass": true,
+        "registered_path": "payload/pipeline/wp4_f1.yaml",
+        "resolved_path": "pipeline/wp4_f1.yaml"
+      },
+      {
+        "actual_sha256": "41fb874da600742ff8ddd7879dbc6f5376a0075ce50791e9c01517db4149d142",
+        "expected_sha256": "41fb874da600742ff8ddd7879dbc6f5376a0075ce50791e9c01517db4149d142",
+        "group": "runtime_hashes",
+        "name": "chain_1_run_yaml",
+        "pass": true,
+        "registered_path": "work/f1/c1/run.yaml",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c1/run.yaml"
+      },
+      {
+        "actual_sha256": "2a6bdd80be2b3cac11acd5443d322bdc8e4a8e31d74888dd48f7d9f782c5cf3a",
+        "expected_sha256": "2a6bdd80be2b3cac11acd5443d322bdc8e4a8e31d74888dd48f7d9f782c5cf3a",
+        "group": "runtime_hashes",
+        "name": "chain_2_run_yaml",
+        "pass": true,
+        "registered_path": "work/f1/c2/run.yaml",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c2/run.yaml"
+      },
+      {
+        "actual_sha256": "13b21f48c60b3579cd8edd02678f50c23c9b8befee2e5fc0fc350538a2d8589b",
+        "expected_sha256": "13b21f48c60b3579cd8edd02678f50c23c9b8befee2e5fc0fc350538a2d8589b",
+        "group": "runtime_hashes",
+        "name": "chain_3_run_yaml",
+        "pass": true,
+        "registered_path": "work/f1/c3/run.yaml",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c3/run.yaml"
+      },
+      {
+        "actual_sha256": "32db6448df621faa4bde3bfb3b037844259fa1e1210a5635656f1cb951111bb2",
+        "expected_sha256": "32db6448df621faa4bde3bfb3b037844259fa1e1210a5635656f1cb951111bb2",
+        "group": "runtime_hashes",
+        "name": "chain_4_run_yaml",
+        "pass": true,
+        "registered_path": "work/f1/c4/run.yaml",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c4/run.yaml"
+      },
+      {
+        "actual_sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614",
+        "expected_sha256": "ab3694ed03dcaa7a1c5190d95f679d041d8a4f189d1fe7fe47d6ab5760c75614",
+        "group": "runtime_hashes",
+        "name": "input_manifest",
+        "pass": true,
+        "registered_path": "payload/runs/prd_extension/wp4_full_cmb/input_manifest.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/input_manifest.json"
+      },
+      {
+        "actual_sha256": "85c6dd42f3267dbd3261eee66efaf19c538be3a5b4ac50fbf256ac9c0b6eb321",
+        "expected_sha256": "85c6dd42f3267dbd3261eee66efaf19c538be3a5b4ac50fbf256ac9c0b6eb321",
+        "group": "runtime_hashes",
+        "name": "proposal_covariance",
+        "pass": true,
+        "registered_path": "payload/runs/prd_extension/wp4_full_cmb/f1_proposal.covmat",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_proposal.covmat"
+      },
+      {
+        "actual_sha256": "91ed24c622c6218dea1eb186e1582ae0d7bcf524da64157810c6627a15006dd6",
+        "expected_sha256": "91ed24c622c6218dea1eb186e1582ae0d7bcf524da64157810c6627a15006dd6",
+        "group": "runtime_hashes",
+        "name": "run_plan",
+        "pass": true,
+        "registered_path": "work/f1/run_plan.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/run_plan.json"
+      },
+      {
+        "actual_sha256": "d70e15b7eaca31196a58d337e567b90cc0c7575a78f1319acdff1c9a39b494ff",
+        "expected_sha256": "d70e15b7eaca31196a58d337e567b90cc0c7575a78f1319acdff1c9a39b494ff",
+        "group": "preflight_hashes",
+        "name": "camb_comparison.json",
+        "pass": true,
+        "registered_path": "work/preflight/camb_comparison.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/camb_comparison.json"
+      },
+      {
+        "actual_sha256": "7226eacbf1685ad0ce49a539a9c2594b6cb21fe8b0d3627382623fc18c4d8585",
+        "expected_sha256": "7226eacbf1685ad0ce49a539a9c2594b6cb21fe8b0d3627382623fc18c4d8585",
+        "group": "preflight_hashes",
+        "name": "environment.json",
+        "pass": true,
+        "registered_path": "work/preflight/environment.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/environment.json"
+      },
+      {
+        "actual_sha256": "28be8fe600e6067c9df5f7f51405a39fd1437ac4cea1b389fd772a5224565b73",
+        "expected_sha256": "28be8fe600e6067c9df5f7f51405a39fd1437ac4cea1b389fd772a5224565b73",
+        "group": "preflight_hashes",
+        "name": "f1_fixed_point_comparison.json",
+        "pass": true,
+        "registered_path": "work/preflight/f1_fixed_point_comparison.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/f1_fixed_point_comparison.json"
+      },
+      {
+        "actual_sha256": "5f512f08714409dbbf3b07daca1ae9d2cedd4e3b4cdc0c243a03a69e612cfe70",
+        "expected_sha256": "5f512f08714409dbbf3b07daca1ae9d2cedd4e3b4cdc0c243a03a69e612cfe70",
+        "group": "preflight_hashes",
+        "name": "f1_smoke_test.json",
+        "pass": true,
+        "registered_path": "work/preflight/f1_smoke_test.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/f1_smoke_test.json"
+      },
+      {
+        "actual_sha256": "241f082f59ac0675e9ccfd6356beaef269e6061e901bf7d5cc155c6607ff257b",
+        "expected_sha256": "241f082f59ac0675e9ccfd6356beaef269e6061e901bf7d5cc155c6607ff257b",
+        "group": "preflight_hashes",
+        "name": "input_integrity.json",
+        "pass": true,
+        "registered_path": "work/preflight/input_integrity.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/input_integrity.json"
+      },
+      {
+        "actual_sha256": "69e64a0481548666fa1334ce3fe8d50a52fefce4073a394c218a4f6a9c5a5e3c",
+        "expected_sha256": "69e64a0481548666fa1334ce3fe8d50a52fefce4073a394c218a4f6a9c5a5e3c",
+        "group": "preflight_hashes",
+        "name": "package_integrity.json",
+        "pass": true,
+        "registered_path": "work/preflight/package_integrity.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/package_integrity.json"
+      },
+      {
+        "actual_sha256": "d7516416b1d079c5f6266ac981db1da5437088ce6d15d66b3dcc098216bdf453",
+        "expected_sha256": "d7516416b1d079c5f6266ac981db1da5437088ce6d15d66b3dcc098216bdf453",
+        "group": "preflight_hashes",
+        "name": "platform.json",
+        "pass": true,
+        "registered_path": "work/preflight/platform.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/platform.json"
+      },
+      {
+        "actual_sha256": "4b1ef4a53c06846b49a889fccdeca998152c4c54757849d3a6afefc9a7696f26",
+        "expected_sha256": "4b1ef4a53c06846b49a889fccdeca998152c4c54757849d3a6afefc9a7696f26",
+        "group": "preflight_hashes",
+        "name": "wsl2_camb166.json",
+        "pass": true,
+        "registered_path": "work/preflight/wsl2_camb166.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/wsl2_camb166.json"
+      },
+      {
+        "actual_sha256": "513fd876f4dde94a9afc5cf4f7790212e31b691d814aa37d0e00bf635bfb70e2",
+        "expected_sha256": "513fd876f4dde94a9afc5cf4f7790212e31b691d814aa37d0e00bf635bfb70e2",
+        "group": "preflight_hashes",
+        "name": "wsl2_f1_fixed_point.json",
+        "pass": true,
+        "registered_path": "work/preflight/wsl2_f1_fixed_point.json",
+        "resolved_path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/preflight/wsl2_f1_fixed_point.json"
+      }
+    ],
+    "status": "PASS"
+  },
+  "chains": [
+    {
+      "bytes": 23435258,
+      "chain": 1,
+      "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c1/chain.1.txt",
+      "rows": 24772,
+      "sha256": "d62f7033f29a172a03149dec991bc12c014a88905024bc4c3f6bbefbb84e72ee"
+    },
+    {
+      "bytes": 23264032,
+      "chain": 2,
+      "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c2/chain.1.txt",
+      "rows": 24591,
+      "sha256": "6b2df27ff970469437e91c9f2dd1fc2202d4731ee62158df6a4028541a3edf09"
+    },
+    {
+      "bytes": 23625404,
+      "chain": 3,
+      "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c3/chain.1.txt",
+      "rows": 24973,
+      "sha256": "0a4133bf6bcceadfe393775c6013ebaf2633b1997e58da758ed1641224166622"
+    },
+    {
+      "bytes": 22981178,
+      "chain": 4,
+      "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c4/chain.1.txt",
+      "rows": 24292,
+      "sha256": "36039d29ede8afb9637613ea2c973d5f5c8726ee56c9c0d13b16848262e399fc"
+    }
+  ],
+  "closure": {
+    "exit_warning": {
+      "chain_exit_events": [
+        {
+          "chain": 1,
+          "event": "chain_exit",
+          "returncode": -15,
+          "timestamp_utc": "2026-08-18T12:16:08.430804+00:00"
+        },
+        {
+          "chain": 3,
+          "event": "chain_exit",
+          "returncode": -15,
+          "timestamp_utc": "2026-08-18T12:16:08.434741+00:00"
+        },
+        {
+          "chain": 2,
+          "event": "chain_exit",
+          "returncode": -15,
+          "timestamp_utc": "2026-08-18T12:16:08.435880+00:00"
+        },
+        {
+          "chain": 4,
+          "event": "chain_exit",
+          "returncode": -15,
+          "timestamp_utc": "2026-08-18T12:16:08.436582+00:00"
+        }
+      ],
+      "driver_event": {
+        "event": "driver_exit",
+        "success": false,
+        "timestamp_utc": "2026-08-18T12:16:08.486738+00:00"
+      },
+      "driver_still_alive_field": [
+        579
+      ],
+      "status": "RESOLVED_NON_SCIENTIFIC_PROCESS_REAP_WARNING"
+    },
+    "gates": {
+      "checkpoints_unedited": true,
+      "eligibility_separation": true,
+      "exit_warning_resolved": true,
+      "final_gates": true,
+      "final_status": true,
+      "four_frozen_seeds": true,
+      "no_live_children_recorded": true,
+      "no_mac_samples": true,
+      "post_termination_gates": true,
+      "preflight_pass": true,
+      "production_authorized": true,
+      "stop_eligible": true
+    }
+  },
+  "created_at_utc": "2026-08-19T01:29:21.070006+00:00",
+  "mac_chain_disposition": "retained separately and excluded; never pooled or selected",
+  "preflight": {
+    "aggregate_hash_match": false,
+    "note": "Aggregate timestamp was regenerated on resume; substantive preflight artifacts remain activation-hashed.",
+    "production_start_recorded_preflight_sha256": "8e7e0c1383841f69032b68975aa91c72a0959fcacbfcf239de1a9fad87e74ccc",
+    "records": {
+      "activation_verification.json": "PASS",
+      "camb_comparison.json": "PASS",
+      "environment.json": "PASS",
+      "f1_fixed_point_comparison.json": "PASS",
+      "f1_smoke_test.json": "PASS",
+      "input_integrity.json": "PASS",
+      "package_integrity.json": "PASS",
+      "platform.json": "PASS"
+    },
+    "returned_aggregate_preflight_sha256": "488b2012a9a0015f6f61c330b3b764fcc290acfd94c3442ba150f755953a83b9",
+    "status": "PASS"
+  },
+  "return_manifest_sha256": "70a58cc3634bdd03dece80f2c4a1bb3018482ad435d5d3c5f9b5cf1bf5f643e4",
+  "schema_version": "wp4-f1-wsl2-ingest-audit-v1",
+  "scientific_endpoint_status": "MCMC_CLOSED_READY_FOR_UNBLINDED_REPORT",
+  "source_archive": "/Users/nocide/Desktop/WP4_F1_WSL2_RESULTS.tar.gz",
+  "source_archive_bytes": 23601103,
+  "source_archive_sha256": "50c2cd0e69703ff9f5957e1d95e08a93413f6d10f593224351066b95e1c009d7",
+  "status": "PASS",
+  "verified_manifest_files": 198
+}

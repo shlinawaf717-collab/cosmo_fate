@@ -1,0 +1,12 @@
+{
+  "checked_bytes": 3577141302,
+  "checked_files": 1305,
+  "failures": [],
+  "registered_totals": {
+    "total_bytes": 3577141302,
+    "tree_sha256": "3414342f1963062afa0da43ddc26802af7c0851888feb8667ebc5c431539b531",
+    "unique_file_count": 1305
+  },
+  "schema_version": "wp4-f1-wsl2-input-verification-v1",
+  "status": "PASS"
+}

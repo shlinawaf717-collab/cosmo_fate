@@ -1,0 +1,288 @@
+{
+  "activation_sha256": "92c2407224a40ec0f99ad63b54cb98af386b6a138650d2019729d4b02d5049be",
+  "checkpoints_edited": false,
+  "children": [
+    {
+      "command": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/python /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/cobaya-run /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c1/run.yaml --no-mpi --resume",
+      "pid": 651,
+      "ppid": 579,
+      "state": "R"
+    },
+    {
+      "command": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/python /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/cobaya-run /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c2/run.yaml --no-mpi --resume",
+      "pid": 652,
+      "ppid": 579,
+      "state": "R"
+    },
+    {
+      "command": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/python /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/cobaya-run /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c3/run.yaml --no-mpi --resume",
+      "pid": 653,
+      "ppid": 579,
+      "state": "R"
+    },
+    {
+      "command": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/python /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/.venv/bin/cobaya-run /home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c4/run.yaml --no-mpi --resume",
+      "pid": 654,
+      "ppid": 579,
+      "state": "R"
+    }
+  ],
+  "children_requiring_sigkill": [],
+  "children_still_alive_after_sigkill": [],
+  "completed_at_utc": "2026-08-18T12:16:40.663211+00:00",
+  "created_at_utc": "2026-08-18T12:16:07.943082+00:00",
+  "driver": {
+    "command": ".venv/bin/python tools/run_wsl2_f1.py",
+    "pid": 579,
+    "ppid": 578,
+    "state": "S"
+  },
+  "driver_still_alive": [
+    579
+  ],
+  "eligibility_sha256": "bbf1b2df69d23025721f0cd98f06216eb32ce375743e9fe94f919e025cf608b7",
+  "final_diagnostics": {
+    "blinding": {
+      "best_fit_reported": false,
+      "fate_quantities_reported": false,
+      "likelihood_values_reported": false,
+      "posterior_intervals_reported": false,
+      "posterior_locations_reported": false
+    },
+    "candidate_gates": {
+      "bulk_ess_w_wa_gt_1000": true,
+      "rminus1_18d_burn_0p5_lt_0p01": true,
+      "tail_ess_w_wa_gt_400": true
+    },
+    "captured_at_end_utc": "2026-08-18T12:16:07.942823+00:00",
+    "captured_at_start_utc": "2026-08-18T12:16:05.948051+00:00",
+    "chain_snapshots": [
+      {
+        "captured_bytes": 23435258,
+        "file_size_at_open": 23435258,
+        "mtime_ns_at_open": 1787055326928397950,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c1/chain.1.txt",
+        "rows": 24772,
+        "sha256": "d62f7033f29a172a03149dec991bc12c014a88905024bc4c3f6bbefbb84e72ee",
+        "total_weight": 69782
+      },
+      {
+        "captured_bytes": 23264032,
+        "file_size_at_open": 23264032,
+        "mtime_ns_at_open": 1787055334074062956,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c2/chain.1.txt",
+        "rows": 24591,
+        "sha256": "6b2df27ff970469437e91c9f2dd1fc2202d4731ee62158df6a4028541a3edf09",
+        "total_weight": 69772
+      },
+      {
+        "captured_bytes": 23625404,
+        "file_size_at_open": 23625404,
+        "mtime_ns_at_open": 1787055310032734889,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c3/chain.1.txt",
+        "rows": 24973,
+        "sha256": "0a4133bf6bcceadfe393775c6013ebaf2633b1997e58da758ed1641224166622",
+        "total_weight": 69911
+      },
+      {
+        "captured_bytes": 22981178,
+        "file_size_at_open": 22981178,
+        "mtime_ns_at_open": 1787055338442905381,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c4/chain.1.txt",
+        "rows": 24292,
+        "sha256": "36039d29ede8afb9637613ea2c973d5f5c8726ee56c9c0d13b16848262e399fc",
+        "total_weight": 69879
+      }
+    ],
+    "decision_authority": false,
+    "ess": {
+      "bulk_by_parameter": {
+        "A_planck": 3409.126100583167,
+        "Mb": 4260.663509322351,
+        "amp_143": 1634.9810667431168,
+        "amp_143x217": 1504.8535336873952,
+        "amp_217": 1527.8418475461542,
+        "calEE": 4054.423648010576,
+        "calTE": 4464.946683589975,
+        "logA": 3957.440030370567,
+        "n_143": 2532.8998623261696,
+        "n_143x217": 1789.7695028935373,
+        "n_217": 1775.741727626314,
+        "ns": 2101.183194610681,
+        "ombh2": 3599.2342644070054,
+        "omch2": 3664.5468610390417,
+        "tau": 3902.844181068134,
+        "theta_MC_100": 4098.565647774028,
+        "w": 4116.484272816955,
+        "wa": 3975.327296929578
+      },
+      "definition": "rank-normalized split bulk ESS and binary 5%/95% tail ESS",
+      "equalized_split_draws_total": 136096,
+      "primary_burn_fraction": 0.5,
+      "tail_by_parameter": {
+        "A_planck": 6188.78480471289,
+        "Mb": 6935.708077265201,
+        "amp_143": 1362.7977119774125,
+        "amp_143x217": 1272.2859163014414,
+        "amp_217": 1292.4287141504021,
+        "calEE": 7522.3680621486255,
+        "calTE": 7639.521307400897,
+        "logA": 6835.127994046396,
+        "n_143": 2087.410458549154,
+        "n_143x217": 1614.2341714931094,
+        "n_217": 1707.413717460887,
+        "ns": 2417.7306907744705,
+        "ombh2": 5507.869824338049,
+        "omch2": 6093.630773704699,
+        "tau": 6726.885326902441,
+        "theta_MC_100": 6653.259699982585,
+        "w": 6549.617956991284,
+        "wa": 6255.577389513365
+      }
+    },
+    "rminus1": {
+      "by_burn_fraction": {
+        "0.2": 0.005686408124870751,
+        "0.5": 0.008600771228549492,
+        "0.7": 0.00957864504126773
+      },
+      "definition": "Cobaya 3.6.2 MPI-chain multivariate, 18 F1 sampled parameters"
+    },
+    "sampler_signal_capability": false,
+    "schema_version": "wp4-f1-wsl2-read-only-monitor-v1",
+    "status": "CANDIDATE_PASS"
+  },
+  "final_policy_gates": {
+    "bulk_ess_w_wa": true,
+    "rminus1_burn_sensitivity": true,
+    "rminus1_primary": true,
+    "tail_ess_w_wa": true
+  },
+  "policy_sha256": "913639098572a4b10aa1cc3b9e9d841850faed537c2b9c4de424c3edb3888648",
+  "post_termination_diagnostics": {
+    "blinding": {
+      "best_fit_reported": false,
+      "fate_quantities_reported": false,
+      "likelihood_values_reported": false,
+      "posterior_intervals_reported": false,
+      "posterior_locations_reported": false
+    },
+    "candidate_gates": {
+      "bulk_ess_w_wa_gt_1000": true,
+      "rminus1_18d_burn_0p5_lt_0p01": true,
+      "tail_ess_w_wa_gt_400": true
+    },
+    "captured_at_end_utc": "2026-08-18T12:16:40.662922+00:00",
+    "captured_at_start_utc": "2026-08-18T12:16:38.609478+00:00",
+    "chain_snapshots": [
+      {
+        "captured_bytes": 23435258,
+        "file_size_at_open": 23435258,
+        "mtime_ns_at_open": 1787055326928397950,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c1/chain.1.txt",
+        "rows": 24772,
+        "sha256": "d62f7033f29a172a03149dec991bc12c014a88905024bc4c3f6bbefbb84e72ee",
+        "total_weight": 69782
+      },
+      {
+        "captured_bytes": 23264032,
+        "file_size_at_open": 23264032,
+        "mtime_ns_at_open": 1787055334074062956,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c2/chain.1.txt",
+        "rows": 24591,
+        "sha256": "6b2df27ff970469437e91c9f2dd1fc2202d4731ee62158df6a4028541a3edf09",
+        "total_weight": 69772
+      },
+      {
+        "captured_bytes": 23625404,
+        "file_size_at_open": 23625404,
+        "mtime_ns_at_open": 1787055310032734889,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c3/chain.1.txt",
+        "rows": 24973,
+        "sha256": "0a4133bf6bcceadfe393775c6013ebaf2633b1997e58da758ed1641224166622",
+        "total_weight": 69911
+      },
+      {
+        "captured_bytes": 22981178,
+        "file_size_at_open": 22981178,
+        "mtime_ns_at_open": 1787055338442905381,
+        "path": "/home/nocide/WP4_F1_WSL2_TASKPACK_20260813/work/f1/c4/chain.1.txt",
+        "rows": 24292,
+        "sha256": "36039d29ede8afb9637613ea2c973d5f5c8726ee56c9c0d13b16848262e399fc",
+        "total_weight": 69879
+      }
+    ],
+    "decision_authority": false,
+    "ess": {
+      "bulk_by_parameter": {
+        "A_planck": 3409.126100583167,
+        "Mb": 4260.663509322351,
+        "amp_143": 1634.9810667431168,
+        "amp_143x217": 1504.8535336873952,
+        "amp_217": 1527.8418475461542,
+        "calEE": 4054.423648010576,
+        "calTE": 4464.946683589975,
+        "logA": 3957.440030370567,
+        "n_143": 2532.8998623261696,
+        "n_143x217": 1789.7695028935373,
+        "n_217": 1775.741727626314,
+        "ns": 2101.183194610681,
+        "ombh2": 3599.2342644070054,
+        "omch2": 3664.5468610390417,
+        "tau": 3902.844181068134,
+        "theta_MC_100": 4098.565647774028,
+        "w": 4116.484272816955,
+        "wa": 3975.327296929578
+      },
+      "definition": "rank-normalized split bulk ESS and binary 5%/95% tail ESS",
+      "equalized_split_draws_total": 136096,
+      "primary_burn_fraction": 0.5,
+      "tail_by_parameter": {
+        "A_planck": 6188.78480471289,
+        "Mb": 6935.708077265201,
+        "amp_143": 1362.7977119774125,
+        "amp_143x217": 1272.2859163014414,
+        "amp_217": 1292.4287141504021,
+        "calEE": 7522.3680621486255,
+        "calTE": 7639.521307400897,
+        "logA": 6835.127994046396,
+        "n_143": 2087.410458549154,
+        "n_143x217": 1614.2341714931094,
+        "n_217": 1707.413717460887,
+        "ns": 2417.7306907744705,
+        "ombh2": 5507.869824338049,
+        "omch2": 6093.630773704699,
+        "tau": 6726.885326902441,
+        "theta_MC_100": 6653.259699982585,
+        "w": 6549.617956991284,
+        "wa": 6255.577389513365
+      }
+    },
+    "rminus1": {
+      "by_burn_fraction": {
+        "0.2": 0.005686408124870751,
+        "0.5": 0.008600771228549492,
+        "0.7": 0.00957864504126773
+      },
+      "definition": "Cobaya 3.6.2 MPI-chain multivariate, 18 F1 sampled parameters"
+    },
+    "sampler_signal_capability": false,
+    "schema_version": "wp4-f1-wsl2-read-only-monitor-v1",
+    "status": "CANDIDATE_PASS"
+  },
+  "post_termination_gates_pass": true,
+  "post_termination_policy_gates": {
+    "bulk_ess_w_wa": true,
+    "rminus1_burn_sensitivity": true,
+    "rminus1_primary": true,
+    "tail_ess_w_wa": true
+  },
+  "schema_version": "wp4-f1-wsl2-final-stop-audit-v1",
+  "stable_sizes": [
+    23435258,
+    23264032,
+    23625404,
+    22981178
+  ],
+  "status": "EXTERNALLY_STOPPED_WITH_EXIT_WARNING"
+}

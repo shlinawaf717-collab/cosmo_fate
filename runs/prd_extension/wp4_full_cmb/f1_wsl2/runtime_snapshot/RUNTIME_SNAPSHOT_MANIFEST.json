@@ -1,0 +1,273 @@
+{
+  "files": [
+    {
+      "archive_path": "PACKAGE_MANIFEST.json",
+      "bytes": 364654,
+      "sha256": "577f9beb8e92931682c37c3048d594529a1d5fa8fae20eea53f4143e893e76c5",
+      "source_hash_match": true,
+      "source_taskpack_path": "PACKAGE_MANIFEST.json"
+    },
+    {
+      "archive_path": "PACKAGE_SHA256SUMS.txt",
+      "bytes": 267805,
+      "sha256": "c6809f09ca3a2070ef20bbe794d9c01469765e6eb389591e6918dd02bced356c",
+      "source_hash_match": true,
+      "source_taskpack_path": "PACKAGE_SHA256SUMS.txt"
+    },
+    {
+      "archive_path": "README_EN.md",
+      "bytes": 712,
+      "sha256": "b2957da6159f2c47e8026a72eb4d683daa15c9090d20c3a296412c085978ee02",
+      "source_hash_match": true,
+      "source_taskpack_path": "README_EN.md"
+    },
+    {
+      "archive_path": "README_\u4e2d\u6587.md",
+      "bytes": 4234,
+      "sha256": "a9ca1eaa069bc895eb59cbde26073d7698b474f6767ec038c510464363e5fa43",
+      "source_hash_match": true,
+      "source_taskpack_path": "README_\u4e2d\u6587.md"
+    },
+    {
+      "archive_path": "camb_selftest.json",
+      "bytes": 2725,
+      "sha256": "556e716d5dee0fec0765249796c37941803628d0620b5c8d1f263a8ff948760e",
+      "source_hash_match": true,
+      "source_taskpack_path": "camb_selftest.json"
+    },
+    {
+      "archive_path": "f1_fixed_point_selftest.json",
+      "bytes": 1395,
+      "sha256": "d8466e265edd794d703a5d2a633217827c5c9e4eea118b52589ecdf41ff4af51",
+      "source_hash_match": true,
+      "source_taskpack_path": "f1_fixed_point_selftest.json"
+    },
+    {
+      "archive_path": "input_integrity_mac.json",
+      "bytes": 332,
+      "sha256": "241f082f59ac0675e9ccfd6356beaef269e6061e901bf7d5cc155c6607ff257b",
+      "source_hash_match": true,
+      "source_taskpack_path": "input_integrity_mac.json"
+    },
+    {
+      "archive_path": "package_integrity_mac.json",
+      "bytes": 118,
+      "sha256": "69e64a0481548666fa1334ce3fe8d50a52fefce4073a394c218a4f6a9c5a5e3c",
+      "source_hash_match": true,
+      "source_taskpack_path": "package_integrity_mac.json"
+    },
+    {
+      "archive_path": "reference/mac_camb166.json",
+      "bytes": 2311,
+      "sha256": "232cab060484fb6c179218311b4daaecbeeb69e382605a2f326fcc880098173d",
+      "source_hash_match": true,
+      "source_taskpack_path": "reference/mac_camb166.json"
+    },
+    {
+      "archive_path": "reference/mac_camb166_spectra.npz",
+      "bytes": 396126,
+      "sha256": "292393be6e6c90366d2381625adb7026536af8b4ecac3e6cfd8993491d5f6575",
+      "source_hash_match": true,
+      "source_taskpack_path": "reference/mac_camb166_spectra.npz"
+    },
+    {
+      "archive_path": "reference/mac_f1_fixed_point.json",
+      "bytes": 1719,
+      "sha256": "0c48a674e8125a3875cdbc1c8b72beb02326fe9f3c5f31f9c0fefbbcad89d7f9",
+      "source_hash_match": true,
+      "source_taskpack_path": "reference/mac_f1_fixed_point.json"
+    },
+    {
+      "archive_path": "requirements.lock",
+      "bytes": 700,
+      "sha256": "a47b09aefa7011bdd5dd94f0c3bcb12dde4bbf5dc4fc4109ab45854f38ec9d28",
+      "source_hash_match": true,
+      "source_taskpack_path": "requirements.lock"
+    },
+    {
+      "archive_path": "tools/aggregate_preflight.py",
+      "bytes": 1239,
+      "sha256": "bcf3b3f7172a0b9a55ac9077285e4370b655725efde14ab4afe9b8e202901a87",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/aggregate_preflight.py"
+    },
+    {
+      "archive_path": "tools/authorize_wsl2_production.py",
+      "bytes": 1208,
+      "sha256": "c88b3a78e3482273c2f5a9715673a17c35017125c35f468f94d5825b9882d602",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/authorize_wsl2_production.py"
+    },
+    {
+      "archive_path": "tools/compare_f1_fixed_point.py",
+      "bytes": 2757,
+      "sha256": "c404b8d92a833e2c3f9efae0d4254428a403e4823acaba8d222d093050f93a87",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/compare_f1_fixed_point.py"
+    },
+    {
+      "archive_path": "tools/controller_wsl2_f1.py",
+      "bytes": 1557,
+      "sha256": "2fc9dadebc3eb3c7da4d6f70cb8595e0330e0169ee288ca79abbd64eaa0a156a",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/controller_wsl2_f1.py"
+    },
+    {
+      "archive_path": "tools/environment_report.py",
+      "bytes": 922,
+      "sha256": "9edcd2841da4c6d3740adf2fd13b547038822b81ff04465ba77ea7dde91b2341",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/environment_report.py"
+    },
+    {
+      "archive_path": "tools/evaluate_wsl2_f1.py",
+      "bytes": 5905,
+      "sha256": "de3920e2f191615709277f2f98e6dba09ca9152d868d8881a68539b916f08d60",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/evaluate_wsl2_f1.py"
+    },
+    {
+      "archive_path": "tools/f1_fixed_point_probe.py",
+      "bytes": 3505,
+      "sha256": "f45043a20604a90b0bcf62b19f3075c49183abf547a3b1a74b028358e4b08b54",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/f1_fixed_point_probe.py"
+    },
+    {
+      "archive_path": "tools/finalize_wsl2_f1.py",
+      "bytes": 6013,
+      "sha256": "96880c8c69259f49b8c654be3b4c1753d47d06d93e79181e0c3466e80fe7c7b1",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/finalize_wsl2_f1.py"
+    },
+    {
+      "archive_path": "tools/monitor_wsl2_f1.py",
+      "bytes": 2099,
+      "sha256": "479776618bc261e41e19877d28a3cbfd3a4c72ff9b01f563af9a436ebfb3bd9c",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/monitor_wsl2_f1.py"
+    },
+    {
+      "archive_path": "tools/package_results.py",
+      "bytes": 1453,
+      "sha256": "64b7eee5f72721451dd626b4118cc7abda03f0e101a72224619d051cddb1f0da",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/package_results.py"
+    },
+    {
+      "archive_path": "tools/platform_gate.py",
+      "bytes": 832,
+      "sha256": "709d6c0ab43039eb25a50c7289e8a8b0fd516250cd696c33f353c71fb12dbcbe",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/platform_gate.py"
+    },
+    {
+      "archive_path": "tools/prepare_wsl2_f1.py",
+      "bytes": 5441,
+      "sha256": "9347eee6682e2bd6a7917816ca092f250d213f6460cad0e189ca57ebf6e088db",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/prepare_wsl2_f1.py"
+    },
+    {
+      "archive_path": "tools/run_wsl2_f1.py",
+      "bytes": 2947,
+      "sha256": "0c7780c0b94bcc9218b00c5c869705afd34748a0484f041528dbc84286a10cc6",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/run_wsl2_f1.py"
+    },
+    {
+      "archive_path": "tools/run_wsl2_smoke.py",
+      "bytes": 1921,
+      "sha256": "99d503f6550b0726c403275e2688f5cec020226c3ed72402861f849efaa7b7ec",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/run_wsl2_smoke.py"
+    },
+    {
+      "archive_path": "tools/verify_input_manifest.py",
+      "bytes": 2294,
+      "sha256": "427df1957c0382f3a6845c1e0e16c345f130b135b3f7c7f6b48bd8abd63bc1fb",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/verify_input_manifest.py"
+    },
+    {
+      "archive_path": "tools/verify_package_manifest.py",
+      "bytes": 1133,
+      "sha256": "dff04fa29ee2cee4538b78b998b081425eb162c8c43cbbf63030cdab3fdd5c9d",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/verify_package_manifest.py"
+    },
+    {
+      "archive_path": "tools/verify_wsl2_activation.py",
+      "bytes": 1074,
+      "sha256": "c65c3532addc7c307bff904c2bad90e5b23530400c8e637fe22e5fcd80815a49",
+      "source_hash_match": true,
+      "source_taskpack_path": "tools/verify_wsl2_activation.py"
+    },
+    {
+      "archive_path": "windows/01_launch_preflight.cmd",
+      "bytes": 319,
+      "sha256": "23ae1339e19fc1306a16df6c2e22f5a8baa5dac52da20a5769985f7e119a1411",
+      "source_hash_match": true,
+      "source_taskpack_path": "windows/01_launch_preflight.cmd"
+    },
+    {
+      "archive_path": "windows/02_start_f1.cmd",
+      "bytes": 119,
+      "sha256": "edcb80385252a1089604e935c34a23a947a1950b050f42db2c277f671d2ad660",
+      "source_hash_match": true,
+      "source_taskpack_path": "windows/02_start_f1.cmd"
+    },
+    {
+      "archive_path": "windows/03_status.cmd",
+      "bytes": 117,
+      "sha256": "0ff1f0ffe3f254542b3078ad833e2dd05188b6d460acc9e40ea2a953508d3581",
+      "source_hash_match": true,
+      "source_taskpack_path": "windows/03_status.cmd"
+    },
+    {
+      "archive_path": "windows/04_package_results.cmd",
+      "bytes": 304,
+      "sha256": "3c4971c28ad779b6a935a388ec7b55151496163a9db090cc78bedc65b6f65255",
+      "source_hash_match": true,
+      "source_taskpack_path": "windows/04_package_results.cmd"
+    },
+    {
+      "archive_path": "wsl/00_install_wsl.ps1",
+      "bytes": 236,
+      "sha256": "3a817a19e7f39f8295a7fd558da2d53b2da6d0916c131880c5581cc66f982f7e",
+      "source_hash_match": true,
+      "source_taskpack_path": "wsl/00_install_wsl.ps1"
+    },
+    {
+      "archive_path": "wsl/01_setup_and_preflight.sh",
+      "bytes": 3017,
+      "sha256": "25c1e1d73e31c28b45c9edda91aa897718618da3aa12fe131698bd218ed81dad",
+      "source_hash_match": true,
+      "source_taskpack_path": "wsl/01_setup_and_preflight.sh"
+    },
+    {
+      "archive_path": "wsl/05_start_f1.sh",
+      "bytes": 1207,
+      "sha256": "62ece804e8ba5ec7fa3120ca76c20390d9b9054470504ed382529f74cf155e58",
+      "source_hash_match": true,
+      "source_taskpack_path": "wsl/05_start_f1.sh"
+    },
+    {
+      "archive_path": "wsl/06_status.sh",
+      "bytes": 981,
+      "sha256": "7a6aa76d038f504cbfd8b45769e208e0a5af16b46f4271e9fa4e5e675d8d2356",
+      "source_hash_match": true,
+      "source_taskpack_path": "wsl/06_status.sh"
+    },
+    {
+      "archive_path": "wsl/07_package_results.sh",
+      "bytes": 237,
+      "sha256": "1534ef8fe9add9eaccb211d528650d8f52b511824b851cce3092716ad3b53050",
+      "source_hash_match": true,
+      "source_taskpack_path": "wsl/07_package_results.sh"
+    }
+  ],
+  "schema_version": "wp4-f1-wsl2-runtime-snapshot-v1",
+  "source_taskpack": "WP4_F1_WSL2_TASKPACK_20260813",
+  "status": "PASS"
+}

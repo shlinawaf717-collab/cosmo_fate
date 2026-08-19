@@ -1,0 +1,52 @@
+{
+  "components": {
+    "act_dr6_lenslike.ACTDR6LensLike": {
+      "absolute_difference": 0.0,
+      "pass": true,
+      "signed_difference": 0.0
+    },
+    "bao.desi_dr2.desi_bao_all": {
+      "absolute_difference": 0.0,
+      "pass": true,
+      "signed_difference": 0.0
+    },
+    "planck_2018_lowl.EE_clik": {
+      "absolute_difference": 0.0,
+      "pass": true,
+      "signed_difference": 0.0
+    },
+    "planck_2018_lowl.TT_clik": {
+      "absolute_difference": 0.0,
+      "pass": true,
+      "signed_difference": 0.0
+    },
+    "planck_NPIPE_highl_CamSpec.TTTEEE": {
+      "absolute_difference": 0.0,
+      "pass": true,
+      "signed_difference": 0.0
+    },
+    "sn.pantheonplusshoes": {
+      "absolute_difference": 0.0,
+      "pass": true,
+      "signed_difference": 0.0
+    }
+  },
+  "created_at_utc": "2026-08-13T08:02:57.424360+00:00",
+  "gates": {
+    "all_component_chi2": true,
+    "total_chi2": true
+  },
+  "schema_version": "wp4-f1-cross-platform-fixed-point-comparison-v1",
+  "scope_warning": "Passing is a pre-production drift screen, not posterior equivalence.",
+  "status": "PASS",
+  "thresholds_frozen_before_wsl2_result": {
+    "component_chi2_absolute_maximum": 0.1,
+    "total_chi2_absolute_maximum": 0.1
+  },
+  "total_chi2": {
+    "absolute_difference": 0.0,
+    "candidate": 14975.720057404566,
+    "reference": 14975.720057404566,
+    "signed_difference": 0.0
+  }
+}

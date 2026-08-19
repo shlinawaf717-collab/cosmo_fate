@@ -536,3 +536,44 @@ Files and commits:
 Corrections remain visible even when they weaken or invalidate a planned
 analysis.  A post-result amendment is labelled post-result and is not promoted
 to prospectively frozen status.
+
+## PRD-A011 — 2026-08-19
+
+ID and date: PRD-A011, 2026-08-19
+
+Author: Zhang; recorded by Codex under the author's instruction to continue WP4
+
+Affected work package(s): WP4 F1 model comparison
+
+Old rule: The extension required F1 Wilks `Delta chi2`, AIC, BIC, and
+multi-seed nested evidence, but did not state the F1 optimizer initialization,
+proposal metric, free-parameter count, or the nominal data count used by BIC.
+
+New rule: Before either F1 model is optimized, freeze the Py-BOBYQA settings,
+starts, chain-derived proposal metric, likelihood-component sum, `Delta k=2`,
+and nominal `N=11712` convention in
+`plan/WP4_F1_MODEL_COMPARISON_PLAN.md`. BIC is labelled descriptive because
+the low-l likelihoods are not ordinary independent Gaussian data vectors;
+nested evidence remains the separate Bayesian result.
+
+Trigger and scientific reason: F1 MCMC has closed and its posterior and fate
+tail have been unblinded, making efficient posterior-informed optimizer starts
+available. Fixing their efficiency-only role and the otherwise ambiguous BIC
+data count before seeing either best fit prevents a result-dependent penalty
+choice while preserving the already completed MCMC endpoint.
+
+Affected result inspected before change? yes; exact scope: the closed F1 MCMC
+posterior moments and `P(RIP)` endpoint were inspected. No F1 CPL or LCDM
+optimizer output, `Delta chi2`, AIC, BIC, nested evidence, or nested fate tail
+exists or was inspected.
+
+Classification: prospective post-MCMC operational definition for a still
+uncomputed model-comparison endpoint
+
+Pre-amendment result disposition: The WSL2 MCMC chains, convergence audit, and
+MCMC fate endpoint remain unchanged. Optimizer starts and covariance are not
+scientific endpoints and do not alter either model target.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP4_F1_MODEL_COMPARISON_PLAN.md`;
+`pipeline/run_wp4_f1_bestfits.py`; tests and frozen run plan pending.
