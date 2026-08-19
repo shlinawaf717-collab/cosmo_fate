@@ -17,6 +17,11 @@ OUT = RUN / "smoke_audit.json"
 
 
 def audit() -> dict:
+    created_at = (
+        json.loads(OUT.read_text())["created_at_utc"]
+        if OUT.is_file()
+        else datetime.now(timezone.utc).isoformat()
+    )
     plan = json.loads((RUN / "config_plan.json").read_text())
     config = ROOT / plan["config"]
     if sha256_file(config) != plan["config_sha256"]:
@@ -46,7 +51,7 @@ def audit() -> dict:
     }
     result = {
         "schema_version": "wp6-no-sampling-smoke-audit-v1",
-        "created_at_utc": datetime.now(timezone.utc).isoformat(),
+        "created_at_utc": created_at,
         "status": "PASS" if all(checks.values()) else "FAIL",
         "checks": checks,
         "missing": missing,

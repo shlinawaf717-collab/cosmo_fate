@@ -1,0 +1,66 @@
+theory:
+  camb:
+    extra_args:
+      bbn_predictor: PArthENoPE_880.2_standard.dat
+      dark_energy_model: ppf
+      num_massive_neutrinos: 1
+    stop_at_error: true
+  pipeline.wp6_desi_fs.DESIDR1ReptVelocileptors:
+    python_path: /Users/nocide/cosmo_fate
+    is_physical_prior: true
+    stop_at_error: true
+likelihood:
+  pipeline.wp6_desi_fs.DESIDR1FSBAO:
+    python_path: /Users/nocide/cosmo_fate
+    data_dir: /Users/nocide/cosmo_fate/data/wp6_desi_dr1/likelihood
+    observable_name: spectrum-poles-rotated+bao-recon
+    tracers:
+    - bgs_z0
+    - lrg_z0
+    - lrg_z1
+    - lrg_z2
+    - elg_z1
+    - qso_z0
+    - lya_z0
+    solve: marg
+    stop_at_error: true
+params:
+  omch2:
+    value: 'lambda omegam, ombh2, H0: omegam*(H0/100)**2 - ombh2'
+  H0: 68.5
+  omegam: 0.304158
+  ombh2: 0.0189629
+  logA: 3.0
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+  mnu: 0.06
+  nnu: 3.044
+  w: -1.0
+  wa: 0.0
+  omk: 0.0
+  pre_QSO_z0.b1p: 0.780983
+  pre_QSO_z0.b2p: 0.353843
+  pre_QSO_z0.bsp: 0.135725
+  pre_ELG_z1.b1p: 0.127936
+  pre_ELG_z1.b2p: -0.578801
+  pre_ELG_z1.bsp: -1.45356
+  pre_LRG_z2.b1p: 1.04564
+  pre_LRG_z2.b2p: -0.493139
+  pre_LRG_z2.bsp: -0.24021
+  pre_LRG_z1.b1p: 1.22446
+  pre_LRG_z1.b2p: -0.671727
+  pre_LRG_z1.bsp: -0.22624
+  pre_LRG_z0.b1p: 1.1351
+  pre_LRG_z0.b2p: -0.139101
+  pre_LRG_z0.bsp: -0.910397
+  pre_BGS_z0.b1p: 1.11348
+  pre_BGS_z0.b2p: 0.660148
+  pre_BGS_z0.bsp: -0.223088
+  chi2__FS_BAO:
+    latex: \chi^2_\mathrm{FS+BAO}
+    derived: true
+sampler:
+  evaluate:
+    N: 1
+packages_path: /Users/nocide/cosmo_fate/data/cobaya_packages
+output: chain

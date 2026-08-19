@@ -1,0 +1,47 @@
+{
+  "artifacts": {
+    "official_cpl_map_point": {
+      "path": "runs/prd_extension/wp6_growth/reference/outputs/official_cpl_map_point/chain.1.txt",
+      "sha256": "51bdd21bc79e5cf7ed94ea5d4759c7ff744e3698a5055e3e620c57c041e6f1d2"
+    },
+    "public_release_fixed_point": {
+      "path": "runs/prd_extension/wp6_growth/reference/outputs/public_release_fixed_point/chain.1.txt",
+      "sha256": "bee39f4b6bb4ebfaf5bed06f85ceeea814d8b74a34714dfe9863f776283f7205"
+    }
+  },
+  "checks": {
+    "fate_calculation_not_performed": true,
+    "official_cpl_map_gate": false,
+    "only_fixed_point_rows_generated": true,
+    "posterior_sampling_not_performed": true,
+    "public_corrected_loglike_interpretation": false,
+    "public_registered_gate": false
+  },
+  "created_at_utc": "2026-08-19T06:21:44.830317+00:00",
+  "diagnosis": {
+    "camb_1_5_4_cobaya_3_5_recheck_changed_result_materially": false,
+    "interpretation": "The public solve=marg implementation is not numerically equivalent to the released-chain likelihood at the official MAP. A post-hoc switch to solve=best narrows but does not pass the frozen tolerance.",
+    "profile_diagnostic_abs_delta_chi2": 0.8214800000000082,
+    "profile_diagnostic_is_registered_gate": false,
+    "profile_solve_best_diagnostic_chi2_at_official_map": 332.576
+  },
+  "disposition": "WP6 data availability gate passed, but direct late-time growth inference is No-Go under the frozen hard reference-reproduction rule.",
+  "fate_calculation_authorized": false,
+  "official_cpl_map_point": {
+    "abs_delta_chi2": 9.363490000000013,
+    "expected_chi2_FS_BAO": 331.75452,
+    "observed_chi2_FS_BAO": 341.11801
+  },
+  "production_authorized": false,
+  "public_release_fixed_point": {
+    "corrected_loglike_abs_delta": 11.786499999999933,
+    "note": "The plan mislabelled the source comment's 1176.98 as chi-square; comparison to minus-log-likelihood also fails, so the correction does not alter the No-Go result.",
+    "observed_chi2_FS_BAO": 2377.533,
+    "observed_minus_log_likelihood": 1188.7665,
+    "registered_abs_delta": 1200.5529999999999,
+    "registered_expected_value": 1176.98
+  },
+  "registered_configuration": "solve=marg",
+  "schema_version": "wp6-reference-reproduction-audit-v1",
+  "status": "FAIL_HARD_REFERENCE_REPRODUCTION"
+}

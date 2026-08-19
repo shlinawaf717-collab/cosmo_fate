@@ -1,0 +1,224 @@
+theory:
+  camb:
+    version: 1.6.6
+    path: null
+    speed: 0.3
+    stop_at_error: true
+    extra_args:
+      bbn_predictor: PArthENoPE_880.2_standard.dat
+      dark_energy_model: ppf
+      num_massive_neutrinos: 1
+    ignore_obsolete: false
+    external_primordial_pk: false
+    use_non_linear_ratio: false
+    renames:
+      omegabh2: ombh2
+      omegach2: omch2
+      omegal: omega_de
+      omegak: omk
+      yhe: YHe
+      yheused: YHe
+      YpBBN: Y_p
+    input_params:
+    - As
+    - omch2
+    - H0
+    - ombh2
+    - mnu
+    - nnu
+    - w
+    - wa
+    - omk
+    output_params: []
+  pipeline.wp6_desi_fs.DESIDR1ReptVelocileptors:
+    is_physical_prior: true
+    stop_at_error: true
+    options: null
+    speed: -1
+    version: null
+    python_path: /Users/nocide/cosmo_fate
+    input_params: []
+    output_params: []
+likelihood:
+  pipeline.wp6_desi_fs.DESIDR1FSBAO:
+    type: FS_BAO
+    observable_name: spectrum-poles-rotated+bao-recon
+    solve: marg
+    speed: -1
+    stop_at_error: true
+    version: null
+    python_path: /Users/nocide/cosmo_fate
+    data_dir: /Users/nocide/cosmo_fate/data/wp6_desi_dr1/likelihood
+    tracers:
+    - bgs_z0
+    - lrg_z0
+    - lrg_z1
+    - lrg_z2
+    - elg_z1
+    - qso_z0
+    - lya_z0
+    input_params:
+    - pre_QSO_z0.b1p
+    - pre_QSO_z0.b2p
+    - pre_QSO_z0.bsp
+    - pre_ELG_z1.b1p
+    - pre_ELG_z1.b2p
+    - pre_ELG_z1.bsp
+    - pre_LRG_z2.b1p
+    - pre_LRG_z2.b2p
+    - pre_LRG_z2.bsp
+    - pre_LRG_z1.b1p
+    - pre_LRG_z1.b2p
+    - pre_LRG_z1.bsp
+    - pre_LRG_z0.b1p
+    - pre_LRG_z0.b2p
+    - pre_LRG_z0.bsp
+    - pre_BGS_z0.b1p
+    - pre_BGS_z0.b2p
+    - pre_BGS_z0.bsp
+    - pre_QSO_z0.b3p
+    - pre_ELG_z1.b3p
+    - pre_LRG_z2.b3p
+    - pre_LRG_z1.b3p
+    - pre_LRG_z0.b3p
+    - pre_BGS_z0.b3p
+    output_params:
+    - Lya_z0.loglikelihood
+    - QSO_z0.loglikelihood
+    - ELG_z1.loglikelihood
+    - LRG_z2.loglikelihood
+    - LRG_z1.loglikelihood
+    - LRG_z0.loglikelihood
+    - BGS_z0.loglikelihood
+params:
+  omch2:
+    value: 'lambda omegam, ombh2, H0: omegam*(H0/100)**2 - ombh2'
+    derived: true
+    renames:
+    - omegach2
+  H0:
+    value: 68.5
+  omegam:
+    value: 0.304158
+  ombh2:
+    value: 0.0189629
+    renames:
+    - omegabh2
+  logA:
+    value: 3.0
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    derived: true
+  mnu:
+    value: 0.06
+  nnu:
+    value: 3.044
+  w:
+    value: -1.0
+  wa:
+    value: 0.0
+  omk:
+    value: 0.0
+    renames:
+    - omegak
+  pre_QSO_z0.b1p:
+    latex: b_{1, \mathrm{pre}, \mathrm{QSO}, 0}
+    value: 0.780983
+  pre_QSO_z0.b2p:
+    latex: b_{2, \mathrm{pre}, \mathrm{QSO}, 0}
+    value: 0.353843
+  pre_QSO_z0.bsp:
+    latex: b_{s, \mathrm{pre}, \mathrm{QSO}, 0}
+    value: 0.135725
+  pre_ELG_z1.b1p:
+    latex: b_{1, \mathrm{pre}, \mathrm{ELG}, 1}
+    value: 0.127936
+  pre_ELG_z1.b2p:
+    latex: b_{2, \mathrm{pre}, \mathrm{ELG}, 1}
+    value: -0.578801
+  pre_ELG_z1.bsp:
+    latex: b_{s, \mathrm{pre}, \mathrm{ELG}, 1}
+    value: -1.45356
+  pre_LRG_z2.b1p:
+    latex: b_{1, \mathrm{pre}, \mathrm{LRG}, 2}
+    value: 1.04564
+  pre_LRG_z2.b2p:
+    latex: b_{2, \mathrm{pre}, \mathrm{LRG}, 2}
+    value: -0.493139
+  pre_LRG_z2.bsp:
+    latex: b_{s, \mathrm{pre}, \mathrm{LRG}, 2}
+    value: -0.24021
+  pre_LRG_z1.b1p:
+    latex: b_{1, \mathrm{pre}, \mathrm{LRG}, 1}
+    value: 1.22446
+  pre_LRG_z1.b2p:
+    latex: b_{2, \mathrm{pre}, \mathrm{LRG}, 1}
+    value: -0.671727
+  pre_LRG_z1.bsp:
+    latex: b_{s, \mathrm{pre}, \mathrm{LRG}, 1}
+    value: -0.22624
+  pre_LRG_z0.b1p:
+    latex: b_{1, \mathrm{pre}, \mathrm{LRG}, 0}
+    value: 1.1351
+  pre_LRG_z0.b2p:
+    latex: b_{2, \mathrm{pre}, \mathrm{LRG}, 0}
+    value: -0.139101
+  pre_LRG_z0.bsp:
+    latex: b_{s, \mathrm{pre}, \mathrm{LRG}, 0}
+    value: -0.910397
+  pre_BGS_z0.b1p:
+    latex: b_{1, \mathrm{pre}, \mathrm{BGS}, 0}
+    value: 1.11348
+  pre_BGS_z0.b2p:
+    latex: b_{2, \mathrm{pre}, \mathrm{BGS}, 0}
+    value: 0.660148
+  pre_BGS_z0.bsp:
+    latex: b_{s, \mathrm{pre}, \mathrm{BGS}, 0}
+    value: -0.223088
+  chi2__FS_BAO:
+    latex: \chi^2_\mathrm{FS\ BAO}
+    derived: true
+  Lya_z0.loglikelihood:
+    latex: L_{\mathrm{Lya\_z0}}
+    derived: true
+  pre_QSO_z0.b3p:
+    value: 0.0
+  QSO_z0.loglikelihood:
+    latex: L_{\mathrm{QSO\_z0}}
+    derived: true
+  pre_ELG_z1.b3p:
+    value: 0.0
+  ELG_z1.loglikelihood:
+    latex: L_{\mathrm{ELG\_z1}}
+    derived: true
+  pre_LRG_z2.b3p:
+    value: 0.0
+  LRG_z2.loglikelihood:
+    latex: L_{\mathrm{LRG\_z2}}
+    derived: true
+  pre_LRG_z1.b3p:
+    value: 0.0
+  LRG_z1.loglikelihood:
+    latex: L_{\mathrm{LRG\_z1}}
+    derived: true
+  pre_LRG_z0.b3p:
+    value: 0.0
+  LRG_z0.loglikelihood:
+    latex: L_{\mathrm{LRG\_z0}}
+    derived: true
+  pre_BGS_z0.b3p:
+    value: 0.0
+  BGS_z0.loglikelihood:
+    latex: L_{\mathrm{BGS\_z0}}
+    derived: true
+sampler:
+  evaluate:
+    sampler_type: uncorrelated
+    N: 1
+    override: null
+    seed: null
+    version: null
+    supports_periodic_params: false
+packages_path: /Users/nocide/cosmo_fate/data/cobaya_packages
+output: chain
+version: 3.6.2
