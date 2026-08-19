@@ -38,6 +38,7 @@ def git(*args: str) -> str:
 
 
 def audit(source_commit: str) -> dict:
+    resolved_source_commit = git("rev-parse", source_commit)
     policy, real_activation = validate()
     sbc_activation = json.loads(SBC_ACTIVATION.read_text())
     sbc_inputs = audit_sbc_inputs()
@@ -47,8 +48,8 @@ def audit(source_commit: str) -> dict:
     )
     authorization_files = [SYSTEM / "WP7_PRODUCTION_STARTED.json", SBC_PLAN.parent / "WP7_SBC_STARTED.json"]
     checks = {
-        "source_commit_is_head": git("rev-parse", "HEAD") == source_commit,
-        "source_commit_is_on_remote_branch": git("merge-base", "--is-ancestor", source_commit, "@{u}") == "",
+        "source_commit_is_head": git("rev-parse", "HEAD") == resolved_source_commit,
+        "source_commit_is_on_remote_branch": git("merge-base", "--is-ancestor", resolved_source_commit, "@{u}") == "",
         "policy_frozen": policy["status"] == "FROZEN_BEFORE_WP7_POSTERIOR_SAMPLING",
         "real_activation_ready": real_activation["status"] == "READY_TO_START_WP7_REAL_DATA",
         "sbc_activation_ready": sbc_activation["status"] == "READY_TO_START_WP7_SBC",
@@ -63,7 +64,7 @@ def audit(source_commit: str) -> dict:
         "schema_version": "wp7-fs7-production-readiness-v1",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "READY_TO_AUTHORIZE_WP7" if all(checks.values()) else "NOT_READY",
-        "source_git_commit": source_commit,
+        "source_git_commit": resolved_source_commit,
         "checks": checks,
         "real_plan": {"path": str(REAL_PLAN.relative_to(ROOT)), "sha256": sha256_file(REAL_PLAN)},
         "real_activation": {"path": str(REAL_ACTIVATION.relative_to(ROOT)), "sha256": sha256_file(REAL_ACTIVATION)},
