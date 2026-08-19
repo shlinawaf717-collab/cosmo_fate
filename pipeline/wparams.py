@@ -130,6 +130,10 @@ MODELS = {
 
 def make_ln_fde(model, p):
     """Return callable ln_fde(a) with ln_fde(1)=0, valid for a in [1e-9, 1e5]."""
+    if model == 'fs7':
+        from pipeline.wp7_fs7 import make_ln_fde as make_fs7_ln_fde
+
+        return make_fs7_ln_fde([p[f'fs7_w{i}'] for i in range(1, 8)])
     w = MODELS[model]['w_of_a'](_AGRID, p)
     integrand = 3.0 * (1.0 + w)
     cum = np.concatenate([[0.0], np.cumsum(0.5 * (integrand[1:] + integrand[:-1])

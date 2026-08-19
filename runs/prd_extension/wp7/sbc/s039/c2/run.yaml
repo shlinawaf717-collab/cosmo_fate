@@ -1,0 +1,192 @@
+likelihood:
+  bao.desi_dr2.desi_bao_all:
+    path: /Users/nocide/cosmo_fate/runs/prd_extension/wp7/sbc/s039
+    measurements_file: bao_mean.txt
+    cov_file: bao_cov.txt
+    rs_fid: 1
+  sn.pantheonplusshoes:
+    path: /Users/nocide/cosmo_fate/runs/prd_extension/wp7/sbc/s039
+    dataset_file: config.dataset
+    use_abs_mag: true
+  pipeline.cmb_distprior.ProviderDistPrior:
+    python_path: .
+    mean:
+    - 1.9008651772024288
+    - 396.17141343808464
+    - 0.02933812199857564
+theory:
+  pipeline.bgtheory.BackgroundW:
+    python_path: .
+    model: fs7
+prior:
+  fs7_function_bounds: import_module('pipeline.wp7_fs7').admissibility_primary
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omegam:
+    prior:
+      min: 0.01
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.3
+      scale: 0.006
+    proposal: 0.003
+    latex: \Omega_\mathrm{m}
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 68.5
+      scale: 0.8
+    proposal: 0.3
+    latex: H_0
+  Mb:
+    prior:
+      min: -20
+      max: -18
+    ref:
+      dist: norm
+      loc: -19.39
+      scale: 0.03
+    proposal: 0.02
+    latex: M_B
+  rdrag:
+    latex: r_\mathrm{drag}
+  z1:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{1}
+  z2:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{2}
+  z3:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{3}
+  z4:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{4}
+  z5:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{5}
+  z6:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{6}
+  z7:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{7}
+  fs7_w1:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.50000000010000001)*z1 + (0)*z2
+      + (0)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{1}
+  fs7_w2:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.42959251924785979)*z1 + (0.25583249892513116)*z2
+      + (0)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{2}
+  fs7_w3:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.32319677176550227)*z1 + (0.36530305675034058)*z2
+      + (0.10998874282950638)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{3}
+  fs7_w4:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.21227549367674831)*z1 + (0.37672041886411389)*z2
+      + (0.24383121734548699)*z3 + (0.05972585991810643)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{4}
+  fs7_w5:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.084092362701553555)*z1 + (0.25842268663532736)*z2
+      + (0.33653867939457932)*z3 + (0.23653595749395714)*z4 + (0.083298545912994307)*z5
+      + (0)*z6 + (0)*z7'
+    latex: w_{5}
+  fs7_w6:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.035568294424416017)*z1 + (0.15225629651824618)*z2
+      + (0.28513877141235461)*z3 + (0.31281249512015641)*z4 + (0.20967083215937546)*z5
+      + (0.049348584356960511)*z6 + (0)*z7'
+    latex: w_{6}
+  fs7_w7:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.0022355962823695872)*z1 + (0.019237147405266265)*z2
+      + (0.07146295440364088)*z3 + (0.167963589725695)*z4 + (0.29692517492726722)*z5
+      + (0.30262371186419429)*z6 + (0.19120811320464604)*z7'
+    latex: w_{7}
+sampler:
+  mcmc:
+    Rminus1_stop: 1.0e-06
+    Rminus1_cl_stop: 1.0e-06
+    max_samples: .inf
+    seed: 2026100392
+output: /Users/nocide/cosmo_fate/runs/prd_extension/wp7/sbc/s039/c2/chain
+wp7_metadata:
+  role: WP7 primary-prior SBC posterior; no real-data endpoint
+  dataset_index: 39
+  chain_index: 2
+packages_path: /Users/nocide/cosmo_fate/data/cobaya_packages

@@ -1,0 +1,61 @@
+{
+  "code": {
+    "pipeline/authorize_wp7.py": {
+      "path": "pipeline/authorize_wp7.py",
+      "sha256": "c74317c6663d742c1dc5eb1e939d073c8eaa2d5e21956fb532a31f06228c755b"
+    },
+    "pipeline/bgtheory.py": {
+      "path": "pipeline/bgtheory.py",
+      "sha256": "0fd067180b40a822b1ac4c6bc849892aef83bcdd0d5716faee1238934661f29e"
+    },
+    "pipeline/evaluate_wp7_stop.py": {
+      "path": "pipeline/evaluate_wp7_stop.py",
+      "sha256": "94136b68a27b6076d612143a34272cacc3b9456b876f122368f517eac693768a"
+    },
+    "pipeline/finalize_wp7.py": {
+      "path": "pipeline/finalize_wp7.py",
+      "sha256": "e0f5f2b4a82d1ef1c994b765774c9d8ea60e2c876828ea8c0af321d40055f177"
+    },
+    "pipeline/monitor_wp7.py": {
+      "path": "pipeline/monitor_wp7.py",
+      "sha256": "06f03f5c2ea734a451127796c71c64c394fa0629febba71a4d220c0eb777d801"
+    },
+    "pipeline/run_wp7.py": {
+      "path": "pipeline/run_wp7.py",
+      "sha256": "0e04487f70fd2e46ff7e7af2e12fec06a593f2fb0780caa18dc56dc06f7a7406"
+    },
+    "pipeline/run_wp7_controller.py": {
+      "path": "pipeline/run_wp7_controller.py",
+      "sha256": "68e87e99f5fe3a3f4b6ab764a63bafcb60da709cac731be982e6919b9e23257c"
+    },
+    "pipeline/run_wp7_system_smoke.py": {
+      "path": "pipeline/run_wp7_system_smoke.py",
+      "sha256": "0ebb9482c021b9964d0e31b16c8dc71e5fd17cf1befda05e0022406b421fd4f9"
+    },
+    "pipeline/wp7_fs7.py": {
+      "path": "pipeline/wp7_fs7.py",
+      "sha256": "86af0fb13838ae7dc780015a7a7126191cd0418b464ee8bc6a06d3290d938fda"
+    },
+    "pipeline/wparams.py": {
+      "path": "pipeline/wparams.py",
+      "sha256": "0e8b5ab5de47607a0e2b1fd8f2f41d6ea964f12f2bb7e0a6a33740ebe7ccac9e"
+    }
+  },
+  "created_at_utc": "2026-08-19T07:52:59.579696+00:00",
+  "fate_endpoint_calculated": false,
+  "policy": {
+    "path": "plan/wp7_execution_protocol.json",
+    "sha256": "6885987717c51336f18fc5f4e33b900262d22337d6d8574dce99683e50029b97"
+  },
+  "posterior_samples_exist": false,
+  "run_plan": {
+    "path": "runs/prd_extension/wp7/production_system/run_plan.json",
+    "sha256": "b32bcfaca54a314da5c8fe11b3e369eec0057eca11bc0d2885ef16e24b87706c"
+  },
+  "schema_version": "wp7-fs7-real-data-activation-v1",
+  "smoke": {
+    "path": "runs/prd_extension/wp7/production_system/system_smoke_audit.json",
+    "sha256": "0b40be37141eecc4054f290564a3c0b24cb017ca3dc7386560b48c75fbd547bc"
+  },
+  "status": "READY_TO_START_WP7_REAL_DATA"
+}

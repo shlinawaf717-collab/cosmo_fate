@@ -1,0 +1,184 @@
+likelihood:
+  bao.desi_dr2.desi_bao_all: null
+  sn.pantheonplusshoes:
+    use_abs_mag: true
+  pipeline.cmb_distprior.ProviderDistPrior:
+    python_path: .
+theory:
+  pipeline.bgtheory.BackgroundW:
+    python_path: .
+    model: fs7
+prior:
+  fs7_function_bounds: import_module('pipeline.wp7_fs7').admissibility_ell140
+params:
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02236
+      scale: 0.0003
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+  omegam:
+    prior:
+      min: 0.01
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.3
+      scale: 0.006
+    proposal: 0.003
+    latex: \Omega_\mathrm{m}
+  H0:
+    prior:
+      min: 20
+      max: 100
+    ref:
+      dist: norm
+      loc: 68.5
+      scale: 0.8
+    proposal: 0.3
+    latex: H_0
+  Mb:
+    prior:
+      min: -20
+      max: -18
+    ref:
+      dist: norm
+      loc: -19.39
+      scale: 0.03
+    proposal: 0.02
+    latex: M_B
+  rdrag:
+    latex: r_\mathrm{drag}
+  z1:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{1}
+  z2:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{2}
+  z3:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{3}
+  z4:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{4}
+  z5:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{5}
+  z6:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{6}
+  z7:
+    prior:
+      dist: norm
+      loc: 0.0
+      scale: 1.0
+    ref:
+      dist: norm
+      loc: 0.0
+      scale: 0.15
+    proposal: 0.15
+    drop: true
+    latex: z_{7}
+  fs7_w1:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.50000000010000001)*z1 + (0)*z2
+      + (0)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{1}
+  fs7_w2:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.48138403258994877)*z1 + (0.13516439348970255)*z2
+      + (0)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{2}
+  fs7_w3:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.4483263415670885)*z1 + (0.21925219552243932)*z2
+      + (0.030528123356346901)*z3 + (0)*z4 + (0)*z5 + (0)*z6 + (0)*z7'
+    latex: w_{3}
+  fs7_w4:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.40360121789295134)*z1 + (0.28399138951465658)*z2
+      + (0.079845671922504469)*z3 + (0.008922800687273514)*z4 + (0)*z5 + (0)*z6 +
+      (0)*z7'
+    latex: w_{4}
+  fs7_w5:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.32019654531370717)*z1 + (0.33872477626332204)*z2
+      + (0.17348257045206322)*z3 + (0.050828743310994816)*z4 + (0.0077417709407752973)*z5
+      + (0)*z6 + (0)*z7'
+    latex: w_{5}
+  fs7_w6:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.25822201352073487)*z1 + (0.34263239628681252)*z2
+      + (0.23472908449655983)*z3 + (0.10049872265660101)*z4 + (0.026828046345319507)*z5
+      + (0.0026367429047877292)*z6 + (0)*z7'
+    latex: w_{6}
+  fs7_w7:
+    value: 'lambda z1,z2,z3,z4,z5,z6,z7: -1.0 + (0.1292932486812263)*z1 + (0.263914800779671)*z2
+      + (0.29941618137158987)*z3 + (0.232834099296025)*z4 + (0.13215292839871454)*z5
+      + (0.046821701959036614)*z6 + (0.010667621761595601)*z7'
+    latex: w_{7}
+sampler:
+  mcmc:
+    Rminus1_stop: 1.0e-06
+    Rminus1_cl_stop: 1.0e-06
+    max_samples: .inf
+    seed: 2026090751
+    measure_speeds: true
+output: /Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/ell140/c1/chain
+wp7_metadata:
+  role: WP7 real-data production
+  setting: ell140
+  chain: 1
+packages_path: /Users/nocide/cosmo_fate/data/cobaya_packages

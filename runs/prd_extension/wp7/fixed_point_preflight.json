@@ -1,0 +1,67 @@
+{
+  "created_at_utc": "2026-08-19T07:36:50.594720+00:00",
+  "development_correction": "The first 4000-vs-5000 trapezoid comparison differed by 5.488920624660554e-5 and failed the frozen 2e-5 gate. FS7 was therefore changed before sampling to the exact cubic-spline antiderivative; the threshold was not relaxed.",
+  "fate_endpoint_calculated": false,
+  "gates": {
+    "independent_background_integral": true,
+    "lcdm_component_chi2": true
+  },
+  "lcdm_fixed_point": {
+    "components": {
+      "bao.desi_dr2.desi_bao_all": {
+        "fs7_loglike": -5.330860625113425,
+        "lcdm_cpl_loglike": -5.330860625113425,
+        "pass": true,
+        "signed_delta_chi2": -0.0
+      },
+      "pipeline.cmb_distprior.ProviderDistPrior": {
+        "fs7_loglike": -4.967272564244871,
+        "lcdm_cpl_loglike": -4.967272564244871,
+        "pass": true,
+        "signed_delta_chi2": -0.0
+      },
+      "sn.pantheonplusshoes": {
+        "fs7_loglike": -751.1569504241425,
+        "lcdm_cpl_loglike": -751.1569504241426,
+        "pass": true,
+        "signed_delta_chi2": -2.2737367544323206e-13
+      }
+    },
+    "point": {
+      "H0": 68.5,
+      "Mb": -19.39,
+      "ombh2": 0.02236,
+      "omegam": 0.3,
+      "z1": 0.0,
+      "z2": 0.0,
+      "z3": 0.0,
+      "z4": 0.0,
+      "z5": 0.0,
+      "z6": 0.0,
+      "z7": 0.0
+    }
+  },
+  "nontrivial_history_dual_path": {
+    "grid_points": 64,
+    "ln_fde_max_abs_difference": 1.7486012637846216e-15,
+    "nodes": [
+      -0.9,
+      -1.1,
+      -0.85,
+      -1.0,
+      -1.2,
+      -0.75,
+      -1.05
+    ],
+    "reference": "adaptive quadrature of 3(1+w) in ln(a)"
+  },
+  "posterior_sampling_performed": false,
+  "runtime_seconds": 0.6665809170008288,
+  "schema_version": "wp7-fs7-fixed-point-preflight-v1",
+  "scientific_role": "implementation identity only",
+  "status": "PASS",
+  "thresholds": {
+    "component_abs_delta_chi2": 1e-08,
+    "ln_fde_max_abs": 2e-05
+  }
+}

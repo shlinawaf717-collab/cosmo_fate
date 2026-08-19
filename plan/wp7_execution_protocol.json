@@ -1,0 +1,62 @@
+{
+  "schema_version": "wp7-execution-protocol-v1",
+  "status": "FROZEN_BEFORE_WP7_POSTERIOR_SAMPLING",
+  "parent_amendment": "PRD-A014",
+  "settings": {
+    "primary": {"sigma_f": 0.5, "ell": 0.7, "chain_seeds": [2026090711, 2026090712, 2026090713, 2026090714]},
+    "sig025": {"sigma_f": 0.25, "ell": 0.7, "chain_seeds": [2026090721, 2026090722, 2026090723, 2026090724]},
+    "sig100": {"sigma_f": 1.0, "ell": 0.7, "chain_seeds": [2026090731, 2026090732, 2026090733, 2026090734]},
+    "ell035": {"sigma_f": 0.5, "ell": 0.35, "chain_seeds": [2026090741, 2026090742, 2026090743, 2026090744]},
+    "ell140": {"sigma_f": 0.5, "ell": 1.4, "chain_seeds": [2026090751, 2026090752, 2026090753, 2026090754]}
+  },
+  "execution": {"chains_per_setting": 4, "max_parallel_chains": 6, "threads_per_chain": 1},
+  "normalized_truncation": {
+    "latent_distribution": "N(0,I_7)",
+    "method": "direct rejection using the registered 7-node and 512-grid bounds",
+    "shared_indicator_implementation": "pipeline.wp7_fs7.admissible_latent_mask",
+    "evidence_authorized": false
+  },
+  "convergence": {
+    "row_burn_fraction": 0.5,
+    "rank_normalized_split_rhat_exclusive_maximum": 1.01,
+    "gated_sampled_parameters": ["ombh2", "omegam", "H0", "Mb", "z1", "z2", "z3", "z4", "z5", "z6", "z7"],
+    "gated_derived_nodes": ["fs7_w1", "fs7_w2", "fs7_w3", "fs7_w4", "fs7_w5", "fs7_w6", "fs7_w7"],
+    "node_bulk_ess_exclusive_minimum": 400,
+    "node_tail_ess_exclusive_minimum": 400,
+    "hidden_final_sign_batch_mcse_exclusive_maximum": 0.01,
+    "weight_handling": "expand integer Metropolis dwell weights"
+  },
+  "repeated_pass": {"required": 2, "minimum_new_complete_rows_per_chain": 320, "changed_hashes_required": true, "failed_snapshot_resets_sequence": true},
+  "blinding": {
+    "allowed": ["process_health", "complete_rows", "file_hashes", "rhat", "bulk_tail_ess", "boolean_gate_states"],
+    "prohibited": ["posterior_locations", "intervals", "likelihood_values", "final_node_sign_probability", "fate_composition", "KL", "setting_comparisons"]
+  },
+  "sbc": {
+    "datasets": 50,
+    "truth_root_seed": 2026090800,
+    "truth_seed_formula": "truth_root_seed + dataset_index; independent function/scalar substreams from SeedSequence(truth_seed).spawn(2)",
+    "noise_root_seed": 2026090900,
+    "noise_seed_formula": "noise_root_seed + dataset_index",
+    "chains_per_dataset": 2,
+    "max_parallel_datasets": 3,
+    "convergence_repeated_pass_minimum_new_rows_per_chain": 160,
+    "chain_seed_formula": "2026100000 + 10*dataset_index + chain_index",
+    "posterior_resample_draws": 400,
+    "posterior_resample_seed_formula": "2026110000 + dataset_index",
+    "rank_tie_seed_formula": "2026120000 + 10*dataset_index + node_index",
+    "rank_uniformity": "per-node KS with Holm alpha=0.05",
+    "coverage": [0.5, 0.9],
+    "coverage_acceptance": "two-sided exact binomial 95% interval under nominal coverage",
+    "truth_physical_conditioning": ["omch2>0", "Omega_DE0>0", "finite background"]
+  },
+  "information": {
+    "prior_reference_draws_per_setting": 200000,
+    "prior_reference_seed_formula": "2026130000 + setting_ordinal",
+    "primary_quantile_bins": 40,
+    "sensitivity_quantile_bins": [20, 80],
+    "final_residual": "y_f-C_fo C_oo^-1 y_o",
+    "required_pathways": ["prior_correlation", "global_spline_likelihood_response", "conditional_residual_KL"]
+  },
+  "production_authorized": false,
+  "fate_calculation_authorized": false
+}

@@ -1,0 +1,40 @@
+{
+  "H0": 65.38649467931458,
+  "Mb": -18.88006834476362,
+  "dataset_index": 46,
+  "fs7_nodes": [
+    -0.8705234369134226,
+    -0.974324626986887,
+    -0.9415301079298589,
+    -0.8820630875272057,
+    -0.7946944440575555,
+    -0.8491820676339106,
+    -1.2312827783584857
+  ],
+  "function_rejection_audit": {
+    "accepted_available_before_trim": 64,
+    "batch_size": 64,
+    "fate_composition_calculated": false,
+    "proposal_acceptance_fraction": 1.0,
+    "proposed": 64,
+    "requested": 1,
+    "seed": 730580681
+  },
+  "function_substream_seed": 730580681,
+  "latent_z": [
+    0.25895312612136423,
+    -0.3344725676526119,
+    0.8815532075138329,
+    -0.4349880639248613,
+    0.914523061210064,
+    -2.3204544546611268,
+    1.126081848002938
+  ],
+  "noise_seed": 2026090946,
+  "ombh2": 0.05804116117559852,
+  "omegam": 0.2686319986237428,
+  "prior": "primary normalized FS7 plus D0 P1 scalar priors conditioned on physical theory domain",
+  "scalar_attempt": 1,
+  "schema_version": "wp7-fs7-sbc-truth-v1",
+  "truth_seed": 2026090846
+}

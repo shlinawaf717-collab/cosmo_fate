@@ -1,0 +1,40 @@
+{
+  "created_at_utc": "2026-08-19T07:47:22.002808+00:00",
+  "fate_calculation_performed": false,
+  "posterior_generated": false,
+  "sampling_performed": false,
+  "schema_version": "wp7-fs7-production-system-smoke-v1",
+  "settings": [
+    {
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "setting": "primary"
+    },
+    {
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "setting": "sig025"
+    },
+    {
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "setting": "sig100"
+    },
+    {
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "setting": "ell035"
+    },
+    {
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "setting": "ell140"
+    }
+  ],
+  "status": "PASS"
+}

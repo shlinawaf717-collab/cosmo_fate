@@ -8,7 +8,7 @@
     "registered_nodes_match": true,
     "zero_latent_admissible": true
   },
-  "created_at_utc": "2026-08-19T07:23:33.129616+00:00",
+  "created_at_utc": "2026-08-19T07:36:49.433190+00:00",
   "fate_endpoint_calculated": false,
   "hyperparameter_geometry": [
     {
@@ -101,7 +101,7 @@
     "constant_extension_max_abs_error": 0.0,
     "endpoint_derivative_max_abs_error": 0.0,
     "lcdm_knot_max_abs_error": 0.0,
-    "lcdm_ln_fde_max_abs_error": 0.0
+    "lcdm_ln_fde_max_abs_error": 6.661338147750939e-16
   },
   "inputs": {
     "analytic_prediction": {

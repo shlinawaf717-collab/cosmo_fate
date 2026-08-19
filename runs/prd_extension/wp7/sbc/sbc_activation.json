@@ -1,0 +1,23 @@
+{
+  "code": {
+    "pipeline/monitor_wp7_sbc.py": {
+      "path": "pipeline/monitor_wp7_sbc.py",
+      "sha256": "1bb85ffe2f6a3348e1fe23fd0f8de39d947b78c0710a5068b6bf906766e0391c"
+    },
+    "pipeline/run_wp7_sbc.py": {
+      "path": "pipeline/run_wp7_sbc.py",
+      "sha256": "adba1652cfafb79968eefa4f9042666887b869a38bc23d6640fe141252d93c2d"
+    },
+    "pipeline/wp7_sbc.py": {
+      "path": "pipeline/wp7_sbc.py",
+      "sha256": "b77f241dd30a04c64b37aef21b1b4744f6346635a6a63cc72b586c064d1aae03"
+    }
+  },
+  "created_at_utc": "2026-08-19T07:50:06.947588+00:00",
+  "plan_sha256": "98decc1e6dc13875ce5fbda42aa33832d80b572fa338944efbb24f3dcfd58e38",
+  "posterior_samples_exist": false,
+  "sbc_rank_calculated": false,
+  "schema_version": "wp7-fs7-sbc-activation-v1",
+  "smoke_sha256": "b82932f66b86d7a244f7a8eb808f5fea78af90457bd28f6bc76ba2fd5f286b45",
+  "status": "READY_TO_START_WP7_SBC"
+}

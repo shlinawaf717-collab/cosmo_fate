@@ -143,6 +143,44 @@ def admissible_latent_mask(
     return result
 
 
+def draw_truncated_latents(
+    count: int,
+    sigma_f: float,
+    ell: float,
+    *,
+    seed: int,
+    batch_size: int = 4096,
+) -> tuple[np.ndarray, dict]:
+    """Draw exactly from the normalized registered prior by rejection.
+
+    The returned audit contains only sampling-efficiency information and never
+    computes the sign of the final node or a fate composition.
+    """
+    if int(count) != count or count < 1:
+        raise FS7Error("count must be a positive integer")
+    if int(batch_size) != batch_size or batch_size < 1:
+        raise FS7Error("batch_size must be a positive integer")
+    rng = np.random.default_rng(int(seed))
+    accepted = []
+    proposed = 0
+    while sum(len(block) for block in accepted) < count:
+        latent = rng.standard_normal((int(batch_size), 7))
+        proposed += len(latent)
+        keep = latent[admissible_latent_mask(latent, sigma_f, ell)]
+        if len(keep):
+            accepted.append(keep)
+    result = np.concatenate(accepted, axis=0)[: int(count)]
+    return result, {
+        "requested": int(count),
+        "proposed": proposed,
+        "accepted_available_before_trim": int(sum(len(block) for block in accepted)),
+        "proposal_acceptance_fraction": float(sum(len(block) for block in accepted) / proposed),
+        "seed": int(seed),
+        "batch_size": int(batch_size),
+        "fate_composition_calculated": False,
+    }
+
+
 @dataclass(frozen=True)
 class Admissibility:
     admissible: bool
@@ -242,23 +280,35 @@ def conditional_future_geometry(
 
 
 def make_ln_fde(nodes: Sequence[float], *, grid_size: int = 5000):
-    """Return ``ln[rho_DE(a)/rho_DE(1)]`` for background-only D0 work."""
+    """Return exact ``ln[rho_DE(a)/rho_DE(1)]`` from the spline antiderivative."""
     if grid_size < 100:
-        raise FS7Error("background integration grid is too small")
+        raise FS7Error("diagnostic background grid is too small")
     w = _vector(nodes, name="nodes")
-    a_grid = np.geomspace(1.0e-9, 1.0e5, int(grid_size))
-    x_grid = np.log(a_grid)
-    integrand = 3.0 * (1.0 + np.asarray(w_of_a(a_grid, w)))
-    cumulative = np.concatenate(
-        [[0.0], np.cumsum(0.5 * (integrand[1:] + integrand[:-1]) * np.diff(x_grid))]
-    )
-    at_one = np.interp(0.0, x_grid, cumulative)
-    values = -(cumulative - at_one)
+    curve = spline(w)
+    primitive_w = curve.antiderivative()
+    primitive = lambda x: primitive_w(x) + x
+    x_early, x_future = ALL_X_NODES[0], ALL_X_NODES[-1]
+    primitive_at_zero = float(primitive(0.0))
+    early_integral = float(primitive(x_early) - primitive_at_zero)
+    spline_future_integral = float(primitive(x_future) - primitive_at_zero)
 
     def ln_fde(a):
         scale = np.asarray(a, dtype=np.float64)
-        result = np.interp(np.log(scale), x_grid, values)
+        if np.any(~np.isfinite(scale)) or np.any(scale <= 0):
+            raise FS7Error("scale factor must be positive and finite")
+        x = np.log(scale)
+        result = np.empty_like(x)
+        early = x <= x_early
+        future = x >= x_future
+        middle = ~(early | future)
+        result[early] = -3.0 * early_integral
+        result[future] = -3.0 * (
+            spline_future_integral + (1.0 + w[-1]) * (x[future] - x_future)
+        )
+        if np.any(middle):
+            result[middle] = -3.0 * (primitive(x[middle]) - primitive_at_zero)
         return float(result) if result.ndim == 0 else result
 
-    ln_fde.grid = (a_grid, values)
+    diagnostic_a = np.geomspace(1.0e-9, 1.0e5, int(grid_size))
+    ln_fde.grid = (diagnostic_a, ln_fde(diagnostic_a))
     return ln_fde

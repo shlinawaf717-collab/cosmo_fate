@@ -1,0 +1,194 @@
+{
+  "chains": [
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp7/production_system/primary/c1/run.yaml",
+      "config_sha256": "27093018662ce9ebd6d3bdd41b7d572973168f0464ccc79be05fc729597de583",
+      "output_prefix": "runs/prd_extension/wp7/production_system/primary/c1/chain",
+      "seed": 2026090711,
+      "setting": "primary"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp7/production_system/primary/c2/run.yaml",
+      "config_sha256": "d6436c6f7eed67fe434a9503f3ad0ff8655d95e4ba1193f2dffef85cae21767c",
+      "output_prefix": "runs/prd_extension/wp7/production_system/primary/c2/chain",
+      "seed": 2026090712,
+      "setting": "primary"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp7/production_system/primary/c3/run.yaml",
+      "config_sha256": "10f75d3244628ffacf014963a3a39bceeb7627e9dd31b1c25d3423a280ea2ac9",
+      "output_prefix": "runs/prd_extension/wp7/production_system/primary/c3/chain",
+      "seed": 2026090713,
+      "setting": "primary"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp7/production_system/primary/c4/run.yaml",
+      "config_sha256": "e14c5047e3b7fa6ae2036306741e84a12a8bf6ef833703d327bf297ff8ba6719",
+      "output_prefix": "runs/prd_extension/wp7/production_system/primary/c4/chain",
+      "seed": 2026090714,
+      "setting": "primary"
+    },
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp7/production_system/sig025/c1/run.yaml",
+      "config_sha256": "af891293a058a438ad86f5fa7a6fb9cdf5110b4fbafbb0a3f81f218b4596e0c2",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig025/c1/chain",
+      "seed": 2026090721,
+      "setting": "sig025"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp7/production_system/sig025/c2/run.yaml",
+      "config_sha256": "11c77c0e95242202cb6050e1f833650b59413ef6bb9a17745c427dffb21b9ef2",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig025/c2/chain",
+      "seed": 2026090722,
+      "setting": "sig025"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp7/production_system/sig025/c3/run.yaml",
+      "config_sha256": "5019bb3f3e5e4bb79b97d24f1ffb4553c447db803579d99919df209b22dce27e",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig025/c3/chain",
+      "seed": 2026090723,
+      "setting": "sig025"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp7/production_system/sig025/c4/run.yaml",
+      "config_sha256": "0e4c8cd66349429d7ca150d2de8aff5feb3ab433249847064bd1839e1608186e",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig025/c4/chain",
+      "seed": 2026090724,
+      "setting": "sig025"
+    },
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp7/production_system/sig100/c1/run.yaml",
+      "config_sha256": "70f4aa2d1d557cc475cb0cd8c68f3baaa1de8a41bf3fe39494269e359391fc95",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig100/c1/chain",
+      "seed": 2026090731,
+      "setting": "sig100"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp7/production_system/sig100/c2/run.yaml",
+      "config_sha256": "bc9dd049b075409cd93e70455960d78b520db0e21ca6afe3bd048dfe92915f2f",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig100/c2/chain",
+      "seed": 2026090732,
+      "setting": "sig100"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp7/production_system/sig100/c3/run.yaml",
+      "config_sha256": "c54551dc003ef665bc593edaa0f94ececffdb8c1667f1a248220a56070da5c5b",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig100/c3/chain",
+      "seed": 2026090733,
+      "setting": "sig100"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp7/production_system/sig100/c4/run.yaml",
+      "config_sha256": "0fac740f0c26712ec3807b3322e94fd943fcc4764f48aef19029819c7a81042e",
+      "output_prefix": "runs/prd_extension/wp7/production_system/sig100/c4/chain",
+      "seed": 2026090734,
+      "setting": "sig100"
+    },
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp7/production_system/ell035/c1/run.yaml",
+      "config_sha256": "c7e7dabb1e2f2af972a8a44c18b098990583989d01e78ac5124b2847029c0360",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell035/c1/chain",
+      "seed": 2026090741,
+      "setting": "ell035"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp7/production_system/ell035/c2/run.yaml",
+      "config_sha256": "4ce4480a71ece1ba508ac526d4727a5928ea775401df3af7a6302016835d5eb8",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell035/c2/chain",
+      "seed": 2026090742,
+      "setting": "ell035"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp7/production_system/ell035/c3/run.yaml",
+      "config_sha256": "bd004cceaf39a223a561aaaed53e797c9fc9c8757480fb749f7f6e672ac66d73",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell035/c3/chain",
+      "seed": 2026090743,
+      "setting": "ell035"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp7/production_system/ell035/c4/run.yaml",
+      "config_sha256": "ca998dde66a9f6245cf4cecb94a52aef92f8099c6a733fbfa30e1a0ce4b82522",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell035/c4/chain",
+      "seed": 2026090744,
+      "setting": "ell035"
+    },
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp7/production_system/ell140/c1/run.yaml",
+      "config_sha256": "64a9ae43db691432c8d342e07b97cc5c6528ab09d9a096f68fca6dddd567db78",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell140/c1/chain",
+      "seed": 2026090751,
+      "setting": "ell140"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp7/production_system/ell140/c2/run.yaml",
+      "config_sha256": "448550f2411d5d474b941ee122ba2f9b3c5c762a7c605f115a8d53f1cecfb008",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell140/c2/chain",
+      "seed": 2026090752,
+      "setting": "ell140"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp7/production_system/ell140/c3/run.yaml",
+      "config_sha256": "f0e23f4525609511f0999784164dd98f6ddd53e2cc1016fbfc299c72729ec2f4",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell140/c3/chain",
+      "seed": 2026090753,
+      "setting": "ell140"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp7/production_system/ell140/c4/run.yaml",
+      "config_sha256": "7b70843979d707359b1deb9fdf94c8966b79fcbe32f4cb08fe4de6988309d05b",
+      "output_prefix": "runs/prd_extension/wp7/production_system/ell140/c4/chain",
+      "seed": 2026090754,
+      "setting": "ell140"
+    }
+  ],
+  "chains_per_setting": 4,
+  "created_at_utc": "2026-08-19T07:44:18.559663+00:00",
+  "fixed_point_preflight": {
+    "path": "runs/prd_extension/wp7/fixed_point_preflight.json",
+    "sha256": "ddd4b9fc3f2b1fa6e0c1bc8e052f161e94f77dd5c3a5d88e9e65ff6a989bbe7a"
+  },
+  "information_plan": {
+    "path": "runs/prd_extension/wp7/information_plan.json",
+    "sha256": "f3f3cacfdb633ed95f54b9d8873240c7a43791b9f47db82c96ab52d18def8c16"
+  },
+  "max_parallel_chains": 6,
+  "policy": {
+    "path": "plan/wp7_execution_protocol.json",
+    "sha256": "dee8bd762019d287c5516b8c7918c45ec41cc8eca14628a8252c945a61c5b836"
+  },
+  "posterior_or_fate_endpoint_read": false,
+  "schema_version": "wp7-fs7-real-data-run-plan-v1",
+  "settings": [
+    "primary",
+    "sig025",
+    "sig100",
+    "ell035",
+    "ell140"
+  ],
+  "status": "FROZEN_BEFORE_WP7_REAL_DATA_PRODUCTION",
+  "threads_per_chain": 1,
+  "truncation_preflight": {
+    "path": "runs/prd_extension/wp7/truncation_preflight.json",
+    "sha256": "e1d619d1ebae27a4b1c9290cdcf8af03a30becd5c090ea06b218100d13a524a1"
+  }
+}

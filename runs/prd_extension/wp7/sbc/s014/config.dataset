@@ -1,0 +1,3 @@
+name = WP7_FS7_SBC
+data_file = sn_mock.dat
+mag_covmat_file = sn_cov.cov

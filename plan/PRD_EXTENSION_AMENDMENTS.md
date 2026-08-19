@@ -665,3 +665,61 @@ Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `plan/WP5_SMOOTH_BACKGROUND_AMENDMENT.md`;
 `plan/wp5_smooth_background_amendment_a013.json`; implementation and tests
 pending.
+
+## PRD-A014 — 2026-08-19
+
+ID and date: PRD-A014, 2026-08-19
+
+Author: Zhang; recorded by Codex under the author's instruction to continue
+until WP7 is ready to start
+
+Affected work package(s): WP7 FS7 execution and simulation-based calibration
+
+Old rule: The frozen protocol specified the FS7 generative function prior,
+five hyperparameter settings, 50 SBC datasets, nodewise information outputs,
+and final R-hat/ESS/MCSE gates, but did not specify the normalized-truncation
+sampler, SBC scalar-parameter truth domain, mock seeds, number of SBC chains,
+rank construction, information estimator, real-data chain seeds, repeated-pass
+transaction, or endpoint-withholding implementation.
+
+New rule: `plan/WP7_EXECUTION_PROTOCOL.md` and its JSON companion freeze these
+missing execution details before any WP7 posterior sample.  FS7 latent draws
+are exact rejection draws from `N(0,I)` conditioned by the same node/spline
+operator used in the external prior.  Fifty primary-prior SBC datasets use
+fixed truth/noise/chain seeds and two independent chains each; real data use
+four chains for every registered setting.  Nodewise KL uses fixed
+prior-quantile histograms with 40 bins and 20/80-bin sensitivity, while the
+final-node decomposition separately reports analytic prior correlation,
+deterministic likelihood-window spline response, and KL in the conditional
+future residual.  All real-data settings close only after two blinded passes
+of the frozen R-hat/ESS/hidden sign-MCSE gates.
+
+Trigger and scientific reason: Method development established that all five
+targets initialize, that the normalized truncation is directly sampleable,
+that `sigma_f=1` has material path rejection, that the primary final-node
+multiple R2 is only 0.135, and that the registered global spline leaks future
+nodes into the observed window.  Freezing execution and decomposition now
+prevents a posterior-dependent sampler, information estimator, or stopping
+choice.
+
+Affected result inspected before change? yes; exact scope: deterministic
+covariance eigenvalues, Cholesky residuals, spline basis responses, prior
+admissibility rates, LCDM/nontrivial-background fixed points, and five Cobaya
+no-sampling initialization logs were inspected.  No WP7 posterior row, prior
+fate composition, posterior fate composition, node constraint, KL endpoint,
+SBC rank, real-data likelihood result, or scientific fate endpoint exists or
+was inspected.
+
+Classification: corrective implementation clarification; post-method-
+development and pre-WP7-inference
+
+Pre-amendment result disposition: The original FS7 model, nodes, kernel,
+hyperparameters, jitter, spline, D0 likelihood, 50-dataset count, and endpoint
+thresholds remain unchanged.  The initial 4000-vs-5000 trapezoid fixed-point
+failure remains recorded; the implementation now uses the exact cubic-spline
+antiderivative without relaxing the frozen numerical threshold.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP7_EXECUTION_PROTOCOL.md`; `plan/wp7_execution_protocol.json`; FS7
+sampler, SBC, information, monitor, controller, finalizer, tests, and frozen
+run manifests pending.

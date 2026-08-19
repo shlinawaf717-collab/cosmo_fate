@@ -8,6 +8,7 @@ from pipeline.wp7_fs7 import (
     admissibility,
     admissible_latent_mask,
     conditional_future_geometry,
+    draw_truncated_latents,
     latent_to_nodes,
     make_ln_fde,
     nodes_to_latent,
@@ -73,6 +74,26 @@ def test_vectorized_truncation_matches_scalar_admissibility():
     mask = admissible_latent_mask(latent, 0.5, 0.7)
     expected = [admissibility(latent_to_nodes(row, 0.5, 0.7)).admissible for row in latent]
     np.testing.assert_array_equal(mask, expected)
+
+
+def test_admissibility_is_symmetric_about_w_minus_one():
+    z = np.asarray([
+        [0.2, -0.1, 0.05, 0.0, 0.1, -0.05, 0.02],
+        [3.0, -1.0, 2.0, 0.5, -0.2, 0.7, -1.1],
+    ])
+    np.testing.assert_array_equal(
+        admissible_latent_mask(z, 1.0, 0.7),
+        admissible_latent_mask(-z, 1.0, 0.7),
+    )
+
+
+def test_direct_rejection_sampler_is_deterministic_and_admissible():
+    first, audit1 = draw_truncated_latents(32, 1.0, 0.7, seed=2026090101, batch_size=64)
+    second, audit2 = draw_truncated_latents(32, 1.0, 0.7, seed=2026090101, batch_size=64)
+    np.testing.assert_array_equal(first, second)
+    assert audit1 == audit2
+    assert np.all(admissible_latent_mask(first, 1.0, 0.7))
+    assert not audit1["fate_composition_calculated"]
 
 
 def test_development_preflight_is_endpoint_blind():
