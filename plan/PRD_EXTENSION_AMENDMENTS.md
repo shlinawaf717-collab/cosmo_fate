@@ -577,3 +577,45 @@ scientific endpoints and do not alter either model target.
 Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `plan/WP4_F1_MODEL_COMPARISON_PLAN.md`;
 `pipeline/run_wp4_f1_bestfits.py`; tests and frozen run plan pending.
+
+## PRD-A012 — 2026-08-19
+
+ID and date: PRD-A012, 2026-08-19
+
+Author: Zhang; recorded by Codex under the author's instruction to continue WP4
+
+Affected work package(s): WP4 F1 nested evidence and sub-percent fate tail
+
+Old rule: The extension required multi-seed nested evidence with original
+weights and nested verification of MCMC fate tails below 1%, but inherited only
+the six-dimensional compressed-CMB dynesty adapter. Applying that adapter to
+F1 would fix the CMB and nuisance parameters and would not evaluate the
+18-dimensional full-likelihood model that generated F1.
+
+New rule: Use the full 18-dimensional CPL/16-dimensional LCDM targets with
+PolyChord's slow/fast blocking. Run three fixed seeds for full CPL and LCDM,
+retain original-weight fate probabilities, and add prospectively declared
+RIP/DECAY stratified runs to resolve the `5.7e-5` MCMC tail. Settings, exact P1
+area corrections, seed handling, closure check, and reporting are frozen in
+`plan/WP4_F1_NESTED_PLAN.md` before any F1 nested sample exists.
+
+Trigger and scientific reason: The closed MCMC endpoint contains only three
+post-burn RIP rows (weight eight), while direct reuse of the old nested adapter
+would answer a lower-dimensional question. Stratified evidence measures the
+rare tail without relying on accidental tail visits, and the simultaneous full
+CPL run preserves the protocol's original-weight estimator.
+
+Affected result inspected before change? yes; exact scope: F1 MCMC posterior
+and fate endpoints plus CPL/LCDM best fits, `Delta chi2`, AIC, and descriptive
+BIC were inspected. No F1 nested sample, evidence, internal error, nested fate
+probability, or regional evidence exists or was inspected.
+
+Classification: corrective and prospective pre-nested implementation
+
+Pre-amendment result disposition: MCMC endpoints and best fits remain
+unchanged. The compressed-CMB D0 nested results remain historical comparators
+and are not reinterpreted as full-likelihood evidence.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP4_F1_NESTED_PLAN.md`; nested preparation, driver, aggregation, tests,
+and Windows incremental task package pending.
