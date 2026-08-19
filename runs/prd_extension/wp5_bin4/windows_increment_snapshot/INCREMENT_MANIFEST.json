@@ -1,0 +1,211 @@
+{
+  "files": [
+    {
+      "bytes": 932,
+      "path": "README_\u4e2d\u6587.md",
+      "sha256": "eb12371fec3f51887ba558333712fc383d1e20001ccffc8d889a076b1fe185f3"
+    },
+    {
+      "bytes": 15560,
+      "path": "payload/pipeline/audit_wp4_f0_reproduction.py",
+      "sha256": "726bfb0a5becb732e07ce5d88f39a3fb9c9232595033918991e5283e6fb6f94f"
+    },
+    {
+      "bytes": 5333,
+      "path": "payload/pipeline/build_wp5_bin4_configs.py",
+      "sha256": "405a804426d5206c0c0e2b743cfc6966179876c21c23d8f52d1cfd970c8dd8a5"
+    },
+    {
+      "bytes": 1368,
+      "path": "payload/pipeline/compare_wp5_fixed_points.py",
+      "sha256": "3b9a03193430fb91643114464b6c4d8d33471caa4150fa6b63c4d8f3374ce50a"
+    },
+    {
+      "bytes": 740,
+      "path": "payload/pipeline/early_de_gate.py",
+      "sha256": "2a144d0f240074b1a6062908bbf33aa9d1299d52bfad624bb489ff1687966ab1"
+    },
+    {
+      "bytes": 7043,
+      "path": "payload/pipeline/evaluate_wp5_external_stop.py",
+      "sha256": "7c3f63fc487e79442866503124b77222e629a5c9ee5ef78234b609b0d87116dc"
+    },
+    {
+      "bytes": 5868,
+      "path": "payload/pipeline/finalize_wp5_external_stop.py",
+      "sha256": "cbdee2a6164720f9283d16fcec0779bda001d26fdd7cfa403b4241656a629e1f"
+    },
+    {
+      "bytes": 4970,
+      "path": "payload/pipeline/freeze_wp5_system.py",
+      "sha256": "d23417efb769f23079e609673b02b99324a7888a262a3b1dca87070ca86bc5b8"
+    },
+    {
+      "bytes": 13503,
+      "path": "payload/pipeline/monitor_wp4_f0.py",
+      "sha256": "8665afd8e04114f2c84fc702b905fe4c003aebbf5b3b7b97a8a413011ffc71ee"
+    },
+    {
+      "bytes": 2930,
+      "path": "payload/pipeline/monitor_wp5_bin4.py",
+      "sha256": "1779925d3356117cbdc9c0b0e943807311afee91a6065f0e062c2f09790f997c"
+    },
+    {
+      "bytes": 4101,
+      "path": "payload/pipeline/run_wp5_bin4.py",
+      "sha256": "1e316facd603fdd4230fa495daac11d50de19c825c6e333f3e56986b2855b870"
+    },
+    {
+      "bytes": 3898,
+      "path": "payload/pipeline/run_wp5_bin4_smoke.py",
+      "sha256": "0f1f5104f8dcc8f1219a09781c941a815cc065dd5cb312e0c8e3e93c9c33dcd0"
+    },
+    {
+      "bytes": 1796,
+      "path": "payload/pipeline/run_wp5_external_controller.py",
+      "sha256": "01a07db483ff6d88b86feae2e7fb754f12db664b77ba286ee5ef2e9d9c81fd0a"
+    },
+    {
+      "bytes": 2096,
+      "path": "payload/pipeline/run_wp5_system_smoke.py",
+      "sha256": "eb467b00730756a2a17a9be19c8abf1ab8c0ed2cc1772b3618193283b888330a"
+    },
+    {
+      "bytes": 8028,
+      "path": "payload/pipeline/wp4_f1.yaml",
+      "sha256": "744f5d063e953f45aa7731283f3c1eaed0b894765f18f83a65de5d1ee0b45f7b"
+    },
+    {
+      "bytes": 4875,
+      "path": "payload/pipeline/wp5_bin4.py",
+      "sha256": "717136f02773208313f111a52ef4289e80c7387ef472545774f29af22b23d127"
+    },
+    {
+      "bytes": 2390,
+      "path": "payload/pipeline/wp5_camb.py",
+      "sha256": "d95de194bd7b501063ef7de661c44e9afc1ea3a22912f1358782f25856421e8d"
+    },
+    {
+      "bytes": 1959,
+      "path": "payload/pipeline/wp5_fixed_point_probe.py",
+      "sha256": "c594efdaa437621dffd714567e72e44e173d20e83a2cf0a7d683a353c132be02"
+    },
+    {
+      "bytes": 5590,
+      "path": "payload/pipeline/wp5_formal_theory_gate.py",
+      "sha256": "313d10287d3e808309f24e32cb6fb5bab52015c52e3023dd5e6e5600b60d2808"
+    },
+    {
+      "bytes": 5334,
+      "path": "payload/pipeline/wparams.py",
+      "sha256": "59557827ed03ad8ab7757a7011bcf789ac8f25a1640b44871c12e33a4294a6ce"
+    },
+    {
+      "bytes": 1960,
+      "path": "payload/plan/WP5_EXTERNAL_CONVERGENCE_POLICY.md",
+      "sha256": "222fb8ac9ee9f4324204bae45a81b9a8d64cd27afd6b6935ff6232604e0f9db9"
+    },
+    {
+      "bytes": 3156,
+      "path": "payload/plan/WP5_SMOOTH_BACKGROUND_AMENDMENT.md",
+      "sha256": "7041a2329c28df78dd991545c66f2e1b3fe89adf76fbd037880cc4a9d6304b9c"
+    },
+    {
+      "bytes": 2247,
+      "path": "payload/plan/wp5_external_convergence_policy.json",
+      "sha256": "c3f7657866c9d870efa4f4c5f97f9cd5174c43ad3e0bbdf3df118fa274956770"
+    },
+    {
+      "bytes": 1427,
+      "path": "payload/plan/wp5_smooth_background_amendment_a013.json",
+      "sha256": "36a9750012a90d94c4f8ef87efb6d93499efefea6c9ff96ad6e7786fb029a331"
+    },
+    {
+      "bytes": 1711,
+      "path": "payload/runs/prd_extension/wp5_bin4/fixed_points/mac_0p005.json",
+      "sha256": "d66cc23fe4c6e54e99b23e9fb6c681335c4d04a40ad670fad0e8e2d264a98cec"
+    },
+    {
+      "bytes": 1711,
+      "path": "payload/runs/prd_extension/wp5_bin4/fixed_points/mac_0p01.json",
+      "sha256": "f74bf588c14736c67302706a55faa9216801b7830302349d691964939a97b6e8"
+    },
+    {
+      "bytes": 1709,
+      "path": "payload/runs/prd_extension/wp5_bin4/fixed_points/mac_0p02.json",
+      "sha256": "f7b57af20077706b6ab1b66ee78e27f0f882ed80c4e9ee0b558325d9d95918b0"
+    },
+    {
+      "bytes": 10269,
+      "path": "payload/runs/prd_extension/wp5_bin4/proposal.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 2676,
+      "path": "payload/runs/prd_extension/wp5_bin4/proposal_audit.json",
+      "sha256": "30146b0cbcb811f424bdd9818533ee47e1ddc4f765a07a1a9d9c59195a3c5119"
+    },
+    {
+      "bytes": 1318,
+      "path": "payload/tools/package_wp5_results.py",
+      "sha256": "172edb6a44f50ef85e58cce0aae7058aaefeb6cf6f3e027780721dab4eba7b03"
+    },
+    {
+      "bytes": 639,
+      "path": "payload/tools/verify_wp5_increment.py",
+      "sha256": "1edc09a2d9cc2af9c42568eaf455be6bf8e7b475fb385199da96ecf9f9657dd2"
+    },
+    {
+      "bytes": 451,
+      "path": "windows/20_install_and_preflight.cmd",
+      "sha256": "770957106311a1120e6a7b31fa52409c41ba4bb13c860dab98f4a77eb33131e7"
+    },
+    {
+      "bytes": 134,
+      "path": "windows/21_start_wp5.cmd",
+      "sha256": "871ebade7ea93a009db45a17f53e7689b919712c690fb9418bb445fe75b90a61"
+    },
+    {
+      "bytes": 131,
+      "path": "windows/22_status.cmd",
+      "sha256": "108ef4f6953e0b4ed747da42c7e366ad7127c477b6b1072e463abd3e0a582226"
+    },
+    {
+      "bytes": 317,
+      "path": "windows/23_package_results.cmd",
+      "sha256": "6856cf68a2c8af92189f9d5731729243e94f73ebf710b0aa3533f504d4d67d18"
+    },
+    {
+      "bytes": 2912,
+      "path": "wsl/20_install_and_preflight.sh",
+      "sha256": "c14a8a0817c6db628f9412f97deaebc7c35dfe3debe7be334746e38eb3d6fa31"
+    },
+    {
+      "bytes": 1500,
+      "path": "wsl/21_start_wp5.sh",
+      "sha256": "f83fc8a876ec99454a214847f18f6b87664296f1d0b2ffceb193ba431e8c2e01"
+    },
+    {
+      "bytes": 1050,
+      "path": "wsl/22_status.sh",
+      "sha256": "ba8e775c00087380673c8af7848687b1bdb0c91d3d8e6042fab3d89d062d40f6"
+    },
+    {
+      "bytes": 198,
+      "path": "wsl/23_package_results.sh",
+      "sha256": "a7dd30ece9d396ed35b4fdd6a86ac9db5bf4eb6f33ecd8d0047ff83342431cb9"
+    }
+  ],
+  "schema_version": "wp5-bin4-wsl2-increment-v1",
+  "scientific_settings": {
+    "chains_per_width": 4,
+    "max_parallel_chains": 8,
+    "sampled_dimensions": 20,
+    "widths": [
+      0.005,
+      0.01,
+      0.02
+    ]
+  },
+  "source_git_commit": "d94e4cddf31189a06e4dea07a9ae13fa1e22d76a"
+}

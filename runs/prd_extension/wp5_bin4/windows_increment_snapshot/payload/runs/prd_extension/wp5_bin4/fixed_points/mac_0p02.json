@@ -1,0 +1,53 @@
+{
+  "component_chi2": {
+    "act_dr6_lenslike.ACTDR6LensLike": 22.465906221378297,
+    "bao.desi_dr2.desi_bao_all": 26.2230156638634,
+    "pipeline.early_de_gate.Bin4EarlyDEGate": -0.0,
+    "planck_2018_lowl.EE_clik": 395.99115991179616,
+    "planck_2018_lowl.TT_clik": 22.72139101565125,
+    "planck_NPIPE_highl_CamSpec.TTTEEE": 11324.533820049517,
+    "sn.pantheonplusshoes": 1667.7140454950977
+  },
+  "config": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p02.yaml",
+  "created_at_utc": "2026-08-19T05:06:33.409582+00:00",
+  "environment": {
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13"
+  },
+  "fixed_point": {
+    "A_planck": 1.0,
+    "Mb": -19.383,
+    "amp_143": 17.0,
+    "amp_143x217": 8.0,
+    "amp_217": 11.0,
+    "calEE": 1.0,
+    "calTE": 1.0,
+    "logA": 3.041,
+    "n_143": 1.0,
+    "n_143x217": 1.9,
+    "n_217": 1.6,
+    "ns": 0.9655,
+    "ombh2": 0.02227,
+    "omch2": 0.11923,
+    "tau": 0.05405,
+    "theta_MC_100": 1.04086,
+    "w1": -1.0,
+    "w2": -0.9,
+    "w3": -1.5,
+    "w4": -1.7
+  },
+  "loglikes": {
+    "act_dr6_lenslike.ACTDR6LensLike": -11.232953110689149,
+    "bao.desi_dr2.desi_bao_all": -13.1115078319317,
+    "pipeline.early_de_gate.Bin4EarlyDEGate": 0.0,
+    "planck_2018_lowl.EE_clik": -197.99557995589808,
+    "planck_2018_lowl.TT_clik": -11.360695507825625,
+    "planck_NPIPE_highl_CamSpec.TTTEEE": -5662.2669100247585,
+    "sn.pantheonplusshoes": -833.8570227475489
+  },
+  "purpose": "cross-platform drift screen before WP5 production",
+  "runtime_seconds": 9.211156375000428,
+  "schema_version": "wp5-bin4-fixed-point-v1",
+  "scientific_role": "implementation diagnostic only",
+  "total_likelihood_chi2": 13459.649338357303
+}
