@@ -1,0 +1,91 @@
+{
+  "WP5_production_samples_exist": false,
+  "config_hashes": {
+    "0p005_c1": "67fb4027b462b6b036ba78caaf40a2c6df04d5e420e6712c28e4f84981b0bce2",
+    "0p005_c2": "88af7208bc48fe8a509175c90270b61ce5740a4641fc0f1bb14e79d194192f6c",
+    "0p005_c3": "8dafc05f25ea4e23041cf2bc413f6998192ecf259fb6d752091b4ed51a9a18d4",
+    "0p005_c4": "0ffce68d3e4f3cd50e5a152cae24e0856d3e737a5c048b4ca2c5f74d0e50f27e",
+    "0p01_c1": "1f39fd05c881eb059e64e20c723f8e128eb42ae8e31c0fe77115c80c8596b0fb",
+    "0p01_c2": "8e6641dae77f55efda57735268337a2fc0fd3301d66ccd1ddc0de7154a722047",
+    "0p01_c3": "55c1cbe7c9ac3e86e7b516b01e18a6c469a50c98042d64fbc6c13c1e015335c1",
+    "0p01_c4": "dd489267cf2acd1fd4239194030e3ac99c8229acbfb61f35d55c88ccabacfe25",
+    "0p02_c1": "61dd6d67bbddc20d860025e839c1e489f5a75828e397ac23342daa59152fc9b5",
+    "0p02_c2": "54640c4e93f1fdf31154110f4221f50c967865d3b3bcc54ae5e992b3983cf013",
+    "0p02_c3": "048012489bd917f28c23bd81f9a0bc0465155fe96b4069ad6e7844c576d68ee4",
+    "0p02_c4": "cd503c7141399d87ac91dfef36f6ee794ac5e8168f5ef0956daafd86643ffbff"
+  },
+  "created_at_utc": "2026-08-19T05:02:02.252919+00:00",
+  "input_hashes": {
+    "amendment": {
+      "path": "plan/wp5_smooth_background_amendment_a013.json",
+      "sha256": "36a9750012a90d94c4f8ef87efb6d93499efefea6c9ff96ad6e7786fb029a331"
+    },
+    "bin4_camb": {
+      "path": "pipeline/wp5_camb.py",
+      "sha256": "d95de194bd7b501063ef7de661c44e9afc1ea3a22912f1358782f25856421e8d"
+    },
+    "bin4_table": {
+      "path": "pipeline/wp5_bin4.py",
+      "sha256": "717136f02773208313f111a52ef4289e80c7387ef472545774f29af22b23d127"
+    },
+    "config_plan": {
+      "path": "runs/prd_extension/wp5_bin4/config_plan.json",
+      "sha256": "83d73bc2540eb073475c82e19341d2e725a164daf727cc81006ec4f323e10966"
+    },
+    "early_de_gate": {
+      "path": "pipeline/early_de_gate.py",
+      "sha256": "2a144d0f240074b1a6062908bbf33aa9d1299d52bfad624bb489ff1687966ab1"
+    },
+    "formal_theory_gate": {
+      "path": "runs/prd_extension/wp5_bin4/formal_theory_gate.json",
+      "sha256": "ac3ce495e32029cc736186e5d132d5e3c8b33854316d39e9d22fda492a482449"
+    },
+    "policy": {
+      "path": "plan/wp5_external_convergence_policy.json",
+      "sha256": "c3f7657866c9d870efa4f4c5f97f9cd5174c43ad3e0bbdf3df118fa274956770"
+    },
+    "proposal": {
+      "path": "runs/prd_extension/wp5_bin4/proposal.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    "smoke_audit": {
+      "path": "runs/prd_extension/wp5_bin4/smoke_audit.json",
+      "sha256": "aa2b65b115ce415a5e311f3b1b1ad1d57a121e4a49332c6bebc88c3c134fef1b"
+    },
+    "system_smoke_audit": {
+      "path": "runs/prd_extension/wp5_bin4/production_system/system_smoke_audit.json",
+      "sha256": "931df521cebf7a8dae9482d9dd818bf78eb4de7f56e3626d796f5a81e7e03179"
+    }
+  },
+  "policy_sha256": "c3f7657866c9d870efa4f4c5f97f9cd5174c43ad3e0bbdf3df118fa274956770",
+  "run_plan_sha256": "70d1f5220cb23c5e52c928769279a9099ffc9efc0f29560b0d9070dc11ab0f81",
+  "runtime_hashes": {
+    "controller": {
+      "path": "pipeline/run_wp5_external_controller.py",
+      "sha256": "01a07db483ff6d88b86feae2e7fb754f12db664b77ba286ee5ef2e9d9c81fd0a"
+    },
+    "driver": {
+      "path": "pipeline/run_wp5_bin4.py",
+      "sha256": "8e595e36124577947ae5e5ed50dee8336baa5af4188eb569ae0abb841ab33f6c"
+    },
+    "evaluator": {
+      "path": "pipeline/evaluate_wp5_external_stop.py",
+      "sha256": "7c3f63fc487e79442866503124b77222e629a5c9ee5ef78234b609b0d87116dc"
+    },
+    "finalizer": {
+      "path": "pipeline/finalize_wp5_external_stop.py",
+      "sha256": "cbdee2a6164720f9283d16fcec0779bda001d26fdd7cfa403b4241656a629e1f"
+    },
+    "freezer": {
+      "path": "pipeline/freeze_wp5_system.py",
+      "sha256": "d23417efb769f23079e609673b02b99324a7888a262a3b1dca87070ca86bc5b8"
+    },
+    "monitor": {
+      "path": "pipeline/monitor_wp5_bin4.py",
+      "sha256": "1779925d3356117cbdc9c0b0e943807311afee91a6065f0e062c2f09790f997c"
+    }
+  },
+  "schema_version": "wp5-bin4-activation-v1",
+  "scientific_endpoints_inspected": false,
+  "status": "ACTIVE_BEFORE_WP5_PRODUCTION"
+}

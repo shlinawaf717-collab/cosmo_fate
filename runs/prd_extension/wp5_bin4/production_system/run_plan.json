@@ -1,0 +1,137 @@
+{
+  "chains": [
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c1/run.yaml",
+      "config_sha256": "67fb4027b462b6b036ba78caaf40a2c6df04d5e420e6712c28e4f84981b0bce2",
+      "delta_lna": 0.005,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c1/chain",
+      "seed": 2026082511,
+      "width_tag": "0p005"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c2/run.yaml",
+      "config_sha256": "88af7208bc48fe8a509175c90270b61ce5740a4641fc0f1bb14e79d194192f6c",
+      "delta_lna": 0.005,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c2/chain",
+      "seed": 2026082512,
+      "width_tag": "0p005"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c3/run.yaml",
+      "config_sha256": "8dafc05f25ea4e23041cf2bc413f6998192ecf259fb6d752091b4ed51a9a18d4",
+      "delta_lna": 0.005,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c3/chain",
+      "seed": 2026082513,
+      "width_tag": "0p005"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c4/run.yaml",
+      "config_sha256": "0ffce68d3e4f3cd50e5a152cae24e0856d3e737a5c048b4ca2c5f74d0e50f27e",
+      "delta_lna": 0.005,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c4/chain",
+      "seed": 2026082514,
+      "width_tag": "0p005"
+    },
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c1/run.yaml",
+      "config_sha256": "1f39fd05c881eb059e64e20c723f8e128eb42ae8e31c0fe77115c80c8596b0fb",
+      "delta_lna": 0.01,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c1/chain",
+      "seed": 2026082521,
+      "width_tag": "0p01"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c2/run.yaml",
+      "config_sha256": "8e6641dae77f55efda57735268337a2fc0fd3301d66ccd1ddc0de7154a722047",
+      "delta_lna": 0.01,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c2/chain",
+      "seed": 2026082522,
+      "width_tag": "0p01"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c3/run.yaml",
+      "config_sha256": "55c1cbe7c9ac3e86e7b516b01e18a6c469a50c98042d64fbc6c13c1e015335c1",
+      "delta_lna": 0.01,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c3/chain",
+      "seed": 2026082523,
+      "width_tag": "0p01"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c4/run.yaml",
+      "config_sha256": "dd489267cf2acd1fd4239194030e3ac99c8229acbfb61f35d55c88ccabacfe25",
+      "delta_lna": 0.01,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c4/chain",
+      "seed": 2026082524,
+      "width_tag": "0p01"
+    },
+    {
+      "chain": 1,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c1/run.yaml",
+      "config_sha256": "61dd6d67bbddc20d860025e839c1e489f5a75828e397ac23342daa59152fc9b5",
+      "delta_lna": 0.02,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c1/chain",
+      "seed": 2026082531,
+      "width_tag": "0p02"
+    },
+    {
+      "chain": 2,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c2/run.yaml",
+      "config_sha256": "54640c4e93f1fdf31154110f4221f50c967865d3b3bcc54ae5e992b3983cf013",
+      "delta_lna": 0.02,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c2/chain",
+      "seed": 2026082532,
+      "width_tag": "0p02"
+    },
+    {
+      "chain": 3,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c3/run.yaml",
+      "config_sha256": "048012489bd917f28c23bd81f9a0bc0465155fe96b4069ad6e7844c576d68ee4",
+      "delta_lna": 0.02,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c3/chain",
+      "seed": 2026082533,
+      "width_tag": "0p02"
+    },
+    {
+      "chain": 4,
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c4/run.yaml",
+      "config_sha256": "cd503c7141399d87ac91dfef36f6ee794ac5e8168f5ef0956daafd86643ffbff",
+      "delta_lna": 0.02,
+      "output_prefix": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c4/chain",
+      "seed": 2026082534,
+      "width_tag": "0p02"
+    }
+  ],
+  "chains_per_width": 4,
+  "config_plan": {
+    "path": "runs/prd_extension/wp5_bin4/config_plan.json",
+    "sha256": "83d73bc2540eb073475c82e19341d2e725a164daf727cc81006ec4f323e10966"
+  },
+  "created_at_utc": "2026-08-19T05:00:27.556765+00:00",
+  "fate_calculation_during_sampling": false,
+  "max_parallel_chains": 8,
+  "policy": {
+    "path": "plan/wp5_external_convergence_policy.json",
+    "sha256": "c3f7657866c9d870efa4f4c5f97f9cd5174c43ad3e0bbdf3df118fa274956770"
+  },
+  "proposal": {
+    "path": "runs/prd_extension/wp5_bin4/proposal.covmat",
+    "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+  },
+  "sampling_endpoint_inspection_during_run": false,
+  "schema_version": "wp5-bin4-run-plan-v1",
+  "status": "FROZEN_BEFORE_WP5_PRODUCTION",
+  "threads_per_chain": 1,
+  "width_order": [
+    "0p005",
+    "0p01",
+    "0p02"
+  ]
+}

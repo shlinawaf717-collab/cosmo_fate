@@ -1,0 +1,70 @@
+{
+  "created_at_utc": "2026-08-19T05:01:39.220757+00:00",
+  "fate_calculation_performed": false,
+  "posterior_generated": false,
+  "runs": [
+    {
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c1/run.yaml",
+      "config_sha256": "67fb4027b462b6b036ba78caaf40a2c6df04d5e420e6712c28e4f84981b0bce2",
+      "log": "runs/prd_extension/wp5_bin4/production_system/delta_0p005/c1/system_smoke.log",
+      "log_sha256": "ef25169bda9b5a8b50323b50d25250d819663248aaa37eebc54d9c5c31883fd0",
+      "markers": {
+        "act_initialized": true,
+        "desi_initialized": true,
+        "dynamic_BIN4CAMB_loaded": true,
+        "four_bin_initial_point": true,
+        "npipe_initialized": true,
+        "registered_seed": true,
+        "test_initialization_success": true,
+        "two_clik_self_checks": true
+      },
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "width_tag": "0p005"
+    },
+    {
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c1/run.yaml",
+      "config_sha256": "1f39fd05c881eb059e64e20c723f8e128eb42ae8e31c0fe77115c80c8596b0fb",
+      "log": "runs/prd_extension/wp5_bin4/production_system/delta_0p01/c1/system_smoke.log",
+      "log_sha256": "b41e70d4b2cafab9baaf749f70d33dbb4d6e60b97b1f21be095ec9ebf17e80aa",
+      "markers": {
+        "act_initialized": true,
+        "desi_initialized": true,
+        "dynamic_BIN4CAMB_loaded": true,
+        "four_bin_initial_point": true,
+        "npipe_initialized": true,
+        "registered_seed": true,
+        "test_initialization_success": true,
+        "two_clik_self_checks": true
+      },
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "width_tag": "0p01"
+    },
+    {
+      "config": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c1/run.yaml",
+      "config_sha256": "61dd6d67bbddc20d860025e839c1e489f5a75828e397ac23342daa59152fc9b5",
+      "log": "runs/prd_extension/wp5_bin4/production_system/delta_0p02/c1/system_smoke.log",
+      "log_sha256": "1a4730d4aa2c910bb1cdd5afda84261f1618c43fdfcb6b60b152278f0d802189",
+      "markers": {
+        "act_initialized": true,
+        "desi_initialized": true,
+        "dynamic_BIN4CAMB_loaded": true,
+        "four_bin_initial_point": true,
+        "npipe_initialized": true,
+        "registered_seed": true,
+        "test_initialization_success": true,
+        "two_clik_self_checks": true
+      },
+      "pass": true,
+      "returncode": 0,
+      "sample_files": [],
+      "width_tag": "0p02"
+    }
+  ],
+  "sampling_performed": false,
+  "schema_version": "wp5-bin4-production-system-smoke-v1",
+  "status": "PASS"
+}

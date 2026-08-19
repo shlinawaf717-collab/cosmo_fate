@@ -1,0 +1,70 @@
+{
+  "blinding": {
+    "allowed": [
+      "complete_row_counts",
+      "integer_weight_counts",
+      "file_sizes_mtimes_sha256",
+      "registered_Rminus1_and_ESS",
+      "boolean_gate_states",
+      "process_health"
+    ],
+    "prohibited": [
+      "posterior_locations",
+      "posterior_intervals",
+      "likelihood_values",
+      "best_fit_points",
+      "width_comparisons",
+      "fate_quantities"
+    ]
+  },
+  "execution": {
+    "chains_per_width": 4,
+    "max_parallel_chains": 8,
+    "threads_per_chain": 1,
+    "widths": {
+      "0p005": [2026082511, 2026082512, 2026082513, 2026082514],
+      "0p01": [2026082521, 2026082522, 2026082523, 2026082524],
+      "0p02": [2026082531, 2026082532, 2026082533, 2026082534]
+    }
+  },
+  "repeated_pass": {
+    "failed_intervening_snapshot_resets_sequence": true,
+    "minimum_new_complete_rows_per_chain": 320,
+    "require_changed_chain_hashes": true,
+    "required_consecutive_passes": 2
+  },
+  "sampled_parameters": [
+    "logA", "ns", "theta_MC_100", "ombh2", "omch2", "tau",
+    "w1", "w2", "w3", "w4", "Mb", "A_planck", "amp_143",
+    "amp_217", "amp_143x217", "n_143", "n_217", "n_143x217",
+    "calTE", "calEE"
+  ],
+  "schema_version": "wp5-bin4-external-convergence-policy-v1",
+  "statistics": {
+    "ess": {
+      "bulk_definition": "pooled_rank_normalized_geyer_initial_positive_monotone",
+      "bulk_exclusive_minimum": 1000,
+      "gated_parameters": ["w1", "w2", "w3", "w4"],
+      "row_burn_fraction": 0.5,
+      "tail_definition": "minimum_binary_indicator_ess_at_pooled_q05_q95",
+      "tail_exclusive_minimum": 400,
+      "weight_handling": "expand_integer_weights_as_metropolis_dwell_states"
+    },
+    "rminus1": {
+      "definition": "Cobaya_3.6.2_MPI_multivariate",
+      "parameters": "all_20_sampled",
+      "primary_exclusive_maximum": 0.01,
+      "primary_row_burn_fraction": 0.5,
+      "sensitivity_exclusive_maximum": 0.02,
+      "sensitivity_row_burn_fractions": [0.2, 0.7]
+    }
+  },
+  "status": "FROZEN_BEFORE_WP5_PRODUCTION",
+  "stop_transaction": {
+    "edit_cobaya_checkpoint": false,
+    "pause_only_mapped_width_children": true,
+    "recompute_all_gates_after_pause": true,
+    "resume_all_children_on_failure": true,
+    "stable_sizes_required": true
+  }
+}

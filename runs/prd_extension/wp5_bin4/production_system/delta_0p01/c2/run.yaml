@@ -1,0 +1,442 @@
+packages_path: /Users/nocide/cosmo_fate/data/cobaya_packages
+theory:
+  pipeline.wp5_camb.BIN4CAMB:
+    extra_args:
+      bbn_predictor: PArthENoPE_880.2_standard.dat
+      dark_energy_model: ppf
+      theta_H0_range:
+      - 20
+      - 100
+      num_massive_neutrinos: 1
+      halofit_version: mead2016
+      lmax: 4000
+      lens_margin: 1250
+      lens_potential_accuracy: 4
+      AccuracyBoost: 1
+      lSampleBoost: 1
+      lAccuracyBoost: 1
+    stop_at_error: false
+    ignore_obsolete: false
+    path: global
+    python_path: .
+    delta_lna: 0.01
+    table_base_points: 1200
+    table_points_per_transition: 240
+likelihood:
+  bao.desi_dr2.desi_bao_all: {}
+  sn.pantheonplusshoes:
+    use_abs_mag: true
+    stop_at_error: false
+  planck_2018_lowl.TT_clik:
+    clik_file: baseline/plc_3.0/low_l/commander/commander_dx12_v3_2_29.clik
+    product_id: '151902'
+    stop_at_error: false
+  planck_2018_lowl.EE_clik:
+    clik_file: baseline/plc_3.0/low_l/simall/simall_100x143_offlike5_EE_Aplanck_B.clik
+    product_id: '151902'
+    stop_at_error: false
+  planck_NPIPE_highl_CamSpec.TTTEEE:
+    dataset_file: CamSpec_NPIPE/CamSpec_NPIPE_12_6_cl.dataset
+    dataset_params:
+      use_cl: 143x143 217x217 143x217 TE EE
+    stop_at_error: false
+  act_dr6_lenslike.ACTDR6LensLike:
+    lmax: 4000
+    mock: false
+    nsims_act: 792.0
+    nsims_planck: 400.0
+    no_like_corrections: false
+    no_actlike_cmb_corrections: false
+    lens_only: false
+    trim_lmax: 2998
+    variant: actplanck_baseline
+    apply_hartlap: true
+    limber: false
+    nz: 100
+    kmax: 10
+    zmax: null
+    scale_cov: null
+    varying_cmb_alens: false
+    act_cmb_rescale: false
+    act_calib: false
+    stop_at_error: false
+    version: v1.2
+  pipeline.early_de_gate.Bin4EarlyDEGate:
+    python_path: .
+    z_check: 1059.0
+    max_ratio: 0.01
+params:
+  logA:
+    prior:
+      min: 1.61
+      max: 3.91
+    ref:
+      dist: norm
+      loc: 3.036
+      scale: 0.001
+    proposal: 0.001
+    latex: \ln(10^{10} A_\mathrm{s})
+    drop: true
+  As:
+    value: 'lambda logA: 1e-10*np.exp(logA)'
+    latex: A_\mathrm{s}
+    derived: true
+  ns:
+    prior:
+      min: 0.8
+      max: 1.2
+    ref:
+      dist: norm
+      loc: 0.9649
+      scale: 0.004
+    proposal: 0.002
+    latex: n_\mathrm{s}
+  theta_MC_100:
+    prior:
+      min: 0.5
+      max: 10.0
+    ref:
+      dist: norm
+      loc: 1.04109
+      scale: 0.0004
+    proposal: 0.0002
+    latex: 100\theta_\mathrm{MC}
+    drop: true
+    renames: theta
+  cosmomc_theta:
+    value: 'lambda theta_MC_100: 1.e-2*theta_MC_100'
+    derived: false
+  H0:
+    latex: H_0
+    derived: true
+  ombh2:
+    prior:
+      min: 0.005
+      max: 0.1
+    ref:
+      dist: norm
+      loc: 0.02237
+      scale: 0.0001
+    proposal: 0.0001
+    latex: \Omega_\mathrm{b} h^2
+    renames:
+    - omegabh2
+  omch2:
+    prior:
+      min: 0.001
+      max: 0.99
+    ref:
+      dist: norm
+      loc: 0.12
+      scale: 0.001
+    proposal: 0.0005
+    latex: \Omega_\mathrm{c} h^2
+    renames:
+    - omegach2
+  tau:
+    prior:
+      min: 0.01
+      max: 0.8
+    ref:
+      dist: norm
+      loc: 0.0544
+      scale: 0.006
+    proposal: 0.003
+    latex: \tau_\mathrm{reio}
+  mnu:
+    latex: \sum m_\nu
+    value: 0.06
+  nnu:
+    latex: N_\mathrm{eff}
+    value: 3.044
+  w1:
+    prior:
+      min: -3.0
+      max: 1.0
+    ref:
+      dist: norm
+      loc: -1.0
+      scale: 0.04
+    proposal: 0.05
+    latex: w_{1}
+  w2:
+    prior:
+      min: -3.0
+      max: 1.0
+    ref:
+      dist: norm
+      loc: -0.9
+      scale: 0.04
+    proposal: 0.05
+    latex: w_{2}
+  w3:
+    prior:
+      min: -3.0
+      max: 1.0
+    ref:
+      dist: norm
+      loc: -1.5
+      scale: 0.04
+    proposal: 0.05
+    latex: w_{3}
+  w4:
+    prior:
+      min: -3.0
+      max: 1.0
+    ref:
+      dist: norm
+      loc: -1.7
+      scale: 0.04
+    proposal: 0.05
+    latex: w_{4}
+  Mb:
+    prior:
+      min: -20.0
+      max: -18.0
+    ref:
+      dist: norm
+      loc: -19.25
+      scale: 0.03
+    proposal: 0.02
+    latex: M_B
+  omk:
+    latex: \Omega_\mathrm{k}
+    value: 0.0
+    renames:
+    - omegak
+  omegam:
+    latex: \Omega_\mathrm{m}
+    derived: true
+  omegamh2:
+    derived: 'lambda omegam, H0: omegam*(H0/100)**2'
+    latex: \Omega_\mathrm{m} h^2
+  omegal:
+    latex: \Omega_\Lambda
+    derived: true
+    renames:
+    - omega_de
+  zrei:
+    latex: z_\mathrm{reio}
+    derived: true
+  YHe:
+    latex: Y_\mathrm{P}
+    derived: true
+    renames:
+    - yhe
+    - yheused
+  Y_p:
+    latex: Y_P^\mathrm{BBN}
+    derived: true
+    renames:
+    - YpBBN
+  DHBBN:
+    derived: 'lambda DH: 10**5*DH'
+    latex: 10^5 \mathrm{D}/\mathrm{H}
+  sigma8:
+    latex: \sigma_8
+    derived: true
+  s8h5:
+    derived: 'lambda sigma8, H0: sigma8*(H0*1e-2)**(-0.5)'
+    latex: \sigma_8/h^{0.5}
+  s8omegamp5:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.5'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.5}
+  s8omegamp25:
+    derived: 'lambda sigma8, omegam: sigma8*omegam**0.25'
+    latex: \sigma_8 \Omega_\mathrm{m}^{0.25}
+  A:
+    derived: 'lambda As: 1e9*As'
+    latex: 10^9 A_\mathrm{s}
+  clamp:
+    derived: 'lambda As, tau: 1e9*As*np.exp(-2*tau)'
+    latex: 10^9 A_\mathrm{s} e^{-2\tau}
+  age:
+    latex: \mathrm{Age}/\mathrm{Gyr}
+    derived: true
+  rdrag:
+    latex: r_\mathrm{d}
+    derived: true
+  zdrag:
+    latex: z_\mathrm{d}
+    derived: true
+  H0rdrag:
+    derived: 'lambda H0, rdrag: H0 * rdrag'
+    latex: H_0 r_\mathrm{d}
+  A_planck:
+    prior:
+      dist: norm
+      loc: 1
+      scale: 0.0025
+    ref:
+      dist: norm
+      loc: 1
+      scale: 0.002
+    proposal: 0.0005
+    latex: y_\mathrm{cal}
+    renames: calPlanck
+  use_fg_residual_model:
+    value: 0
+  cal0:
+    value: 1
+  cal2:
+    value: 1
+  amp_100:
+    value: 0
+  amp_143:
+    prior:
+      dist: uniform
+      min: 0
+      max: 50
+    ref:
+      dist: norm
+      loc: 10
+      scale: 1
+    latex: A^{\rm power}_{143}
+    proposal: 1
+  amp_217:
+    prior:
+      dist: uniform
+      min: 0
+      max: 50
+    ref:
+      dist: norm
+      loc: 20
+      scale: 1
+    latex: A^{\rm power}_{217}
+    proposal: 1
+  amp_143x217:
+    prior:
+      dist: uniform
+      min: 0
+      max: 50
+    ref:
+      dist: norm
+      loc: 10
+      scale: 1
+    latex: A^{\rm power}_{143\times217}
+    proposal: 1
+  n_100:
+    value: 1
+  n_143:
+    prior:
+      dist: uniform
+      min: 0
+      max: 5
+    ref:
+      dist: norm
+      loc: 1
+      scale: 0.2
+    latex: \gamma^{\rm power}_{143}
+    proposal: 0.2
+  n_217:
+    prior:
+      dist: uniform
+      min: 0
+      max: 5
+    ref:
+      dist: norm
+      loc: 1
+      scale: 0.2
+    latex: \gamma^{\rm power}_{217}
+    proposal: 0.2
+  n_143x217:
+    prior:
+      dist: uniform
+      min: 0
+      max: 5
+    ref:
+      dist: norm
+      loc: 1
+      scale: 0.2
+    latex: \gamma^{\rm power}_{143\times217}
+    proposal: 0.2
+  calTE:
+    prior:
+      dist: norm
+      loc: 1
+      scale: 0.01
+    ref:
+      dist: norm
+      loc: 1
+      scale: 0.01
+    proposal: 0.01
+    latex: c_{TE}
+  calEE:
+    prior:
+      dist: norm
+      loc: 1
+      scale: 0.01
+    ref:
+      dist: norm
+      loc: 1
+      scale: 0.01
+    proposal: 0.01
+    latex: c_{EE}
+  chi2__BAO:
+    latex: \chi^2_\mathrm{BAO}
+    derived: true
+  chi2__CMB:
+    latex: \chi^2_\mathrm{CMB}
+    derived: true
+  chi2__SN:
+    latex: \chi^2_\mathrm{SN}
+    derived: true
+sampler:
+  mcmc:
+    burn_in: 0
+    max_tries: 1000
+    covmat: /Users/nocide/cosmo_fate/runs/prd_extension/wp5_bin4/proposal.covmat
+    covmat_params: null
+    proposal_scale: 1.9
+    output_every: 60s
+    learn_every: 40d
+    temperature: 1
+    learn_proposal: true
+    learn_proposal_Rminus1_max: 2.0
+    learn_proposal_Rminus1_max_early: 30.0
+    learn_proposal_Rminus1_min: 0.0
+    max_samples: .inf
+    Rminus1_stop: 1.0e-06
+    Rminus1_cl_stop: 1.0e-06
+    Rminus1_cl_level: 0.95
+    Rminus1_single_split: 4
+    measure_speeds: true
+    oversample_power: 0.4
+    oversample_thin: true
+    drag: true
+    blocking:
+    - - 1
+      - - theta_MC_100
+        - ombh2
+        - omch2
+        - tau
+        - w1
+        - w2
+        - w3
+        - w4
+    - - 1
+      - - logA
+        - ns
+    - - 4
+      - - A_planck
+    - - 4
+      - - amp_143
+        - amp_217
+        - amp_143x217
+        - n_143
+        - n_217
+        - n_143x217
+        - calTE
+        - calEE
+        - Mb
+    callback_function: null
+    callback_every: null
+    seed: 2026082522
+    check_every: null
+    oversample: null
+    drag_limits: null
+    fallback_covmat_scale: 4
+    version: '3.5'
+output: /Users/nocide/cosmo_fate/runs/prd_extension/wp5_bin4/production_system/delta_0p01/c2/chain
+prior:
+  matter_dom_bin4: 'lambda w4: 0 if w4 < 0 else -1e30'
