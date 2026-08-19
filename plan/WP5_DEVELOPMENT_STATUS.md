@@ -61,17 +61,39 @@ relaxation: it changes the validation target to the same smooth model whose
 perturbations CAMB evolves. PRD-A013 records this explicitly because the
 original text says "exact piecewise".
 
-## Remaining workload if the corrective route is approved
+## Progress after PRD-A013
 
-1. exact-smoothed analytic background implementation and high-resolution
-   table convergence tests: 2--4 days;
-2. dynamic Cobaya/CAMB BIN4 theory adapter and parameter plumbing: 1--2 weeks;
-3. formal `lmax=4000` LCDM/constant-w/CPL TT/TE/EE/matter-power gates: 3--7 days;
-4. full-likelihood initialization, early-DE rejection and proposal preflight:
-   3--7 days;
-5. primary plus three-width multi-chain inference on Windows: 2--5 weeks;
-6. convergence, width-sensitivity, fate and paper audits: about 1 week.
+The corrected route has now completed:
 
-Current completion on the corrective route is approximately 20--25%. Under
-the literal route, the core feasibility question is already answered No-Go and
-only the formal closure audit and manuscript disposition remain.
+- independent exact-smoothed dark-energy density, `H(z)`, and distance
+  reconstruction, including CAMB's exact massive-neutrino non-DE density;
+- all six exact-smoothed checks (two histories times three widths), with
+  `H(z)` residuals between `5e-10` and `1e-8`;
+- the formal `lmax=4000`, lens-potential-accuracy 4, mead2016 LCDM,
+  constant-w, and CPL limits for TT/TE/EE, lensing PP, and matter power;
+- a dynamic Cobaya `BIN4CAMB` transfer theory accepting `w1..w4` at every
+  sampled point;
+- three frozen full-F1 likelihood configs, P1 `w4<0`, and the A-006
+  early-DE likelihood;
+- no-sampling initialization of all three widths through DESI DR2,
+  Pantheon+SH0ES, both low-l likelihoods, NPIPE, and ACT lensing;
+- a positive-definite 20-D block proposal built from the converged F1 shared
+  parameters and the archived compressed-BIN4 node covariance. Cross-model
+  covariance blocks are zero by construction.
+
+The no-sampling smoke evaluated one initial real-data likelihood point per
+width after amendment/config freeze. It produced no chain, posterior, fate
+quantity, or aggregate scientific endpoint.
+
+## Remaining workload
+
+1. freeze the 12-chain production topology, seeds, 20-D external convergence
+   estimator, repeated-pass rule, and finalizer: 3--5 days;
+2. build and validate the Windows task increment plus a bounded throughput
+   pilot: 2--4 days;
+3. run three widths times four chains on Windows: approximately 2--5 weeks;
+4. convergence, early-DE rejection, width-sensitivity, fate and paper audits:
+   about 1 week.
+
+Current completion on the corrective route is approximately 45--50%. No WP5
+posterior or fate result exists yet.

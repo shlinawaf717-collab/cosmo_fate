@@ -1,0 +1,35 @@
+{
+  "amendment": "plan/wp5_smooth_background_amendment_a013.json",
+  "amendment_sha256": "36a9750012a90d94c4f8ef87efb6d93499efefea6c9ff96ad6e7786fb029a331",
+  "base": "pipeline/wp4_f1.yaml",
+  "base_sha256": "744f5d063e953f45aa7731283f3c1eaed0b894765f18f83a65de5d1ee0b45f7b",
+  "configs": [
+    {
+      "delta_lna": 0.005,
+      "path": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p005.yaml",
+      "seed": 2026082501,
+      "sha256": "f6a508db74e52dac899b47d34a18cec511dd3b9eeb63cdd47e2ea752a8d92cc1"
+    },
+    {
+      "delta_lna": 0.01,
+      "path": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p01.yaml",
+      "seed": 2026082502,
+      "sha256": "35dc9b3ea55988d8df2b02acf52863ccc798624e65428abe20cf8a5fb91c8452"
+    },
+    {
+      "delta_lna": 0.02,
+      "path": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p02.yaml",
+      "seed": 2026082503,
+      "sha256": "d03587f777ce14cc5388fc865b08271346e70cdeee62f17c5f49d4aea59a10cd"
+    }
+  ],
+  "created_at_utc": "2026-08-19T03:41:01.477526+00:00",
+  "formal_theory_gate": "runs/prd_extension/wp5_bin4/formal_theory_gate.json",
+  "formal_theory_gate_sha256": "ac3ce495e32029cc736186e5d132d5e3c8b33854316d39e9d22fda492a482449",
+  "optional_width_selection": false,
+  "posterior_or_fate_result_generated": false,
+  "real_data_likelihood_evaluated": false,
+  "schema_version": "wp5-bin4-config-plan-v1",
+  "status": "FROZEN_BEFORE_FULL_LIKELIHOOD_INITIALIZATION",
+  "unchanged_primary_delta_lna": 0.01
+}

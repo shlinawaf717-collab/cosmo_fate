@@ -29,6 +29,10 @@ runs/prd_extension/wp4_full_cmb/f1/driver.lock
 runs/prd_extension/wp4_full_cmb/f1/driver_events.jsonl
 runs/prd_extension/wp4_full_cmb/f1/external_monitor/
 runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/
+runs/prd_extension/wp5_bin4/production/**/chain.covmat
+runs/prd_extension/wp5_bin4/production/**/chain.input.yaml
+runs/prd_extension/wp5_bin4/production/**/chain.input.yaml.locked
+runs/prd_extension/wp5_bin4/production/**/chain.updated.yaml
 tmp/
 paper/main.aux
 paper/main.bbl

@@ -1,0 +1,79 @@
+{
+  "config_plan": "runs/prd_extension/wp5_bin4/config_plan.json",
+  "config_plan_sha256": "83d73bc2540eb073475c82e19341d2e725a164daf727cc81006ec4f323e10966",
+  "created_at_utc": "2026-08-19T03:42:33.507585+00:00",
+  "runs": [
+    {
+      "config": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p005.yaml",
+      "config_sha256": "f6a508db74e52dac899b47d34a18cec511dd3b9eeb63cdd47e2ea752a8d92cc1",
+      "delta_lna": 0.005,
+      "log": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p005.smoke.log",
+      "log_sha256": "30846f980045a7914ff0f3380d76eb89eb5dc2795ad53eb1714e19b3d6bf1fa4",
+      "markers": {
+        "act_initialized": true,
+        "desi_initialized": true,
+        "dynamic_BIN4CAMB_loaded": true,
+        "four_bin_initial_point": true,
+        "npipe_initialized": true,
+        "registered_seed": true,
+        "test_initialization_success": true,
+        "two_clik_self_checks": true
+      },
+      "pass": true,
+      "returncode": 0,
+      "sample_chain_files": [],
+      "seed": 2026082501
+    },
+    {
+      "config": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p01.yaml",
+      "config_sha256": "35dc9b3ea55988d8df2b02acf52863ccc798624e65428abe20cf8a5fb91c8452",
+      "delta_lna": 0.01,
+      "log": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p01.smoke.log",
+      "log_sha256": "aecfe5b2d4682118da8fcda1f3b80c204199f1de03b3ab1ea7bc75d846634a28",
+      "markers": {
+        "act_initialized": true,
+        "desi_initialized": true,
+        "dynamic_BIN4CAMB_loaded": true,
+        "four_bin_initial_point": true,
+        "npipe_initialized": true,
+        "registered_seed": true,
+        "test_initialization_success": true,
+        "two_clik_self_checks": true
+      },
+      "pass": true,
+      "returncode": 0,
+      "sample_chain_files": [],
+      "seed": 2026082502
+    },
+    {
+      "config": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p02.yaml",
+      "config_sha256": "d03587f777ce14cc5388fc865b08271346e70cdeee62f17c5f49d4aea59a10cd",
+      "delta_lna": 0.02,
+      "log": "runs/prd_extension/wp5_bin4/configs/wp5_bin4_delta_0p02.smoke.log",
+      "log_sha256": "4cc6811919cf508210ab074ff5588e9b4d108de998ca471fc254342ec87e8ff8",
+      "markers": {
+        "act_initialized": true,
+        "desi_initialized": true,
+        "dynamic_BIN4CAMB_loaded": true,
+        "four_bin_initial_point": true,
+        "npipe_initialized": true,
+        "registered_seed": true,
+        "test_initialization_success": true,
+        "two_clik_self_checks": true
+      },
+      "pass": true,
+      "returncode": 0,
+      "sample_chain_files": [],
+      "seed": 2026082503
+    }
+  ],
+  "schema_version": "wp5-bin4-full-likelihood-smoke-v1",
+  "scope": {
+    "aggregate_scientific_endpoint_generated": false,
+    "fate_calculation_performed": false,
+    "posterior_generated": false,
+    "sampling_performed": false,
+    "single_initial_point_likelihood_evaluated_per_width": true
+  },
+  "status": "PASS"
+}

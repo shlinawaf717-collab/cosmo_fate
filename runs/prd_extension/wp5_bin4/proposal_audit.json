@@ -1,0 +1,90 @@
+{
+  "burn_fractions": {
+    "F1": 0.5,
+    "archived_BIN4": 0.3
+  },
+  "condition_number": 1489383096.346802,
+  "correlation_condition_number": 2171.563471819915,
+  "cross_block_policy": "all F1-shared versus archived-BIN4-node covariances fixed to zero",
+  "maximum_eigenvalue": 10.923892832591633,
+  "minimum_eigenvalue": 7.334508401086359e-09,
+  "parameters": [
+    "logA",
+    "ns",
+    "theta_MC_100",
+    "ombh2",
+    "omch2",
+    "tau",
+    "w1",
+    "w2",
+    "w3",
+    "w4",
+    "Mb",
+    "A_planck",
+    "amp_143",
+    "amp_217",
+    "amp_143x217",
+    "n_143",
+    "n_217",
+    "n_143x217",
+    "calTE",
+    "calEE"
+  ],
+  "role": "sampling efficiency only; block-diagonal construction does not change target",
+  "schema_version": "wp5-bin4-proposal-audit-v1",
+  "scientific_endpoint_generated": false,
+  "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955",
+  "shape": [
+    20,
+    20
+  ],
+  "sources": {
+    "F1_full_likelihood": [
+      {
+        "full_rows": 24772,
+        "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c1/chain.1.txt",
+        "post_burn_rows": 12386,
+        "post_burn_weight": 34941,
+        "sha256": "d62f7033f29a172a03149dec991bc12c014a88905024bc4c3f6bbefbb84e72ee"
+      },
+      {
+        "full_rows": 24591,
+        "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c2/chain.1.txt",
+        "post_burn_rows": 12296,
+        "post_burn_weight": 34025,
+        "sha256": "6b2df27ff970469437e91c9f2dd1fc2202d4731ee62158df6a4028541a3edf09"
+      },
+      {
+        "full_rows": 24973,
+        "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c3/chain.1.txt",
+        "post_burn_rows": 12487,
+        "post_burn_weight": 35186,
+        "sha256": "0a4133bf6bcceadfe393775c6013ebaf2633b1997e58da758ed1641224166622"
+      },
+      {
+        "full_rows": 24292,
+        "path": "runs/prd_extension/wp4_full_cmb/f1_wsl2/raw/work/f1/c4/chain.1.txt",
+        "post_burn_rows": 12146,
+        "post_burn_weight": 35177,
+        "sha256": "36039d29ede8afb9637613ea2c973d5f5c8726ee56c9c0d13b16848262e399fc"
+      }
+    ],
+    "archived_compressed_BIN4": [
+      {
+        "full_rows": 44800,
+        "path": "runs/phase3/fparam/bin4_1.1.txt",
+        "post_burn_rows": 31360,
+        "post_burn_weight": 123797,
+        "sha256": "95af9fde44a7e883ef6716863a51ba98871947feb2a5b8986b642ec200054620"
+      },
+      {
+        "full_rows": 33600,
+        "path": "runs/phase3/fparam/bin4_2.1.txt",
+        "post_burn_rows": 23520,
+        "post_burn_weight": 94183,
+        "sha256": "413e1646f388c3524b414702e55dee1362599acd57ef1a2de3118cd4e06df0ff"
+      }
+    ]
+  },
+  "status": "PASS"
+}
