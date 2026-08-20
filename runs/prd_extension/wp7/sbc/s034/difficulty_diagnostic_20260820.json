@@ -1,0 +1,39 @@
+{
+  "schema_version": "wp7-sbc-difficulty-diagnostic-v1",
+  "created_at_local": "2026-08-20T15:03:40+08:00",
+  "dataset_index": 34,
+  "scope": "blinded operational diagnosis requested during SBC production",
+  "posterior_locations_read": false,
+  "posterior_intervals_read": false,
+  "truth_rank_calculated": false,
+  "final_node_sign_read": false,
+  "fate_endpoint_calculated": false,
+  "runtime_snapshot": {
+    "rows": [8170, 7998],
+    "acceptance_rates": [0.085, 0.082],
+    "maximum_node_rhat": 1.4777811671583185,
+    "minimum_node_bulk_ess": 3.8695048609561824,
+    "minimum_node_tail_ess": 11.640742221327493,
+    "proposal_covariance_updates": [2, 0],
+    "proposal_condition_numbers": [6727494.533056026, 9000000.0]
+  },
+  "truth_geometry_percentiles_among_50": {
+    "latent_radius": 0.68,
+    "function_bound_margin": 0.66,
+    "spline_roughness": 0.34,
+    "scalar_prior_extremeness": 0.48,
+    "derived_cdm_density": 0.06
+  },
+  "noise_percentiles_among_50": {
+    "SN_chi2_per_dof": 0.48,
+    "BAO_chi2": 0.66,
+    "CMB_chi2": 0.32
+  },
+  "diagnosis": {
+    "function_truncation_boundary_is_primary_cause": false,
+    "atypical_noise_is_primary_cause": false,
+    "likely_primary_cause": "low derived CDM density produces a curved D0 cosmological degeneracy far from the shared reference point; low initial acceptance delays Cobaya proposal-covariance learning",
+    "comparison": "s035 acceptance is approximately 0.32-0.34 with 29-30 covariance updates and already passes external gates",
+    "registered_action": "continue unchanged; do not use truth-informed starts or alter the proposal during the frozen SBC campaign"
+  }
+}
