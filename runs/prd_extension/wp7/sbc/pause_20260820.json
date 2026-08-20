@@ -1,0 +1,109 @@
+{
+  "chain_files_stable_over_3_seconds": true,
+  "checkpoints_edited": false,
+  "closed_count": 46,
+  "closed_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "created_at_utc": "2026-08-20T10:03:14.904725+00:00",
+  "driver_and_cobaya_processes_absent": true,
+  "launchd_disabled": true,
+  "launchd_label": "com.cosmofate.wp7sbc",
+  "not_started": [
+    49,
+    50
+  ],
+  "partial_datasets": [
+    {
+      "chains": [
+        {
+          "bytes": 5678766,
+          "chain": 1,
+          "checkpoint_present": true,
+          "checkpoint_sha256": "abbfd8735e0153cf8428f734a7fb556c80404d0e8fe2d315678ec6cd57c30d6b",
+          "rows": 10176,
+          "sha256": "5efc220021e791091d5fa09ba653a239b91e33497f2bcffad9187bae14c43d07"
+        },
+        {
+          "bytes": 5641380,
+          "chain": 2,
+          "checkpoint_present": true,
+          "checkpoint_sha256": "b46ee04d39df254c68371ba2d5b99f09977b369316e50f206ae424210c88bb90",
+          "rows": 10109,
+          "sha256": "737a1cac13fdd250bacc9887e1badc9e0e0ccacb39b56afe6a0b89c8d32a36d6"
+        }
+      ],
+      "dataset_index": 47
+    },
+    {
+      "chains": [
+        {
+          "bytes": 1088100,
+          "chain": 1,
+          "checkpoint_present": true,
+          "checkpoint_sha256": "d0cbec7bd3218406b3a2403d78d278780553bb5abef9640e1c086e76509dd2ad",
+          "rows": 1949,
+          "sha256": "4ab2820f3e1fb75578a901e89a7a452d73b6406d4ecd2bb647c2c338db3d821e"
+        },
+        {
+          "bytes": 1256616,
+          "chain": 2,
+          "checkpoint_present": true,
+          "checkpoint_sha256": "31a16c004381babebdd6f2859dac06fd746da93de7350b937a4e5f7eb5d1cb56",
+          "rows": 2251,
+          "sha256": "7b73b901f36ecbd6a3162e415e8f5abac0162d54129e0db55d50ae4f1a8e53e8"
+        }
+      ],
+      "dataset_index": 48
+    }
+  ],
+  "reason": "user requested pause until tomorrow",
+  "resume": "launchctl enable gui/$(id -u)/com.cosmofate.wp7sbc; launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.cosmofate.wp7sbc.plist",
+  "schema_version": "wp7-sbc-user-pause-v1",
+  "scientific_endpoints_inspected": false
+}
