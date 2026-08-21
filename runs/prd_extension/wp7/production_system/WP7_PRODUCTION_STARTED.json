@@ -1,0 +1,8 @@
+{
+  "activation_sha256": "6241e52f192be4cb18998ac24b1713aad40e3c6fb008a361c453905c09f9cc6c",
+  "created_at_utc": "2026-08-21T03:19:48.784130+00:00",
+  "production_authorized": true,
+  "run_plan_sha256": "b32bcfaca54a314da5c8fe11b3e369eec0057eca11bc0d2885ef16e24b87706c",
+  "schema_version": "wp7-fs7-real-start-v1",
+  "scientific_endpoints_inspected_before_start": false
+}
