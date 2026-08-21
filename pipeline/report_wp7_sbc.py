@@ -88,7 +88,7 @@ def report() -> dict:
             coverage[name]["0.9"] += int(q05 <= truth[node_index - 1] <= q95)
         rank_rows.append(row)
     with RANKS_CSV.open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=("dataset_index", *NODES)); writer.writeheader(); writer.writerows(rank_rows)
+        writer = csv.DictWriter(stream, fieldnames=("dataset_index", *NODES), lineterminator="\n"); writer.writeheader(); writer.writerows(rank_rows)
     pvalues = {name: float(kstest([row[name] for row in rank_rows], "uniform").pvalue) for name in NODES}
     rejected = holm_rejections(pvalues)
     coverage_intervals = {probability: exact_acceptance_interval(DATASETS, float(probability)) for probability in ("0.5", "0.9")}

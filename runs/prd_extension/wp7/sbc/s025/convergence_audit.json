@@ -1,0 +1,78 @@
+{
+  "created_at_utc": "2026-08-20T02:29:24.880299+00:00",
+  "dataset_index": 25,
+  "final_diagnostics": {
+    "bulk_ess_by_node": {
+      "fs7_w1": 1145.4771134371276,
+      "fs7_w2": 1356.5478042850125,
+      "fs7_w3": 1503.0239101235898,
+      "fs7_w4": 1411.5503089758427,
+      "fs7_w5": 1479.8242378090524,
+      "fs7_w6": 1425.3759955666726,
+      "fs7_w7": 1588.6634901081964
+    },
+    "chain_snapshots": [
+      {
+        "captured_bytes": 16569252,
+        "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp7/sbc/s025/c1/chain.1.txt",
+        "rows": 29693,
+        "sha256": "704ab69b835d7c154ae66b1fb41a703b8710545bfc9b8f179a0973fc9945a41d"
+      },
+      {
+        "captured_bytes": 16505640,
+        "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp7/sbc/s025/c2/chain.1.txt",
+        "rows": 29579,
+        "sha256": "fad5c3c3e5700dafb84b3470356880ee96ec146385f3d7f532de09a6a6fbe9a7"
+      }
+    ],
+    "dataset_index": 25,
+    "fate_endpoint_calculated": false,
+    "gates": {
+      "all_node_bulk_ess_gt_400": true,
+      "all_node_rhat_lt_1p01": true,
+      "all_node_tail_ess_gt_400": true
+    },
+    "rhat_by_node": {
+      "fs7_w1": 1.001090146837115,
+      "fs7_w2": 1.00088315669026,
+      "fs7_w3": 1.0007483809803144,
+      "fs7_w4": 1.0007919739742408,
+      "fs7_w5": 1.0004145977462386,
+      "fs7_w6": 1.000593185216252,
+      "fs7_w7": 1.0014170090127184
+    },
+    "schema_version": "wp7-fs7-sbc-convergence-monitor-v1",
+    "status": "PASS",
+    "tail_ess_by_node": {
+      "fs7_w1": 2002.98091582128,
+      "fs7_w2": 2261.849836101582,
+      "fs7_w3": 2316.3472869477887,
+      "fs7_w4": 2584.8526900738175,
+      "fs7_w5": 2720.0574491885795,
+      "fs7_w6": 2464.5604917058563,
+      "fs7_w7": 2722.7468697930694
+    },
+    "truth_rank_calculated": false
+  },
+  "first_pass": {
+    "hashes": [
+      "127c62d4949f4811a44bb817c603209289b0a05c7f14e75b6c08d1c34dba2766",
+      "98999b009902884bbf8396237c6b402654b7bac5153b8e1946f02d97f92703fd"
+    ],
+    "rows": [
+      20078,
+      19881
+    ]
+  },
+  "row_growth": [
+    9615,
+    9698
+  ],
+  "schema_version": "wp7-fs7-sbc-convergence-audit-v1",
+  "stable_sizes": [
+    16569252,
+    16505640
+  ],
+  "status": "PASS",
+  "truth_rank_calculated": false
+}

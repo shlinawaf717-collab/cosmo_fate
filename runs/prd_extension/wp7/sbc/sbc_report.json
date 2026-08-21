@@ -1,0 +1,106 @@
+{
+  "coverage": {
+    "counts": {
+      "fs7_w1": {
+        "0.5": 30,
+        "0.9": 45
+      },
+      "fs7_w2": {
+        "0.5": 24,
+        "0.9": 47
+      },
+      "fs7_w3": {
+        "0.5": 30,
+        "0.9": 48
+      },
+      "fs7_w4": {
+        "0.5": 27,
+        "0.9": 45
+      },
+      "fs7_w5": {
+        "0.5": 23,
+        "0.9": 44
+      },
+      "fs7_w6": {
+        "0.5": 24,
+        "0.9": 44
+      },
+      "fs7_w7": {
+        "0.5": 29,
+        "0.9": 45
+      }
+    },
+    "exact_95pct_acceptance_intervals": {
+      "0.5": [
+        18,
+        32
+      ],
+      "0.9": [
+        41,
+        49
+      ]
+    },
+    "gates": {
+      "fs7_w1": {
+        "0.5": true,
+        "0.9": true
+      },
+      "fs7_w2": {
+        "0.5": true,
+        "0.9": true
+      },
+      "fs7_w3": {
+        "0.5": true,
+        "0.9": true
+      },
+      "fs7_w4": {
+        "0.5": true,
+        "0.9": true
+      },
+      "fs7_w5": {
+        "0.5": true,
+        "0.9": true
+      },
+      "fs7_w6": {
+        "0.5": true,
+        "0.9": true
+      },
+      "fs7_w7": {
+        "0.5": true,
+        "0.9": true
+      }
+    }
+  },
+  "datasets": 50,
+  "fate_endpoint_calculated": false,
+  "gates": {
+    "all_50_converged": true,
+    "all_50pct_coverage_counts_accepted": true,
+    "all_90pct_coverage_counts_accepted": true,
+    "no_holm_adjusted_rank_rejection": true
+  },
+  "posterior_draws_per_dataset": 400,
+  "rank_uniformity": {
+    "holm_alpha": 0.05,
+    "ks_pvalues": {
+      "fs7_w1": 0.5696159088346651,
+      "fs7_w2": 0.658275602031416,
+      "fs7_w3": 0.3157007788964271,
+      "fs7_w4": 0.04473727948580364,
+      "fs7_w5": 0.629083136304143,
+      "fs7_w6": 0.7493122940553061,
+      "fs7_w7": 0.8458830119440754
+    },
+    "rejected": {
+      "fs7_w1": false,
+      "fs7_w2": false,
+      "fs7_w3": false,
+      "fs7_w4": false,
+      "fs7_w5": false,
+      "fs7_w6": false,
+      "fs7_w7": false
+    }
+  },
+  "schema_version": "wp7-fs7-sbc-report-v1",
+  "status": "PASS"
+}
