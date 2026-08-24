@@ -1,0 +1,330 @@
+{
+  "all_20_audited_chain_prefixes_match_final_stop_audits": true,
+  "all_five_settings_closed": true,
+  "append_only_suffixes_excluded_from_endpoints": {
+    "ell035": 0,
+    "ell140": 176633,
+    "primary": 0,
+    "sig025": 0,
+    "sig100": 0
+  },
+  "authorizer_sha256": "e3b8890a7150a83c02b58e566fb6a59f535644838279deeb8b425f5dd12db2eb",
+  "authorizer_test_sha256": "4a6566ad07395c3dfe2eb979ba3e6983c1816e8f835fb1e3ec03f708c90f1442",
+  "between_setting_comparison_authorized": true,
+  "created_at_utc": "2026-08-24T01:47:53.081207+00:00",
+  "execution_protocol_sha256": "6885987717c51336f18fc5f4e33b900262d22337d6d8574dce99683e50029b97",
+  "fate_calculation_authorized": true,
+  "information_plan_sha256": "f3f3cacfdb633ed95f54b9d8873240c7a43791b9f47db82c96ab52d18def8c16",
+  "kl_calculation_authorized": true,
+  "model_evidence_authorized": false,
+  "no_live_wp7_sampler": true,
+  "posterior_location_or_endpoint_read_before_authorization": false,
+  "postprocessing_protocol_md_sha256": "b732c1a9adb5aa698c89867f823d671ee315e27a28490e023fe5881f37826112",
+  "postprocessing_protocol_sha256": "a94af18209c01312531ecad6a86f57de6832fe117071dd86ad6269f2cbf88fb8",
+  "reporter_sha256": "f7f12c2086e468203e3e3a3376b3c756f1716f33a3258f6af59691e11f90d541",
+  "reporter_test_sha256": "3f727c82ab3b7086a73cdbc3b6554a9a3e9bd0fa3acd3121064b4a545cb7f9b4",
+  "sbc_pass": true,
+  "sbc_report_sha256": "7ea9397aecbcb6684b5cb16c16812f06b5d341c24e299ccf23b912a1999908e2",
+  "schema_version": "wp7-fs7-postprocessing-authorization-v2",
+  "scope": "technical post-processing choices frozen and tested without reading a real posterior endpoint",
+  "settings": {
+    "ell035": {
+      "all_post_termination_gates_pass": true,
+      "chains": [
+        {
+          "captured_bytes": 53107092,
+          "current_bytes": 53107092,
+          "current_complete_rows": 95173,
+          "current_full_sha256": "a1def81086357d4324fb6b49d4502ed2d11305e424b70046bc14468491a2bee9",
+          "path": "runs/prd_extension/wp7/production_system/ell035/c1/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 95173,
+          "sha256": "a1def81086357d4324fb6b49d4502ed2d11305e424b70046bc14468491a2bee9",
+          "total_weight_at_final_stop": 309927
+        },
+        {
+          "captured_bytes": 52379460,
+          "current_bytes": 52379460,
+          "current_complete_rows": 93869,
+          "current_full_sha256": "93b01e2540e21efdb43e7fa7ca41f65b70647e19380699989425ea23de81cb46",
+          "path": "runs/prd_extension/wp7/production_system/ell035/c2/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 93869,
+          "sha256": "93b01e2540e21efdb43e7fa7ca41f65b70647e19380699989425ea23de81cb46",
+          "total_weight_at_final_stop": 307008
+        },
+        {
+          "captured_bytes": 18897228,
+          "current_bytes": 18897228,
+          "current_complete_rows": 33865,
+          "current_full_sha256": "1f23247d8599d04b6be761ee3569212c82c80383c69806549b247a49c15a4d21",
+          "path": "runs/prd_extension/wp7/production_system/ell035/c3/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 33865,
+          "sha256": "1f23247d8599d04b6be761ee3569212c82c80383c69806549b247a49c15a4d21",
+          "total_weight_at_final_stop": 113475
+        },
+        {
+          "captured_bytes": 19070766,
+          "current_bytes": 19070766,
+          "current_complete_rows": 34176,
+          "current_full_sha256": "54defa65fcd9d93a46046f94c7c222de1f1e71b0d0870f22818b7c815cf5848a",
+          "path": "runs/prd_extension/wp7/production_system/ell035/c4/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 34176,
+          "sha256": "54defa65fcd9d93a46046f94c7c222de1f1e71b0d0870f22818b7c815cf5848a",
+          "total_weight_at_final_stop": 113084
+        }
+      ],
+      "final_stop_audit": {
+        "completed_at_utc": "2026-08-21T08:21:26.853941+00:00",
+        "path": "runs/prd_extension/wp7/production_system/ell035/external_monitor/final_stop_audit.json",
+        "sha256": "6bd8321c9dee315c177d206462f8d02800d92de88658f70cbc92d56b46e809be"
+      }
+    },
+    "ell140": {
+      "all_post_termination_gates_pass": true,
+      "chains": [
+        {
+          "captured_bytes": 49144176,
+          "current_bytes": 73684458,
+          "current_complete_rows": 132050,
+          "current_full_sha256": "9fd2d2a69bff2954b2b81d3dc3b22d749de526404d243754248c2db5360037c9",
+          "path": "runs/prd_extension/wp7/production_system/ell140/c1/chain.1.txt",
+          "post_audit_bytes_excluded": 24540282,
+          "post_audit_complete_rows_excluded": 43979,
+          "rows": 88071,
+          "sha256": "a4d2345efccd8b6002ebbdc0be9d681aad560c051e820fb5e252fa191e61613c",
+          "total_weight_at_final_stop": 273892
+        },
+        {
+          "captured_bytes": 44316360,
+          "current_bytes": 67148604,
+          "current_complete_rows": 120337,
+          "current_full_sha256": "4296e47a86b38b26eb069bec251931989cdb456ba1667c0c1f26568c12bed168",
+          "path": "runs/prd_extension/wp7/production_system/ell140/c2/chain.1.txt",
+          "post_audit_bytes_excluded": 22832244,
+          "post_audit_complete_rows_excluded": 40918,
+          "rows": 79419,
+          "sha256": "582057ad14011ff407b7cf807c9917fe525149df26e9f505dd8d89cf83affa81",
+          "total_weight_at_final_stop": 255323
+        },
+        {
+          "captured_bytes": 27379386,
+          "current_bytes": 52849854,
+          "current_complete_rows": 94712,
+          "current_full_sha256": "e5c79798bacf5751c3f38557daf28ae29b90339ef2ea54e8208bd3173891cd2e",
+          "path": "runs/prd_extension/wp7/production_system/ell140/c3/chain.1.txt",
+          "post_audit_bytes_excluded": 25470468,
+          "post_audit_complete_rows_excluded": 45646,
+          "rows": 49066,
+          "sha256": "52579040f83250a575818cf3a333f2e561aa83b13b137123e2b1bc805f4a4796",
+          "total_weight_at_final_stop": 159366
+        },
+        {
+          "captured_bytes": 28555650,
+          "current_bytes": 54273870,
+          "current_complete_rows": 97264,
+          "current_full_sha256": "c6747de64aaa89be19f175048fd5f3d66b306612554977a6d3292f5bf053cc5e",
+          "path": "runs/prd_extension/wp7/production_system/ell140/c4/chain.1.txt",
+          "post_audit_bytes_excluded": 25718220,
+          "post_audit_complete_rows_excluded": 46090,
+          "rows": 51174,
+          "sha256": "fc792abd28440a764bd69c873a858e4523315f900c76a6611bd398e9f90cca1c",
+          "total_weight_at_final_stop": 159964
+        }
+      ],
+      "final_stop_audit": {
+        "completed_at_utc": "2026-08-21T09:21:29.678191+00:00",
+        "path": "runs/prd_extension/wp7/production_system/ell140/external_monitor/final_stop_audit.json",
+        "sha256": "ae36525dc46dfe1cae1c1b853511d007b98e347cf42aaacfead432075cc00c8f"
+      }
+    },
+    "primary": {
+      "all_post_termination_gates_pass": true,
+      "chains": [
+        {
+          "captured_bytes": 27387756,
+          "current_bytes": 27387756,
+          "current_complete_rows": 49081,
+          "current_full_sha256": "2ea8a18d4b4c89bd7273a1fd3a2f73de0b3215bc5f77cf5b810671d678b6e57a",
+          "path": "runs/prd_extension/wp7/production_system/primary/c1/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 49081,
+          "sha256": "2ea8a18d4b4c89bd7273a1fd3a2f73de0b3215bc5f77cf5b810671d678b6e57a",
+          "total_weight_at_final_stop": 158759
+        },
+        {
+          "captured_bytes": 26974278,
+          "current_bytes": 26974278,
+          "current_complete_rows": 48340,
+          "current_full_sha256": "b0e25ad7d9313184195e7179db472596ed1040ee5c90715862be2d6d6f2ba00c",
+          "path": "runs/prd_extension/wp7/production_system/primary/c2/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 48340,
+          "sha256": "b0e25ad7d9313184195e7179db472596ed1040ee5c90715862be2d6d6f2ba00c",
+          "total_weight_at_final_stop": 158342
+        },
+        {
+          "captured_bytes": 25927470,
+          "current_bytes": 25927470,
+          "current_complete_rows": 46464,
+          "current_full_sha256": "ebee579c57e0389af3adcb5ea3192fd16176105d7e99b273bc432f49e5ca76db",
+          "path": "runs/prd_extension/wp7/production_system/primary/c3/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 46464,
+          "sha256": "ebee579c57e0389af3adcb5ea3192fd16176105d7e99b273bc432f49e5ca76db",
+          "total_weight_at_final_stop": 159019
+        },
+        {
+          "captured_bytes": 27581940,
+          "current_bytes": 27581940,
+          "current_complete_rows": 49429,
+          "current_full_sha256": "a4dabc1cf0197c033082f3f5ae70d63b31baa5b31885d1f06668f3600693e683",
+          "path": "runs/prd_extension/wp7/production_system/primary/c4/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 49429,
+          "sha256": "a4dabc1cf0197c033082f3f5ae70d63b31baa5b31885d1f06668f3600693e683",
+          "total_weight_at_final_stop": 158521
+        }
+      ],
+      "final_stop_audit": {
+        "completed_at_utc": "2026-08-21T04:51:28.030176+00:00",
+        "path": "runs/prd_extension/wp7/production_system/primary/external_monitor/final_stop_audit.json",
+        "sha256": "b705fca962f0bc7a2677c016fe916ac799891b4c8dac42cfe2d279833c9cd854"
+      }
+    },
+    "sig025": {
+      "all_post_termination_gates_pass": true,
+      "chains": [
+        {
+          "captured_bytes": 47172762,
+          "current_bytes": 47172762,
+          "current_complete_rows": 84538,
+          "current_full_sha256": "a925f4c8dc98629b8c9c7c252901e706f075e4f1d167af78895792710432bee1",
+          "path": "runs/prd_extension/wp7/production_system/sig025/c1/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 84538,
+          "sha256": "a925f4c8dc98629b8c9c7c252901e706f075e4f1d167af78895792710432bee1",
+          "total_weight_at_final_stop": 269132
+        },
+        {
+          "captured_bytes": 47327886,
+          "current_bytes": 47327886,
+          "current_complete_rows": 84816,
+          "current_full_sha256": "940da33334e121808615b9dd023912c1ddcbb9fdd15c17e3eeebeda07bd1adb7",
+          "path": "runs/prd_extension/wp7/production_system/sig025/c2/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 84816,
+          "sha256": "940da33334e121808615b9dd023912c1ddcbb9fdd15c17e3eeebeda07bd1adb7",
+          "total_weight_at_final_stop": 269674
+        },
+        {
+          "captured_bytes": 19597518,
+          "current_bytes": 19597518,
+          "current_complete_rows": 35120,
+          "current_full_sha256": "5cd1dd86584cb601e7d9ae4e3d026eb709d83f24281b192fd352a1143b384bce",
+          "path": "runs/prd_extension/wp7/production_system/sig025/c3/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 35120,
+          "sha256": "5cd1dd86584cb601e7d9ae4e3d026eb709d83f24281b192fd352a1143b384bce",
+          "total_weight_at_final_stop": 111705
+        },
+        {
+          "captured_bytes": 19263834,
+          "current_bytes": 19263834,
+          "current_complete_rows": 34522,
+          "current_full_sha256": "6266c289c28eb75ee619cc3532e28956b6a457d7caa1747f9ca0b61a10d56c16",
+          "path": "runs/prd_extension/wp7/production_system/sig025/c4/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 34522,
+          "sha256": "6266c289c28eb75ee619cc3532e28956b6a457d7caa1747f9ca0b61a10d56c16",
+          "total_weight_at_final_stop": 111293
+        }
+      ],
+      "final_stop_audit": {
+        "completed_at_utc": "2026-08-21T05:51:26.614591+00:00",
+        "path": "runs/prd_extension/wp7/production_system/sig025/external_monitor/final_stop_audit.json",
+        "sha256": "61f911c1b5797bfc7f5a39f72bb269fbbc266ca496ac01d7f746223fb073d230"
+      }
+    },
+    "sig100": {
+      "all_post_termination_gates_pass": true,
+      "chains": [
+        {
+          "captured_bytes": 63849150,
+          "current_bytes": 63849150,
+          "current_complete_rows": 114424,
+          "current_full_sha256": "4b214436b1991366d97a413935645f3ee3797fcd00030e11601ea927b3745b99",
+          "path": "runs/prd_extension/wp7/production_system/sig100/c1/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 114424,
+          "sha256": "4b214436b1991366d97a413935645f3ee3797fcd00030e11601ea927b3745b99",
+          "total_weight_at_final_stop": 365617
+        },
+        {
+          "captured_bytes": 63296172,
+          "current_bytes": 63296172,
+          "current_complete_rows": 113433,
+          "current_full_sha256": "b5fd95a1b7aad7e31ccde3b7bb18ba0dc2e17d2e47b05fd2662d79b7df27cd26",
+          "path": "runs/prd_extension/wp7/production_system/sig100/c2/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 113433,
+          "sha256": "b5fd95a1b7aad7e31ccde3b7bb18ba0dc2e17d2e47b05fd2662d79b7df27cd26",
+          "total_weight_at_final_stop": 365120
+        },
+        {
+          "captured_bytes": 35735994,
+          "current_bytes": 35735994,
+          "current_complete_rows": 64042,
+          "current_full_sha256": "cb1422a58b5113f3656225bbe98948574c378d0ae95fbe470054379a71e0d1c6",
+          "path": "runs/prd_extension/wp7/production_system/sig100/c3/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 64042,
+          "sha256": "cb1422a58b5113f3656225bbe98948574c378d0ae95fbe470054379a71e0d1c6",
+          "total_weight_at_final_stop": 213973
+        },
+        {
+          "captured_bytes": 35636670,
+          "current_bytes": 35636670,
+          "current_complete_rows": 63864,
+          "current_full_sha256": "938681646cecc5baea2e02d4b620653764123d24e549aa1a841b7e4ce3cdeb97",
+          "path": "runs/prd_extension/wp7/production_system/sig100/c4/chain.1.txt",
+          "post_audit_bytes_excluded": 0,
+          "post_audit_complete_rows_excluded": 0,
+          "rows": 63864,
+          "sha256": "938681646cecc5baea2e02d4b620653764123d24e549aa1a841b7e4ce3cdeb97",
+          "total_weight_at_final_stop": 212922
+        }
+      ],
+      "final_stop_audit": {
+        "completed_at_utc": "2026-08-21T07:21:33.922678+00:00",
+        "path": "runs/prd_extension/wp7/production_system/sig100/external_monitor/final_stop_audit.json",
+        "sha256": "24cb01a9214f7135e09e38446170ab43d20e8e29dc6b48a3823991394bc7a6cb"
+      }
+    }
+  },
+  "status": "AUTHORIZED_AFTER_ALL_SETTINGS_CLOSED_BEFORE_ENDPOINTS",
+  "supersedes_authorization": {
+    "path": "runs/prd_extension/wp7/production_system/postprocessing_authorization.json",
+    "reason": "v1 reporter validation used the wrong protocol-hash field name and failed before reading a chain value",
+    "sha256": "d050dfc9cb6cee3693edfecd4d736f7e1c5f4fc1ca3ccafafc911b6bde82b86d",
+    "v1_endpoint_calculation_started": false
+  },
+  "synthetic_tests_only_before_authorization": true
+}
