@@ -1,0 +1,94 @@
+{
+  "C3_recomputation": {
+    "0.5": {
+      "replicate_1": {
+        "RIP": 0.4995,
+        "accepted": 100000,
+        "exact_match": true
+      },
+      "replicate_2": {
+        "RIP": 0.50299,
+        "accepted": 100000,
+        "exact_match": true
+      }
+    },
+    "1.0": {
+      "replicate_1": {
+        "RIP": 0.50037,
+        "accepted": 100000,
+        "exact_match": true
+      },
+      "replicate_2": {
+        "RIP": 0.49877,
+        "accepted": 100000,
+        "exact_match": true
+      }
+    },
+    "2.0": {
+      "replicate_1": {
+        "RIP": 0.4998,
+        "accepted": 100000,
+        "exact_match": true
+      },
+      "replicate_2": {
+        "RIP": 0.50053,
+        "accepted": 100000,
+        "exact_match": true
+      }
+    }
+  },
+  "all_tau_cross_boundary_native_weight_fraction": 1.0,
+  "analytic_C3_support": {
+    "0.5": {
+      "crosses_fate_boundary_native_weight_fraction": 1.0,
+      "full_minus3_to_plus1_native_weight_fraction": 1.0,
+      "maximum_lower_endpoint": -3.0,
+      "maximum_upper_endpoint": 1.0,
+      "minimum_lower_endpoint": -3.0,
+      "minimum_upper_endpoint": 1.0,
+      "valid_native_weight_fraction": 1.0
+    },
+    "1.0": {
+      "crosses_fate_boundary_native_weight_fraction": 1.0,
+      "full_minus3_to_plus1_native_weight_fraction": 1.0,
+      "maximum_lower_endpoint": -3.0,
+      "maximum_upper_endpoint": 1.0,
+      "minimum_lower_endpoint": -3.0,
+      "minimum_upper_endpoint": 1.0,
+      "valid_native_weight_fraction": 1.0
+    },
+    "2.0": {
+      "crosses_fate_boundary_native_weight_fraction": 1.0,
+      "full_minus3_to_plus1_native_weight_fraction": 0.9902707536197138,
+      "maximum_lower_endpoint": -2.4122856965623853,
+      "maximum_upper_endpoint": 1.0,
+      "minimum_lower_endpoint": -3.0,
+      "minimum_upper_endpoint": 0.7054775057710392,
+      "valid_native_weight_fraction": 1.0
+    }
+  },
+  "gates": {
+    "C0_C1_recomputed_exactly": true,
+    "all_six_C3_ledgers_recomputed_exactly": true,
+    "all_tau_supports_cross_fate_boundary_for_all_native_weight": true,
+    "no_family_model_average": true,
+    "partial_identification_is_two_sided_for_all_native_weight": true,
+    "release_artifact_hashes_match": true,
+    "release_validation_gates_all_pass": true,
+    "source_row_and_weight_totals_match": true,
+    "source_rows_unique": true
+  },
+  "release_artifact_hashes": {
+    "endpoints": "e2104589b5f9d8c1f2185bbffa7096af2ad27edf2b30c5fa38c354c4e8739cc3",
+    "source_inventory": "c855b7008dfca5f614b610dc8b8ee6858eb8d339607ecd238a1776533ba220af",
+    "source_ledger": "da1e6c2aa0728b10ad524ed8f2c326b6cf72d3d6ca7b39db3330b4a9d07c988f"
+  },
+  "schema_version": "wp8-future-continuation-completion-audit-v1",
+  "source": {
+    "C0_P_RIP_recomputed": 0.5063063530067357,
+    "C1_P_RIP_recomputed": 0.19715736237959935,
+    "native_weight": 308657,
+    "rows": 96658
+  },
+  "status": "PASS"
+}

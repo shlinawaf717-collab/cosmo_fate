@@ -1,0 +1,58 @@
+{
+  "chains": [
+    {
+      "burn_rows": 24540,
+      "captured_bytes": 27387756,
+      "chain": 1,
+      "path": "runs/prd_extension/wp7/production_system/primary/c1/chain.1.txt",
+      "post_audit_complete_rows_excluded": 0,
+      "prefix_sha256": "2ea8a18d4b4c89bd7273a1fd3a2f73de0b3215bc5f77cf5b810671d678b6e57a",
+      "raw_rows": 49081,
+      "retained_rows": 24541,
+      "retained_weight": 78410
+    },
+    {
+      "burn_rows": 24170,
+      "captured_bytes": 26974278,
+      "chain": 2,
+      "path": "runs/prd_extension/wp7/production_system/primary/c2/chain.1.txt",
+      "post_audit_complete_rows_excluded": 0,
+      "prefix_sha256": "b0e25ad7d9313184195e7179db472596ed1040ee5c90715862be2d6d6f2ba00c",
+      "raw_rows": 48340,
+      "retained_rows": 24170,
+      "retained_weight": 77911
+    },
+    {
+      "burn_rows": 23232,
+      "captured_bytes": 25927470,
+      "chain": 3,
+      "path": "runs/prd_extension/wp7/production_system/primary/c3/chain.1.txt",
+      "post_audit_complete_rows_excluded": 0,
+      "prefix_sha256": "ebee579c57e0389af3adcb5ea3192fd16176105d7e99b273bc432f49e5ca76db",
+      "raw_rows": 46464,
+      "retained_rows": 23232,
+      "retained_weight": 74327
+    },
+    {
+      "burn_rows": 24714,
+      "captured_bytes": 27581940,
+      "chain": 4,
+      "path": "runs/prd_extension/wp7/production_system/primary/c4/chain.1.txt",
+      "post_audit_complete_rows_excluded": 0,
+      "prefix_sha256": "a4dabc1cf0197c033082f3f5ae70d63b31baa5b31885d1f06668f3600693e683",
+      "raw_rows": 49429,
+      "retained_rows": 24715,
+      "retained_weight": 78009
+    }
+  ],
+  "ledger": {
+    "gzip_mtime": 0,
+    "path": "runs/prd_extension/wp8_future_continuation/source_history.csv.gz",
+    "rows_excluding_header": 96658,
+    "sha256": "da1e6c2aa0728b10ad524ed8f2c326b6cf72d3d6ca7b39db3330b4a9d07c988f"
+  },
+  "pooled_retained_rows": 96658,
+  "pooled_retained_weight": 308657,
+  "schema_version": "wp8-source-history-inventory-v1",
+  "source_setting": "WP7 primary audited prefixes"
+}

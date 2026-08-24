@@ -1,0 +1,660 @@
+{
+  "authorization_sha256": "fc0c0abd629d19dad6ab07f6a00e24d454866395c536691762e403e2bcf7eedf",
+  "descriptive_continuation_envelope": {
+    "P_RIP": {
+      "maximum": 0.5063063530067357,
+      "minimum": 0.0,
+      "span": 0.5063063530067357
+    },
+    "P_heat": {
+      "maximum": 1.0,
+      "minimum": 0.49369364699326435,
+      "span": 0.5063063530067357
+    },
+    "family_probabilities_assigned": false,
+    "registered_rows": {
+      "C0": {
+        "BOUNDARY": 0.016847179879283476,
+        "CRUNCH": 0.0,
+        "DECAY": 0.49369364699326435,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.5063063530067357,
+        "heat": 0.49369364699326435,
+        "non_heat": 0.5063063530067357
+      },
+      "C1": {
+        "BOUNDARY": 0.08478991242706305,
+        "CRUNCH": 0.0,
+        "DECAY": 0.8028426376204006,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.19715736237959935,
+        "heat": 0.8028426376204006,
+        "non_heat": 0.19715736237959935
+      },
+      "C2_tau_0.5": {
+        "BOUNDARY": 1.0,
+        "CRUNCH": 0.0,
+        "DECAY": 0.0,
+        "DS": 1.0,
+        "OTHER": 0.0,
+        "RIP": 0.0,
+        "heat": 1.0,
+        "non_heat": 0.0
+      },
+      "C2_tau_1.0": {
+        "BOUNDARY": 1.0,
+        "CRUNCH": 0.0,
+        "DECAY": 0.0,
+        "DS": 1.0,
+        "OTHER": 0.0,
+        "RIP": 0.0,
+        "heat": 1.0,
+        "non_heat": 0.0
+      },
+      "C2_tau_2.0": {
+        "BOUNDARY": 1.0,
+        "CRUNCH": 0.0,
+        "DECAY": 0.0,
+        "DS": 1.0,
+        "OTHER": 0.0,
+        "RIP": 0.0,
+        "heat": 1.0,
+        "non_heat": 0.0
+      },
+      "C3_tau_0.5": {
+        "BOUNDARY": 0.01627,
+        "CRUNCH": 0.0,
+        "DECAY": 0.5005,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.4995,
+        "heat": 0.5005,
+        "non_heat": 0.4995
+      },
+      "C3_tau_1.0": {
+        "BOUNDARY": 0.01614,
+        "CRUNCH": 0.0,
+        "DECAY": 0.49963,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.50037,
+        "heat": 0.49963,
+        "non_heat": 0.50037
+      },
+      "C3_tau_2.0": {
+        "BOUNDARY": 0.01533,
+        "CRUNCH": 0.0,
+        "DECAY": 0.5002,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.4998,
+        "heat": 0.5002,
+        "non_heat": 0.4998
+      }
+    }
+  },
+  "families": {
+    "C0_frozen_FS7": {
+      "WP7_reproduction_errors": {
+        "BOUNDARY": 0.0,
+        "CRUNCH": 0.0,
+        "DECAY": 0.0,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.0
+      },
+      "WP7_reproduction_max_abs_error": 0.0,
+      "fractions": {
+        "BOUNDARY": 0.016847179879283476,
+        "CRUNCH": 0.0,
+        "DECAY": 0.49369364699326435,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.5063063530067357,
+        "heat": 0.49369364699326435,
+        "non_heat": 0.5063063530067357
+      },
+      "raw_rows_by_label": {
+        "CRUNCH": 0,
+        "DECAY": 47713,
+        "DS": 0,
+        "OTHER": 0,
+        "RIP": 48945
+      },
+      "total_weight": 308657.0
+    },
+    "C1_present_constant_diagnostic": {
+      "fractions": {
+        "BOUNDARY": 0.08478991242706305,
+        "CRUNCH": 0.0,
+        "DECAY": 0.8028426376204006,
+        "DS": 0.0,
+        "OTHER": 0.0,
+        "RIP": 0.19715736237959935,
+        "heat": 0.8028426376204006,
+        "non_heat": 0.19715736237959935
+      },
+      "raw_rows_by_label": {
+        "CRUNCH": 0,
+        "DECAY": 77296,
+        "DS": 0,
+        "OTHER": 0,
+        "RIP": 19362
+      },
+      "total_weight": 308657.0
+    },
+    "C2_relax_to_lambda": {
+      "0.5": {
+        "admissible_native_weight_fraction": 1.0,
+        "admissible_rows": 96658,
+        "boundary_derivative_max_abs_error": 2.220446049250313e-16,
+        "boundary_value_max_abs_error": 0.0,
+        "fate_among_admissible": {
+          "accepted_native_weight": 308657.0,
+          "fractions": {
+            "BOUNDARY": 1.0,
+            "CRUNCH": 0.0,
+            "DECAY": 0.0,
+            "DS": 1.0,
+            "OTHER": 0.0,
+            "RIP": 0.0,
+            "heat": 1.0,
+            "non_heat": 0.0
+          }
+        },
+        "proposed_rows": 96658,
+        "rejection_native_weight_fraction": 0.0,
+        "selection_conditioning": "path admissibility only",
+        "tau": 0.5
+      },
+      "1.0": {
+        "admissible_native_weight_fraction": 1.0,
+        "admissible_rows": 96658,
+        "boundary_derivative_max_abs_error": 2.220446049250313e-16,
+        "boundary_value_max_abs_error": 0.0,
+        "fate_among_admissible": {
+          "accepted_native_weight": 308657.0,
+          "fractions": {
+            "BOUNDARY": 1.0,
+            "CRUNCH": 0.0,
+            "DECAY": 0.0,
+            "DS": 1.0,
+            "OTHER": 0.0,
+            "RIP": 0.0,
+            "heat": 1.0,
+            "non_heat": 0.0
+          }
+        },
+        "proposed_rows": 96658,
+        "rejection_native_weight_fraction": 0.0,
+        "selection_conditioning": "path admissibility only",
+        "tau": 1.0
+      },
+      "2.0": {
+        "admissible_native_weight_fraction": 1.0,
+        "admissible_rows": 96658,
+        "boundary_derivative_max_abs_error": 2.220446049250313e-16,
+        "boundary_value_max_abs_error": 0.0,
+        "fate_among_admissible": {
+          "accepted_native_weight": 308657.0,
+          "fractions": {
+            "BOUNDARY": 1.0,
+            "CRUNCH": 0.0,
+            "DECAY": 0.0,
+            "DS": 1.0,
+            "OTHER": 0.0,
+            "RIP": 0.0,
+            "heat": 1.0,
+            "non_heat": 0.0
+          }
+        },
+        "proposed_rows": 96658,
+        "rejection_native_weight_fraction": 0.0,
+        "selection_conditioning": "path admissibility only",
+        "tau": 2.0
+      }
+    },
+    "C3_matched_free_asymptote": {
+      "settings": {
+        "0.5": {
+          "replicate_1": {
+            "accepted": 100000,
+            "all_fate_mcse_le_0p002": true,
+            "analytic_direct_membership_audit": {
+              "checked_proposals": 512,
+              "exact_membership_match": true,
+              "index_selection": "linspace(0,N-1,512,dtype=int64)"
+            },
+            "boundary_derivative_max_abs_error": 4.440892098500626e-16,
+            "boundary_value_max_abs_error": 2.220446049250313e-16,
+            "composition_label": "selection-conditioned, not a likelihood posterior update",
+            "fate_among_admissible": {
+              "fractions": {
+                "BOUNDARY": 0.01627,
+                "CRUNCH": 0.0,
+                "DECAY": 0.5005,
+                "DS": 0.0,
+                "OTHER": 0.0,
+                "RIP": 0.4995,
+                "heat": 0.5005,
+                "non_heat": 0.4995
+              },
+              "raw_rows_by_label": {
+                "CRUNCH": 0,
+                "DECAY": 50050,
+                "DS": 0,
+                "OTHER": 0,
+                "RIP": 49950
+              },
+              "total_weight": 100000.0
+            },
+            "fate_mcse": {
+              "DECAY": 0.0015811380395145769,
+              "DS": 0.0,
+              "RIP": 0.0015811380395145769,
+              "heat": 0.0015811380395145769
+            },
+            "proposals": 100000,
+            "rejected": 0,
+            "rejection_fraction": 0.0,
+            "replicate": 1,
+            "seed": 202607270811,
+            "tau": 0.5,
+            "unconditioned_proposal_sampler_audit": {
+              "P_RIP": 0.4995,
+              "P_heat": 0.5005,
+              "fixed_seed_exact_replay": true,
+              "maximum_w_inf": 0.9960652309214859,
+              "minimum_w_inf": -2.9963336668287233
+            }
+          },
+          "replicate_2": {
+            "accepted": 100000,
+            "all_fate_mcse_le_0p002": true,
+            "analytic_direct_membership_audit": {
+              "checked_proposals": 512,
+              "exact_membership_match": true,
+              "index_selection": "linspace(0,N-1,512,dtype=int64)"
+            },
+            "boundary_derivative_max_abs_error": 4.440892098500626e-16,
+            "boundary_value_max_abs_error": 2.220446049250313e-16,
+            "composition_label": "selection-conditioned, not a likelihood posterior update",
+            "fate_among_admissible": {
+              "fractions": {
+                "BOUNDARY": 0.01533,
+                "CRUNCH": 0.0,
+                "DECAY": 0.49701,
+                "DS": 0.0,
+                "OTHER": 0.0,
+                "RIP": 0.50299,
+                "heat": 0.49701,
+                "non_heat": 0.50299
+              },
+              "raw_rows_by_label": {
+                "CRUNCH": 0,
+                "DECAY": 49701,
+                "DS": 0,
+                "OTHER": 0,
+                "RIP": 50299
+              },
+              "total_weight": 100000.0
+            },
+            "fate_mcse": {
+              "DECAY": 0.0015811105587529293,
+              "DS": 0.0,
+              "RIP": 0.0015811105587529293,
+              "heat": 0.0015811105587529293
+            },
+            "proposals": 100000,
+            "rejected": 0,
+            "rejection_fraction": 0.0,
+            "replicate": 2,
+            "seed": 202607270812,
+            "tau": 0.5,
+            "unconditioned_proposal_sampler_audit": {
+              "P_RIP": 0.50299,
+              "P_heat": 0.49700999999999995,
+              "fixed_seed_exact_replay": true,
+              "maximum_w_inf": 0.9581985898565706,
+              "minimum_w_inf": -2.9964621992545495
+            }
+          },
+          "replicate_audit": {
+            "all_probabilities_pass": true,
+            "probabilities": {
+              "DECAY": {
+                "absolute_difference": 0.0034899999999999376,
+                "pass": true,
+                "tolerance": 0.006708142283151126
+              },
+              "DS": {
+                "absolute_difference": 0.0,
+                "pass": true,
+                "tolerance": 0.005
+              },
+              "RIP": {
+                "absolute_difference": 0.0034900000000000486,
+                "pass": true,
+                "tolerance": 0.006708142283151126
+              },
+              "heat": {
+                "absolute_difference": 0.0034899999999999376,
+                "pass": true,
+                "tolerance": 0.006708142283151126
+              }
+            }
+          }
+        },
+        "1.0": {
+          "replicate_1": {
+            "accepted": 100000,
+            "all_fate_mcse_le_0p002": true,
+            "analytic_direct_membership_audit": {
+              "checked_proposals": 512,
+              "exact_membership_match": true,
+              "index_selection": "linspace(0,N-1,512,dtype=int64)"
+            },
+            "boundary_derivative_max_abs_error": 2.220446049250313e-16,
+            "boundary_value_max_abs_error": 2.220446049250313e-16,
+            "composition_label": "selection-conditioned, not a likelihood posterior update",
+            "fate_among_admissible": {
+              "fractions": {
+                "BOUNDARY": 0.01614,
+                "CRUNCH": 0.0,
+                "DECAY": 0.49963,
+                "DS": 0.0,
+                "OTHER": 0.0,
+                "RIP": 0.50037,
+                "heat": 0.49963,
+                "non_heat": 0.50037
+              },
+              "raw_rows_by_label": {
+                "CRUNCH": 0,
+                "DECAY": 49963,
+                "DS": 0,
+                "OTHER": 0,
+                "RIP": 50037
+              },
+              "total_weight": 100000.0
+            },
+            "fate_mcse": {
+              "DECAY": 0.0015811383971683188,
+              "DS": 0.0,
+              "RIP": 0.0015811383971683188,
+              "heat": 0.0015811383971683188
+            },
+            "proposals": 100000,
+            "rejected": 0,
+            "rejection_fraction": 0.0,
+            "replicate": 1,
+            "seed": 202607270821,
+            "tau": 1.0,
+            "unconditioned_proposal_sampler_audit": {
+              "P_RIP": 0.50037,
+              "P_heat": 0.49963,
+              "fixed_seed_exact_replay": true,
+              "maximum_w_inf": 0.9952179396243122,
+              "minimum_w_inf": -2.9825154719627416
+            }
+          },
+          "replicate_2": {
+            "accepted": 100000,
+            "all_fate_mcse_le_0p002": true,
+            "analytic_direct_membership_audit": {
+              "checked_proposals": 512,
+              "exact_membership_match": true,
+              "index_selection": "linspace(0,N-1,512,dtype=int64)"
+            },
+            "boundary_derivative_max_abs_error": 2.220446049250313e-16,
+            "boundary_value_max_abs_error": 2.220446049250313e-16,
+            "composition_label": "selection-conditioned, not a likelihood posterior update",
+            "fate_among_admissible": {
+              "fractions": {
+                "BOUNDARY": 0.015,
+                "CRUNCH": 0.0,
+                "DECAY": 0.50123,
+                "DS": 0.0,
+                "OTHER": 0.0,
+                "RIP": 0.49877,
+                "heat": 0.50123,
+                "non_heat": 0.49877
+              },
+              "raw_rows_by_label": {
+                "CRUNCH": 0,
+                "DECAY": 50123,
+                "DS": 0,
+                "OTHER": 0,
+                "RIP": 49877
+              },
+              "total_weight": 100000.0
+            },
+            "fate_mcse": {
+              "DECAY": 0.0015811340458670795,
+              "DS": 0.0,
+              "RIP": 0.0015811340458670795,
+              "heat": 0.0015811340458670795
+            },
+            "proposals": 100000,
+            "rejected": 0,
+            "rejection_fraction": 0.0,
+            "replicate": 2,
+            "seed": 202607270822,
+            "tau": 1.0,
+            "unconditioned_proposal_sampler_audit": {
+              "P_RIP": 0.49877,
+              "P_heat": 0.5012300000000001,
+              "fixed_seed_exact_replay": true,
+              "maximum_w_inf": 0.9943564861216372,
+              "minimum_w_inf": -2.9776994813700632
+            }
+          },
+          "replicate_audit": {
+            "all_probabilities_pass": true,
+            "probabilities": {
+              "DECAY": {
+                "absolute_difference": 0.0015999999999999348,
+                "pass": true,
+                "tolerance": 0.006708192865295393
+              },
+              "DS": {
+                "absolute_difference": 0.0,
+                "pass": true,
+                "tolerance": 0.005
+              },
+              "RIP": {
+                "absolute_difference": 0.0015999999999999903,
+                "pass": true,
+                "tolerance": 0.006708192865295393
+              },
+              "heat": {
+                "absolute_difference": 0.0015999999999999348,
+                "pass": true,
+                "tolerance": 0.006708192865295393
+              }
+            }
+          }
+        },
+        "2.0": {
+          "replicate_1": {
+            "accepted": 100000,
+            "all_fate_mcse_le_0p002": true,
+            "analytic_direct_membership_audit": {
+              "checked_proposals": 512,
+              "exact_membership_match": true,
+              "index_selection": "linspace(0,N-1,512,dtype=int64)"
+            },
+            "boundary_derivative_max_abs_error": 2.220446049250313e-16,
+            "boundary_value_max_abs_error": 2.220446049250313e-16,
+            "composition_label": "selection-conditioned, not a likelihood posterior update",
+            "fate_among_admissible": {
+              "fractions": {
+                "BOUNDARY": 0.01533,
+                "CRUNCH": 0.0,
+                "DECAY": 0.5002,
+                "DS": 0.0,
+                "OTHER": 0.0,
+                "RIP": 0.4998,
+                "heat": 0.5002,
+                "non_heat": 0.4998
+              },
+              "raw_rows_by_label": {
+                "CRUNCH": 0,
+                "DECAY": 50020,
+                "DS": 0,
+                "OTHER": 0,
+                "RIP": 49980
+              },
+              "total_weight": 100000.0
+            },
+            "fate_mcse": {
+              "DECAY": 0.0015811387035930783,
+              "DS": 0.0,
+              "RIP": 0.0015811387035930783,
+              "heat": 0.0015811387035930783
+            },
+            "proposals": 100000,
+            "rejected": 0,
+            "rejection_fraction": 0.0,
+            "replicate": 1,
+            "seed": 202607270831,
+            "tau": 2.0,
+            "unconditioned_proposal_sampler_audit": {
+              "P_RIP": 0.4998,
+              "P_heat": 0.5002,
+              "fixed_seed_exact_replay": true,
+              "maximum_w_inf": 0.9615750833975067,
+              "minimum_w_inf": -2.9956429095379704
+            }
+          },
+          "replicate_2": {
+            "accepted": 100000,
+            "all_fate_mcse_le_0p002": true,
+            "analytic_direct_membership_audit": {
+              "checked_proposals": 512,
+              "exact_membership_match": true,
+              "index_selection": "linspace(0,N-1,512,dtype=int64)"
+            },
+            "boundary_derivative_max_abs_error": 2.220446049250313e-16,
+            "boundary_value_max_abs_error": 2.220446049250313e-16,
+            "composition_label": "selection-conditioned, not a likelihood posterior update",
+            "fate_among_admissible": {
+              "fractions": {
+                "BOUNDARY": 0.01663,
+                "CRUNCH": 0.0,
+                "DECAY": 0.49947,
+                "DS": 0.0,
+                "OTHER": 0.0,
+                "RIP": 0.50053,
+                "heat": 0.49947,
+                "non_heat": 0.50053
+              },
+              "raw_rows_by_label": {
+                "CRUNCH": 0,
+                "DECAY": 49947,
+                "DS": 0,
+                "OTHER": 0,
+                "RIP": 50053
+              },
+              "total_weight": 100000.0
+            },
+            "fate_mcse": {
+              "DECAY": 0.0015811379418001453,
+              "DS": 0.0,
+              "RIP": 0.0015811379418001453,
+              "heat": 0.0015811379418001453
+            },
+            "proposals": 100000,
+            "rejected": 0,
+            "rejection_fraction": 0.0,
+            "replicate": 2,
+            "seed": 202607270832,
+            "tau": 2.0,
+            "unconditioned_proposal_sampler_audit": {
+              "P_RIP": 0.50053,
+              "P_heat": 0.49946999999999997,
+              "fixed_seed_exact_replay": true,
+              "maximum_w_inf": 0.9174537620681531,
+              "minimum_w_inf": -2.9788609647753135
+            }
+          },
+          "replicate_audit": {
+            "all_probabilities_pass": true,
+            "probabilities": {
+              "DECAY": {
+                "absolute_difference": 0.0007299999999999529,
+                "pass": true,
+                "tolerance": 0.006708201779836382
+              },
+              "DS": {
+                "absolute_difference": 0.0,
+                "pass": true,
+                "tolerance": 0.005
+              },
+              "RIP": {
+                "absolute_difference": 0.0007300000000000084,
+                "pass": true,
+                "tolerance": 0.006708201779836382
+              },
+              "heat": {
+                "absolute_difference": 0.0007299999999999529,
+                "pass": true,
+                "tolerance": 0.006708201779836382
+              }
+            }
+          }
+        }
+      },
+      "unconditioned_measure": {
+        "P_DS": 0.0,
+        "P_RIP": 0.5,
+        "P_heat": 0.5,
+        "likelihood_information": 0.0,
+        "normalization_mass_before_renormalization": 0.9999366575163338
+      }
+    }
+  },
+  "partial_identification": {
+    "categories": {
+      "empty/invalid": 0.0,
+      "{RIP,heat}": 1.0,
+      "{RIP}": 0.0,
+      "{heat}": 0.0
+    },
+    "denominator_native_weight": 308657.0,
+    "interpretation": "support set across C0, admissible C2, and complete admissible C3 intervals",
+    "threshold": null
+  },
+  "schema_version": "wp8-future-continuation-endpoints-v1",
+  "source_history": {
+    "boundary_state": {
+      "s1_weighted_mean": 0.09311871232978843,
+      "w1_weighted_mean": -0.9437792287398632
+    },
+    "native_weight": 308657,
+    "rows": 96658,
+    "systematic_C3_history_draws": 100000
+  },
+  "source_inventory_sha256": "c855b7008dfca5f614b610dc8b8ee6858eb8d339607ecd238a1776533ba220af",
+  "status": "PASS",
+  "validation": {
+    "gates": {
+      "C0_reproduces_WP7_within_1e_10": true,
+      "C3_fixed_seed_replay": true,
+      "all_C3_fate_mcse_le_0p002": true,
+      "all_C3_replicate_comparisons_pass": true,
+      "all_analytic_direct_membership_checks_pass": true,
+      "boundary_value_and_derivative_within_1e_10": true,
+      "no_empty_partial_support": true,
+      "no_family_model_average_calculated": true,
+      "past_observable_and_likelihood_invariance_by_identity": true
+    },
+    "past_invariance": {
+      "basis": "alternative continuation calls the identical registered FS7 history branch for a<=1",
+      "maximum_history_difference_for_a_le_1": 0.0,
+      "maximum_loglike_difference": 0.0,
+      "maximum_observable_difference_for_z_ge_0": 0.0
+    }
+  }
+}

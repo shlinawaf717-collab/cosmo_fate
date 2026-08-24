@@ -1,0 +1,39 @@
+{
+  "artifacts": {
+    "endpoints": {
+      "path": "runs/prd_extension/wp8_future_continuation/wp8_endpoints.json",
+      "sha256": "e2104589b5f9d8c1f2185bbffa7096af2ad27edf2b30c5fa38c354c4e8739cc3"
+    },
+    "source_inventory": {
+      "path": "runs/prd_extension/wp8_future_continuation/source_inventory.json",
+      "sha256": "c855b7008dfca5f614b610dc8b8ee6858eb8d339607ecd238a1776533ba220af"
+    },
+    "source_ledger": {
+      "path": "runs/prd_extension/wp8_future_continuation/source_history.csv.gz",
+      "sha256": "da1e6c2aa0728b10ad524ed8f2c326b6cf72d3d6ca7b39db3330b4a9d07c988f"
+    }
+  },
+  "authorization_sha256": "fc0c0abd629d19dad6ab07f6a00e24d454866395c536691762e403e2bcf7eedf",
+  "family_model_average_calculated": false,
+  "gates": {
+    "C0_reproduces_WP7_within_1e_10": true,
+    "C3_fixed_seed_replay": true,
+    "all_C3_fate_mcse_le_0p002": true,
+    "all_C3_replicate_comparisons_pass": true,
+    "all_analytic_direct_membership_checks_pass": true,
+    "boundary_value_and_derivative_within_1e_10": true,
+    "no_empty_partial_support": true,
+    "no_family_model_average_calculated": true,
+    "past_observable_and_likelihood_invariance_by_identity": true
+  },
+  "reporter_sha256": "30affa584daff2d42e8708cd386e2f7afce617255e4a8251ee3cad3afd46727c",
+  "runtime": {
+    "numpy": "2.5.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "scipy": "1.16.2"
+  },
+  "schema_version": "wp8-future-continuation-audit-v1",
+  "secondary_full_cmb_calculated": false,
+  "status": "PASS"
+}
