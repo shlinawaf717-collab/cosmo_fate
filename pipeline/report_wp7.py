@@ -30,7 +30,8 @@ from pipeline.wp7_fs7 import (
 
 
 SYSTEM = ROOT / "runs/prd_extension/wp7/production_system"
-AUTHORIZATION = SYSTEM / "postprocessing_authorization.json"
+AUTHORIZATION_V1 = SYSTEM / "postprocessing_authorization.json"
+AUTHORIZATION = SYSTEM / "postprocessing_authorization_v2.json"
 ENDPOINTS = SYSTEM / "wp7_endpoints.json"
 AUDIT = SYSTEM / "postprocessing_audit.json"
 PROTOCOL = ROOT / "plan/wp7_postprocessing_protocol.json"
@@ -281,7 +282,7 @@ def validate_authorization(path: Path = AUTHORIZATION) -> dict:
     if authorization.get("status") != "AUTHORIZED_AFTER_ALL_SETTINGS_CLOSED_BEFORE_ENDPOINTS":
         raise WP7ReportError("WP7 post-processing authorization is absent or invalid")
     identities = {
-        "protocol_sha256": sha256_file(PROTOCOL),
+        "postprocessing_protocol_sha256": sha256_file(PROTOCOL),
         "information_plan_sha256": sha256_file(INFORMATION_PLAN),
         "sbc_report_sha256": sha256_file(SBC_REPORT),
         "reporter_sha256": sha256_file(Path(__file__).resolve()),

@@ -87,6 +87,13 @@ the 50-dataset SBC report is PASS, no WP7 sampler remains alive, and the
 post-processing protocol, reporter, and tests are hashed.  Authorization is an
 immutable new artifact and never rewrites the pre-sampling protocol.
 
+The first authorization artifact remains archived but was not consumed: the
+reporter rejected it before loading a chain because its validation code looked
+for `protocol_sha256` while the artifact correctly stored
+`postprocessing_protocol_sha256`.  A corrected reporter and superseding v2
+authorization are separately hashed.  This is a provenance-field correction;
+no posterior value or endpoint existed at the time of correction.
+
 The required outputs are a versioned JSON endpoint artifact, a machine audit,
 and a prose outcome.  They include all five settings, nodewise 20/40/80-bin KL,
 conditional-residual KL, prior/posterior fate composition, boundary and OTHER

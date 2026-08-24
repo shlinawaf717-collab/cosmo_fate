@@ -15,6 +15,7 @@ from pipeline.build_wp7_configs import ROOT, SETTINGS
 from pipeline.report_wp7 import (
     AUDIT,
     AUTHORIZATION,
+    AUTHORIZATION_V1,
     ENDPOINTS,
     INFORMATION_PLAN,
     PROTOCOL,
@@ -99,7 +100,7 @@ def _setting_identity(tag: str) -> dict:
     if len(snapshots) != 4:
         raise WP7AuthorizationError(f"{tag} does not have four final chains")
     chains = [chain_identity(Path(record["path"]), record) for record in snapshots]
-    return {
+    payload = {
         "final_stop_audit": {
             "path": str(audit_path.relative_to(ROOT)),
             "sha256": sha256_file(audit_path),
@@ -173,6 +174,14 @@ def build_authorization() -> dict:
         "between_setting_comparison_authorized": True,
         "model_evidence_authorized": False,
     }
+    if AUTHORIZATION_V1.is_file():
+        payload["supersedes_authorization"] = {
+            "path": str(AUTHORIZATION_V1.relative_to(ROOT)),
+            "sha256": sha256_file(AUTHORIZATION_V1),
+            "reason": "v1 reporter validation used the wrong protocol-hash field name and failed before reading a chain value",
+            "v1_endpoint_calculation_started": False,
+        }
+    return payload
 
 
 def authorize(output: Path = AUTHORIZATION) -> dict:

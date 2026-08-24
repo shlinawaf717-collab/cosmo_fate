@@ -771,3 +771,39 @@ Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `plan/WP7_POSTPROCESSING_PROTOCOL.md`;
 `plan/wp7_postprocessing_protocol.json`;
 `plan/WP7_POSTSTOP_RACE_NOTE.md`; authorizer, reporter, and tests.
+
+## PRD-A016 — 2026-08-24
+
+ID and date: PRD-A016, 2026-08-24
+
+Author: Zhang; recorded by Codex under the author's instruction to continue
+WP7
+
+Affected work package(s): WP7 post-processing authorization validation
+
+Old rule: The v1 authorization stored the post-processing protocol identity as
+`postprocessing_protocol_sha256`, while the reporter validation mistakenly
+looked for `protocol_sha256`.
+
+New rule: The reporter validates the stored field by its exact machine name.
+The original authorization remains immutable; a v2 authorization must cite and
+supersede its hash before any endpoint calculation.
+
+Trigger and scientific reason: The first report invocation failed at the
+authorization-identity check.  Validation occurs before chain loading, prior
+regeneration, or endpoint calculation, so this is a pure provenance-key repair.
+
+Affected result inspected before change? no.  No chain value, posterior
+location, interval, likelihood, sign probability, fate composition, KL
+endpoint, or setting comparison was read.  No endpoint or post-processing audit
+file was created.
+
+Classification: corrective machine-provenance repair; pre-endpoint
+
+Pre-amendment result disposition: The v1 authorization is retained as a failed
+historical artifact.  The scientific model, samples, stopping prefixes,
+estimators, thresholds, and outputs are unchanged.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP7_POSTPROCESSING_PROTOCOL.md`;
+`plan/wp7_postprocessing_protocol.json`; authorizer and reporter.

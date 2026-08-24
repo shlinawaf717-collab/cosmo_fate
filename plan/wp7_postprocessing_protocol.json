@@ -4,7 +4,8 @@
     "append_only_suffix_rule": "retain and disclose but exclude from every endpoint",
     "all_five_post_termination_gates_must_pass": true,
     "no_live_wp7_sampler": true,
-    "sbc_status_required": "PASS"
+    "sbc_status_required": "PASS",
+    "supersession_rule": "retain v1; corrected v2 must cite v1 hash and document that validation failed before chain loading"
   },
   "fate": {
     "boundary_threshold_abs_winf_plus_one": 0.01,
