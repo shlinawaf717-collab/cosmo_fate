@@ -100,7 +100,7 @@ def _setting_identity(tag: str) -> dict:
     if len(snapshots) != 4:
         raise WP7AuthorizationError(f"{tag} does not have four final chains")
     chains = [chain_identity(Path(record["path"]), record) for record in snapshots]
-    payload = {
+    return {
         "final_stop_audit": {
             "path": str(audit_path.relative_to(ROOT)),
             "sha256": sha256_file(audit_path),
@@ -144,8 +144,8 @@ def build_authorization() -> dict:
     if live:
         raise WP7AuthorizationError("WP7 posterior samplers are still alive")
     settings = {tag: _setting_identity(tag) for tag in SETTINGS}
-    return {
-        "schema_version": "wp7-fs7-postprocessing-authorization-v1",
+    payload = {
+        "schema_version": "wp7-fs7-postprocessing-authorization-v2",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "status": "AUTHORIZED_AFTER_ALL_SETTINGS_CLOSED_BEFORE_ENDPOINTS",
         "scope": "technical post-processing choices frozen and tested without reading a real posterior endpoint",

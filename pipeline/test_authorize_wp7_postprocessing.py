@@ -59,3 +59,22 @@ def test_chain_identity_rejects_a_changed_chain(monkeypatch, tmp_path):
     }
     with pytest.raises(authorization.WP7AuthorizationError, match="sha256"):
         authorization.chain_identity(path, expected)
+
+
+def test_v2_authorization_returns_payload_and_supersedes_v1(monkeypatch, tmp_path):
+    monkeypatch.setattr(authorization, "ROOT", tmp_path)
+    monkeypatch.setattr(authorization, "AUTHORIZATION", tmp_path / "v2.json")
+    monkeypatch.setattr(authorization, "AUTHORIZATION_V1", tmp_path / "v1.json")
+    monkeypatch.setattr(authorization, "ENDPOINTS", tmp_path / "endpoints.json")
+    monkeypatch.setattr(authorization, "AUDIT", tmp_path / "audit.json")
+    (tmp_path / "v1.json").write_text("{}\n", encoding="utf-8")
+    fake_setting = {
+        "chains": [{"post_audit_complete_rows_excluded": 0} for _ in range(4)],
+        "all_post_termination_gates_pass": True,
+    }
+    monkeypatch.setattr(authorization, "_setting_identity", lambda tag: fake_setting)
+    monkeypatch.setattr(authorization, "_live_wp7_samplers", lambda: [])
+    result = authorization.build_authorization()
+    assert result["schema_version"] == "wp7-fs7-postprocessing-authorization-v2"
+    assert result["supersedes_authorization"]["v1_endpoint_calculation_started"] is False
+    assert set(result["settings"]) == set(authorization.SETTINGS)

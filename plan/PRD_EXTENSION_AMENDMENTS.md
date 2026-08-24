@@ -792,6 +792,11 @@ supersede its hash before any endpoint calculation.
 Trigger and scientific reason: The first report invocation failed at the
 authorization-identity check.  Validation occurs before chain loading, prior
 regeneration, or endpoint calculation, so this is a pure provenance-key repair.
+The first v2 authorization construction attempt then exposed a control-flow
+regression in the supersession patch (`_setting_identity` returned `None` and
+the supersession block followed an early return).  That attempt also failed
+before writing an authorization or reading a posterior value; the repaired
+path is covered by a synthetic v2-supersession unit test.
 
 Affected result inspected before change? no.  No chain value, posterior
 location, interval, likelihood, sign probability, fate composition, KL
