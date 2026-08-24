@@ -1,0 +1,11 @@
+{"event": "controller_start", "pid": 15820, "setting": "sig100", "timestamp_utc": "2026-08-21T03:21:15.923621+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig100/c1/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T03:21:15.924162+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig100/c1/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T03:51:15.994032+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig100/c1/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T04:21:16.147132+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig100/c1/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T04:51:16.051511+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig100/c3/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T05:21:16.236484+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig100/c3/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T05:51:16.681781+00:00"}
+{"event": "evaluation", "snapshot_sha256": "f263cbb26997f1ce04f83a2a1c63414d784c0dfc47eca5252a2fd8ad92650dfa", "status": "AUTHORITATIVE_CONTINUE", "timestamp_utc": "2026-08-21T06:21:17.646086+00:00"}
+{"event": "evaluation", "snapshot_sha256": "fa50e805bc26c55bf6d3a291d4bcb4f78d071744f22e28b4b6e32b0bc008a690", "status": "AUTHORITATIVE_PASS_1", "timestamp_utc": "2026-08-21T06:51:19.812731+00:00"}
+{"event": "evaluation", "snapshot_sha256": "d9a287f1cab9c42d0c48cbab7ab4008e376f85a4cdae51d997fd3aff61090ebb", "status": "STOP_ELIGIBLE", "timestamp_utc": "2026-08-21T07:21:23.343781+00:00"}
+{"event": "finalizer_exit", "returncode": 0, "stderr": "", "stdout": "{\"setting\": \"sig100\", \"status\": \"EXTERNALLY_STOPPED\"}", "timestamp_utc": "2026-08-21T07:21:33.997470+00:00"}

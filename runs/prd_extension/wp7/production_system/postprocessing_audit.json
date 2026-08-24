@@ -1,0 +1,25 @@
+{
+  "authorization_sha256": "3a7b5e35a8c1fb55933e6f3de497b99fce03a4f1587681204a57a6e1f96a2cd8",
+  "endpoint": {
+    "path": "runs/prd_extension/wp7/production_system/wp7_endpoints.json",
+    "sha256": "70ab5dd1186c6ce3bf9def560b194ccd6113249bd121a68c8e271d0cce20a458"
+  },
+  "gates": {
+    "all_endpoints_use_final_stop_audited_prefixes_only": true,
+    "all_five_settings_reported": true,
+    "all_posterior_rip_mcse_lt_0p01": true,
+    "no_model_evidence_calculated": true,
+    "sbc_pass": true
+  },
+  "model_evidence_calculated": false,
+  "reporter_sha256": "f7f12c2086e468203e3e3a3376b3c756f1716f33a3258f6af59691e11f90d541",
+  "runtime": {
+    "numpy": "2.5.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.13",
+    "scipy": "1.16.2"
+  },
+  "schema_version": "wp7-fs7-postprocessing-audit-v1",
+  "source_inputs_unchanged": true,
+  "status": "PASS"
+}

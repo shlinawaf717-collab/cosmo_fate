@@ -1,0 +1,8 @@
+{"event": "controller_start", "pid": 15816, "setting": "sig025", "timestamp_utc": "2026-08-21T03:21:15.925221+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig025/c1/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T03:21:15.925729+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig025/c3/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T03:51:16.078780+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig025/c3/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T04:21:16.472252+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/sig025/c3/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T04:51:16.625451+00:00"}
+{"event": "evaluation", "snapshot_sha256": "18f0b68308a1179d4e4dc03f94b187007306592b9c2cb594d0f9bdc8db76c5a9", "status": "AUTHORITATIVE_PASS_1", "timestamp_utc": "2026-08-21T05:21:17.774585+00:00"}
+{"event": "evaluation", "snapshot_sha256": "f63dcf3ffbcee7a687973cfa24618a92acdd0fd8c85cd22be44fc8893788854d", "status": "STOP_ELIGIBLE", "timestamp_utc": "2026-08-21T05:51:19.825921+00:00"}
+{"event": "finalizer_exit", "returncode": 0, "stderr": "", "stdout": "{\"setting\": \"sig025\", \"status\": \"EXTERNALLY_STOPPED\"}", "timestamp_utc": "2026-08-21T05:51:26.667344+00:00"}

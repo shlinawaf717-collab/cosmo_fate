@@ -1,0 +1,33 @@
+{
+  "first_pass": {
+    "hashes": [
+      "6ec46636c1a05fa28779497d66a01cd0f6d6ca9f7553bbcaebcc839d47812ca3",
+      "224080f7f79cf8244c8115dbbb01f111a316cc743f196757c63d9a44f5e735ba",
+      "6217a31d0b0c7f3fe34bfbbb6129a5a4d275f2c84943dbb8c71d41b06a09fe40",
+      "793e7073c1ad89d9c472673b641bdfb760b9135553cc963c0423c7ebaa15a891"
+    ],
+    "rows": [
+      78459,
+      77401,
+      17637,
+      17918
+    ],
+    "snapshot_sha256": "330f72a5ee9c52dd2f5ab4173c67338ef2bb1127bf2b1387ddd791189faf4723"
+  },
+  "last_status": "STOP_ELIGIBLE",
+  "second_pass": {
+    "hashes": [
+      "a1def81086357d4324fb6b49d4502ed2d11305e424b70046bc14468491a2bee9",
+      "93b01e2540e21efdb43e7fa7ca41f65b70647e19380699989425ea23de81cb46",
+      "1f23247d8599d04b6be761ee3569212c82c80383c69806549b247a49c15a4d21",
+      "54defa65fcd9d93a46046f94c7c222de1f1e71b0d0870f22818b7c815cf5848a"
+    ],
+    "rows": [
+      95173,
+      93869,
+      33865,
+      34176
+    ],
+    "snapshot_sha256": "ad5f112e687f758733287120291759715ab3f89f3dde20e4e09a4623b50df5dc"
+  }
+}

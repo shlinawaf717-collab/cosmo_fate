@@ -1,0 +1,6 @@
+{"event": "controller_start", "pid": 15811, "setting": "primary", "timestamp_utc": "2026-08-21T03:21:15.909279+00:00"}
+{"error": "FileNotFoundError: [Errno 2] No such file or directory: '/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/primary/c1/chain.1.txt'", "event": "chains_not_ready", "timestamp_utc": "2026-08-21T03:21:15.909852+00:00"}
+{"event": "evaluation", "snapshot_sha256": "d0d6f4e0f2cc4269e26e89ce2494bbb6066d185a23de07b4cacf85bb0bb8dd93", "status": "AUTHORITATIVE_CONTINUE", "timestamp_utc": "2026-08-21T03:51:16.607170+00:00"}
+{"event": "evaluation", "snapshot_sha256": "026145ffa4e220c398a2fa9455bf82c1c99afab4aecc33e3384e966d063caff7", "status": "AUTHORITATIVE_PASS_1", "timestamp_utc": "2026-08-21T04:21:18.282211+00:00"}
+{"event": "evaluation", "snapshot_sha256": "97aab58cf257a23ad7b272d6fd94b7a119ca7f031145b480bc188aa7e6556851", "status": "STOP_ELIGIBLE", "timestamp_utc": "2026-08-21T04:51:20.438733+00:00"}
+{"event": "finalizer_exit", "returncode": 0, "stderr": "", "stdout": "{\"setting\": \"primary\", \"status\": \"EXTERNALLY_STOPPED\"}", "timestamp_utc": "2026-08-21T04:51:28.084334+00:00"}

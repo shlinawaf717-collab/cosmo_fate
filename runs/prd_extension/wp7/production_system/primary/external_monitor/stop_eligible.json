@@ -1,0 +1,35 @@
+{
+  "first_pass": {
+    "hashes": [
+      "42c30b1d19d317062f9040d9199a003b29ba4418d8810bab4cb7ad875fa0288b",
+      "972e55e8c7a6f25a541034f545f858519278b6ba0a969fa7d398f229690f7638",
+      "60bebbfcecbd714ab00892369a11e3ec2753a838e1749a953c2bac5711504296",
+      "1415148f9fdc7c9e96512d226eda9df943b7bfd31f27e5c4e5c47e891c7a8fec"
+    ],
+    "rows": [
+      34104,
+      33426,
+      31330,
+      34167
+    ],
+    "snapshot_sha256": "026145ffa4e220c398a2fa9455bf82c1c99afab4aecc33e3384e966d063caff7"
+  },
+  "policy_sha256": "6885987717c51336f18fc5f4e33b900262d22337d6d8574dce99683e50029b97",
+  "schema_version": "wp7-fs7-stop-eligibility-v1",
+  "second_pass": {
+    "hashes": [
+      "2ea8a18d4b4c89bd7273a1fd3a2f73de0b3215bc5f77cf5b810671d678b6e57a",
+      "b0e25ad7d9313184195e7179db472596ed1040ee5c90715862be2d6d6f2ba00c",
+      "ebee579c57e0389af3adcb5ea3192fd16176105d7e99b273bc432f49e5ca76db",
+      "a4dabc1cf0197c033082f3f5ae70d63b31baa5b31885d1f06668f3600693e683"
+    ],
+    "rows": [
+      49081,
+      48340,
+      46464,
+      49429
+    ],
+    "snapshot_sha256": "97aab58cf257a23ad7b272d6fd94b7a119ca7f031145b480bc188aa7e6556851"
+  },
+  "setting": "primary"
+}

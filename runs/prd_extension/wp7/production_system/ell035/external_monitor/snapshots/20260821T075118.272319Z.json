@@ -1,0 +1,104 @@
+{
+  "blinding": {
+    "fate": false,
+    "intervals": false,
+    "likelihoods": false,
+    "locations": false,
+    "sign_probability": false
+  },
+  "candidate_gates": {
+    "all_node_bulk_ess_gt_400": true,
+    "all_node_tail_ess_gt_400": true,
+    "all_parameter_rhat_lt_1p01": true,
+    "hidden_final_sign_mcse_lt_0p01": true
+  },
+  "chain_snapshots": [
+    {
+      "captured_bytes": 43780680,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/ell035/c1/chain.1.txt",
+      "rows": 78459,
+      "sha256": "6ec46636c1a05fa28779497d66a01cd0f6d6ca9f7553bbcaebcc839d47812ca3",
+      "total_weight": 255660
+    },
+    {
+      "captured_bytes": 43190316,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/ell035/c2/chain.1.txt",
+      "rows": 77401,
+      "sha256": "224080f7f79cf8244c8115dbbb01f111a316cc743f196757c63d9a44f5e735ba",
+      "total_weight": 253373
+    },
+    {
+      "captured_bytes": 9842004,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/ell035/c3/chain.1.txt",
+      "rows": 17637,
+      "sha256": "6217a31d0b0c7f3fe34bfbbb6129a5a4d275f2c84943dbb8c71d41b06a09fe40",
+      "total_weight": 60023
+    },
+    {
+      "captured_bytes": 9998802,
+      "path": "/Users/nocide/cosmo_fate/runs/prd_extension/wp7/production_system/ell035/c4/chain.1.txt",
+      "rows": 17918,
+      "sha256": "793e7073c1ad89d9c472673b641bdfb760b9135553cc963c0423c7ebaa15a891",
+      "total_weight": 59966
+    }
+  ],
+  "consecutive_passes": 1,
+  "decision_authority": true,
+  "ess": {
+    "bulk_by_node": {
+      "fs7_w1": 1787.9875869361824,
+      "fs7_w2": 2007.4146438098285,
+      "fs7_w3": 2102.9113002280465,
+      "fs7_w4": 2057.036427788921,
+      "fs7_w5": 2135.6335028983876,
+      "fs7_w6": 2228.3006034198934,
+      "fs7_w7": 2021.0214294776827
+    },
+    "definition": "rank-normalized split bulk and binary 5/95-percent tail ESS",
+    "tail_by_node": {
+      "fs7_w1": 2412.861332289962,
+      "fs7_w2": 3617.476579376715,
+      "fs7_w3": 3837.092374201846,
+      "fs7_w4": 3398.5164011378333,
+      "fs7_w5": 3798.743606826671,
+      "fs7_w6": 3815.3391468008017,
+      "fs7_w7": 3430.402314617452
+    }
+  },
+  "monitor_sha256": "06f03f5c2ea734a451127796c71c64c394fa0629febba71a4d220c0eb777d801",
+  "policy_gates": {
+    "all_node_bulk_ess_gt_400": true,
+    "all_node_tail_ess_gt_400": true,
+    "all_parameter_rhat_lt_1p01": true,
+    "hidden_final_sign_mcse_lt_0p01": true
+  },
+  "policy_sha256": "6885987717c51336f18fc5f4e33b900262d22337d6d8574dce99683e50029b97",
+  "rhat": {
+    "by_parameter": {
+      "H0": 1.0023986439618149,
+      "Mb": 1.0030223604572077,
+      "fs7_w1": 1.0018529393403988,
+      "fs7_w2": 1.0016010561975117,
+      "fs7_w3": 1.0016967727547021,
+      "fs7_w4": 1.0013214432920763,
+      "fs7_w5": 1.0008312852694432,
+      "fs7_w6": 1.0011880398508157,
+      "fs7_w7": 1.0023868905252884,
+      "ombh2": 1.0016641510704847,
+      "omegam": 1.0029342845224678,
+      "z1": 1.0018529433865953,
+      "z2": 1.0018529889707335,
+      "z3": 1.0020202490547532,
+      "z4": 1.002057333691472,
+      "z5": 1.0012039958904841,
+      "z6": 1.00121619191405,
+      "z7": 1.0021712569307184
+    },
+    "definition": "maximum rank-normalized split and folded-split R-hat"
+  },
+  "schema_version": "wp7-fs7-authoritative-evaluation-v1",
+  "setting": "ell035",
+  "snapshot_sha256": "330f72a5ee9c52dd2f5ab4173c67338ef2bb1127bf2b1387ddd791189faf4723",
+  "status": "AUTHORITATIVE_PASS_1",
+  "stop_eligible": false
+}
