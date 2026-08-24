@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import math
 import platform
@@ -56,26 +57,29 @@ def _load(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _header(path: Path) -> tuple[str, ...]:
-    with path.open("r", encoding="utf-8") as handle:
-        line = handle.readline()
+def _header_from_prefix(prefix: bytes, path: Path) -> tuple[str, ...]:
+    line = prefix.splitlines()[0].decode("utf-8")
     if not line.startswith("#"):
         raise WP7ReportError(f"missing Cobaya header: {path}")
     return tuple(line[1:].split())
 
 
 def _load_postburn_chain(path: Path, expected: dict, burn_fraction: float) -> dict:
-    if sha256_file(path) != expected["sha256"]:
-        raise WP7ReportError(f"chain hash mismatch: {path}")
-    if path.stat().st_size != expected["bytes"]:
-        raise WP7ReportError(f"chain byte count mismatch: {path}")
-    columns = _header(path)
+    if path.stat().st_size < expected["captured_bytes"]:
+        raise WP7ReportError(f"chain is shorter than its audited prefix: {path}")
+    with path.open("rb") as handle:
+        prefix = handle.read(expected["captured_bytes"])
+    if len(prefix) != expected["captured_bytes"] or not prefix.endswith(b"\n"):
+        raise WP7ReportError(f"audited chain prefix is incomplete: {path}")
+    if hashlib.sha256(prefix).hexdigest() != expected["sha256"]:
+        raise WP7ReportError(f"audited chain prefix hash mismatch: {path}")
+    columns = _header_from_prefix(prefix, path)
     wanted = ("weight", "omegam", "H0", *NODE_NAMES)
     missing = [name for name in wanted if name not in columns]
     if missing:
         raise WP7ReportError(f"chain columns missing {missing}: {path}")
     usecols = tuple(columns.index(name) for name in wanted)
-    data = np.loadtxt(path, comments="#", usecols=usecols, ndmin=2)
+    data = np.loadtxt(io.BytesIO(prefix), comments="#", usecols=usecols, ndmin=2)
     if data.shape[0] != expected["rows"]:
         raise WP7ReportError(f"chain row count mismatch: {path}")
     if not np.all(np.isfinite(data)):
@@ -91,6 +95,8 @@ def _load_postburn_chain(path: Path, expected: dict, burn_fraction: float) -> di
         "burn_rows": int(cut),
         "retained_rows": int(len(retained)),
         "retained_weight": int(weights.sum()),
+        "post_audit_complete_rows_excluded": int(expected["post_audit_complete_rows_excluded"]),
+        "post_audit_bytes_excluded": int(expected["post_audit_bytes_excluded"]),
         "weights": weights,
         "omegam": retained[:, 1],
         "H0": retained[:, 2],
@@ -338,7 +344,10 @@ def _setting_report(tag: str, authorization: dict, information: dict, protocol: 
             "ell": float(prior_record["ell"]),
         },
         "chains": [
-            {key: chain[key] for key in ("path", "raw_rows", "burn_rows", "retained_rows", "retained_weight")}
+            {key: chain[key] for key in (
+                "path", "raw_rows", "burn_rows", "retained_rows", "retained_weight",
+                "post_audit_complete_rows_excluded", "post_audit_bytes_excluded",
+            )}
             for chain in chains
         ],
         "pooled_retained_rows": int(sum(chain["retained_rows"] for chain in chains)),
@@ -411,6 +420,7 @@ def build_report(authorization: dict, protocol: dict, information: dict, sbc: di
             "all_posterior_rip_mcse_lt_0p01": all_mcse_pass,
             "sbc_pass": sbc["status"] == "PASS" and all(sbc["gates"].values()),
             "no_model_evidence_calculated": True,
+            "all_endpoints_use_final_stop_audited_prefixes_only": True,
         },
     }
 

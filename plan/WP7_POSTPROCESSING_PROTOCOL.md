@@ -1,8 +1,9 @@
 # WP7 FS7 post-processing protocol
 
-Status: frozen after all five registered real-data settings closed and before
-any WP7 posterior location, interval, final-node sign probability, fate
-composition, KL endpoint, or between-setting comparison was read.
+Status: corrected and re-frozen after all five registered real-data settings
+closed and before any WP7 posterior location, interval, final-node sign
+probability, fate composition, KL endpoint, or between-setting comparison was
+read.  The correction concerns an append-only launchd race, not an endpoint.
 
 Parent: PRD-A014 and `plan/WP7_EXECUTION_PROTOCOL.md`.  This document fills
 implementation details already required by those frozen documents; it does not
@@ -12,12 +13,28 @@ endpoints.
 ## Input and pooling
 
 Only chain prefixes recorded in the five successful transactional final-stop
-audits are eligible.  The reporter verifies every complete-row count, byte
-count, and SHA-256 digest against the post-termination audit before reading a
-posterior value.  It discards the first 50 percent of complete rows separately
-in each chain, retains the original integer Metropolis dwell weights, and pools
-the four post-burn chains by those weights.  Chains are not resampled or given
-equal total weight.
+audits are eligible.  The reporter verifies every audited complete-row count,
+captured-byte boundary, and prefix SHA-256 digest against the post-termination
+audit before reading a posterior value.  A file may contain an append-only
+suffix only when the complete audited prefix still matches exactly.  Such a
+suffix is retained on disk, counted and disclosed, but is excluded from every
+WP7 endpoint.  Truncation, mutation, or a mismatch inside the audited prefix is
+a hard failure.
+
+This prefix rule is operative for `ell140`.  Its finalizer committed four
+stable, converged prefixes at 2026-08-21 09:21 UTC.  The launchd driver restarted
+during the roughly three-second interval before the audit status became
+`EXTERNALLY_STOPPED`, then appended samples.  The mismatch was found by the
+pre-endpoint authorizer on 2026-08-24.  All four audited prefixes end at a
+complete newline and reproduce their registered hashes and row counts.  Using
+the audited stopping-time prefixes preserves the registered two-pass stopping
+rule; using the unplanned suffix would silently give one sensitivity setting a
+different, post-stop sample horizon.
+
+Within each eligible prefix, the reporter discards the first 50 percent of
+complete rows separately in each chain, retains the original integer
+Metropolis dwell weights, and pools the four post-burn chains by those weights.
+Chains are not resampled or given equal total weight.
 
 For every registered node and the conditional final-node residual, report the
 right-continuous weighted empirical-CDF quantiles at 2.5, 16, 50, 84, and 97.5

@@ -723,3 +723,51 @@ Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `plan/WP7_EXECUTION_PROTOCOL.md`; `plan/wp7_execution_protocol.json`; FS7
 sampler, SBC, information, monitor, controller, finalizer, tests, and frozen
 run manifests pending.
+
+## PRD-A015 — 2026-08-24
+
+ID and date: PRD-A015, 2026-08-24
+
+Author: Zhang; recorded by Codex under the author's instruction to continue
+WP7 after all registered settings closed
+
+Affected work package(s): WP7 FS7 post-processing and audit provenance
+
+Old rule: The post-processing authorizer initially required each current chain
+file to equal the corresponding final-stop snapshot in its entirety.
+
+New rule: Every endpoint uses exactly the byte prefix committed by the
+transactional final-stop audit.  The prefix must reproduce its registered row
+count, captured-byte boundary, complete trailing newline, and SHA-256.  A
+current file may have only an intact append-only suffix; the suffix is retained,
+counted, disclosed, and excluded.  Any mutation or truncation inside the
+audited prefix remains a hard failure.
+
+Trigger and scientific reason: The endpoint-blind authorizer found that all
+four `ell140` files were larger than their final-stop snapshots.  Operational
+events showed that launchd restarted the driver in the approximately
+three-second interval between driver exit and the final audit becoming
+`EXTERNALLY_STOPPED`, causing an unintended checkpoint continuation.  All four
+audited prefixes match exactly.  Selecting the registered stopping-time prefix
+preserves the common stopping rule; using the unplanned suffix would silently
+give one sensitivity setting a different sample horizon.
+
+Affected result inspected before change? yes; exact scope: file sizes, complete
+row counts, modification times, process events, byte-boundary newlines, and
+SHA-256 digests were inspected.  No posterior value, location, interval,
+likelihood, sign probability, fate composition, KL endpoint, or setting
+comparison was read, and the failed authorizer wrote no authorization or
+endpoint artifact.
+
+Classification: corrective operational provenance; post-convergence and
+pre-endpoint
+
+Pre-amendment result disposition: All original files and the append-only
+suffixes remain preserved.  No scientific result is deleted or selected after
+inspection.  The registered converged prefixes remain the sole confirmatory
+inputs.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP7_POSTPROCESSING_PROTOCOL.md`;
+`plan/wp7_postprocessing_protocol.json`;
+`plan/WP7_POSTSTOP_RACE_NOTE.md`; authorizer, reporter, and tests.

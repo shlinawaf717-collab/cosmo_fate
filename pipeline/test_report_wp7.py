@@ -1,13 +1,40 @@
+import hashlib
 import math
 
 import numpy as np
 
+import pipeline.report_wp7 as reporter
 from pipeline.report_wp7 import (
     _classify_posterior,
     _sign_batch_mcse,
     quantile_bin_kl,
     weighted_summary,
 )
+
+
+def test_chain_loader_uses_only_audited_prefix(monkeypatch, tmp_path):
+    monkeypatch.setattr(reporter, "ROOT", tmp_path)
+    path = tmp_path / "runs/chain.1.txt"
+    path.parent.mkdir(parents=True)
+    header = "# weight omegam H0 " + " ".join(f"fs7_w{i}" for i in range(1, 8)) + "\n"
+    rows = [
+        "1 0.3 70 " + " ".join([str(-1.0 + 0.01 * index)] * 7) + "\n"
+        for index in range(4)
+    ]
+    prefix = (header + "".join(rows)).encode()
+    path.write_bytes(prefix + ("1 0.3 70 " + " ".join(["9.0"] * 7) + "\n").encode())
+    expected = {
+        "rows": 4,
+        "captured_bytes": len(prefix),
+        "sha256": hashlib.sha256(prefix).hexdigest(),
+        "post_audit_complete_rows_excluded": 1,
+        "post_audit_bytes_excluded": path.stat().st_size - len(prefix),
+    }
+    loaded = reporter._load_postburn_chain(path, expected, 0.5)
+    assert loaded["raw_rows"] == 4
+    assert loaded["retained_rows"] == 2
+    assert loaded["post_audit_complete_rows_excluded"] == 1
+    assert np.all(loaded["nodes"] < 0)
 
 
 def test_weighted_summary_uses_registered_inverted_cdf():

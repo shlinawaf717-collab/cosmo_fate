@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import subprocess
 from datetime import datetime, timezone
@@ -49,16 +50,31 @@ def chain_identity(path: Path, expected: dict) -> dict:
         relative = path.relative_to(ROOT)
     except ValueError as exc:
         raise WP7AuthorizationError(f"chain is outside repository: {path}") from exc
+    captured = int(expected["captured_bytes"])
+    current_bytes = path.stat().st_size
+    if current_bytes < captured:
+        raise WP7AuthorizationError(f"chain is shorter than final audit: {path}")
+    with path.open("rb") as handle:
+        prefix = handle.read(captured)
+    if len(prefix) != captured or not prefix.endswith(b"\n"):
+        raise WP7AuthorizationError(f"audited prefix is not a complete line boundary: {path}")
+    prefix_rows = sum(1 for line in prefix.splitlines() if line.strip() and not line.startswith(b"#"))
+    current_rows = _complete_rows(path)
     identity = {
         "path": str(relative),
-        "rows": _complete_rows(path),
-        "bytes": path.stat().st_size,
-        "sha256": sha256_file(path),
+        "rows": prefix_rows,
+        "captured_bytes": captured,
+        "sha256": hashlib.sha256(prefix).hexdigest(),
+        "current_complete_rows": current_rows,
+        "current_bytes": current_bytes,
+        "current_full_sha256": sha256_file(path),
+        "post_audit_complete_rows_excluded": current_rows - prefix_rows,
+        "post_audit_bytes_excluded": current_bytes - captured,
         "total_weight_at_final_stop": int(expected["total_weight"]),
     }
     comparisons = {
         "rows": int(expected["rows"]),
-        "bytes": int(expected["captured_bytes"]),
+        "captured_bytes": int(expected["captured_bytes"]),
         "sha256": expected["sha256"],
     }
     for key, value in comparisons.items():
@@ -115,7 +131,7 @@ def build_authorization() -> dict:
     if execution.get("status") != "FROZEN_BEFORE_WP7_POSTERIOR_SAMPLING":
         raise WP7AuthorizationError("WP7 execution protocol is not frozen")
     postprocessing = _load(PROTOCOL)
-    if postprocessing.get("status") != "FROZEN_AFTER_ALL_CHAINS_CLOSED_BEFORE_ENDPOINT_CALCULATION":
+    if postprocessing.get("status") != "CORRECTED_AND_REFROZEN_BEFORE_ENDPOINT_CALCULATION":
         raise WP7AuthorizationError("WP7 post-processing protocol is not frozen")
     information = _load(INFORMATION_PLAN)
     if information.get("status") != "FROZEN_BEFORE_WP7_POSTERIOR":
@@ -142,7 +158,11 @@ def build_authorization() -> dict:
         "authorizer_sha256": sha256_file(Path(__file__).resolve()),
         "authorizer_test_sha256": sha256_file(AUTHORIZER_TEST),
         "settings": settings,
-        "all_20_chain_identities_match_final_stop_audits": True,
+        "all_20_audited_chain_prefixes_match_final_stop_audits": True,
+        "append_only_suffixes_excluded_from_endpoints": {
+            tag: int(sum(row["post_audit_complete_rows_excluded"] for row in record["chains"]))
+            for tag, record in settings.items()
+        },
         "all_five_settings_closed": True,
         "sbc_pass": True,
         "no_live_wp7_sampler": True,

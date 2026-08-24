@@ -1,6 +1,7 @@
 {
   "authorization": {
-    "all_20_chain_identities_must_match_final_audits": true,
+    "all_20_audited_chain_prefixes_must_match_final_audits": true,
+    "append_only_suffix_rule": "retain and disclose but exclude from every endpoint",
     "all_five_post_termination_gates_must_pass": true,
     "no_live_wp7_sampler": true,
     "sbc_status_required": "PASS"
@@ -38,8 +39,8 @@
     "equal_chain_total_weight": false,
     "weight_expansion_for_mcse_only": true
   },
-  "schema_version": "wp7-fs7-postprocessing-protocol-v1",
-  "status": "FROZEN_AFTER_ALL_CHAINS_CLOSED_BEFORE_ENDPOINT_CALCULATION",
+  "schema_version": "wp7-fs7-postprocessing-protocol-v2",
+  "status": "CORRECTED_AND_REFROZEN_BEFORE_ENDPOINT_CALCULATION",
   "summaries": {
     "quantile_definition": "right-continuous weighted empirical CDF (inverted CDF)",
     "quantiles": [0.025, 0.16, 0.5, 0.84, 0.975],
