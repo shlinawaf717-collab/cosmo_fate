@@ -1,0 +1,72 @@
+{
+  "schema_version": "wp8-future-continuation-execution-v1",
+  "status": "frozen after WP7 closure and before any WP8 endpoint",
+  "parents": {
+    "v1_protocol": "wp8-future-continuation-v1",
+    "v2_correction": "wp8-future-continuation-corrective-v2"
+  },
+  "source": {
+    "setting": "primary",
+    "burn_fraction_per_chain_complete_rows": 0.5,
+    "pooling": "native integer Metropolis dwell weights",
+    "wp7_endpoints_sha256": "70ab5dd1186c6ce3bf9def560b194ccd6113249bd121a68c8e271d0cce20a458",
+    "wp7_postprocessing_audit_sha256": "955044cb6c49b7cfaef938094348461b32307e8f76eac26ed5fa0700cb14b75d",
+    "wp7_authorization_sha256": "3a7b5e35a8c1fb55933e6f3de497b99fce03a4f1587681204a57a6e1f96a2cd8",
+    "wp7_primary_final_stop_audit_sha256": "b705fca962f0bc7a2677c016fe916ac799891b4c8dac42cfe2d279833c9cd854"
+  },
+  "boundary_extraction": {
+    "w1": "fs7_w4",
+    "s1": "exact derivative at ln(a)=0 of the registered global clamped cubic spline",
+    "c0_winf": "fs7_w7",
+    "ledger_columns": [
+      "chain",
+      "retained_row",
+      "weight",
+      "w1",
+      "s1",
+      "c0_winf"
+    ]
+  },
+  "native_weight_endpoints": [
+    "C0",
+    "C1",
+    "C2",
+    "partial_identification_support_set"
+  ],
+  "admissible_support": {
+    "method": "analytic intersection of affine w_inf constraints",
+    "bounds": [-3.0, 1.0],
+    "grid_uniform_in": "ln(a)",
+    "grid_size": 512,
+    "grid_a": [1.0, 1000000.0]
+  },
+  "c3_pairing": {
+    "proposals_per_tau_replicate": 100000,
+    "source_history_selection": "deterministic inverse-weight empirical quantiles at (i+0.5)/N in fixed source order",
+    "source_resampling_randomness": false,
+    "asymptote_sampler": "inverse CDF of the registered truncated Normal",
+    "numpy_bit_generator": "PCG64",
+    "seed_formula": "202607270800 + 10*tau_ordinal + replicate_ordinal",
+    "direct_grid_membership_audit": "512 proposal indices spaced deterministically across each complete proposal order",
+    "composition_denominator": "accepted admissible proposals",
+    "composition_label": "selection-conditioned, not a likelihood posterior update"
+  },
+  "validation": {
+    "C0_reproduction_absolute_tolerance": 1e-10,
+    "boundary_value_derivative_absolute_tolerance": 1e-10,
+    "past_history_identity_absolute_tolerance": 1e-12,
+    "past_loglike_invariance_basis": "identity by construction for every registered z>=0 observable",
+    "max_fate_probability_mcse": 0.002,
+    "replicate_absolute_floor": 0.005,
+    "replicate_combined_mcse_multiplier": 3.0,
+    "empty_partial_support_is_failure": true
+  },
+  "outputs": [
+    "source_history.csv.gz",
+    "source_inventory.json",
+    "wp8_endpoints.json",
+    "wp8_audit.json",
+    "WP8_OUTCOME.md"
+  ],
+  "secondary_full_cmb_in_primary_transaction": false
+}
