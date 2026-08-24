@@ -1,0 +1,62 @@
+{
+  "WP8_endpoint_calculated_before_authorization": false,
+  "authorizer_sha256": "aebfeedac5d930f0bacbe4859846949e964672f6b24ec8b446c092a497c7b060",
+  "authorizer_test_sha256": "51ab7a7c2aa55eae7243a34a54f5a8b6c40be0a738cd04b6ac907158b1fa0184",
+  "continuation_endpoint_authorized": true,
+  "created_at_utc": "2026-08-24T02:05:23.330936+00:00",
+  "execution_protocol_md_sha256": "a22e904fa72f5d43a939bb3707517d7741728e52885909a880d343424fc9838b",
+  "execution_protocol_sha256": "6b624fd0a20cd2baf5ff0c34e8026d3f173825a4ccbb80e16b71eeb3f7e3be3e",
+  "family_model_average_authorized": false,
+  "geometry_module_sha256": "8aa3894058e87e0d4dfaf5258b75dc54e65590b197bac5d5b62318b31201dcd9",
+  "geometry_test_sha256": "64708029bfeccd0bc7394b7ce94146bbe56f9b7301f2d9e70d71a959c0f695cc",
+  "no_live_WP8_reporter": true,
+  "reporter_sha256": "30affa584daff2d42e8708cd386e2f7afce617255e4a8251ee3cad3afd46727c",
+  "reporter_test_sha256": "d594ba0b0af593377448899795547a1f047e689729aa24a84f46af1ce31dd8c4",
+  "schema_version": "wp8-future-continuation-authorization-v1",
+  "scope": "frozen primary compressed-CMB continuation audit only",
+  "secondary_full_cmb_authorized": false,
+  "source": {
+    "all_four_audited_prefixes_match": true,
+    "chains": [
+      {
+        "captured_bytes": 27387756,
+        "path": "runs/prd_extension/wp7/production_system/primary/c1/chain.1.txt",
+        "post_audit_complete_rows_excluded": 0,
+        "rows": 49081,
+        "sha256": "2ea8a18d4b4c89bd7273a1fd3a2f73de0b3215bc5f77cf5b810671d678b6e57a"
+      },
+      {
+        "captured_bytes": 26974278,
+        "path": "runs/prd_extension/wp7/production_system/primary/c2/chain.1.txt",
+        "post_audit_complete_rows_excluded": 0,
+        "rows": 48340,
+        "sha256": "b0e25ad7d9313184195e7179db472596ed1040ee5c90715862be2d6d6f2ba00c"
+      },
+      {
+        "captured_bytes": 25927470,
+        "path": "runs/prd_extension/wp7/production_system/primary/c3/chain.1.txt",
+        "post_audit_complete_rows_excluded": 0,
+        "rows": 46464,
+        "sha256": "ebee579c57e0389af3adcb5ea3192fd16176105d7e99b273bc432f49e5ca76db"
+      },
+      {
+        "captured_bytes": 27581940,
+        "path": "runs/prd_extension/wp7/production_system/primary/c4/chain.1.txt",
+        "post_audit_complete_rows_excluded": 0,
+        "rows": 49429,
+        "sha256": "a4dabc1cf0197c033082f3f5ae70d63b31baa5b31885d1f06668f3600693e683"
+      }
+    ],
+    "post_audit_suffix_rows_excluded": 0,
+    "setting": "primary"
+  },
+  "status": "AUTHORIZED_AFTER_WP7_CLOSED_BEFORE_WP8_ENDPOINTS",
+  "synthetic_tests_only_before_authorization": true,
+  "v1_protocol_sha256": "758c22afff11e9feb00811ff0d89d4cec7198187a58b92316498c01b72c3dbcd",
+  "v2_protocol_sha256": "260af83f29256bcf4947f692934f62cf652057cfaa78a891c8ed6e31127d09f4",
+  "wp7_authorization_sha256": "3a7b5e35a8c1fb55933e6f3de497b99fce03a4f1587681204a57a6e1f96a2cd8",
+  "wp7_endpoints_sha256": "70ab5dd1186c6ce3bf9def560b194ccd6113249bd121a68c8e271d0cce20a458",
+  "wp7_postprocessing_audit_sha256": "955044cb6c49b7cfaef938094348461b32307e8f76eac26ed5fa0700cb14b75d",
+  "wp7_primary_converged_and_closed": true,
+  "wp7_primary_final_stop_audit_sha256": "b705fca962f0bc7a2677c016fe916ac799891b4c8dac42cfe2d279833c9cd854"
+}
