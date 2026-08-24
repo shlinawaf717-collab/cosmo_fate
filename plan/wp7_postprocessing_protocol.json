@@ -1,0 +1,48 @@
+{
+  "authorization": {
+    "all_20_chain_identities_must_match_final_audits": true,
+    "all_five_post_termination_gates_must_pass": true,
+    "no_live_wp7_sampler": true,
+    "sbc_status_required": "PASS"
+  },
+  "fate": {
+    "boundary_threshold_abs_winf_plus_one": 0.01,
+    "finite_limit_rule": {
+      "DECAY": "w_inf > -1",
+      "DS": "w_inf == -1",
+      "RIP": "w_inf < -1"
+    },
+    "mcse_batches_per_chain": 32,
+    "mcse_definition": "sd of 128 equalized contiguous chain-batch sign means divided by sqrt(128)",
+    "nonpositive_dark_energy_rule": "apply frozen background classifier",
+    "w_inf": "fs7_w7"
+  },
+  "information": {
+    "bin_counts": [20, 40, 80],
+    "conditional_residual": "y_f-C_fo C_oo^-1 y_o",
+    "empty_bin_rule": "zero contribution and no pseudocount",
+    "finite_outer_prior_edges": "extend to negative and positive infinity for posterior assignment",
+    "kl_definition": "sum p_j log(p_j/(1/B))",
+    "prior_draws_per_setting": 200000,
+    "registered_negligible_kl_threshold": null
+  },
+  "outputs": {
+    "audit": "runs/prd_extension/wp7/production_system/postprocessing_audit.json",
+    "endpoints": "runs/prd_extension/wp7/production_system/wp7_endpoints.json",
+    "model_evidence_authorized": false,
+    "outcome": "plan/WP7_OUTCOME.md"
+  },
+  "pooling": {
+    "burn_fraction_per_chain_by_complete_rows": 0.5,
+    "chain_combination": "pool all retained rows with native integer Metropolis dwell weights",
+    "equal_chain_total_weight": false,
+    "weight_expansion_for_mcse_only": true
+  },
+  "schema_version": "wp7-fs7-postprocessing-protocol-v1",
+  "status": "FROZEN_AFTER_ALL_CHAINS_CLOSED_BEFORE_ENDPOINT_CALCULATION",
+  "summaries": {
+    "quantile_definition": "right-continuous weighted empirical CDF (inverted CDF)",
+    "quantiles": [0.025, 0.16, 0.5, 0.84, 0.975],
+    "weighted_population_sd": true
+  }
+}
