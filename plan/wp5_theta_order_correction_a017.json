@@ -1,0 +1,86 @@
+{
+  "affected_wp": [
+    "WP5"
+  ],
+  "approved_by": "Zhang",
+  "approved_date": "2026-08-24",
+  "classification": "corrective_post_failed_start_pre_valid_inference",
+  "failure_trigger": {
+    "first_start_utc": "2026-08-24T02:30:27.115083+00:00",
+    "monitor_failure": "WP4-specific w/wa candidate-gate assembly raised KeyError after valid WP5 chains became readable",
+    "sampling_failures": [
+      {
+        "chain": 4,
+        "failure": "CAMB Fortran ERROR STOP: thermo out of bounds",
+        "steps_before_exit": 10,
+        "width_tag": "0p005"
+      },
+      {
+        "chain": 3,
+        "failure": "CAMB Fortran ERROR STOP: thermo out of bounds",
+        "steps_before_exit": 167,
+        "width_tag": "0p005"
+      }
+    ]
+  },
+  "old_implementation": {
+    "early_de_gate_order": "likelihood evaluated only after CAMB theory products",
+    "monitor_gate_parameters": [
+      "w",
+      "wa"
+    ],
+    "theta_solution_order": "solve theta_MC to H0 with base dark-energy history, then replace DarkEnergy with sampled BIN4 table"
+  },
+  "corrected_implementation": {
+    "early_de_gate_order": "apply the identical registered z=1059 ratio<0.01 predicate as a theory precondition before transfers, while retaining the likelihood gate",
+    "monitor_gate_parameters": [
+      "w1",
+      "w2",
+      "w3",
+      "w4"
+    ],
+    "theta_solution_order": "install the sampled BIN4 DarkEnergy history during every theta_MC-to-H0 root evaluation and on the final CAMBparams object"
+  },
+  "diagnostics_inspected_before_correction": [
+    "process health and exit codes",
+    "per-chain row and step counts",
+    "fatal CAMB error text",
+    "controller traceback",
+    "three predeclared fixed-point implementation diagnostics"
+  ],
+  "fixed_point_delta_chi2_corrected_minus_legacy": {
+    "0p005": -970.9184711277503,
+    "0p01": -971.6785043391264,
+    "0p02": -974.5567876661644
+  },
+  "not_inspected_before_correction": [
+    "posterior means or intervals",
+    "best fit",
+    "aggregate likelihood endpoint",
+    "fate probability",
+    "width comparison endpoint",
+    "model evidence"
+  ],
+  "old_sample_disposition": "archive every first-start file and exclude all first-start rows from every scientific or convergence calculation",
+  "restart_rule": "regenerate the complete 12-chain system and restart every width from row zero with the originally frozen widths, seeds, priors, proposal, likelihoods, numerical accuracy, and stopping thresholds",
+  "schema_version": "wp5-theta-order-correction-a017-v1",
+  "status": "approved_before_corrected_WP5_restart",
+  "unchanged": {
+    "bin_edges": true,
+    "early_de_gate": {
+      "max_ratio": 0.01,
+      "z": 1059.0
+    },
+    "likelihood_data": true,
+    "parallelism_maximum": 8,
+    "priors": true,
+    "proposal_covariance": true,
+    "registered_widths": [
+      0.005,
+      0.01,
+      0.02
+    ],
+    "seeds": true,
+    "stopping_policy": true
+  }
+}

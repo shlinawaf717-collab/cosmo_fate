@@ -1,7 +1,7 @@
 {
   "title": "cosmo_fate: A locally preregistered fragility audit of DESI-era cosmic-fate claims",
-  "description": "Reproducibility archive for \"Is cosmic fate an inference or an assumption?\" The archive retains the locally preregistered secondary-data analysis plan, explicitly labeled A-004--A-007 post-hoc audits, corrections, and provenance clarifications, original-weight nested samples, independent-seed evidence checks, fitted-truth LCDM null mocks, and the compressed-CMB and finite-mock evidence boundaries. The plan was frozen in local version control before the first fate result; the public repository was created later, so this is not described as a third-party-registry preregistration. Commit ancestry, grammar-specific P1 implementation provenance, and checksums are documented in plan/PREREGISTRATION_PROVENANCE.md.",
-  "version": "1.2.1",
+  "description": "Reproducibility archive for \"Is cosmic fate an inference or an assumption?\" Version 2.0.0 adds the completed 500-mock null calibration and truth-specific power study, the calibrated seven-node information-localization analysis, and the fixed-history future-continuation partial-identification audit. It also records the author-directed computational-feasibility closure of the unstarted WP4 nested verification and the endpoint-blind, unconverged WP5 production campaign; neither incomplete package contributes a scientific endpoint. The archive retains the locally preregistered secondary-data analysis plan, append-only amendments, code, reported endpoint artifacts, manuscript source, and submission PDF. The plan was frozen in local version control before the first fate result; the public repository was created later, so this is not described as a third-party-registry preregistration.",
+  "version": "2.0.0",
   "creators": [
     {
       "name": "Zhang, Jiacheng",
@@ -18,7 +18,8 @@
     "preregistration",
     "Bayesian inference",
     "fragility analysis",
-    "cosmic fate"
+    "cosmic fate",
+    "partial identification"
   ],
   "related_identifiers": [
     {

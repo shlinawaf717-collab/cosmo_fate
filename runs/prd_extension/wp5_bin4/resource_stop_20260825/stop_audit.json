@@ -1,0 +1,57 @@
+{
+  "schema_version": "wp5-bin4-resource-stop-audit-v1",
+  "amendment": "PRD-A018",
+  "decision_path": "plan/WP4_WP5_CLOSURE_DECISION.md",
+  "decision_sha256": "0e2a5b0d5b1855b996685c5bfc985ba8969a372fca5af0a5e4b9d2254feab1a7",
+  "decision_machine_path": "plan/wp4_wp5_closure_decision_a018.json",
+  "decision_machine_sha256": "c4d80bdb65190366e66a2ed7dac4b7a27439dfce6606430db346cbee98af7acd",
+  "stopped_at_utc": "2026-08-25T07:11:13Z",
+  "stop_reason": "author_directed_computational_feasibility_closure",
+  "stop_method": "named_screen_sessions_closed_then_verified_processes_received_SIGTERM",
+  "files_deleted": false,
+  "checkpoints_preserved": true,
+  "scientific_endpoint_generated_after_stop": false,
+  "scientific_endpoint_inspected": false,
+  "blinding_preserved": {
+    "posterior_locations": true,
+    "posterior_intervals": true,
+    "aggregate_likelihood_endpoints": true,
+    "fate_probabilities": true,
+    "width_comparisons": true,
+    "model_evidence": true
+  },
+  "post_stop_process_audit": {
+    "wp5_processes_remaining": 0,
+    "screen_sessions_remaining": 0,
+    "chain_files_stable_across_recheck": true
+  },
+  "widths": {
+    "0p005": {
+      "status": "STOPPED_PRECONVERGENCE_EXCLUDED_FROM_SCIENCE",
+      "last_blinded_monitor_status": "AUTHORITATIVE_CONTINUE",
+      "last_blinded_monitor_sha256": "37b3970c6b2a05028786fed52b746277c985cfa03879bb570092fedd07391d0b",
+      "chain_sha256": {
+        "c1": "d7cc6e51c3a4a7619c03402956166e0b7eb5d41f2e561a931204f76dacb26f23",
+        "c2": "6bdc43ce2a3450a6ab2cd33991ce238124509315e335061786dc598f01e6a9e8",
+        "c3": "d7fd3be58088f4efe9e06e79f166b86cc4e6e911f81307aa691527e854efaedf",
+        "c4": "9e1084f8df1a4094580c750e288e5d354e31916a9312646077c4127d53d23c59"
+      }
+    },
+    "0p01": {
+      "status": "STOPPED_PRECONVERGENCE_EXCLUDED_FROM_SCIENCE",
+      "last_blinded_monitor_status": "AUTHORITATIVE_CONTINUE",
+      "last_blinded_monitor_sha256": "786f7720765f4836276d665ec22ddf0bc2efbd35239413bf45856a6399992242",
+      "chain_sha256": {
+        "c1": "3579fd49b3313a3f78fe3b4d4374fd5bc4bd460154f0da28e60b46367901e33e",
+        "c2": "7eb47e861f83713db551c6fe44548eb39bb4b7b30a2edc9d79bcff0aa813ec0a",
+        "c3": "f6d4b3089e95a95edaa4578e471f308d3013c914e675350c9d5bc257ef80b214",
+        "c4": "1ad60700aee8f5d74bd160645ddae2619241c75d500ae6e949e999ab10bb37b7"
+      }
+    },
+    "0p02": {
+      "status": "NOT_STARTED",
+      "chain_files": 0
+    }
+  },
+  "scientific_disposition": "RESOURCE_FEASIBILITY_NO_GO"
+}

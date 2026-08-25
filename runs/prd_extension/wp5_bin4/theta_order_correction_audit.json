@@ -1,0 +1,70 @@
+{
+  "amendment": {
+    "path": "plan/wp5_theta_order_correction_a017.json",
+    "sha256": "f1fd7f3a04f8285753211dca644812bd2d93e6cdbf145a812fd6598c0506b2fd"
+  },
+  "corrected_code": {
+    "monitor": {
+      "path": "pipeline/monitor_wp5_bin4.py",
+      "sha256": "0817ab6f00ff0fbaed6d6eed2b9658b4fa0c71706c0fd799d5e0e08a7b3020fe"
+    },
+    "theory": {
+      "path": "pipeline/wp5_camb.py",
+      "sha256": "4efffac828912a5e62695575b24ddcb17c892979b81e66d29b37c0bc95abde94"
+    }
+  },
+  "failed_start_archive": {
+    "file_count": 107,
+    "manifest": "runs/prd_extension/wp5_bin4/failed_start_20260824/manifest.json",
+    "manifest_sha256": "7859f96ed923c791b3d747ba630a090f56d7500ea5d19ac203ed0e3d6abe2511",
+    "scientific_use_prohibited": true,
+    "total_bytes": 1277264
+  },
+  "fixed_point_diagnostics": {
+    "0p005": {
+      "corrected_chi2": 12484.708748872416,
+      "corrected_minus_legacy_chi2": -970.9184711277503,
+      "path": "runs/prd_extension/wp5_bin4/corrective_diagnostics/fixed_point_theta_order_0p005.json",
+      "sha256": "8fe0be8e33ff16b564c40e709da24758de472ad651165d4f90f04ea39e562a09"
+    },
+    "0p01": {
+      "corrected_chi2": 12484.791448395976,
+      "corrected_minus_legacy_chi2": -971.6785043391264,
+      "path": "runs/prd_extension/wp5_bin4/corrective_diagnostics/fixed_point_theta_order_0p01.json",
+      "sha256": "ee90a2660109db2b4f96170a14a8718c6d8d1419a147d427b0627e9fa405c565"
+    },
+    "0p02": {
+      "corrected_chi2": 12485.092550691139,
+      "corrected_minus_legacy_chi2": -974.5567876661644,
+      "path": "runs/prd_extension/wp5_bin4/corrective_diagnostics/fixed_point_theta_order_0p02.json",
+      "sha256": "c92182bf5676a9a71d88e0977c6c5f885812dca10427a8cb85f281b5de409e2e"
+    }
+  },
+  "legacy_checkpoint_replay": {
+    "0p005_c3": {
+      "fatal_error_after_correction": false,
+      "new_steps_completed": 43,
+      "original_failure_step": 167
+    },
+    "0p005_c4": {
+      "fatal_error_after_correction": false,
+      "new_steps_completed": 46,
+      "original_failure_step": 10
+    },
+    "role": "isolated implementation stress only; every appended row remains in the excluded failed-start archive"
+  },
+  "production_system_smoke": {
+    "all_three_widths_pass": true,
+    "fatal_error_markers": 0,
+    "path": "runs/prd_extension/wp5_bin4/production_system/system_smoke_audit.json",
+    "sha256": "4e882f26bfdfc0633bfcefedcedcdf84a85816cc4b9bb6a6b49c7bbb828220b4"
+  },
+  "schema_version": "wp5-theta-order-correction-audit-v1",
+  "scientific_endpoints_inspected": false,
+  "status": "PASS_FOR_CLEAN_RESTART",
+  "tests": {
+    "command": "PYTHONPATH=. .venv/bin/pytest -q pipeline/test_*wp5*.py",
+    "failed": 0,
+    "passed": 24
+  }
+}

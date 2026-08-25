@@ -20,10 +20,14 @@
 `runs/prd_extension/`，不得覆盖 v1.x 的 `runs/gate2/`、`runs/phase2/` 或
 `runs/phase3/`。
 
-当前强化版检查点：WP2 已完成 500 个 noisy mock，正式端点为 `K=2/500`、
-plus-one `p=0.005988`；WP3 已完成 600 个 noisy case 与 6 个 Asimov case，
-外点方向功效门通过，但正面结论仅限两个注册外点备择。WP4 F0 仍在原配置下运行，
-只有冻结的外部统计门可以授权停止；未产生论文级全 CMB 科学端点。
+当前强化版封口检查点（2026-08-25）：WP2 已完成 500 个 noisy mock，正式端点为
+`K=2/500`、plus-one `p=0.005988`；WP3 已完成 600 个 noisy case 与 6 个
+Asimov case，外点方向功效门通过，但正面结论仅限两个注册外点备择。WP7 的
+50-dataset SBC、五个真实数据设置和后处理审计均已 PASS；WP8 的观测不变未来延拓
+及部分识别审计已 PASS。WP4 F1 MCMC 已导入并通过候选收敛/ESS门，但稀疏 RIP
+尾部因未执行注册的 nested 验证而不进入论文；WP4 nested 记为计算可行性 No-Go。
+WP5 在端点盲态、未收敛时按 PRD-A018 停止，所有部分链保留但排除于科学结果。
+封口决定见 `plan/WP4_WP5_CLOSURE_DECISION.md`。
 
 阶段路线：0 预注册（本阶段）→ 1 管线验证（Gate 1：复现 DESI DR2 已发表 w₀wₐCDM 结果）→ 2 全后验 + 终局分类 → 3 脆弱性量化（F_prior / F_param / F_data、mock 校准、约束视界）→ 4 写作。
 

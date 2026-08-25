@@ -40,6 +40,8 @@ fragility = load("runs/phase3/fragility_metrics.json")
 inwindow = load("runs/phase3/fparam/inwindow_fit_audit.json")["models"]
 nested_d0 = load("runs/phase2/nested_d0.json")
 model_average = load("runs/phase3/fparam/model_average_audit.json")
+wp7 = load("runs/prd_extension/wp7/production_system/wp7_endpoints.json")
+wp8 = load("runs/prd_extension/wp8_future_continuation/wp8_endpoints.json")
 nested_data = {
     name: load(f"runs/phase3/fdata/nested_{name.lower()}.json")
     for name in ("D1", "D2", "D3", "D4")
@@ -173,6 +175,50 @@ macros = [
     ("RJBP", f"{inwindow['JBP']['Rminus1_multivariate_recomputed']:.4f}"),
     ("RBA", f"{inwindow['BA']['Rminus1_multivariate_recomputed']:.4f}"),
     ("RBIN", f"{inwindow['BIN4']['Rminus1_multivariate_recomputed']:.4f}"),
+    # Prospectively frozen future-function and continuation audits (WP7/WP8)
+    ("WPSevenSBCN", f"{wp7['sbc']['datasets']}"),
+    (
+        "WPSevenPrimaryRipPct",
+        f"{wp7['settings']['primary']['posterior_fate']['fractions']['RIP'] * 100:.2f}",
+    ),
+    (
+        "WPSevenRipMinPct",
+        f"{wp7['sensitivity_summary']['posterior_rip_probability_range'][0] * 100:.2f}",
+    ),
+    (
+        "WPSevenRipMaxPct",
+        f"{wp7['sensitivity_summary']['posterior_rip_probability_range'][1] * 100:.2f}",
+    ),
+    (
+        "WPSevenResidualKL",
+        f"{wp7['settings']['primary']['conditional_final_node_residual']['kl']['40']['kl_nats']:.6f}",
+    ),
+    (
+        "WPSevenResidualKLMax",
+        f"{max(row['conditional_residual_kl_40_nats'] for row in wp7['sensitivity_summary']['by_setting'].values()):.6f}",
+    ),
+    ("WPEightRows", f"{wp8['source_history']['rows']}"),
+    ("WPEightNativeWeight", f"{wp8['source_history']['native_weight']}"),
+    (
+        "WPEightCZeroRipPct",
+        f"{wp8['descriptive_continuation_envelope']['registered_rows']['C0']['RIP'] * 100:.2f}",
+    ),
+    (
+        "WPEightCOneRipPct",
+        f"{wp8['descriptive_continuation_envelope']['registered_rows']['C1']['RIP'] * 100:.2f}",
+    ),
+    (
+        "WPEightEnvelopeRipMinPct",
+        f"{wp8['descriptive_continuation_envelope']['P_RIP']['minimum'] * 100:.2f}",
+    ),
+    (
+        "WPEightEnvelopeRipMaxPct",
+        f"{wp8['descriptive_continuation_envelope']['P_RIP']['maximum'] * 100:.2f}",
+    ),
+    (
+        "WPEightTwoSidedPct",
+        f"{wp8['partial_identification']['categories']['{RIP,heat}'] * 100:.0f}",
+    ),
 ]
 
 for macro_stem, truth_id in (
@@ -220,6 +266,8 @@ with open(out, "w") as f:
             " runs/gate2/gate2_final_stats.json,"
             " runs/prd_extension/null500/endpoints.json,"
             " runs/prd_extension/wp3_power/power_report.json,"
+            " runs/prd_extension/wp7/production_system/wp7_endpoints.json,"
+            " runs/prd_extension/wp8_future_continuation/wp8_endpoints.json,"
             " runs/phase2/fate/d0_cpl_p1.json,"
             " runs/phase3/fparam/{prior_fate_audit,fate_*,model_average_audit}.json\n")
     for name, val in macros:

@@ -75,6 +75,8 @@ def activate():
             "formal_theory_gate":ROOT/"runs/prd_extension/wp5_bin4/formal_theory_gate.json",
             "smoke_audit":ROOT/"runs/prd_extension/wp5_bin4/smoke_audit.json",
             "amendment":ROOT/"plan/wp5_smooth_background_amendment_a013.json",
+            "theta_order_correction":ROOT/"plan/wp5_theta_order_correction_a017.json",
+            "theta_order_correction_audit":ROOT/"runs/prd_extension/wp5_bin4/theta_order_correction_audit.json",
             "bin4_table":ROOT/"pipeline/wp5_bin4.py","bin4_camb":ROOT/"pipeline/wp5_camb.py",
             "early_de_gate":ROOT/"pipeline/early_de_gate.py"}
     system_smoke=SYSTEM/"system_smoke_audit.json"

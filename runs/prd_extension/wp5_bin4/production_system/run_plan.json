@@ -114,7 +114,7 @@
     "path": "runs/prd_extension/wp5_bin4/config_plan.json",
     "sha256": "83d73bc2540eb073475c82e19341d2e725a164daf727cc81006ec4f323e10966"
   },
-  "created_at_utc": "2026-08-19T05:00:27.556765+00:00",
+  "created_at_utc": "2026-08-24T03:45:45.215132+00:00",
   "fate_calculation_during_sampling": false,
   "max_parallel_chains": 8,
   "policy": {

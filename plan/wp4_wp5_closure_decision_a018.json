@@ -1,0 +1,35 @@
+{
+  "schema_version": "prd-a018-wp4-wp5-closure-v1",
+  "amendment": "PRD-A018",
+  "date": "2026-08-25",
+  "author_decision": "close_without_completing_wp4_nested_or_wp5_production",
+  "wp4": {
+    "mcmc_disposition": "retain_as_full_cmb_diagnostic_subject_to_stop_warning_disclosure",
+    "sparse_fate_tail": "withhold",
+    "nested_campaign": "computational_feasibility_no_go",
+    "nested_samples_inspected": false,
+    "full_cmb_evidence_claim_authorized": false,
+    "precise_full_cmb_fate_tail_claim_authorized": false
+  },
+  "wp5": {
+    "stop_phase": "corrected_production_preconvergence_endpoint_blind",
+    "partial_artifacts": "preserve_exclude_from_science",
+    "scientific_endpoint_inspected": false,
+    "posterior_claim_authorized": false,
+    "fate_claim_authorized": false,
+    "width_comparison_authorized": false,
+    "decision": "resource_feasibility_no_go"
+  },
+  "wp9": {
+    "inference_authorized": false,
+    "paper_action": "literature_and_data_update_only",
+    "restart_gate": "official_public_joint_lya_ap_bao_data_vector_likelihood_and_covariance",
+    "overlap_rule": "replace_overlapping_dr2_lya_bao_block_do_not_add"
+  },
+  "paper_core": [
+    "wp2_null_calibration",
+    "wp3_power",
+    "wp7_information_localization",
+    "wp8_future_continuation_partial_identification"
+  ]
+}

@@ -812,3 +812,114 @@ estimators, thresholds, and outputs are unchanged.
 Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
 `plan/WP7_POSTPROCESSING_PROTOCOL.md`;
 `plan/wp7_postprocessing_protocol.json`; authorizer and reporter.
+
+## PRD-A017 — 2026-08-24
+
+ID and date: PRD-A017, 2026-08-24
+
+Author: Zhang; recorded by Codex under the author's instruction to diagnose
+and correct the recurring WP5 failures
+
+Affected work package(s): WP5 perturbation-consistent BIN4
+
+Old rule: `BIN4CAMB.set()` allowed the inherited CAMB setter to solve sampled
+`theta_MC` for `H0` using the base dark-energy history, then installed the
+sampled BIN4 table.  The registered early-DE exclusion was implemented only
+as a downstream likelihood, and the WP5 convergence wrapper reused WP4's
+model-specific `w`/`wa` candidate-gate assembly.
+
+New rule: The sampled BIN4 table is installed during every `theta_MC`-to-`H0`
+root evaluation and retained on the final `CAMBparams` object.  The identical
+registered `rho_DE/rho_m < 0.01` predicate at `z=1059` is also evaluated as a
+theory precondition before transfer and thermodynamics calculation, while the
+existing likelihood gate is retained.  The WP5 monitor assembles its own
+20-dimensional payload and gates `w1` through `w4`; it reuses only the frozen
+WP4 numerical estimators.
+
+Trigger and scientific reason: The first-start trial produced two independent
+`0p005` chain exits with CAMB's fatal Fortran `thermo out of bounds` branch and
+one controller exit with `KeyError: 'w'`.  Source inspection then established
+that the acoustic-scale solve occurred before the dynamic dark-energy history
+was installed, contrary to CAMB's explicit ordering requirement.  At the
+three registered fixed diagnostic points, correcting the order changed total
+likelihood chi-square by approximately `-970.92`, `-971.68`, and `-974.56`.
+This is a target-implementation defect, not a convergence fluctuation.
+
+Affected result inspected before change? yes; exact scope: process health,
+exit codes, row and step counts, fatal error text, controller traceback, and
+the three already-declared fixed-point implementation diagnostics.  No
+posterior mean, interval, best fit, aggregate likelihood endpoint, fate
+probability, width comparison, or evidence was inspected.
+
+Classification: corrective; post-failed-start and pre-valid-WP5-inference
+
+Pre-amendment result disposition: Every first-start sample, checkpoint, log,
+and monitor artifact is preserved as one failed implementation checkpoint and
+excluded from scientific and convergence calculations.  All twelve corrected
+chains restart at row zero.  Widths, seeds, priors, proposal covariance,
+likelihood data, numerical accuracy, early-DE threshold, and stopping policy
+remain unchanged.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/wp5_theta_order_correction_a017.json`; `pipeline/wp5_camb.py`;
+`pipeline/monitor_wp5_bin4.py`;
+`runs/prd_extension/wp5_bin4/theta_order_correction_audit.json`;
+`runs/prd_extension/wp5_bin4/failed_start_20260824/manifest.json`; corrected
+tests, archived first start, and regenerated production activation complete.
+
+## PRD-A018 — 2026-08-25
+
+ID and date: PRD-A018, 2026-08-25
+
+Author: Zhang; recorded by Codex under the author's explicit instruction to
+stop the two computationally dominant packages and begin paper closure
+
+Affected work package(s): WP4 F1 nested verification, WP5 perturbation-
+consistent BIN4, extension completion and reporting
+
+Old rule: WP4 F1 required three-seed full/stratified PolyChord verification of
+the sparse sub-percent MCMC fate tail and full-CMB evidence.  WP5 required all
+three four-chain smoothing-width campaigns to pass their repeated convergence
+gates before any endpoint inspection.  The extension completion rule required
+each package to pass or return its registered scientific No-Go.
+
+New rule: The already imported WP4 F1 MCMC chains remain a full-CMB/lensing
+diagnostic, subject to explicit disposition of their external-stop warning.
+The sparse MCMC RIP tail remains provisional and is withheld; the unstarted
+WP4 nested campaign is a computational-feasibility No-Go and produces no
+evidence or rare-tail endpoint.  Corrected WP5 production is stopped while
+endpoint-blind and before convergence; all partial artifacts are preserved but
+excluded from scientific inference.  This is reported as a resource-
+feasibility No-Go, not as evidence for or against the BIN4 model.  The paper
+closes around the completed WP2/WP3 calibration and the WP7/WP8 structural
+future-continuation results.
+
+Trigger and scientific reason: The registered WP4 nested campaign alone was
+planned for a 2--6 week runtime and WP5 required twelve expensive full-CMB
+chains with no reliable completion date.  These calculations refine the
+full-CMB rare tail and one perturbation-complete grammar, but they do not decide
+the completed WP7/WP8 partial-identification result.  Continuing both would
+delay a coherent, accurately scoped paper without being necessary for its
+central structural claim.
+
+Affected result inspected before change? yes for WP4, limited to the MCMC and
+best-fit outputs already disclosed under PRD-A012.  For corrected WP5
+production, no scientific endpoint was inspected: only blinded process health,
+row/weight counts, hashes, R-hat/ESS diagnostics, and Boolean gates were
+visible.  No WP5 posterior location, interval, likelihood endpoint, fate
+probability, smoothing-width comparison, or evidence was generated or read.
+
+Classification: author-directed computational-feasibility closure; post-WP4
+MCMC, pre-WP4-nested, and endpoint-blind preconvergence WP5
+
+Pre-amendment result disposition: WP4 MCMC inputs and outputs remain unchanged;
+its sparse fate tail is explicitly non-reportable without the registered
+nested verification.  Every corrected WP5 partial chain, checkpoint, log, and
+monitor artifact is retained as an incomplete record and excluded from all
+science tables and figures.  No hidden endpoint is calculated after stopping.
+
+Files and commits: `plan/PRD_EXTENSION_AMENDMENTS.md`;
+`plan/WP4_WP5_CLOSURE_DECISION.md`;
+`plan/wp4_wp5_closure_decision_a018.json`;
+`runs/prd_extension/wp5_bin4/resource_stop_20260825/stop_audit.json`;
+manuscript and release integration pending.

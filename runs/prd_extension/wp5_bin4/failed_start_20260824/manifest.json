@@ -1,0 +1,546 @@
+{
+  "created_at_utc": "2026-08-24T03:45:44.670076+00:00",
+  "file_count": 107,
+  "files": [
+    {
+      "bytes": 396,
+      "path": "production_system/WP5_PRODUCTION_STARTED.json",
+      "sha256": "28e3a89eb02259295215aabb604a877736459e452f462656a165705a4c4e593a"
+    },
+    {
+      "bytes": 4132,
+      "path": "production_system/activation.json",
+      "sha256": "b72f78a70cfd93bc7f29d904a17756d5715e87fa6115feee6ad5ec967f343a84"
+    },
+    {
+      "bytes": 65792,
+      "path": "production_system/delta_0p005/c1/chain.1.txt",
+      "sha256": "db2874262acabebbfc8f31094639a9a2b8c9b845c998e0503ceb4c86ecea88c6"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p005/c1/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p005/c1/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8526,
+      "path": "production_system/delta_0p005/c1/chain.input.yaml",
+      "sha256": "4f85508c5d2ae168810916bc710728b1d13e340014784ec4556d878d4d76ddb1"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p005/c1/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p005/c1/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10735,
+      "path": "production_system/delta_0p005/c1/chain.updated.yaml",
+      "sha256": "c41e503c628472c59b2dac54bd307c037ef01ee0c252bf550c348aeebc23d067"
+    },
+    {
+      "bytes": 61448,
+      "path": "production_system/delta_0p005/c1/run.log",
+      "sha256": "70ee3785a180578e145feaa8299f67f02361d48c2860647527253f9e9ce67264"
+    },
+    {
+      "bytes": 8612,
+      "path": "production_system/delta_0p005/c1/run.yaml",
+      "sha256": "67fb4027b462b6b036ba78caaf40a2c6df04d5e420e6712c28e4f84981b0bce2"
+    },
+    {
+      "bytes": 3131,
+      "path": "production_system/delta_0p005/c1/system_smoke.log",
+      "sha256": "ef25169bda9b5a8b50323b50d25250d819663248aaa37eebc54d9c5c31883fd0"
+    },
+    {
+      "bytes": 62708,
+      "path": "production_system/delta_0p005/c2/chain.1.txt",
+      "sha256": "1abb793209800f762ee5fd81df7d493bd1577919a4b1d796941765a47c3a0418"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p005/c2/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p005/c2/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8526,
+      "path": "production_system/delta_0p005/c2/chain.input.yaml",
+      "sha256": "632cbad8c2cc4dee2244014ee79728310977755266af32c3144bfd317992573f"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p005/c2/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p005/c2/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10735,
+      "path": "production_system/delta_0p005/c2/chain.updated.yaml",
+      "sha256": "7ba21cb9007e3624d864bfd67eed3d38497881bfab8ca3313a95d4d45e9ca877"
+    },
+    {
+      "bytes": 7195,
+      "path": "production_system/delta_0p005/c2/run.log",
+      "sha256": "4b1626173d2fa03f53247091fa5976c804f3b89ee00b22a2cb94e2bc0ab304b7"
+    },
+    {
+      "bytes": 8612,
+      "path": "production_system/delta_0p005/c2/run.yaml",
+      "sha256": "88af7208bc48fe8a509175c90270b61ce5740a4641fc0f1bb14e79d194192f6c"
+    },
+    {
+      "bytes": 25700,
+      "path": "production_system/delta_0p005/c3/chain.1.txt",
+      "sha256": "a0e4c9138dd991dc3f71ac53113a902810621d0072b66d842a8b88ba0aae6a6d"
+    },
+    {
+      "bytes": 92,
+      "path": "production_system/delta_0p005/c3/chain.checkpoint",
+      "sha256": "14b9300b88c9dd6df6c9a52516a796db403d0d9295f77bb2b0275cc5db2c2c8e"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p005/c3/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8526,
+      "path": "production_system/delta_0p005/c3/chain.input.yaml",
+      "sha256": "5753c989addf900b66b0aaedf5cf607a2819f83ddd60773732097657c95b5f9b"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p005/c3/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10735,
+      "path": "production_system/delta_0p005/c3/chain.updated.yaml",
+      "sha256": "b5e8507007a4ce206e318f3d0aba1c8fd8365a44409983d80cde6e6aaa290258"
+    },
+    {
+      "bytes": 62660,
+      "path": "production_system/delta_0p005/c3/run.log",
+      "sha256": "fe0842c49ead1160bdf6a0f798b4fa82505728deacf36937555739a93590a8e9"
+    },
+    {
+      "bytes": 8612,
+      "path": "production_system/delta_0p005/c3/run.yaml",
+      "sha256": "8dafc05f25ea4e23041cf2bc413f6998192ecf259fb6d752091b4ed51a9a18d4"
+    },
+    {
+      "bytes": 17476,
+      "path": "production_system/delta_0p005/c4/chain.1.txt",
+      "sha256": "566680fc92c09f41b97798f6c2ad702250e225743cb27f7ac947420718b02c14"
+    },
+    {
+      "bytes": 92,
+      "path": "production_system/delta_0p005/c4/chain.checkpoint",
+      "sha256": "14b9300b88c9dd6df6c9a52516a796db403d0d9295f77bb2b0275cc5db2c2c8e"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p005/c4/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8526,
+      "path": "production_system/delta_0p005/c4/chain.input.yaml",
+      "sha256": "d184ddaebe68c5a1003db831b0d32c6fd40745474bd9ff1867de7b42f80f9d5b"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p005/c4/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10735,
+      "path": "production_system/delta_0p005/c4/chain.updated.yaml",
+      "sha256": "bb79ee1e3e8aedb99fc7eb82a135621537905672a95ba97165c946450e795d8d"
+    },
+    {
+      "bytes": 4061,
+      "path": "production_system/delta_0p005/c4/run.log",
+      "sha256": "cbe8179a4630825e3629720b655f72ee8ff477309f2eb0e5c3489d2c819dab37"
+    },
+    {
+      "bytes": 8612,
+      "path": "production_system/delta_0p005/c4/run.yaml",
+      "sha256": "0ffce68d3e4f3cd50e5a152cae24e0856d3e737a5c048b4ca2c5f74d0e50f27e"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p005/controller_launcher.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 831,
+      "path": "production_system/delta_0p005/external_monitor/controller_events.jsonl",
+      "sha256": "4b6772ad01258113f904f458c1ea1665ed16befb3d0a02c713435dbea9d144db"
+    },
+    {
+      "bytes": 62708,
+      "path": "production_system/delta_0p01/c1/chain.1.txt",
+      "sha256": "788a442cf9fe3a85e807aafadcf69144dc34b31408694fa8927b723931fb5898"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p01/c1/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p01/c1/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8525,
+      "path": "production_system/delta_0p01/c1/chain.input.yaml",
+      "sha256": "07af3bf5b54dabafa45aa09872a40a61acc80a2a768b9da192020b89611520c8"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p01/c1/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p01/c1/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10734,
+      "path": "production_system/delta_0p01/c1/chain.updated.yaml",
+      "sha256": "b8ab9053d638131cdd7e03da94c26b447137303d931ae1d23e9d40f3207eabaf"
+    },
+    {
+      "bytes": 7458,
+      "path": "production_system/delta_0p01/c1/run.log",
+      "sha256": "6ae17bda9c479a16fa756aed2f34cbfe641522d06bb60c159f390ff7896c42cc"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p01/c1/run.yaml",
+      "sha256": "1f39fd05c881eb059e64e20c723f8e128eb42ae8e31c0fe77115c80c8596b0fb"
+    },
+    {
+      "bytes": 3132,
+      "path": "production_system/delta_0p01/c1/system_smoke.log",
+      "sha256": "b41e70d4b2cafab9baaf749f70d33dbb4d6e60b97b1f21be095ec9ebf17e80aa"
+    },
+    {
+      "bytes": 76072,
+      "path": "production_system/delta_0p01/c2/chain.1.txt",
+      "sha256": "acf9893b46355ddbd5ef88432f3dbca2f69d1ea8b56c062a1701e78591e31a4e"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p01/c2/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p01/c2/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8525,
+      "path": "production_system/delta_0p01/c2/chain.input.yaml",
+      "sha256": "5ed9bd3e4ecc4e1cf19b59a6325f4bc10c102ce643e3cfc6bc3b564b1ff00399"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p01/c2/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p01/c2/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10734,
+      "path": "production_system/delta_0p01/c2/chain.updated.yaml",
+      "sha256": "0432de259436bd23629ea08c2cd10182bef1ecda119fa997fcaaa6e1b08b322c"
+    },
+    {
+      "bytes": 7195,
+      "path": "production_system/delta_0p01/c2/run.log",
+      "sha256": "258369beb9a72ff12f5f21f9dc61b4d1ca79b4ee648037333bafd64f9d4820b4"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p01/c2/run.yaml",
+      "sha256": "8e6641dae77f55efda57735268337a2fc0fd3301d66ccd1ddc0de7154a722047"
+    },
+    {
+      "bytes": 62708,
+      "path": "production_system/delta_0p01/c3/chain.1.txt",
+      "sha256": "bcfe28ea136498d8b4cc2f69a1615cf55277b30b4bc88fdb5a449b1612096f54"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p01/c3/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p01/c3/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8525,
+      "path": "production_system/delta_0p01/c3/chain.input.yaml",
+      "sha256": "82a1651c768664fd6712253eb1437a1a99fb9b4678832093887f78bdbe659fa9"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p01/c3/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p01/c3/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10734,
+      "path": "production_system/delta_0p01/c3/chain.updated.yaml",
+      "sha256": "55138a5a5dc159d4b9230b1b689f012bccd5ee1ece740fa245be8a00c8f77b99"
+    },
+    {
+      "bytes": 44559,
+      "path": "production_system/delta_0p01/c3/run.log",
+      "sha256": "d12dbcfc89245f202251c10e8d41fb44a35b92bf2f0b8ddd40e971d78cb5c01d"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p01/c3/run.yaml",
+      "sha256": "55c1cbe7c9ac3e86e7b516b01e18a6c469a50c98042d64fbc6c13c1e015335c1"
+    },
+    {
+      "bytes": 57568,
+      "path": "production_system/delta_0p01/c4/chain.1.txt",
+      "sha256": "54b9da456266b9704bc2b48b43c5b9fdc81bde80bc9ec5cb790acbb62d9dde4d"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p01/c4/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p01/c4/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8525,
+      "path": "production_system/delta_0p01/c4/chain.input.yaml",
+      "sha256": "18f4e1a4245e55dc9fba7123a1c5d48016d296a5a5b853e3e92ba52dd7aa8c96"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p01/c4/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p01/c4/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10734,
+      "path": "production_system/delta_0p01/c4/chain.updated.yaml",
+      "sha256": "5107f360f0aa3f35b73778032df488fda910a75a61582c379e71287d494820ea"
+    },
+    {
+      "bytes": 115120,
+      "path": "production_system/delta_0p01/c4/run.log",
+      "sha256": "cc2762e65fcad4ccad689856ab0fda6dcd859289e450de6177a909f94f3ecbf0"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p01/c4/run.yaml",
+      "sha256": "dd489267cf2acd1fd4239194030e3ac99c8229acbfb61f35d55c88ccabacfe25"
+    },
+    {
+      "bytes": 1260,
+      "path": "production_system/delta_0p01/controller_launcher.log",
+      "sha256": "26173ad1a4f2ad7566ad05b897c304cd517b9ba6826e47b1c262f0984699e73a"
+    },
+    {
+      "bytes": 367,
+      "path": "production_system/delta_0p01/external_monitor/controller_events.jsonl",
+      "sha256": "878bcaa8ca775a001a6d76bc75ad6a52e53f27632aee53d73394a71f11dd590d"
+    },
+    {
+      "bytes": 60652,
+      "path": "production_system/delta_0p02/c1/chain.1.txt",
+      "sha256": "29a10b9ddfdcffc9cd4e945e30ef93fe70d056de81fee3fe6d12bc461e1dd66d"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p02/c1/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p02/c1/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8525,
+      "path": "production_system/delta_0p02/c1/chain.input.yaml",
+      "sha256": "8f990909d4310161a661324a96c624cdf9252a963a1174d1fd690805003eb3a9"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p02/c1/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p02/c1/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10734,
+      "path": "production_system/delta_0p02/c1/chain.updated.yaml",
+      "sha256": "31cbe21dbd1eb644d5211cc180b66850d9ca390f2d28e805f23a8c3e69170f12"
+    },
+    {
+      "bytes": 7382,
+      "path": "production_system/delta_0p02/c1/run.log",
+      "sha256": "c2b69426b6b1bc3c988a15aa561d1503cf9d6120a98fedf92312fd2570986354"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p02/c1/run.yaml",
+      "sha256": "61dd6d67bbddc20d860025e839c1e489f5a75828e397ac23342daa59152fc9b5"
+    },
+    {
+      "bytes": 3132,
+      "path": "production_system/delta_0p02/c1/system_smoke.log",
+      "sha256": "1a4730d4aa2c910bb1cdd5afda84261f1618c43fdfcb6b60b152278f0d802189"
+    },
+    {
+      "bytes": 33924,
+      "path": "production_system/delta_0p02/c2/chain.1.txt",
+      "sha256": "70b18ec911e9ab3df48d7c47bd37ff327180df7ed0170bf1b2d06c8a0a648437"
+    },
+    {
+      "bytes": 94,
+      "path": "production_system/delta_0p02/c2/chain.checkpoint",
+      "sha256": "8b2c548fa1ffddf7c1591f72befa0aa19cb3c16fd6239607274f11441df84d82"
+    },
+    {
+      "bytes": 10269,
+      "path": "production_system/delta_0p02/c2/chain.covmat",
+      "sha256": "532924c53581415b7453dd6aa976df8628bcd35ebad0e1ef6ad2c0286a90b955"
+    },
+    {
+      "bytes": 8525,
+      "path": "production_system/delta_0p02/c2/chain.input.yaml",
+      "sha256": "4c83888c667309a39cd0fb43e87df576dd4f5da24aa919692351b90d55ab0a41"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p02/c2/chain.input.yaml.locked",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 85,
+      "path": "production_system/delta_0p02/c2/chain.progress",
+      "sha256": "262b11d51972ad0508cb8537d164d8864d1b656c52edc3b6a9c6963763510716"
+    },
+    {
+      "bytes": 10734,
+      "path": "production_system/delta_0p02/c2/chain.updated.yaml",
+      "sha256": "e32296908f904890e5d893e0bce0df867028b98ca2259886816461d3ac013698"
+    },
+    {
+      "bytes": 5337,
+      "path": "production_system/delta_0p02/c2/run.log",
+      "sha256": "b905cbe03f305d9b27d14af2bd357d831c8be7f7d3ca09370ae175a036de82d8"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p02/c2/run.yaml",
+      "sha256": "54640c4e93f1fdf31154110f4221f50c967865d3b3bcc54ae5e992b3983cf013"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p02/c3/run.yaml",
+      "sha256": "048012489bd917f28c23bd81f9a0bc0465155fe96b4069ad6e7844c576d68ee4"
+    },
+    {
+      "bytes": 8610,
+      "path": "production_system/delta_0p02/c4/run.yaml",
+      "sha256": "cd503c7141399d87ac91dfef36f6ee794ac5e8168f5ef0956daafd86643ffbff"
+    },
+    {
+      "bytes": 0,
+      "path": "production_system/delta_0p02/controller_launcher.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 867,
+      "path": "production_system/delta_0p02/external_monitor/controller_events.jsonl",
+      "sha256": "b56743b29315acd089ffdf39b5cd8e5c52be1d8ca9f4cef8e1d36f4b06a0491b"
+    },
+    {
+      "bytes": 5,
+      "path": "production_system/driver.lock",
+      "sha256": "f9d4b51f597995aede01a5c1a7236cf45c5219381d92440fd5591ac615875ce5"
+    },
+    {
+      "bytes": 1654,
+      "path": "production_system/driver_events.jsonl",
+      "sha256": "0c8f3f067b09baff0c36f083f4383a2348d705722917645b557e402ce449c8f1"
+    },
+    {
+      "bytes": 1654,
+      "path": "production_system/driver_launcher.log",
+      "sha256": "0c8f3f067b09baff0c36f083f4383a2348d705722917645b557e402ce449c8f1"
+    },
+    {
+      "bytes": 489,
+      "path": "production_system/preflight.json",
+      "sha256": "5accaca9da13b1268a4697bd5c617f6cc46cd3cc6290fcf14297589786607f41"
+    },
+    {
+      "bytes": 5448,
+      "path": "production_system/run_plan.json",
+      "sha256": "70d1f5220cb23c5e52c928769279a9099ffc9efc0f29560b0d9070dc11ab0f81"
+    },
+    {
+      "bytes": 2641,
+      "path": "production_system/system_smoke_audit.json",
+      "sha256": "931df521cebf7a8dae9482d9dd818bf78eb4de7f56e3626d796f5a81e7e03179"
+    }
+  ],
+  "reason": "PRD-A017 theta-to-H0 ordering and WP5 monitor correction",
+  "schema_version": "wp5-failed-start-archive-v1",
+  "scientific_use_prohibited": true,
+  "status": "ARCHIVED_EXCLUDED_FROM_INFERENCE",
+  "total_bytes": 1277264
+}

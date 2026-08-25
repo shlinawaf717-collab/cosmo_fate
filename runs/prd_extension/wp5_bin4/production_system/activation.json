@@ -14,7 +14,7 @@
     "0p02_c3": "048012489bd917f28c23bd81f9a0bc0465155fe96b4069ad6e7844c576d68ee4",
     "0p02_c4": "cd503c7141399d87ac91dfef36f6ee794ac5e8168f5ef0956daafd86643ffbff"
   },
-  "created_at_utc": "2026-08-19T05:03:15.408109+00:00",
+  "created_at_utc": "2026-08-24T03:48:49.267104+00:00",
   "input_hashes": {
     "amendment": {
       "path": "plan/wp5_smooth_background_amendment_a013.json",
@@ -22,7 +22,7 @@
     },
     "bin4_camb": {
       "path": "pipeline/wp5_camb.py",
-      "sha256": "d95de194bd7b501063ef7de661c44e9afc1ea3a22912f1358782f25856421e8d"
+      "sha256": "4efffac828912a5e62695575b24ddcb17c892979b81e66d29b37c0bc95abde94"
     },
     "bin4_table": {
       "path": "pipeline/wp5_bin4.py",
@@ -54,11 +54,19 @@
     },
     "system_smoke_audit": {
       "path": "runs/prd_extension/wp5_bin4/production_system/system_smoke_audit.json",
-      "sha256": "931df521cebf7a8dae9482d9dd818bf78eb4de7f56e3626d796f5a81e7e03179"
+      "sha256": "4e882f26bfdfc0633bfcefedcedcdf84a85816cc4b9bb6a6b49c7bbb828220b4"
+    },
+    "theta_order_correction": {
+      "path": "plan/wp5_theta_order_correction_a017.json",
+      "sha256": "f1fd7f3a04f8285753211dca644812bd2d93e6cdbf145a812fd6598c0506b2fd"
+    },
+    "theta_order_correction_audit": {
+      "path": "runs/prd_extension/wp5_bin4/theta_order_correction_audit.json",
+      "sha256": "66a5ad9feb9780f4800e1b18ca397e1b59f9b4f424cd38192349bd5e1adef39b"
     }
   },
   "policy_sha256": "c3f7657866c9d870efa4f4c5f97f9cd5174c43ad3e0bbdf3df118fa274956770",
-  "run_plan_sha256": "70d1f5220cb23c5e52c928769279a9099ffc9efc0f29560b0d9070dc11ab0f81",
+  "run_plan_sha256": "c79fcd2b198e6255177fb941c376fd57ed343d6eea29fa40c8cb63310aaf0833",
   "runtime_hashes": {
     "controller": {
       "path": "pipeline/run_wp5_external_controller.py",
@@ -78,11 +86,11 @@
     },
     "freezer": {
       "path": "pipeline/freeze_wp5_system.py",
-      "sha256": "d23417efb769f23079e609673b02b99324a7888a262a3b1dca87070ca86bc5b8"
+      "sha256": "20f13a26e4d65412b83daa2746d1fbb245f576dbb067f550356728d3ce21cf71"
     },
     "monitor": {
       "path": "pipeline/monitor_wp5_bin4.py",
-      "sha256": "1779925d3356117cbdc9c0b0e943807311afee91a6065f0e062c2f09790f997c"
+      "sha256": "0817ab6f00ff0fbaed6d6eed2b9658b4fa0c71706c0fd799d5e0e08a7b3020fe"
     }
   },
   "schema_version": "wp5-bin4-activation-v1",

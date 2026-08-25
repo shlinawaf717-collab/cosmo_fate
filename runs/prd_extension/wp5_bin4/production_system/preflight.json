@@ -1,0 +1,11 @@
+{
+  "activation_sha256": "3eae2aab87f0747dc69bbe6e5f461d83be186900b75ea4b82f289525e59f2406",
+  "correction_audit_sha256": "66a5ad9feb9780f4800e1b18ca397e1b59f9b4f424cd38192349bd5e1adef39b",
+  "created_at_utc": "2026-08-24T03:49:12.046260+00:00",
+  "plan_sha256": "c79fcd2b198e6255177fb941c376fd57ed343d6eea29fa40c8cb63310aaf0833",
+  "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+  "production_samples_exist": false,
+  "schema_version": "wp5-bin4-macos-corrected-preflight-v1",
+  "status": "PASS",
+  "system_smoke_sha256": "4e882f26bfdfc0633bfcefedcedcdf84a85816cc4b9bb6a6b49c7bbb828220b4"
+}
